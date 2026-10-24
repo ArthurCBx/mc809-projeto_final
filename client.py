@@ -47,7 +47,7 @@ def small_cnn(filters):
     def f(x):
         for n in filters:
             x = keras.layers.Conv2D(n[0], n[1], padding="same", activation="gelu")(x)
-            x = keras.layers.BatchNormalization()(x)
+            x = keras.layers.BatchNormalization(momentum=0.9)(x)
             x = keras.layers.MaxPooling2D()(x)
         return x
     return f
@@ -127,6 +127,10 @@ class Client():
 
         self.client_id         = client_id
         self.model             = build_model(small_cnn(filters), num_classes=len(CLASS_NAMES), image_size=IMAGE_SIZE)
+        # Mesmas camadas (e pesos) de self.model, compilado uma vez só com a loss do digest. Recompilar self.model
+        # a cada rodada recria e recompila a função de treino, e a RAM do worker cresce ~85 MB por rodada.
+        self.digest_model      = keras.Model(self.model.inputs, self.model.outputs)
+        self.digest_model.compile(optimizer=keras.optimizers.AdamW(1e-3), loss=keras.losses.MeanAbsoluteError())
         self.file_paths        = file_paths    # dataset inteiro; fed_train recorta o subconjunto público
         self.labels            = labels
         self.private_train_idx = private_train_idx
@@ -205,12 +209,8 @@ class Client():
         digest_dataset = make_client_dataset(self.file_paths, self.labels, public_idx, IMAGE_SIZE, self.batch_size,
                                              shuffle=True, targets=consensus)
 
-        # Digest do FedMD: aproxima os logits do consenso com MAE. Depois volta para a loss de classificação.
-        classification_loss = self.model.loss
-        # metrics=[] é necessário: sem ele o compile mantém a accuracy anterior, que não aceita o consenso como alvo.
-        self.model.compile(optimizer=self.model.optimizer, loss=keras.losses.MeanAbsoluteError(), metrics=[])
-        history = self.model.fit(digest_dataset, epochs=epochs, verbose=0)
-        self.model.compile(optimizer=self.model.optimizer, loss=classification_loss, metrics=["accuracy"])
+        # Digest do FedMD: aproxima os logits do consenso com MAE. Treinar digest_model atualiza os pesos de self.model.
+        history = self.digest_model.fit(digest_dataset, epochs=epochs, verbose=0)
 
         return [{'epoch': epoch, 'loss': loss} for epoch, loss in enumerate(history.history['loss'])]
 
@@ -317,12 +317,12 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Ablação do FedMD com 4 clientes heterogêneos.')
-    parser.add_argument('--public-fractions', type=float, nargs='+', default=[0.1, 0.2])
+    parser.add_argument('--public-fractions', type=float, nargs='+', default=[0.1, 0.4, 0.8])
     parser.add_argument('--alphas', nargs='+', default=['iid', '1.0', '0.1'],
                         help="Concentração da Dirichlet; 'iid' para divisão IID. Menor = mais não IID.")
-    parser.add_argument('--digest-rounds', type=int, default=3)
-    parser.add_argument('--digest-epochs', type=int, default=2)
-    parser.add_argument('--private-epochs', type=int, default=10, help='Máximo de épocas do revisit em cada rodada.')
+    parser.add_argument('--digest-rounds', type=int, default=20)
+    parser.add_argument('--digest-epochs', type=int, default=1)
+    parser.add_argument('--private-epochs', type=int, default=3, help='Máximo de épocas do revisit em cada rodada.')
     parser.add_argument('--batch-size', type=int, default=BATCH_SIZE)
     parser.add_argument('--gpu-memory-mb', type=int, default=2560, help='Limite de memória de GPU por cliente.')
     parser.add_argument('--seed', type=int, default=42)
