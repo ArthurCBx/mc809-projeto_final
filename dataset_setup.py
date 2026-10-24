@@ -44,8 +44,7 @@ def split_public(labels, public_fraction: float, seed: int=42):
 
 
 def split_dataset(train_data: bool, expected_num_clients: int, alpha: float=None,
-                  public_fraction: float=0.1, private_fraction: float=None,
-                  min_samples_per_client: int=10, seed: int=42):
+                  public_fraction: float=0.1, min_samples_per_client: int=10, seed: int=42):
     """Divide o dataset original em conjuntos IID ou não IID, dependendo do parâmetro de entrada.
     Args:
         train_data (bool): Se True, divide o conjunto de treinamento entre os clientes; se False,
@@ -56,9 +55,6 @@ def split_dataset(train_data: bool, expected_num_clients: int, alpha: float=None
                                  Se None, o dataset será dividido de forma IID.
         public_fraction (float): Fração do dataset reservada como conjunto público do FedMD.
                                  Use 0 para não separar conjunto público.
-        private_fraction (float, optional): Fração do dataset dividida entre os clientes, sorteada de forma
-                                            estratificada do que sobra após o conjunto público. Se None,
-                                            usa todo o restante. Precisa ser <= 1 - public_fraction.
         min_samples_per_client (int): Na divisão não IID, sorteia de novo até todo cliente ter
                                       pelo menos esse número de amostras.
         seed (int, optional): Semente para reprodutibilidade.
@@ -79,16 +75,6 @@ def split_dataset(train_data: bool, expected_num_clients: int, alpha: float=None
         return client_idx, np.array([], dtype=int), file_paths, labels
 
     private_idx, public_idx = split_public(labels, public_fraction, seed)
-    if private_fraction is not None:
-        n_private = int(round(private_fraction * len(labels)))
-        if n_private > len(private_idx):
-            raise ValueError(f'private_fraction={private_fraction} não cabe com public_fraction={public_fraction}.')
-        if n_private < len(private_idx):
-            from sklearn.model_selection import train_test_split
-            private_idx, _ = train_test_split(
-                private_idx, train_size=n_private, stratify=labels[private_idx], random_state=seed
-            )
-            private_idx = np.sort(private_idx)
 
     num_classes = len(CLASS_NAMES)
     data_length = len(private_idx)

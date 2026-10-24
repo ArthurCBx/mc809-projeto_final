@@ -1,7 +1,6 @@
 import grpc
 import os
 import argparse
-import itertools
 import proto_config.message_pb2 as pb2
 import proto_config.message_pb2_grpc as pb2_grpc
 import logging
@@ -24,9 +23,9 @@ CLIENT_ARCHITECTURES = [
     [(32, 3), (32, 3), (64, 3), (64, 3), (128, 3)],
 ]
 
-TRAIN_COLUMNS = ['public_fraction', 'private_fraction', 'alpha', 'client_id', 'stage', 'round', 'epoch',
+TRAIN_COLUMNS = ['public_fraction', 'alpha', 'client_id', 'stage', 'round', 'epoch',
                  'loss', 'accuracy', 'val_loss', 'val_accuracy', 'restored']
-TEST_COLUMNS  = ['public_fraction', 'private_fraction', 'alpha', 'client_id', 'stage', 'round',
+TEST_COLUMNS  = ['public_fraction', 'alpha', 'client_id', 'stage', 'round',
                  'n_private', 'private_malignant_fraction', 'test_loss', 'test_accuracy']
 
 
@@ -221,17 +220,15 @@ def append_csv(path: str, rows: list[dict], columns: list[str]):
     pd.DataFrame(rows).reindex(columns=columns).to_csv(path, mode='a', header=not os.path.exists(path), index=False)
 
 
-def run_experiment(public_fraction: float, private_fraction: float, alpha: float, args):
+def run_experiment(public_fraction: float, alpha: float, args):
     """Roda o FedMD completo para uma configuração da ablação e grava os dois CSVs."""
-    config = {'public_fraction': public_fraction, 'private_fraction': private_fraction,
-              'alpha': 'iid' if alpha is None else alpha}
+    config = {'public_fraction': public_fraction, 'alpha': 'iid' if alpha is None else alpha}
     train_csv = os.path.join(args.output_dir, 'train_history.csv')
     test_csv  = os.path.join(args.output_dir, 'test_metrics.csv')
     logging.info(f'Configuração {config}')
 
     client_idx, public_idx, file_paths, labels = split_dataset(
-        True, NUM_CLIENTS, alpha=alpha, public_fraction=public_fraction,
-        private_fraction=private_fraction, seed=args.seed)
+        True, NUM_CLIENTS, alpha=alpha, public_fraction=public_fraction, seed=args.seed)
     test_paths, test_labels = list_files(train_data=False)
     public_train_idx, public_val_idx = holdout_split(public_idx, args.val_fraction, args.seed)
     private_splits = [holdout_split(idx, args.val_fraction, args.seed + cid) for cid, idx in enumerate(client_idx)]
@@ -302,17 +299,15 @@ def main(args):
         channel.close()
 
     alphas = [None if alpha == 'iid' else float(alpha) for alpha in args.alphas]
-    for public_fraction, private_fraction, alpha in itertools.product(args.public_fractions, args.private_fractions, alphas):
-        if public_fraction + private_fraction > 1:
-            logging.warning(f'Pulando public={public_fraction}, private={private_fraction}: soma passa de 1.')
-            continue
-        run_experiment(public_fraction, private_fraction, alpha, args)
+    # Todo o conjunto de treino é usado: o que não é público é dividido entre os clientes.
+    for public_fraction in args.public_fractions:
+        for alpha in alphas:
+            run_experiment(public_fraction, alpha, args)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Ablação do FedMD com 4 clientes heterogêneos.')
     parser.add_argument('--public-fractions', type=float, nargs='+', default=[0.1, 0.2])
-    parser.add_argument('--private-fractions', type=float, nargs='+', default=[0.3, 0.6])
     parser.add_argument('--alphas', nargs='+', default=['iid', '1.0', '0.1'],
                         help="Concentração da Dirichlet; 'iid' para divisão IID. Menor = mais não IID.")
     parser.add_argument('--digest-rounds', type=int, default=3)
