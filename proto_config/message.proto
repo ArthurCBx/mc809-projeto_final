@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package federated;
+
+message ClientLogits {
+    int32 client_id       = 1;
+    repeated float logits = 2;
+}
+
+message ServerConsensus {
+    repeated float consensus_logits = 1;
+}
+
+service FedMDLearning {
+    rpc SendClientLogits(ClientLogits) returns (ServerConsensus);
+}
