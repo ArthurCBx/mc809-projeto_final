@@ -14,6 +14,12 @@ from dataset_setup import CLASS_NAMES, list_files, split_dataset, make_client_da
 BATCH_SIZE = 32
 IMAGE_SIZE = (224, 224)
 NUM_CLIENTS = 4
+INIT_EPOCHS = 50              # máximo de épocas dos treinos iniciais (early stopping decide antes)
+PATIENCE = 4                  # épocas sem melhora na validação antes de parar
+VAL_FRACTION = 0.2            # fração separada para validação, do público e do privado de cada cliente
+PUBLIC_ROUND_FRACTION = 0.8   # fração do conjunto público sorteada a cada rodada federada
+MIXED_PRECISION = False       # mixed_float16: com 4 clientes permite batch 64 em vez de 32
+OUTPUT_DIR = 'results'
 
 # Uma arquitetura diferente por cliente, como no FedMD: (filtros, kernel) de cada camada convolucional.
 CLIENT_ARCHITECTURES = [
@@ -53,7 +59,7 @@ def build_model(backbone_fn, num_classes=2, image_size=(224, 224)):
     x = backbone_fn(x)
     x = keras.layers.GlobalAveragePooling2D()(x)
     outputs = keras.layers.Dense(128, activation="gelu")(x) # logits: é o que o FedMD troca no consenso
-    outputs = keras.layers.Dense(num_classes)(outputs)
+    outputs = keras.layers.Dense(num_classes, dtype="float32")(outputs)  # logits em float32 mesmo com mixed precision
     model = keras.Model(inputs, outputs)
     model.compile(
         optimizer=keras.optimizers.AdamW(1e-3),
@@ -92,7 +98,7 @@ class Client():
     def __init__(self, client_id: int, filters, file_paths: np.ndarray, labels: np.ndarray,
                  private_train_idx: np.ndarray, private_val_idx: np.ndarray,
                  test_paths: np.ndarray, test_labels: np.ndarray,
-                 batch_size: int=BATCH_SIZE, gpu_memory_mb: int=None, seed: int=42):
+                 batch_size: int=BATCH_SIZE, gpu_memory_mb: int=None, mixed_precision: bool=MIXED_PRECISION, seed: int=42):
         """Cliente do FedMD.
 
         Recebe índices em vez de tf.data.Dataset porque datasets não podem ser serializados para o actor;
@@ -108,11 +114,15 @@ class Client():
             test_labels (np.ndarray): Rótulos do conjunto de teste.
             gpu_memory_mb (int, optional): Limite de memória de GPU deste cliente. Os clientes dividem a mesma GPU
                                            e, sem limite, o primeiro TensorFlow a subir reserva quase toda a memória.
+            mixed_precision (bool, optional): Treina em mixed_float16, o que reduz a memória das ativações.
         """
         gpus = tf.config.list_physical_devices('GPU')
         if gpus and gpu_memory_mb:
             tf.config.set_logical_device_configuration(
                 gpus[0], [tf.config.LogicalDeviceConfiguration(memory_limit=gpu_memory_mb)])
+        if mixed_precision:
+            # Ativações em float16 ocupam metade da memória; pesos e logits continuam em float32.
+            keras.mixed_precision.set_global_policy('mixed_float16')
         keras.utils.set_random_seed(seed + client_id)
 
         self.client_id         = client_id
@@ -131,7 +141,7 @@ class Client():
         self.channel     = grpc.insecure_channel(f'{self.host}:{self.server_port}')
         self.stub        = pb2_grpc.FedMDLearningStub(self.channel)
 
-    def train(self, train_idx, val_idx, epochs: int=1, patience: int=4, augment: bool=True):
+    def train(self, train_idx, val_idx, epochs: int=1, patience: int=PATIENCE, augment: bool=True):
         """Treina o modelo do cliente com os rótulos verdadeiros, com early stopping na validação.
 
         Args:
@@ -168,7 +178,7 @@ class Client():
             for epoch in range(len(h['loss']))
         ]
 
-    def train_private(self, epochs: int=1, patience: int=4, augment: bool=True):
+    def train_private(self, epochs: int=1, patience: int=PATIENCE, augment: bool=True):
         """Treina com os dados privados do cliente. Mesmo retorno de train."""
         return self.train(self.private_train_idx, self.private_val_idx, epochs, patience, augment)
 
@@ -223,19 +233,19 @@ def append_csv(path: str, rows: list[dict], columns: list[str]):
 def run_experiment(public_fraction: float, alpha: float, args):
     """Roda o FedMD completo para uma configuração da ablação e grava os dois CSVs."""
     config = {'public_fraction': public_fraction, 'alpha': 'iid' if alpha is None else alpha}
-    train_csv = os.path.join(args.output_dir, 'train_history.csv')
-    test_csv  = os.path.join(args.output_dir, 'test_metrics.csv')
+    train_csv = os.path.join(OUTPUT_DIR, 'train_history.csv')
+    test_csv  = os.path.join(OUTPUT_DIR, 'test_metrics.csv')
     logging.info(f'Configuração {config}')
 
     client_idx, public_idx, file_paths, labels = split_dataset(
         True, NUM_CLIENTS, alpha=alpha, public_fraction=public_fraction, seed=args.seed)
     test_paths, test_labels = list_files(train_data=False)
-    public_train_idx, public_val_idx = holdout_split(public_idx, args.val_fraction, args.seed)
-    private_splits = [holdout_split(idx, args.val_fraction, args.seed + cid) for cid, idx in enumerate(client_idx)]
+    public_train_idx, public_val_idx = holdout_split(public_idx, VAL_FRACTION, args.seed)
+    private_splits = [holdout_split(idx, VAL_FRACTION, args.seed + cid) for cid, idx in enumerate(client_idx)]
 
     clients = [
         Client.remote(cid, CLIENT_ARCHITECTURES[cid], file_paths, labels, *private_splits[cid],
-                      test_paths, test_labels, args.batch_size, args.gpu_memory_mb, args.seed)
+                      test_paths, test_labels, args.batch_size, args.gpu_memory_mb, MIXED_PRECISION, args.seed)
         for cid in range(NUM_CLIENTS)
     ]
     client_info = [{'n_private': len(idx), 'private_malignant_fraction': float(labels[idx].mean())}
@@ -259,26 +269,26 @@ def run_experiment(public_fraction: float, alpha: float, args):
     try:
         # 1. Transfer learning nos dados públicos rotulados.
         log_train('public_init', 0, ray.get([
-            client.train.remote(public_train_idx, public_val_idx, args.init_epochs, args.patience)
+            client.train.remote(public_train_idx, public_val_idx, INIT_EPOCHS)
             for client in clients]))
         log_test('public_init', 0)
 
         # 2. Treino inicial nos dados privados de cada cliente.
         log_train('private_init', 0, ray.get([
-            client.train_private.remote(args.init_epochs, args.patience) for client in clients]))
+            client.train_private.remote(INIT_EPOCHS) for client in clients]))
         log_test('private_init', 0)
 
         # 3. Rodadas do FedMD. Todos os clientes recebem o mesmo subconjunto público, na mesma ordem, e as
         #    chamadas precisam ser concorrentes: o servidor só responde quando todos enviaram os logits.
         rng = np.random.default_rng(args.seed)
+        round_size = int(round(PUBLIC_ROUND_FRACTION * len(public_idx)))
         for round_ in range(1, args.digest_rounds + 1):
-            round_size = min(args.public_round_size or len(public_idx), len(public_idx))
             round_public_idx = np.sort(rng.choice(public_idx, round_size, replace=False))
 
             log_train('digest', round_, ray.get([
                 client.fed_train.remote(round_public_idx, args.digest_epochs) for client in clients]))
             log_train('revisit', round_, ray.get([
-                client.train_private.remote(args.private_epochs, args.patience) for client in clients]))
+                client.train_private.remote(args.private_epochs) for client in clients]))
             log_test('federated', round_)
     finally:
         for client in clients:
@@ -286,7 +296,7 @@ def run_experiment(public_fraction: float, alpha: float, args):
 
 
 def main(args):
-    os.makedirs(args.output_dir, exist_ok=True)
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     # Falha logo se o servidor não estiver no ar, em vez de travar na primeira rodada federada.
     channel = grpc.insecure_channel('localhost:50051')
@@ -313,15 +323,9 @@ if __name__ == '__main__':
     parser.add_argument('--digest-rounds', type=int, default=3)
     parser.add_argument('--digest-epochs', type=int, default=2)
     parser.add_argument('--private-epochs', type=int, default=10, help='Máximo de épocas do revisit em cada rodada.')
-    parser.add_argument('--init-epochs', type=int, default=50, help='Máximo de épocas dos treinos iniciais.')
-    parser.add_argument('--patience', type=int, default=4)
-    parser.add_argument('--public-round-size', type=int, default=None,
-                        help='Amostras públicas sorteadas por rodada. Padrão: todo o conjunto público.')
-    parser.add_argument('--val-fraction', type=float, default=0.2)
     parser.add_argument('--batch-size', type=int, default=BATCH_SIZE)
     parser.add_argument('--gpu-memory-mb', type=int, default=2560, help='Limite de memória de GPU por cliente.')
     parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument('--output-dir', default='results')
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s')
