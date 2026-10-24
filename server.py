@@ -43,15 +43,13 @@ class ServerConsensus(pb2_grpc.FedMDLearningServicer):
                 context.abort(grpc.StatusCode.DEADLINE_EXCEEDED,
                               f'Rodada {my_round} não recebeu os logits de todos os clientes a tempo.')
 
-            if self.error:
-                context.abort(grpc.StatusCode.INVALID_ARGUMENT, self.error)
             return pb2.ServerConsensus(consensus_logits=self.consensus.tolist())
 
     def _close_round(self):
         """Calcula o consenso da rodada e acorda os clientes que estão esperando. Chamar com o lock."""
         # Média posição a posição: todos os clientes precisam ter usado o mesmo public_idx, na mesma ordem.
         self.consensus = np.mean(np.stack(list(self.pending_predictions.values())), axis=0)
-        logging.info(f'Rodada {self.round} encerrada.' + (f' Erro: {self.error}' if self.error else ''))
+        logging.info(f'Rodada {self.round} encerrada.')
 
         self.pending_predictions = {}  # Reset for next round
         self.round += 1
