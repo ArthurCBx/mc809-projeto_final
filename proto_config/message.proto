@@ -5,6 +5,7 @@ package federated;
 message ClientLogits {
     int32 client_id       = 1;
     repeated float logits = 2;
+    float public_accuracy = 3;  // acurácia do cliente no subconjunto público da rodada; peso no consenso
 }
 
 message ServerConsensus {

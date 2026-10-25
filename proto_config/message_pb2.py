@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rmessage.proto\x12\tfederated\"1\n\x0c\x43lientLogits\x12\x11\n\tclient_id\x18\x01 \x01(\x05\x12\x0e\n\x06logits\x18\x02 \x03(\x02\"+\n\x0fServerConsensus\x12\x18\n\x10\x63onsensus_logits\x18\x01 \x03(\x02\x32X\n\rFedMDLearning\x12G\n\x10SendClientLogits\x12\x17.federated.ClientLogits\x1a\x1a.federated.ServerConsensusb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rmessage.proto\x12\tfederated\"J\n\x0c\x43lientLogits\x12\x11\n\tclient_id\x18\x01 \x01(\x05\x12\x0e\n\x06logits\x18\x02 \x03(\x02\x12\x17\n\x0fpublic_accuracy\x18\x03 \x01(\x02\"+\n\x0fServerConsensus\x12\x18\n\x10\x63onsensus_logits\x18\x01 \x03(\x02\x32X\n\rFedMDLearning\x12G\n\x10SendClientLogits\x12\x17.federated.ClientLogits\x1a\x1a.federated.ServerConsensusb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,9 +32,9 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'message_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_CLIENTLOGITS']._serialized_start=28
-  _globals['_CLIENTLOGITS']._serialized_end=77
-  _globals['_SERVERCONSENSUS']._serialized_start=79
-  _globals['_SERVERCONSENSUS']._serialized_end=122
-  _globals['_FEDMDLEARNING']._serialized_start=124
-  _globals['_FEDMDLEARNING']._serialized_end=212
+  _globals['_CLIENTLOGITS']._serialized_end=102
+  _globals['_SERVERCONSENSUS']._serialized_start=104
+  _globals['_SERVERCONSENSUS']._serialized_end=147
+  _globals['_FEDMDLEARNING']._serialized_start=149
+  _globals['_FEDMDLEARNING']._serialized_end=237
 # @@protoc_insertion_point(module_scope)

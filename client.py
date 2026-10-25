@@ -30,7 +30,7 @@ CLIENT_ARCHITECTURES = [
 ]
 
 TRAIN_COLUMNS = ['public_fraction', 'alpha', 'client_id', 'stage', 'round', 'epoch',
-                 'loss', 'accuracy', 'val_loss', 'val_accuracy', 'restored']
+                 'loss', 'accuracy', 'val_loss', 'val_accuracy', 'restored', 'public_accuracy']
 TEST_COLUMNS  = ['public_fraction', 'alpha', 'client_id', 'stage', 'round',
                  'n_private', 'private_malignant_fraction', 'test_loss', 'test_accuracy']
 
@@ -201,14 +201,18 @@ class Client():
             epochs (int, optional): Número de épocas. Defaults to 1.
 
         Returns:
-            list[dict]: Uma linha por época com a perda do modelo em relação ao consenso.
+            list[dict]: Uma linha por época com a perda do modelo em relação ao consenso e a acurácia do
+                        cliente no subconjunto público antes do digest (o peso enviado ao servidor).
         """
         # Sem shuffle: a linha i dos logits precisa corresponder a public_idx[i].
         public_dataset = make_client_dataset(self.file_paths, self.labels, public_idx, IMAGE_SIZE, self.batch_size, shuffle=False)
         logits = self.model.predict(public_dataset, verbose=0)
+        # O conjunto público é rotulado: o servidor usa essa acurácia para pesar o cliente no consenso.
+        public_accuracy = float(np.mean(np.argmax(logits, axis=1) == self.labels[public_idx]))
 
         # O proto só aceita floats em uma lista plana, então achata e remonta (N, num_classes).
-        logits_message = pb2.ClientLogits(client_id=self.client_id, logits=logits.ravel().tolist())
+        logits_message = pb2.ClientLogits(client_id=self.client_id, logits=logits.ravel().tolist(),
+                                          public_accuracy=public_accuracy)
         response = self.stub.SendClientLogits(logits_message)
         consensus = np.array(response.consensus_logits, dtype=np.float32).reshape(logits.shape)
 
@@ -219,7 +223,8 @@ class Client():
         # Digest do FedMD: aproxima os logits do consenso com MAE. Treinar digest_model atualiza os pesos de self.model.
         history = self.digest_model.fit(digest_dataset, epochs=epochs, verbose=0)
 
-        return [{'epoch': epoch, 'loss': loss} for epoch, loss in enumerate(history.history['loss'])]
+        return [{'epoch': epoch, 'loss': loss, 'public_accuracy': public_accuracy}
+                for epoch, loss in enumerate(history.history['loss'])]
 
     def evaluate(self):
         """Avalia o modelo no conjunto de teste.
