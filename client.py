@@ -29,9 +29,9 @@ CLIENT_ARCHITECTURES = [
     [(32, 3), (32, 3), (64, 3), (64, 3), (128, 3)],
 ]
 
-TRAIN_COLUMNS = ['public_fraction', 'alpha', 'client_id', 'stage', 'round', 'epoch',
+TRAIN_COLUMNS = ['seed', 'public_fraction', 'alpha', 'client_id', 'stage', 'round', 'epoch',
                  'loss', 'accuracy', 'val_loss', 'val_accuracy', 'restored', 'public_accuracy']
-TEST_COLUMNS  = ['public_fraction', 'alpha', 'client_id', 'stage', 'round',
+TEST_COLUMNS  = ['seed', 'public_fraction', 'alpha', 'client_id', 'stage', 'round',
                  'n_private', 'private_malignant_fraction', 'test_loss', 'test_accuracy']
 
 
@@ -146,7 +146,7 @@ class Client():
         self.stub        = pb2_grpc.FedMDLearningStub(self.channel)
 
     def train(self, train_idx, val_idx, epochs: int=1, patience: int=PATIENCE, augment: bool=True,
-              learning_rate: float=None):
+              learning_rate: float=None, steps_per_epoch: int=None):
         """Treina o modelo do cliente com os rótulos verdadeiros, com early stopping na validação.
 
         Args:
@@ -157,6 +157,9 @@ class Client():
             augment (bool, optional): Aplica augmentation_pipeline nas imagens de treino. Defaults to True.
             learning_rate (float, optional): Novo learning rate do otimizador, mantido nas chamadas seguintes.
                                              Se None, usa o atual. Defaults to None.
+            steps_per_epoch (int, optional): Passos de gradiente por época, iguais para todo cliente. O dataset é
+                                             repetido, então clientes com poucas imagens também dão todos os passos.
+                                             Se None, uma época é uma passada pelos dados. Defaults to None.
 
         Returns:
             list[dict]: Uma linha por época com loss e acurácia em treino e validação. 'restored' marca a
@@ -166,6 +169,8 @@ class Client():
         if augment:
             train_dataset = train_dataset.map(lambda x, y: (self.augment(x, training=True), y),
                                               num_parallel_calls=tf.data.AUTOTUNE)
+        if steps_per_epoch is not None:
+            train_dataset = train_dataset.repeat()
         validation_dataset = make_client_dataset(self.file_paths, self.labels, val_idx, IMAGE_SIZE,
                                                  self.batch_size, shuffle=False)
 
@@ -178,6 +183,7 @@ class Client():
             train_dataset,
             validation_data=validation_dataset,
             epochs=epochs,
+            steps_per_epoch=steps_per_epoch,
             callbacks=callbacks,
             verbose=0
         )
@@ -189,9 +195,11 @@ class Client():
             for epoch in range(len(h['loss']))
         ]
 
-    def train_private(self, epochs: int=1, patience: int=PATIENCE, augment: bool=True, learning_rate: float=None):
+    def train_private(self, epochs: int=1, patience: int=PATIENCE, augment: bool=True, learning_rate: float=None,
+                      steps_per_epoch: int=None):
         """Treina com os dados privados do cliente. Mesmo retorno de train."""
-        return self.train(self.private_train_idx, self.private_val_idx, epochs, patience, augment, learning_rate)
+        return self.train(self.private_train_idx, self.private_val_idx, epochs, patience, augment, learning_rate,
+                          steps_per_epoch)
 
     def fed_train(self, public_idx: np.ndarray, epochs: int=1):
         """Treina o modelo do cliente com os dados públicos, usando o consenso do servidor como alvo.
@@ -244,7 +252,7 @@ def append_csv(path: str, rows: list[dict], columns: list[str]):
 
 def run_experiment(public_fraction: float, alpha: float, args):
     """Roda o FedMD completo para uma configuração da ablação e grava os dois CSVs."""
-    config = {'public_fraction': public_fraction, 'alpha': 'iid' if alpha is None else alpha}
+    config = {'seed': args.seed, 'public_fraction': public_fraction, 'alpha': 'iid' if alpha is None else alpha}
     train_csv = os.path.join(OUTPUT_DIR, 'train_history.csv')
     test_csv  = os.path.join(OUTPUT_DIR, 'test_metrics.csv')
     logging.info(f'Configuração {config}')
@@ -300,7 +308,8 @@ def run_experiment(public_fraction: float, alpha: float, args):
             log_train('digest', round_, ray.get([
                 client.fed_train.remote(round_public_idx, args.digest_epochs) for client in clients]))
             log_train('revisit', round_, ray.get([
-                client.train_private.remote(args.private_epochs, learning_rate=args.revisit_lr) for client in clients]))
+                client.train_private.remote(args.private_epochs, learning_rate=args.revisit_lr,
+                                            steps_per_epoch=args.private_steps) for client in clients]))
             log_test('federated', round_)
     finally:
         for client in clients:
@@ -335,6 +344,8 @@ if __name__ == '__main__':
     parser.add_argument('--digest-rounds', type=int, default=20)
     parser.add_argument('--digest-epochs', type=int, default=1)
     parser.add_argument('--private-epochs', type=int, default=3, help='Máximo de épocas do revisit em cada rodada.')
+    parser.add_argument('--private-steps', type=int, default=None,
+                        help='Passos de gradiente por época do revisit, iguais para todo cliente. Padrão: uma passada pelos dados.')
     parser.add_argument('--revisit-lr', type=float, default=5e-5,
                         help='Learning rate do revisit; os treinos iniciais usam 1e-3. Menor = menos esquecimento.')
     parser.add_argument('--batch-size', type=int, default=BATCH_SIZE)
