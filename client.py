@@ -145,7 +145,8 @@ class Client():
         self.channel     = grpc.insecure_channel(f'{self.host}:{self.server_port}')
         self.stub        = pb2_grpc.FedMDLearningStub(self.channel)
 
-    def train(self, train_idx, val_idx, epochs: int=1, patience: int=PATIENCE, augment: bool=True):
+    def train(self, train_idx, val_idx, epochs: int=1, patience: int=PATIENCE, augment: bool=True,
+              learning_rate: float=None):
         """Treina o modelo do cliente com os rótulos verdadeiros, com early stopping na validação.
 
         Args:
@@ -154,6 +155,8 @@ class Client():
             epochs (int, optional): Número máximo de épocas. Defaults to 1.
             patience (int, optional): Número de épocas sem melhoria para parar o treinamento. Defaults to 4.
             augment (bool, optional): Aplica augmentation_pipeline nas imagens de treino. Defaults to True.
+            learning_rate (float, optional): Novo learning rate do otimizador, mantido nas chamadas seguintes.
+                                             Se None, usa o atual. Defaults to None.
 
         Returns:
             list[dict]: Uma linha por época com loss e acurácia em treino e validação. 'restored' marca a
@@ -165,6 +168,10 @@ class Client():
                                               num_parallel_calls=tf.data.AUTOTUNE)
         validation_dataset = make_client_dataset(self.file_paths, self.labels, val_idx, IMAGE_SIZE,
                                                  self.batch_size, shuffle=False)
+
+        if learning_rate is not None:
+            # assign em vez de recompilar: não recria a função de treino (ver digest_model no __init__).
+            self.model.optimizer.learning_rate.assign(learning_rate)
 
         callbacks = [keras.callbacks.EarlyStopping(monitor='val_loss', patience=patience, min_delta=1e-4, restore_best_weights=True)]
         history = self.model.fit(
@@ -182,9 +189,9 @@ class Client():
             for epoch in range(len(h['loss']))
         ]
 
-    def train_private(self, epochs: int=1, patience: int=PATIENCE, augment: bool=True):
+    def train_private(self, epochs: int=1, patience: int=PATIENCE, augment: bool=True, learning_rate: float=None):
         """Treina com os dados privados do cliente. Mesmo retorno de train."""
-        return self.train(self.private_train_idx, self.private_val_idx, epochs, patience, augment)
+        return self.train(self.private_train_idx, self.private_val_idx, epochs, patience, augment, learning_rate)
 
     def fed_train(self, public_idx: np.ndarray, epochs: int=1):
         """Treina o modelo do cliente com os dados públicos, usando o consenso do servidor como alvo.
@@ -288,7 +295,7 @@ def run_experiment(public_fraction: float, alpha: float, args):
             log_train('digest', round_, ray.get([
                 client.fed_train.remote(round_public_idx, args.digest_epochs) for client in clients]))
             log_train('revisit', round_, ray.get([
-                client.train_private.remote(args.private_epochs) for client in clients]))
+                client.train_private.remote(args.private_epochs, learning_rate=args.revisit_lr) for client in clients]))
             log_test('federated', round_)
     finally:
         for client in clients:
@@ -323,6 +330,8 @@ if __name__ == '__main__':
     parser.add_argument('--digest-rounds', type=int, default=20)
     parser.add_argument('--digest-epochs', type=int, default=1)
     parser.add_argument('--private-epochs', type=int, default=3, help='Máximo de épocas do revisit em cada rodada.')
+    parser.add_argument('--revisit-lr', type=float, default=5e-5,
+                        help='Learning rate do revisit; os treinos iniciais usam 1e-3. Menor = menos esquecimento.')
     parser.add_argument('--batch-size', type=int, default=BATCH_SIZE)
     parser.add_argument('--gpu-memory-mb', type=int, default=2560, help='Limite de memória de GPU por cliente.')
     parser.add_argument('--seed', type=int, default=42)
