@@ -1,0 +1,268 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793566765.420121   88329 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793566765.460256   88329 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793566766.355784   88329 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-01 20:59:27,594	WARNING authentication_token_setup.py:85 -- Token authentication is enabled for this Ray cluster. Set RAY_AUTH_MODE=disabled to opt out. For more information, see https://docs.ray.io/en/latest/ray-security/token-auth.html
+2026-11-01 20:59:28,711	WARNING services.py:2248 -- WARNING: The object store is using /tmp/ray instead of /dev/shm because /dev/shm has only 67108864 bytes available. This will harm performance! You may be able to free up space by deleting files in /dev/shm. If you are inside a Docker container, you can increase /dev/shm size by passing '--shm-size=6.45gb' to 'docker run' (or add it to the run_options list in a Ray cluster config). Make sure to set this to more than 30% of available RAM.
+2026-11-01 20:59:29,853	INFO worker.py:2033 -- Started a local Ray instance.
+2026-11-01 20:59:29,860	WARNING working_dir.py:91 -- Directory '.git' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-01 20:59:29,863	WARNING working_dir.py:91 -- Directory '__pycache__' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-01 20:59:29,868	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-01 20:59:30,909	INFO packaging.py:734 -- Creating a file package for local module '/mc809 - Comp Distribuida/projeto_final'.
+2026-11-01 20:59:30,913	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-01 20:59:32,604	INFO packaging.py:434 -- Pushing file package 'gcs://_ray_pkg_da884e3d57d603c5.zip' (16.14MiB) to Ray cluster...
+2026-11-01 20:59:32,660	INFO packaging.py:447 -- Successfully pushed file package 'gcs://_ray_pkg_da884e3d57d603c5.zip'.
+2026-11-01 20:59:33,327 - Configuração {'seed': 42, 'public_fraction': 0.01, 'alpha': 'iid'}
+[36m(pid=91284)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=91284)[0m I0000 00:00:1793566774.303932   91284 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(pid=91284)[0m I0000 00:00:1793566774.338156   91284 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=91284)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=91284)[0m W0000 00:00:1793566777.599465   91284 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=91284)[0m W0000 00:00:1793566777.603906   91284 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=91284)[0m I0000 00:00:1793566777.905160   91284 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=91280)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=91280)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(pid=91283)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(pid=91283)[0m I0000 00:00:1793566775.683682   91283 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=91285)[0m I0000 00:00:1793566774.430008   91285 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=91285)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=91285)[0m W0000 00:00:1793566777.603956   91285 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 6x across cluster][0m
+[36m(Client pid=91285)[0m I0000 00:00:1793566777.930202   91285 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=91280)[0m I0000 00:00:1793566784.451649   93143 service.cc:153] XLA service 0x736a540387c0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=91280)[0m I0000 00:00:1793566784.451703   93143 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(Client pid=91280)[0m I0000 00:00:1793566784.492886   93143 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(Client pid=91280)[0m I0000 00:00:1793566784.855289   93143 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=91280)[0m I0000 00:00:1793566784.882151   93143 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=91285)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=91285)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=91283)[0m I0000 00:00:1793566814.076251   93138 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=91285)[0m I0000 00:00:1793566787.687941   93151 service.cc:153] XLA service 0x78f1b8041930 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=91285)[0m I0000 00:00:1793566787.687972   93151 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=91285)[0m I0000 00:00:1793566787.827624   93151 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=91285)[0m I0000 00:00:1793566788.264101   93151 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=91285)[0m I0000 00:00:1793566788.351279   93151 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=91280)[0m I0000 00:00:1793566821.633138   93143 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=91283)[0m I0000 00:00:1793566814.958071   93138 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=91280)[0m I0000 00:00:1793566822.001962   93146 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=91284)[0m I0000 00:00:1793566825.505418   93133 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=91284)[0m I0000 00:00:1793566825.936086   93133 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4846__.70
+[36m(Client pid=91285)[0m I0000 00:00:1793566828.404498   93151 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85
+[36m(Client pid=91283)[0m I0000 00:00:1793566877.831414   10534 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=91283)[0m 
+[36m(Client pid=91285)[0m I0000 00:00:1793566827.789961   93151 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=91280)[0m 
+[36m(Client pid=91284)[0m 
+[36m(Client pid=91285)[0m 
+2026-11-01 21:01:21,875 - public_init rodada 0: acurácia de teste 0.833, 0.500, 0.500, 0.500
+2026-11-01 21:03:45,264 - private_init rodada 0: acurácia de teste 0.864, 0.869, 0.885, 0.893
+[36m(Client pid=91280)[0m I0000 00:00:1793567029.457911   93143 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_10757__.56
+[36m(Client pid=91285)[0m I0000 00:00:1793566880.253578   10558 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 3x across cluster][0m
+[36m(Client pid=91284)[0m I0000 00:00:1793567035.651343   93134 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_12670__.71[32m [repeated 6x across cluster][0m
+2026-11-01 21:04:24,498 - federated rodada 1: acurácia de teste 0.848, 0.858, 0.882, 0.883
+2026-11-01 21:04:55,559 - federated rodada 2: acurácia de teste 0.876, 0.883, 0.881, 0.880
+2026-11-01 21:05:20,678 - federated rodada 3: acurácia de teste 0.874, 0.889, 0.881, 0.869
+2026-11-01 21:05:52,759 - federated rodada 4: acurácia de teste 0.877, 0.874, 0.887, 0.870
+2026-11-01 21:06:17,188 - federated rodada 5: acurácia de teste 0.874, 0.881, 0.880, 0.863
+2026-11-01 21:06:42,980 - federated rodada 6: acurácia de teste 0.882, 0.888, 0.886, 0.875
+2026-11-01 21:07:08,401 - federated rodada 7: acurácia de teste 0.869, 0.891, 0.885, 0.883
+2026-11-01 21:07:32,257 - federated rodada 8: acurácia de teste 0.872, 0.872, 0.884, 0.884
+2026-11-01 21:08:04,045 - federated rodada 9: acurácia de teste 0.880, 0.884, 0.879, 0.879
+2026-11-01 21:08:27,732 - federated rodada 10: acurácia de teste 0.882, 0.890, 0.885, 0.880
+2026-11-01 21:08:50,599 - federated rodada 11: acurácia de teste 0.888, 0.888, 0.892, 0.888
+2026-11-01 21:09:12,455 - federated rodada 12: acurácia de teste 0.884, 0.872, 0.882, 0.872
+2026-11-01 21:09:36,339 - federated rodada 13: acurácia de teste 0.888, 0.879, 0.891, 0.880
+2026-11-01 21:10:00,022 - federated rodada 14: acurácia de teste 0.890, 0.877, 0.880, 0.884
+2026-11-01 21:10:21,750 - federated rodada 15: acurácia de teste 0.894, 0.889, 0.889, 0.885
+2026-11-01 21:10:44,497 - federated rodada 16: acurácia de teste 0.880, 0.892, 0.882, 0.889
+2026-11-01 21:11:07,376 - federated rodada 17: acurácia de teste 0.885, 0.888, 0.887, 0.888
+2026-11-01 21:11:29,731 - federated rodada 18: acurácia de teste 0.883, 0.886, 0.891, 0.873
+2026-11-01 21:11:51,893 - federated rodada 19: acurácia de teste 0.891, 0.889, 0.886, 0.890
+2026-11-01 21:12:13,809 - federated rodada 20: acurácia de teste 0.889, 0.885, 0.881, 0.881
+2026-11-01 21:12:35,903 - federated rodada 21: acurácia de teste 0.887, 0.881, 0.883, 0.887
+2026-11-01 21:12:57,984 - federated rodada 22: acurácia de teste 0.878, 0.884, 0.889, 0.875
+2026-11-01 21:13:20,144 - federated rodada 23: acurácia de teste 0.888, 0.882, 0.893, 0.884
+2026-11-01 21:13:50,967 - federated rodada 24: acurácia de teste 0.881, 0.888, 0.884, 0.878
+2026-11-01 21:14:12,964 - federated rodada 25: acurácia de teste 0.882, 0.888, 0.891, 0.889
+2026-11-01 21:14:35,125 - federated rodada 26: acurácia de teste 0.876, 0.887, 0.887, 0.893
+2026-11-01 21:14:57,597 - federated rodada 27: acurácia de teste 0.880, 0.888, 0.884, 0.883
+2026-11-01 21:15:19,899 - federated rodada 28: acurácia de teste 0.884, 0.886, 0.883, 0.892
+2026-11-01 21:15:42,936 - federated rodada 29: acurácia de teste 0.881, 0.880, 0.883, 0.882
+2026-11-01 21:16:05,705 - federated rodada 30: acurácia de teste 0.888, 0.888, 0.884, 0.891
+2026-11-01 21:16:05,707 - Configuração {'seed': 42, 'public_fraction': 0.01, 'alpha': 1.0}
+[36m(pid=50565)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=50565)[0m I0000 00:00:1793567766.749205   50565 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(pid=50565)[0m I0000 00:00:1793567766.787148   50565 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=50565)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=91285)[0m I0000 00:00:1793567036.058272   93153 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_14439__.86
+[36m(Client pid=50565)[0m W0000 00:00:1793567769.306294   50565 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=50565)[0m W0000 00:00:1793567769.310929   50565 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=50565)[0m I0000 00:00:1793567769.485930   50565 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=50561)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=50561)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(pid=50557)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster][0m
+[36m(pid=50557)[0m I0000 00:00:1793567768.039479   50557 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=50566)[0m I0000 00:00:1793567766.796639   50566 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=50566)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=50561)[0m I0000 00:00:1793567774.585387   50734 service.cc:153] XLA service 0x7a1a2c04d870 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=50561)[0m I0000 00:00:1793567774.585427   50734 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(Client pid=50557)[0m W0000 00:00:1793567769.345877   50557 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 6x across cluster][0m
+[36m(Client pid=50566)[0m I0000 00:00:1793567769.491157   50566 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=50561)[0m I0000 00:00:1793567774.671706   50734 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(Client pid=50561)[0m I0000 00:00:1793567774.948391   50734 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=50561)[0m I0000 00:00:1793567774.967550   50734 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=50565)[0m I0000 00:00:1793567806.799726   50722 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=50557)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=50557)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=50566)[0m I0000 00:00:1793567775.587379   50735 service.cc:153] XLA service 0x70d3d803d350 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=50566)[0m I0000 00:00:1793567775.587513   50735 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=50566)[0m I0000 00:00:1793567775.694437   50735 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=50566)[0m I0000 00:00:1793567776.049885   50735 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=50566)[0m I0000 00:00:1793567776.091571   50735 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=50561)[0m I0000 00:00:1793567814.105790   50734 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=50565)[0m I0000 00:00:1793567807.584059   50722 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=50561)[0m I0000 00:00:1793567814.556847   50732 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=50566)[0m I0000 00:00:1793567816.543229   50735 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=50565)[0m I0000 00:00:1793567839.671864   62123 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=50565)[0m 
+[36m(Client pid=50557)[0m I0000 00:00:1793567817.267274   50744 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4846__.70[32m [repeated 2x across cluster][0m
+[36m(Client pid=50557)[0m I0000 00:00:1793567816.629833   50744 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=50557)[0m 
+[36m(Client pid=50561)[0m 
+[36m(Client pid=50566)[0m 
+2026-11-01 21:17:23,357 - public_init rodada 0: acurácia de teste 0.827, 0.500, 0.500, 0.500
+2026-11-01 21:19:46,718 - private_init rodada 0: acurácia de teste 0.862, 0.823, 0.883, 0.879
+[36m(Client pid=50566)[0m I0000 00:00:1793567841.885159   62152 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 3x across cluster][0m
+[36m(Client pid=50565)[0m I0000 00:00:1793567990.139435   50723 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_13061__.56
+[36m(Client pid=50557)[0m I0000 00:00:1793567990.175107   50743 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_12678__.71
+[36m(Client pid=50561)[0m I0000 00:00:1793567995.808938   50732 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_10761__.56[32m [repeated 4x across cluster][0m
+2026-11-01 21:20:14,071 - federated rodada 1: acurácia de teste 0.852, 0.830, 0.881, 0.860
+2026-11-01 21:20:32,854 - federated rodada 2: acurácia de teste 0.859, 0.844, 0.878, 0.873
+2026-11-01 21:20:50,848 - federated rodada 3: acurácia de teste 0.867, 0.809, 0.882, 0.849
+2026-11-01 21:21:12,866 - federated rodada 4: acurácia de teste 0.863, 0.799, 0.883, 0.876
+2026-11-01 21:21:31,659 - federated rodada 5: acurácia de teste 0.869, 0.848, 0.880, 0.878
+2026-11-01 21:21:43,319 - federated rodada 6: acurácia de teste 0.874, 0.833, 0.889, 0.847
+2026-11-01 21:21:58,180 - federated rodada 7: acurácia de teste 0.876, 0.774, 0.887, 0.868
+2026-11-01 21:22:08,964 - federated rodada 8: acurácia de teste 0.877, 0.841, 0.886, 0.869
+2026-11-01 21:22:19,720 - federated rodada 9: acurácia de teste 0.880, 0.813, 0.886, 0.860
+2026-11-01 21:22:30,517 - federated rodada 10: acurácia de teste 0.870, 0.845, 0.899, 0.873
+2026-11-01 21:22:41,671 - federated rodada 11: acurácia de teste 0.876, 0.867, 0.890, 0.866
+2026-11-01 21:22:52,746 - federated rodada 12: acurácia de teste 0.878, 0.836, 0.874, 0.871
+2026-11-01 21:23:03,729 - federated rodada 13: acurácia de teste 0.881, 0.837, 0.878, 0.886
+2026-11-01 21:23:14,682 - federated rodada 14: acurácia de teste 0.887, 0.856, 0.893, 0.890
+2026-11-01 21:23:25,590 - federated rodada 15: acurácia de teste 0.890, 0.845, 0.889, 0.894
+2026-11-01 21:23:36,420 - federated rodada 16: acurácia de teste 0.884, 0.851, 0.881, 0.878
+2026-11-01 21:23:47,400 - federated rodada 17: acurácia de teste 0.876, 0.802, 0.893, 0.886
+2026-11-01 21:23:58,354 - federated rodada 18: acurácia de teste 0.885, 0.863, 0.885, 0.881
+2026-11-01 21:24:09,589 - federated rodada 19: acurácia de teste 0.885, 0.861, 0.890, 0.889
+2026-11-01 21:24:21,628 - federated rodada 20: acurácia de teste 0.890, 0.837, 0.893, 0.882
+2026-11-01 21:24:35,841 - federated rodada 21: acurácia de teste 0.889, 0.853, 0.890, 0.885
+2026-11-01 21:24:46,678 - federated rodada 22: acurácia de teste 0.886, 0.843, 0.880, 0.874
+2026-11-01 21:24:58,209 - federated rodada 23: acurácia de teste 0.878, 0.843, 0.891, 0.885
+2026-11-01 21:25:09,342 - federated rodada 24: acurácia de teste 0.876, 0.834, 0.886, 0.890
+2026-11-01 21:25:20,816 - federated rodada 25: acurácia de teste 0.885, 0.818, 0.887, 0.885
+2026-11-01 21:25:31,898 - federated rodada 26: acurácia de teste 0.875, 0.852, 0.890, 0.873
+2026-11-01 21:25:43,078 - federated rodada 27: acurácia de teste 0.855, 0.803, 0.883, 0.893
+2026-11-01 21:25:54,131 - federated rodada 28: acurácia de teste 0.880, 0.839, 0.889, 0.875
+2026-11-01 21:26:05,068 - federated rodada 29: acurácia de teste 0.879, 0.851, 0.882, 0.882
+2026-11-01 21:26:16,125 - federated rodada 30: acurácia de teste 0.887, 0.841, 0.877, 0.884
+2026-11-01 21:26:16,127 - Configuração {'seed': 42, 'public_fraction': 0.01, 'alpha': 0.1}
+[36m(pid=84513)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=84513)[0m I0000 00:00:1793568377.360411   84513 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(Client pid=50566)[0m I0000 00:00:1793567997.904833   50736 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_14459__.86[32m [repeated 2x across cluster][0m
+[36m(pid=84522)[0m I0000 00:00:1793568377.407284   84522 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=84522)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=84513)[0m W0000 00:00:1793568380.194077   84513 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=84513)[0m W0000 00:00:1793568380.201260   84513 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=84513)[0m I0000 00:00:1793568380.376929   84513 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=84513)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=84513)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(pid=84525)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster][0m
+[36m(pid=84525)[0m I0000 00:00:1793568378.548265   84525 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=84519)[0m I0000 00:00:1793568377.412310   84519 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=84519)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=84513)[0m I0000 00:00:1793568384.176472   84695 service.cc:153] XLA service 0x750ca00385b0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=84513)[0m I0000 00:00:1793568384.176519   84695 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(Client pid=84513)[0m I0000 00:00:1793568384.234853   84695 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(Client pid=84513)[0m I0000 00:00:1793568384.467858   84695 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=84513)[0m I0000 00:00:1793568384.505488   84695 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=84525)[0m W0000 00:00:1793568380.195524   84525 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 6x across cluster][0m
+[36m(Client pid=84525)[0m I0000 00:00:1793568380.382574   84525 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=84519)[0m I0000 00:00:1793568397.566937   84690 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=84525)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=84525)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=84525)[0m I0000 00:00:1793568385.351310   84699 service.cc:153] XLA service 0x717848041c80 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=84525)[0m I0000 00:00:1793568385.351394   84699 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=84525)[0m I0000 00:00:1793568385.474193   84699 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=84525)[0m I0000 00:00:1793568385.974271   84699 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=84525)[0m I0000 00:00:1793568385.999596   84699 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=84525)[0m I0000 00:00:1793568403.549571   84699 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.[32m [repeated 3x across cluster][0m
+[36m(Client pid=84522)[0m I0000 00:00:1793568400.567096   84681 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4846__.70[32m [repeated 3x across cluster][0m
+[36m(Client pid=84513)[0m I0000 00:00:1793568429.592810   89260 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=84513)[0m 
+[36m(Client pid=84525)[0m I0000 00:00:1793568404.098044   84699 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85
+[36m(Client pid=84522)[0m 
+[36m(Client pid=84525)[0m 
+[36m(Client pid=84519)[0m 
+2026-11-01 21:27:17,062 - public_init rodada 0: acurácia de teste 0.831, 0.500, 0.500, 0.500
+2026-11-01 21:28:08,676 - private_init rodada 0: acurácia de teste 0.852, 0.844, 0.828, 0.847
+[36m(Client pid=84513)[0m I0000 00:00:1793568492.917555   84696 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_13121__.56
+[36m(Client pid=84519)[0m I0000 00:00:1793568430.804696   89253 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 3x across cluster][0m
+[36m(Client pid=84522)[0m I0000 00:00:1793568498.872389   84683 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_12710__.71[32m [repeated 6x across cluster][0m
+2026-11-01 21:28:44,550 - federated rodada 1: acurácia de teste 0.863, 0.838, 0.870, 0.816
+2026-11-01 21:28:55,478 - federated rodada 2: acurácia de teste 0.865, 0.846, 0.850, 0.841
+2026-11-01 21:29:06,308 - federated rodada 3: acurácia de teste 0.873, 0.785, 0.853, 0.842
+[36m(Client pid=84513)[0m W0000 00:00:1793568553.706131   84513 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=84513)[0m 	 [[{{node sequential_1/random_flip_1/Add/_14}}]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=84513)[0m I0000 00:00:1793568553.706302   84513 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 14201602556955833856
+[36m(Client pid=84513)[0m W0000 00:00:1793568553.706319   84513 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=84513)[0m 	 [[{{node sequential_1/random_flip_1/Add/_14}}]]
+[36m(Client pid=84513)[0m 	 [[GroupCrossDeviceControlEdges_0/NoOp/_21]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=84513)[0m I0000 00:00:1793568553.706338   84513 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 12915303994523041807
+[36m(Client pid=84513)[0m I0000 00:00:1793568553.706341   84513 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 16796355729953562995
+[36m(Client pid=84513)[0m I0000 00:00:1793568553.706343   84513 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 7285153258780037619
+[36m(Client pid=84513)[0m I0000 00:00:1793568553.706348   84513 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 9058965902156692521
+[36m(Client pid=84513)[0m I0000 00:00:1793568553.706349   84513 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 14311195452088417757
+[36m(Client pid=84525)[0m I0000 00:00:1793568499.724691   84702 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_14503__.86
+2026-11-01 21:29:17,100 - federated rodada 4: acurácia de teste 0.874, 0.851, 0.848, 0.847
+2026-11-01 21:29:28,357 - federated rodada 5: acurácia de teste 0.877, 0.853, 0.853, 0.840
+2026-11-01 21:29:39,653 - federated rodada 6: acurácia de teste 0.863, 0.823, 0.851, 0.850
+2026-11-01 21:29:53,819 - federated rodada 7: acurácia de teste 0.870, 0.832, 0.849, 0.840
+2026-11-01 21:30:07,422 - federated rodada 8: acurácia de teste 0.876, 0.878, 0.863, 0.843
+2026-11-01 21:30:19,523 - federated rodada 9: acurácia de teste 0.873, 0.854, 0.861, 0.844
+2026-11-01 21:30:33,851 - federated rodada 10: acurácia de teste 0.872, 0.831, 0.863, 0.843
+[36m(Client pid=84519)[0m W0000 00:00:1793568642.552180   10378 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.[32m [repeated 2x across cluster][0m
+[36m(Client pid=84519)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=84519)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]]
+[36m(Client pid=84519)[0m 	 [[GroupCrossDeviceControlEdges_0/NoOp/_20]] [type.googleapis.com/tensorflow.DerivedStatus='']
+2026-11-01 21:30:47,929 - federated rodada 11: acurácia de teste 0.865, 0.838, 0.836, 0.852
+2026-11-01 21:30:59,031 - federated rodada 12: acurácia de teste 0.871, 0.851, 0.857, 0.837
+2026-11-01 21:31:10,223 - federated rodada 13: acurácia de teste 0.873, 0.857, 0.860, 0.837
+2026-11-01 21:31:21,069 - federated rodada 14: acurácia de teste 0.874, 0.864, 0.854, 0.849
+2026-11-01 21:31:35,362 - federated rodada 15: acurácia de teste 0.859, 0.851, 0.849, 0.849
+2026-11-01 21:31:46,467 - federated rodada 16: acurácia de teste 0.865, 0.863, 0.850, 0.839
+2026-11-01 21:32:00,538 - federated rodada 17: acurácia de teste 0.867, 0.866, 0.846, 0.849
+2026-11-01 21:32:15,012 - federated rodada 18: acurácia de teste 0.873, 0.860, 0.851, 0.857
+[36m(Client pid=84513)[0m I0000 00:00:1793568742.809996   84513 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 15152607429386887324
+[36m(Client pid=84513)[0m I0000 00:00:1793568742.810053   84513 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 17575201297773211534
+[36m(Client pid=84513)[0m I0000 00:00:1793568742.810058   84513 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 7285153258780037619
+[36m(Client pid=84513)[0m I0000 00:00:1793568742.810061   84513 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 3018849726416421417
+[36m(Client pid=84513)[0m I0000 00:00:1793568742.810063   84513 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 18232831958999560789
+[36m(Client pid=84513)[0m I0000 00:00:1793568742.810069   84513 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 9058965902156692521
+[36m(Client pid=84513)[0m I0000 00:00:1793568742.810071   84513 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 14311195452088417757
+[36m(Client pid=84513)[0m W0000 00:00:1793568742.826741   22797 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=84513)[0m 	 [[{{node sequential_1/random_rotation_1/Add/_16}}]]
+[36m(Client pid=84513)[0m 	 [[sequential_1/random_zoom_1/Add/ReadVariableOp/_10]] [type.googleapis.com/tensorflow.DerivedStatus='']
+2026-11-01 21:32:29,139 - federated rodada 19: acurácia de teste 0.883, 0.869, 0.850, 0.852
+2026-11-01 21:32:40,258 - federated rodada 20: acurácia de teste 0.861, 0.857, 0.840, 0.852
+2026-11-01 21:32:51,257 - federated rodada 21: acurácia de teste 0.872, 0.868, 0.834, 0.847
+2026-11-01 21:33:02,401 - federated rodada 22: acurácia de teste 0.875, 0.867, 0.849, 0.843
+2026-11-01 21:33:16,407 - federated rodada 23: acurácia de teste 0.870, 0.874, 0.871, 0.841
+2026-11-01 21:33:27,218 - federated rodada 24: acurácia de teste 0.867, 0.851, 0.844, 0.854
+2026-11-01 21:33:38,444 - federated rodada 25: acurácia de teste 0.860, 0.865, 0.832, 0.846
+2026-11-01 21:33:50,328 - federated rodada 26: acurácia de teste 0.869, 0.868, 0.845, 0.842
+2026-11-01 21:34:02,076 - federated rodada 27: acurácia de teste 0.875, 0.858, 0.849, 0.854
+2026-11-01 21:34:12,881 - federated rodada 28: acurácia de teste 0.869, 0.861, 0.859, 0.844
+2026-11-01 21:34:24,045 - federated rodada 29: acurácia de teste 0.863, 0.849, 0.844, 0.851
+2026-11-01 21:34:35,293 - federated rodada 30: acurácia de teste 0.865, 0.857, 0.861, 0.850

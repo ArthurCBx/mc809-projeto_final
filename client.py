@@ -14,7 +14,9 @@ from dataset_setup import CLASS_NAMES, list_files, split_dataset, make_client_da
 BATCH_SIZE = 32
 IMAGE_SIZE = (224, 224)
 NUM_CLIENTS = 4
-INIT_EPOCHS = 50              # máximo de épocas dos treinos iniciais (early stopping decide antes)
+INIT_EPOCHS = 50              # máximo de épocas do treino inicial nos dados públicos (early stopping decide antes)
+PRIVATE_INIT_EPOCHS = 5       # máximo do treino inicial privado: com uma classe só, a val_loss não para de cair
+                              # e o early stopping deixaria o cliente colapsar por dezenas de épocas
 PATIENCE = 4                  # épocas sem melhora na validação antes de parar
 VAL_FRACTION = 0.2            # fração separada para validação, do público e do privado de cada cliente
 PUBLIC_ROUND_FRACTION = 0.8   # fração do conjunto público sorteada a cada rodada federada
@@ -31,6 +33,7 @@ CLIENT_ARCHITECTURES = [
 
 TRAIN_COLUMNS = ['seed', 'public_fraction', 'alpha', 'client_id', 'stage', 'round', 'epoch',
                  'loss', 'accuracy', 'val_loss', 'val_accuracy', 'restored', 'public_accuracy']
+ENSEMBLE_COLUMNS = ['seed', 'public_fraction', 'alpha', 'stage', 'round', 'ensemble_accuracy', 'mean_client_accuracy']
 TEST_COLUMNS  = ['seed', 'public_fraction', 'alpha', 'client_id', 'stage', 'round',
                  'n_private', 'private_malignant_fraction', 'test_loss', 'test_accuracy']
 
@@ -83,6 +86,19 @@ def augmentation_pipeline(image_size=(224, 224), train: bool = True):
     ])
 
 
+def distillation_kl(temperature: float):
+    """Loss de destilação: T² · KL(softmax(consenso/T) ‖ softmax(cliente/T)), com consenso e cliente em logits.
+
+    O fator T² mantém a escala do gradiente quando T cresce (Hinton et al., 2015).
+    """
+    def loss(consensus_logits, client_logits):
+        target = keras.ops.softmax(consensus_logits / temperature, axis=-1)
+        log_pred = keras.ops.log_softmax(client_logits / temperature, axis=-1)
+        log_target = keras.ops.log(keras.ops.clip(target, 1e-7, 1.0))
+        return temperature ** 2 * keras.ops.sum(target * (log_target - log_pred), axis=-1)
+    return loss
+
+
 def holdout_split(indices, val_fraction: float, seed: int):
     """Separa aleatoriamente uma fração dos índices para validação.
 
@@ -98,7 +114,8 @@ class Client():
     def __init__(self, client_id: int, filters, file_paths: np.ndarray, labels: np.ndarray,
                  private_train_idx: np.ndarray, private_val_idx: np.ndarray,
                  test_paths: np.ndarray, test_labels: np.ndarray,
-                 batch_size: int=BATCH_SIZE, gpu_memory_mb: int=None, mixed_precision: bool=MIXED_PRECISION, seed: int=42):
+                 batch_size: int=BATCH_SIZE, gpu_memory_mb: int=None, mixed_precision: bool=MIXED_PRECISION, seed: int=42,
+                 digest_lr: float=1e-3, digest_temperature: float=None):
         """Cliente do FedMD.
 
         Recebe índices em vez de tf.data.Dataset porque datasets não podem ser serializados para o actor;
@@ -115,6 +132,9 @@ class Client():
             gpu_memory_mb (int, optional): Limite de memória de GPU deste cliente. Os clientes dividem a mesma GPU
                                            e, sem limite, o primeiro TensorFlow a subir reserva quase toda a memória.
             mixed_precision (bool, optional): Treina em mixed_float16, o que reduz a memória das ativações.
+            digest_lr (float, optional): Learning rate do digest (aproximação do consenso). Defaults to 1e-3.
+            digest_temperature (float, optional): Se definido, o digest usa KL com essa temperatura em vez de MAE
+                                                  nos logits. Defaults to None.
         """
         gpus = tf.config.list_physical_devices('GPU')
         if gpus and gpu_memory_mb:
@@ -130,7 +150,9 @@ class Client():
         # Mesmas camadas (e pesos) de self.model, compilado uma vez só com a loss do digest. Recompilar self.model
         # a cada rodada recria e recompila a função de treino, e a RAM do worker cresce ~85 MB por rodada.
         self.digest_model      = keras.Model(self.model.inputs, self.model.outputs)
-        self.digest_model.compile(optimizer=keras.optimizers.AdamW(1e-3), loss=keras.losses.MeanAbsoluteError())
+        digest_loss = (keras.losses.MeanAbsoluteError() if digest_temperature is None
+                       else distillation_kl(digest_temperature))
+        self.digest_model.compile(optimizer=keras.optimizers.AdamW(digest_lr), loss=digest_loss)
         self.file_paths        = file_paths    # dataset inteiro; fed_train recorta o subconjunto público
         self.labels            = labels
         self.private_train_idx = private_train_idx
@@ -146,7 +168,8 @@ class Client():
         self.stub        = pb2_grpc.FedMDLearningStub(self.channel)
 
     def train(self, train_idx, val_idx, epochs: int=1, patience: int=PATIENCE, augment: bool=True,
-              learning_rate: float=None, steps_per_epoch: int=None):
+              learning_rate: float=None, steps_per_epoch: int=None, rehearsal_idx: np.ndarray=None,
+              rehearsal_fraction: float=0.5):
         """Treina o modelo do cliente com os rótulos verdadeiros, com early stopping na validação.
 
         Args:
@@ -160,17 +183,30 @@ class Client():
             steps_per_epoch (int, optional): Passos de gradiente por época, iguais para todo cliente. O dataset é
                                              repetido, então clientes com poucas imagens também dão todos os passos.
                                              Se None, uma época é uma passada pelos dados. Defaults to None.
+            rehearsal_idx (np.ndarray, optional): Rehearsal: índices públicos (com rótulo verdadeiro) misturados aos
+                                                  dados de treino, para o cliente não esquecer as classes que não
+                                                  tem nos dados privados. Defaults to None.
+            rehearsal_fraction (float, optional): Fração esperada de amostras públicas em cada batch. Defaults to 0.5.
 
         Returns:
             list[dict]: Uma linha por época com loss e acurácia em treino e validação. 'restored' marca a
                         época cujos pesos ficaram no modelo.
         """
         train_dataset = make_client_dataset(self.file_paths, self.labels, train_idx, IMAGE_SIZE, self.batch_size)
+        if rehearsal_idx is not None:
+            # Sorteia cada amostra do privado ou do público e remonta os batches. Os dois fluxos são infinitos, então
+            # a época precisa de steps_per_epoch; sem ele, mantém o número de passos de uma passada pelo privado.
+            public_dataset = make_client_dataset(self.file_paths, self.labels, rehearsal_idx, IMAGE_SIZE, self.batch_size)
+            train_dataset = tf.data.Dataset.sample_from_datasets(
+                [train_dataset.unbatch().repeat(), public_dataset.unbatch().repeat()],
+                weights=[1 - rehearsal_fraction, rehearsal_fraction], seed=self.client_id,
+            ).batch(self.batch_size)
+            steps_per_epoch = steps_per_epoch or int(np.ceil(len(train_idx) / self.batch_size))
+        elif steps_per_epoch is not None:
+            train_dataset = train_dataset.repeat()
         if augment:
             train_dataset = train_dataset.map(lambda x, y: (self.augment(x, training=True), y),
                                               num_parallel_calls=tf.data.AUTOTUNE)
-        if steps_per_epoch is not None:
-            train_dataset = train_dataset.repeat()
         validation_dataset = make_client_dataset(self.file_paths, self.labels, val_idx, IMAGE_SIZE,
                                                  self.batch_size, shuffle=False)
 
@@ -196,17 +232,20 @@ class Client():
         ]
 
     def train_private(self, epochs: int=1, patience: int=PATIENCE, augment: bool=True, learning_rate: float=None,
-                      steps_per_epoch: int=None):
+                      steps_per_epoch: int=None, rehearsal_idx: np.ndarray=None, rehearsal_fraction: float=0.5):
         """Treina com os dados privados do cliente. Mesmo retorno de train."""
         return self.train(self.private_train_idx, self.private_val_idx, epochs, patience, augment, learning_rate,
-                          steps_per_epoch)
+                          steps_per_epoch, rehearsal_idx, rehearsal_fraction)
 
-    def fed_train(self, public_idx: np.ndarray, epochs: int=1):
+    def fed_train(self, public_idx: np.ndarray, epochs: int=1, steps_per_epoch: int=None):
         """Treina o modelo do cliente com os dados públicos, usando o consenso do servidor como alvo.
 
         Args:
             public_idx (np.ndarray): Índices do subconjunto público desta rodada, relativos a self.file_paths.
             epochs (int, optional): Número de épocas. Defaults to 1.
+            steps_per_epoch (int, optional): Passos do digest por época, iguais em qualquer fração pública. Os logits
+                                             e o consenso continuam calculados sobre todo public_idx; só o treino
+                                             usa os N batches sorteados. Se None, uma passada por public_idx.
 
         Returns:
             list[dict]: Uma linha por época com a perda do modelo em relação ao consenso e a acurácia do
@@ -227,9 +266,11 @@ class Client():
         # Mesmas imagens, agora embaralhadas junto com o consenso de cada uma.
         digest_dataset = make_client_dataset(self.file_paths, self.labels, public_idx, IMAGE_SIZE, self.batch_size,
                                              shuffle=True, targets=consensus)
+        if steps_per_epoch is not None:
+            digest_dataset = digest_dataset.repeat()  # com pouco dado público, N pode passar de uma passada
 
         # Digest do FedMD: aproxima os logits do consenso com MAE. Treinar digest_model atualiza os pesos de self.model.
-        history = self.digest_model.fit(digest_dataset, epochs=epochs, verbose=0)
+        history = self.digest_model.fit(digest_dataset, epochs=epochs, steps_per_epoch=steps_per_epoch, verbose=0)
 
         return [{'epoch': epoch, 'loss': loss, 'public_accuracy': public_accuracy}
                 for epoch, loss in enumerate(history.history['loss'])]
@@ -243,6 +284,10 @@ class Client():
         metrics = self.model.evaluate(self.test_dataset, verbose=0, return_dict=True)
         return {'test_loss': metrics['loss'], 'test_accuracy': metrics['accuracy']}
 
+    def test_logits(self):
+        """Logits do modelo no conjunto de teste, na ordem de test_labels (usado para o ensemble dos clientes)."""
+        return self.model.predict(self.test_dataset, verbose=0)
+
 
 def append_csv(path: str, rows: list[dict], columns: list[str]):
     """Acrescenta linhas ao CSV, escrevendo o cabeçalho só na criação. Salvar a cada etapa evita perder
@@ -255,6 +300,7 @@ def run_experiment(public_fraction: float, alpha: float, args):
     config = {'seed': args.seed, 'public_fraction': public_fraction, 'alpha': 'iid' if alpha is None else alpha}
     train_csv = os.path.join(OUTPUT_DIR, 'train_history.csv')
     test_csv  = os.path.join(OUTPUT_DIR, 'test_metrics.csv')
+    ensemble_csv = os.path.join(OUTPUT_DIR, 'ensemble_metrics.csv')
     logging.info(f'Configuração {config}')
 
     client_idx, public_idx, file_paths, labels = split_dataset(
@@ -265,7 +311,8 @@ def run_experiment(public_fraction: float, alpha: float, args):
 
     clients = [
         Client.remote(cid, CLIENT_ARCHITECTURES[cid], file_paths, labels, *private_splits[cid],
-                      test_paths, test_labels, args.batch_size, args.gpu_memory_mb, MIXED_PRECISION, args.seed)
+                      test_paths, test_labels, args.batch_size, args.gpu_memory_mb, MIXED_PRECISION, args.seed,
+                      digest_lr=args.digest_lr, digest_temperature=args.digest_temperature)
         for cid in range(NUM_CLIENTS)
     ]
     client_info = [{'n_private': len(idx), 'private_malignant_fraction': float(labels[idx].mean())}
@@ -285,17 +332,34 @@ def run_experiment(public_fraction: float, alpha: float, args):
         ], TEST_COLUMNS)
         logging.info(f'{stage} rodada {round_}: acurácia de teste ' +
                      ', '.join(f'{r["test_accuracy"]:.3f}' for r in results))
+        # Ensemble dos clientes: média dos logits no teste. Mede o sistema como um todo, não cada cliente.
+        logits = np.mean(ray.get([client.test_logits.remote() for client in clients]), axis=0)
+        ensemble_accuracy = float(np.mean(np.argmax(logits, axis=1) == test_labels))
+        append_csv(ensemble_csv, [{**config, 'stage': stage, 'round': round_, 'ensemble_accuracy': ensemble_accuracy,
+                                   'mean_client_accuracy': float(np.mean([r['test_accuracy'] for r in results]))}],
+                   ENSEMBLE_COLUMNS)
+        logging.info(f'{stage} rodada {round_}: ensemble {ensemble_accuracy:.3f}')
 
     try:
         # 1. Transfer learning nos dados públicos rotulados.
         log_train('public_init', 0, ray.get([
-            client.train.remote(public_train_idx, public_val_idx, INIT_EPOCHS)
+            client.train.remote(public_train_idx, public_val_idx, INIT_EPOCHS, learning_rate=args.public_init_lr)
             for client in clients]))
         log_test('public_init', 0)
 
-        # 2. Treino inicial nos dados privados de cada cliente.
+        # 2. Treino inicial nos dados privados de cada cliente. Com --private-init-steps, é uma época de N passos:
+        #    poucos passos numa classe só não chegam a apagar o que o modelo aprendeu nos dados públicos.
+        private_init = ({'epochs': PRIVATE_INIT_EPOCHS} if args.private_init_steps is None
+                        else {'epochs': 1, 'steps_per_epoch': args.private_init_steps})
+        if args.private_init_lr is not None:
+            # O revisit passa o próprio lr (--revisit-lr), então este vale só para o treino inicial privado.
+            private_init['learning_rate'] = args.private_init_lr
+        if args.private_init_rehearsal:
+            # Mistura amostras públicas rotuladas também no treino inicial privado, para poder treinar mais forte
+            # sem que clientes com uma classe só esqueçam a outra.
+            private_init.update(rehearsal_idx=public_idx, rehearsal_fraction=args.rehearsal_fraction)
         log_train('private_init', 0, ray.get([
-            client.train_private.remote(INIT_EPOCHS) for client in clients]))
+            client.train_private.remote(**private_init) for client in clients]))
         log_test('private_init', 0)
 
         # 3. Rodadas do FedMD. Todos os clientes recebem o mesmo subconjunto público, na mesma ordem, e as
@@ -304,12 +368,15 @@ def run_experiment(public_fraction: float, alpha: float, args):
         round_size = int(round(PUBLIC_ROUND_FRACTION * len(public_idx)))
         for round_ in range(1, args.digest_rounds + 1):
             round_public_idx = np.sort(rng.choice(public_idx, round_size, replace=False))
+            # Rehearsal no revisit: o mesmo subconjunto público da rodada, com os rótulos verdadeiros.
+            rehearsal = ({'rehearsal_idx': round_public_idx, 'rehearsal_fraction': args.rehearsal_fraction}
+                         if args.rehearsal_fraction > 0 else {})
 
             log_train('digest', round_, ray.get([
-                client.fed_train.remote(round_public_idx, args.digest_epochs) for client in clients]))
+                client.fed_train.remote(round_public_idx, args.digest_epochs, args.digest_steps) for client in clients]))
             log_train('revisit', round_, ray.get([
                 client.train_private.remote(args.private_epochs, learning_rate=args.revisit_lr,
-                                            steps_per_epoch=args.private_steps) for client in clients]))
+                                            steps_per_epoch=args.private_steps, **rehearsal) for client in clients]))
             log_test('federated', round_)
     finally:
         for client in clients:
@@ -344,6 +411,22 @@ if __name__ == '__main__':
     parser.add_argument('--digest-rounds', type=int, default=20)
     parser.add_argument('--digest-epochs', type=int, default=1)
     parser.add_argument('--private-epochs', type=int, default=3, help='Máximo de épocas do revisit em cada rodada.')
+    parser.add_argument('--private-init-steps', type=int, default=None,
+                        help=f'Treino inicial privado em 1 época de N passos. Padrão: até {PRIVATE_INIT_EPOCHS} épocas completas.')
+    parser.add_argument('--public-init-lr', type=float, default=None,
+                        help='Learning rate do treino inicial nos dados públicos. Padrão: o do compile (1e-3).')
+    parser.add_argument('--private-init-lr', type=float, default=None,
+                        help='Learning rate do treino inicial privado. Padrão: o mesmo do public_init (1e-3).')
+    parser.add_argument('--digest-steps', type=int, default=None,
+                        help='Passos do digest por época, fixos em qualquer fração pública. Padrão: uma passada pelo subconjunto da rodada.')
+    parser.add_argument('--digest-temperature', type=float, default=None,
+                        help='Usa KL com temperatura T no digest (T² · KL entre softmax do consenso e do cliente). Padrão: MAE nos logits.')
+    parser.add_argument('--digest-lr', type=float, default=1e-3,
+                        help='Learning rate do digest. O digest não usa rótulos e dá ~24 a ~190 passos por rodada.')
+    parser.add_argument('--private-init-rehearsal', action='store_true',
+                        help='Aplica o rehearsal (com --rehearsal-fraction) também no treino inicial privado.')
+    parser.add_argument('--rehearsal-fraction', type=float, default=0.0,
+                        help='Fração de amostras públicas rotuladas em cada batch do revisit (rehearsal). 0 desliga.')
     parser.add_argument('--private-steps', type=int, default=None,
                         help='Passos de gradiente por época do revisit, iguais para todo cliente. Padrão: uma passada pelos dados.')
     parser.add_argument('--revisit-lr', type=float, default=5e-5,
