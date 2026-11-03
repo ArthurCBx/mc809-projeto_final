@@ -56,7 +56,7 @@ def small_cnn(filters):
     return f
 
 
-def build_model(backbone_fn, num_classes=2, image_size=(224, 224)):
+def build_model(backbone_fn, num_classes=2, image_size=(224, 224), jit_compile='auto'):
     inputs = keras.Input((*image_size, 3))
     x = keras.layers.Rescaling(1 / 255)(inputs)   # make_client_dataset entrega pixels em 0–255
     x = backbone_fn(x)
@@ -68,6 +68,7 @@ def build_model(backbone_fn, num_classes=2, image_size=(224, 224)):
         optimizer=keras.optimizers.AdamW(1e-3),
         loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True),
         metrics=["accuracy"],
+        jit_compile=jit_compile,
     )
     return model
 
@@ -115,7 +116,7 @@ class Client():
                  private_train_idx: np.ndarray, private_val_idx: np.ndarray,
                  test_paths: np.ndarray, test_labels: np.ndarray,
                  batch_size: int=BATCH_SIZE, gpu_memory_mb: int=None, mixed_precision: bool=MIXED_PRECISION, seed: int=42,
-                 digest_lr: float=1e-3, digest_temperature: float=None):
+                 digest_lr: float=1e-3, digest_temperature: float=None, jit_compile='auto'):
         """Cliente do FedMD.
 
         Recebe índices em vez de tf.data.Dataset porque datasets não podem ser serializados para o actor;
@@ -146,13 +147,15 @@ class Client():
         keras.utils.set_random_seed(seed + client_id)
 
         self.client_id         = client_id
-        self.model             = build_model(small_cnn(filters), num_classes=len(CLASS_NAMES), image_size=IMAGE_SIZE)
+        # jit_compile=False evita os picos de memória da compilação XLA (um formato de batch novo recompila e autotuna).
+        self.model             = build_model(small_cnn(filters), num_classes=len(CLASS_NAMES), image_size=IMAGE_SIZE,
+                                             jit_compile=jit_compile)
         # Mesmas camadas (e pesos) de self.model, compilado uma vez só com a loss do digest. Recompilar self.model
         # a cada rodada recria e recompila a função de treino, e a RAM do worker cresce ~85 MB por rodada.
         self.digest_model      = keras.Model(self.model.inputs, self.model.outputs)
         digest_loss = (keras.losses.MeanAbsoluteError() if digest_temperature is None
                        else distillation_kl(digest_temperature))
-        self.digest_model.compile(optimizer=keras.optimizers.AdamW(digest_lr), loss=digest_loss)
+        self.digest_model.compile(optimizer=keras.optimizers.AdamW(digest_lr), loss=digest_loss, jit_compile=jit_compile)
         self.file_paths        = file_paths    # dataset inteiro; fed_train recorta o subconjunto público
         self.labels            = labels
         self.private_train_idx = private_train_idx
@@ -306,13 +309,14 @@ def run_experiment(public_fraction: float, alpha: float, args):
     client_idx, public_idx, file_paths, labels = split_dataset(
         True, NUM_CLIENTS, alpha=alpha, public_fraction=public_fraction, seed=args.seed)
     test_paths, test_labels = list_files(train_data=False)
-    public_train_idx, public_val_idx = holdout_split(public_idx, VAL_FRACTION, args.seed)
-    private_splits = [holdout_split(idx, VAL_FRACTION, args.seed + cid) for cid, idx in enumerate(client_idx)]
+    public_train_idx, public_val_idx = holdout_split(public_idx, args.val_fraction, args.seed)
+    private_splits = [holdout_split(idx, args.val_fraction, args.seed + cid) for cid, idx in enumerate(client_idx)]
 
     clients = [
         Client.remote(cid, CLIENT_ARCHITECTURES[cid], file_paths, labels, *private_splits[cid],
                       test_paths, test_labels, args.batch_size, args.gpu_memory_mb, MIXED_PRECISION, args.seed,
-                      digest_lr=args.digest_lr, digest_temperature=args.digest_temperature)
+                      digest_lr=args.digest_lr, digest_temperature=args.digest_temperature,
+                      jit_compile=False if args.no_jit else 'auto')
         for cid in range(NUM_CLIENTS)
     ]
     client_info = [{'n_private': len(idx), 'private_malignant_fraction': float(labels[idx].mean())}
@@ -413,12 +417,17 @@ if __name__ == '__main__':
     parser.add_argument('--private-epochs', type=int, default=3, help='Máximo de épocas do revisit em cada rodada.')
     parser.add_argument('--private-init-steps', type=int, default=None,
                         help=f'Treino inicial privado em 1 época de N passos. Padrão: até {PRIVATE_INIT_EPOCHS} épocas completas.')
+    parser.add_argument('--val-fraction', type=float, default=VAL_FRACTION,
+                        help='Fração separada para validação, do público (public_init) e do privado de cada cliente. '
+                             'Valores maiores deixam menos dados de treino a cada cliente.')
     parser.add_argument('--public-init-lr', type=float, default=None,
                         help='Learning rate do treino inicial nos dados públicos. Padrão: o do compile (1e-3).')
     parser.add_argument('--private-init-lr', type=float, default=None,
                         help='Learning rate do treino inicial privado. Padrão: o mesmo do public_init (1e-3).')
     parser.add_argument('--digest-steps', type=int, default=None,
                         help='Passos do digest por época, fixos em qualquer fração pública. Padrão: uma passada pelo subconjunto da rodada.')
+    parser.add_argument('--no-jit', action='store_true',
+                        help='Compila os modelos sem XLA. Mais lento, mas sem os picos de memória de GPU da compilação.')
     parser.add_argument('--digest-temperature', type=float, default=None,
                         help='Usa KL com temperatura T no digest (T² · KL entre softmax do consenso e do cliente). Padrão: MAE nos logits.')
     parser.add_argument('--digest-lr', type=float, default=1e-3,

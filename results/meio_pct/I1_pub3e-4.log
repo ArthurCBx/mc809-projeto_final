@@ -1,0 +1,142 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793635792.725384   64452 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793635792.780067   64452 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793635793.904714   64452 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-02 16:09:55,231	WARNING authentication_token_setup.py:85 -- Token authentication is enabled for this Ray cluster. Set RAY_AUTH_MODE=disabled to opt out. For more information, see https://docs.ray.io/en/latest/ray-security/token-auth.html
+2026-11-02 16:09:55,875	WARNING services.py:2248 -- WARNING: The object store is using /tmp/ray instead of /dev/shm because /dev/shm has only 67108864 bytes available. This will harm performance! You may be able to free up space by deleting files in /dev/shm. If you are inside a Docker container, you can increase /dev/shm size by passing '--shm-size=6.28gb' to 'docker run' (or add it to the run_options list in a Ray cluster config). Make sure to set this to more than 30% of available RAM.
+2026-11-02 16:09:58,021	INFO worker.py:2033 -- Started a local Ray instance.
+2026-11-02 16:09:58,025	WARNING working_dir.py:91 -- Directory '.git' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-02 16:09:58,027	WARNING working_dir.py:91 -- Directory '__pycache__' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-02 16:09:58,032	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-02 16:09:59,604	INFO packaging.py:734 -- Creating a file package for local module '/mc809 - Comp Distribuida/projeto_final'.
+2026-11-02 16:09:59,607	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-02 16:10:02,043	INFO packaging.py:434 -- Pushing file package 'gcs://_ray_pkg_ac845b660dd4d76e.zip' (21.51MiB) to Ray cluster...
+2026-11-02 16:10:02,150	INFO packaging.py:447 -- Successfully pushed file package 'gcs://_ray_pkg_ac845b660dd4d76e.zip'.
+2026-11-02 16:10:02,743 - Configuração {'seed': 42, 'public_fraction': 0.005, 'alpha': 'iid'}
+[36m(pid=69167)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=69167)[0m I0000 00:00:1793635803.750475   69167 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(pid=69168)[0m I0000 00:00:1793635803.747511   69168 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=69168)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=69169)[0m W0000 00:00:1793635806.133249   69169 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=69169)[0m W0000 00:00:1793635806.137811   69169 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=69169)[0m I0000 00:00:1793635806.414269   69169 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=69168)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=69168)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(Client pid=69168)[0m I0000 00:00:1793635809.907552   69338 service.cc:153] XLA service 0x71f7dc038ae0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=69168)[0m I0000 00:00:1793635809.907595   69338 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(pid=69166)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(pid=69166)[0m I0000 00:00:1793635804.818519   69166 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=69166)[0m I0000 00:00:1793635803.812447   69166 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=69166)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=69167)[0m I0000 00:00:1793635810.016896   69351 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(Client pid=69167)[0m I0000 00:00:1793635810.217169   69351 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=69167)[0m I0000 00:00:1793635810.231318   69351 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=69166)[0m W0000 00:00:1793635806.275619   69166 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 6x across cluster][0m
+[36m(Client pid=69168)[0m I0000 00:00:1793635822.522707   69338 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=69166)[0m I0000 00:00:1793635806.573059   69166 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=69169)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=69169)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=69169)[0m I0000 00:00:1793635810.728601   69332 service.cc:153] XLA service 0x746ba803d830 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=69169)[0m I0000 00:00:1793635810.728644   69332 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=69169)[0m I0000 00:00:1793635810.788635   69332 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=69169)[0m I0000 00:00:1793635811.284834   69332 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=69169)[0m I0000 00:00:1793635811.318315   69332 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=69169)[0m I0000 00:00:1793635827.929076   69332 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.[32m [repeated 3x across cluster][0m
+[36m(Client pid=69166)[0m I0000 00:00:1793635826.182394   69347 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4846__.70[32m [repeated 3x across cluster][0m
+[36m(Client pid=69168)[0m I0000 00:00:1793635844.170426   72992 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=69168)[0m 
+[36m(Client pid=69169)[0m I0000 00:00:1793635828.389018   69330 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85
+[36m(Client pid=69166)[0m 
+[36m(Client pid=69167)[0m 
+[36m(Client pid=69169)[0m 
+2026-11-02 16:10:47,433 - public_init rodada 0: acurácia de teste 0.500, 0.500, 0.501, 0.500
+2026-11-02 16:10:50,152 - public_init rodada 0: ensemble 0.500
+2026-11-02 16:11:42,566 - private_init rodada 0: acurácia de teste 0.847, 0.863, 0.874, 0.885
+2026-11-02 16:11:43,719 - private_init rodada 0: ensemble 0.881
+2026-11-02 16:11:43,721 - Configuração {'seed': 42, 'public_fraction': 0.005, 'alpha': 1.0}
+[36m(pid=74670)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=74670)[0m I0000 00:00:1793635904.640979   74670 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(Client pid=69169)[0m I0000 00:00:1793635846.114199   73041 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 3x across cluster][0m
+[36m(pid=74670)[0m I0000 00:00:1793635904.708795   74670 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=74670)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=74670)[0m W0000 00:00:1793635907.136264   74670 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=74670)[0m W0000 00:00:1793635907.140933   74670 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=74670)[0m I0000 00:00:1793635907.306892   74670 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=74670)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=74670)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(Client pid=74670)[0m I0000 00:00:1793635910.615841   74845 service.cc:153] XLA service 0x70d580037990 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=74670)[0m I0000 00:00:1793635910.615879   74845 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(Client pid=74670)[0m I0000 00:00:1793635910.649646   74845 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(pid=74678)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster][0m
+[36m(pid=74678)[0m I0000 00:00:1793635905.832677   74678 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=74678)[0m I0000 00:00:1793635904.826552   74678 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=74678)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=74670)[0m I0000 00:00:1793635910.881878   74845 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=74670)[0m I0000 00:00:1793635910.895767   74845 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=74671)[0m I0000 00:00:1793635923.707324   74852 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=74678)[0m W0000 00:00:1793635907.141176   74678 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 6x across cluster][0m
+[36m(Client pid=74678)[0m I0000 00:00:1793635907.301839   74678 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=74678)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=74678)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=74678)[0m I0000 00:00:1793635911.299401   74834 service.cc:153] XLA service 0x70acd803f520 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=74678)[0m I0000 00:00:1793635911.299445   74834 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=74678)[0m I0000 00:00:1793635911.355891   74834 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=74678)[0m I0000 00:00:1793635911.748199   74834 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=74678)[0m I0000 00:00:1793635911.769456   74834 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=74678)[0m I0000 00:00:1793635928.879760   74834 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.[32m [repeated 3x across cluster][0m
+[36m(Client pid=74676)[0m I0000 00:00:1793635926.915376   74838 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4846__.70[32m [repeated 3x across cluster][0m
+[36m(Client pid=74671)[0m I0000 00:00:1793635945.259504   78499 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=74671)[0m 
+[36m(Client pid=74678)[0m I0000 00:00:1793635929.570766   74835 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85
+[36m(Client pid=74676)[0m 
+[36m(Client pid=74670)[0m 
+[36m(Client pid=74678)[0m 
+2026-11-02 16:12:28,461 - public_init rodada 0: acurácia de teste 0.500, 0.500, 0.501, 0.500
+2026-11-02 16:12:31,144 - public_init rodada 0: ensemble 0.500
+2026-11-02 16:13:54,616 - private_init rodada 0: acurácia de teste 0.841, 0.863, 0.870, 0.894
+2026-11-02 16:13:55,895 - private_init rodada 0: ensemble 0.882
+2026-11-02 16:13:55,898 - Configuração {'seed': 42, 'public_fraction': 0.005, 'alpha': 0.1}
+[36m(pid=80493)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=80493)[0m I0000 00:00:1793636036.840387   80493 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(pid=80493)[0m I0000 00:00:1793636036.880389   80493 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=80493)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=74678)[0m I0000 00:00:1793635947.329059   78533 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 3x across cluster][0m
+[36m(Client pid=80492)[0m W0000 00:00:1793636039.113164   80492 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=80492)[0m W0000 00:00:1793636039.118344   80492 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=80493)[0m I0000 00:00:1793636039.342866   80493 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=80493)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=80493)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(Client pid=80493)[0m I0000 00:00:1793636042.584935   80675 service.cc:153] XLA service 0x77b0e0037550 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=80493)[0m I0000 00:00:1793636042.584973   80675 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(pid=80497)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster][0m
+[36m(pid=80497)[0m I0000 00:00:1793636037.843728   80497 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=80497)[0m I0000 00:00:1793636036.883933   80497 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=80497)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=80493)[0m I0000 00:00:1793636042.622024   80675 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(Client pid=80493)[0m I0000 00:00:1793636042.828538   80675 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=80493)[0m I0000 00:00:1793636042.845571   80675 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=80492)[0m I0000 00:00:1793636055.846317   80655 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=80493)[0m W0000 00:00:1793636039.185877   80493 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 6x across cluster][0m
+[36m(Client pid=80497)[0m I0000 00:00:1793636039.279905   80497 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=80497)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=80497)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=80499)[0m I0000 00:00:1793636043.179167   80670 service.cc:153] XLA service 0x7b6adc051830 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=80499)[0m I0000 00:00:1793636043.179241   80670 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=80499)[0m I0000 00:00:1793636043.216755   80670 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=80499)[0m I0000 00:00:1793636043.636247   80670 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=80499)[0m I0000 00:00:1793636043.685416   80670 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=80499)[0m I0000 00:00:1793636061.113209   80670 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.[32m [repeated 3x across cluster][0m
+[36m(Client pid=80497)[0m I0000 00:00:1793636059.083110   80663 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4846__.70[32m [repeated 3x across cluster][0m
+[36m(Client pid=80492)[0m I0000 00:00:1793636086.555174   84639 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=80492)[0m 
+[36m(Client pid=80499)[0m I0000 00:00:1793636061.665359   80667 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85
+[36m(Client pid=80493)[0m 
+[36m(Client pid=80497)[0m 
+[36m(Client pid=80499)[0m 
+2026-11-02 16:14:49,678 - public_init rodada 0: acurácia de teste 0.500, 0.500, 0.501, 0.500
+2026-11-02 16:14:52,391 - public_init rodada 0: ensemble 0.500
+2026-11-02 16:15:43,134 - private_init rodada 0: acurácia de teste 0.829, 0.806, 0.816, 0.782
+2026-11-02 16:15:44,409 - private_init rodada 0: ensemble 0.866
+[36m(Client pid=80499)[0m I0000 00:00:1793636088.529840   84683 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 3x across cluster][0m

@@ -1,0 +1,688 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793679943.799386   76523 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793679943.843525   76523 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793679944.921867   76523 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-03 04:25:46,101	WARNING authentication_token_setup.py:85 -- Token authentication is enabled for this Ray cluster. Set RAY_AUTH_MODE=disabled to opt out. For more information, see https://docs.ray.io/en/latest/ray-security/token-auth.html
+2026-11-03 04:25:46,729	WARNING services.py:2248 -- WARNING: The object store is using /tmp/ray instead of /dev/shm because /dev/shm has only 67108864 bytes available. This will harm performance! You may be able to free up space by deleting files in /dev/shm. If you are inside a Docker container, you can increase /dev/shm size by passing '--shm-size=6.18gb' to 'docker run' (or add it to the run_options list in a Ray cluster config). Make sure to set this to more than 30% of available RAM.
+2026-11-03 04:25:47,862	INFO worker.py:2033 -- Started a local Ray instance.
+2026-11-03 04:25:47,866	WARNING working_dir.py:91 -- Directory '.git' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-03 04:25:47,868	WARNING working_dir.py:91 -- Directory '__pycache__' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-03 04:25:47,872	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-03 04:25:49,781	INFO packaging.py:734 -- Creating a file package for local module '/mc809 - Comp Distribuida/projeto_final'.
+2026-11-03 04:25:49,784	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-03 04:25:52,686	INFO packaging.py:434 -- Pushing file package 'gcs://_ray_pkg_ed706a73d41fe2ee.zip' (24.71MiB) to Ray cluster...
+2026-11-03 04:25:52,755	INFO packaging.py:447 -- Successfully pushed file package 'gcs://_ray_pkg_ed706a73d41fe2ee.zip'.
+2026-11-03 04:25:53,306 - Configuração {'seed': 1, 'public_fraction': 0.05, 'alpha': 'iid'}
+[36m(pid=82142)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=82142)[0m I0000 00:00:1793679954.358491   82142 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(pid=82142)[0m I0000 00:00:1793679954.399710   82142 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=82142)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=82112)[0m W0000 00:00:1793679957.015631   82112 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=82112)[0m W0000 00:00:1793679957.020429   82112 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=82112)[0m I0000 00:00:1793679957.174663   82112 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=82112)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=82112)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(pid=82150)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(pid=82150)[0m I0000 00:00:1793679955.628015   82150 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=82150)[0m I0000 00:00:1793679954.468361   82150 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=82150)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=82112)[0m I0000 00:00:1793679961.176665   84280 service.cc:153] XLA service 0x70408004d1e0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=82112)[0m I0000 00:00:1793679961.176715   84280 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(Client pid=82112)[0m I0000 00:00:1793679961.313168   84280 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(Client pid=82112)[0m I0000 00:00:1793679961.723657   84280 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=82112)[0m I0000 00:00:1793679961.745419   84280 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=82150)[0m W0000 00:00:1793679957.129302   82150 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 6x across cluster][0m
+[36m(Client pid=82150)[0m I0000 00:00:1793679957.273695   82150 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=82112)[0m I0000 00:00:1793679975.104544   84280 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=82126)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=82126)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=82126)[0m I0000 00:00:1793679962.072990   84298 service.cc:153] XLA service 0x7dbec4009090 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=82126)[0m I0000 00:00:1793679962.073016   84298 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=82126)[0m I0000 00:00:1793679962.205392   84298 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=82150)[0m I0000 00:00:1793679962.527765   84294 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=82150)[0m I0000 00:00:1793679962.549426   84294 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=82150)[0m I0000 00:00:1793679981.165792   84294 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.[32m [repeated 3x across cluster][0m
+[36m(Client pid=82126)[0m I0000 00:00:1793679979.286467   84299 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4846__.70[32m [repeated 3x across cluster][0m
+[36m(Client pid=82126)[0m I0000 00:00:1793680013.208737   12218 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=82126)[0m 
+[36m(Client pid=82150)[0m I0000 00:00:1793679981.724625   84295 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85
+[36m(Client pid=82150)[0m 
+[36m(Client pid=82112)[0m 
+[36m(Client pid=82142)[0m 
+2026-11-03 04:26:56,261 - public_init rodada 0: acurácia de teste 0.829, 0.835, 0.840, 0.855
+2026-11-03 04:27:01,382 - public_init rodada 0: ensemble 0.846
+2026-11-03 04:27:55,815 - private_init rodada 0: acurácia de teste 0.868, 0.872, 0.899, 0.891
+2026-11-03 04:27:57,092 - private_init rodada 0: ensemble 0.889
+[36m(Client pid=82112)[0m I0000 00:00:1793680081.286438   84279 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_13123__.56
+[36m(Client pid=82142)[0m I0000 00:00:1793680014.557475   12215 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 3x across cluster][0m
+2026-11-03 04:28:36,366 - federated rodada 1: acurácia de teste 0.864, 0.859, 0.875, 0.876
+2026-11-03 04:28:37,640 - federated rodada 1: ensemble 0.879
+2026-11-03 04:28:55,599 - federated rodada 2: acurácia de teste 0.870, 0.875, 0.879, 0.880
+2026-11-03 04:28:56,873 - federated rodada 2: ensemble 0.877
+2026-11-03 04:29:14,318 - federated rodada 3: acurácia de teste 0.868, 0.870, 0.879, 0.884
+2026-11-03 04:29:15,590 - federated rodada 3: ensemble 0.881
+2026-11-03 04:29:30,618 - federated rodada 4: acurácia de teste 0.862, 0.878, 0.876, 0.882
+2026-11-03 04:29:31,815 - federated rodada 4: ensemble 0.877
+2026-11-03 04:29:47,579 - federated rodada 5: acurácia de teste 0.867, 0.866, 0.867, 0.879
+2026-11-03 04:29:48,685 - federated rodada 5: ensemble 0.872
+2026-11-03 04:30:13,753 - federated rodada 6: acurácia de teste 0.863, 0.868, 0.879, 0.879
+2026-11-03 04:30:14,951 - federated rodada 6: ensemble 0.873
+2026-11-03 04:30:30,099 - federated rodada 7: acurácia de teste 0.862, 0.869, 0.869, 0.878
+2026-11-03 04:30:31,372 - federated rodada 7: ensemble 0.870
+2026-11-03 04:30:46,218 - federated rodada 8: acurácia de teste 0.865, 0.875, 0.884, 0.881
+2026-11-03 04:30:47,494 - federated rodada 8: ensemble 0.877
+2026-11-03 04:31:02,300 - federated rodada 9: acurácia de teste 0.870, 0.870, 0.878, 0.881
+2026-11-03 04:31:03,575 - federated rodada 9: ensemble 0.877
+2026-11-03 04:31:19,767 - federated rodada 10: acurácia de teste 0.866, 0.877, 0.880, 0.875
+2026-11-03 04:31:20,888 - federated rodada 10: ensemble 0.875
+2026-11-03 04:31:35,533 - federated rodada 11: acurácia de teste 0.870, 0.876, 0.876, 0.880
+2026-11-03 04:31:36,809 - federated rodada 11: ensemble 0.882
+2026-11-03 04:31:51,836 - federated rodada 12: acurácia de teste 0.868, 0.868, 0.876, 0.885
+2026-11-03 04:31:53,113 - federated rodada 12: ensemble 0.880
+2026-11-03 04:32:08,991 - federated rodada 13: acurácia de teste 0.862, 0.874, 0.884, 0.881
+2026-11-03 04:32:10,267 - federated rodada 13: ensemble 0.882
+2026-11-03 04:32:35,189 - federated rodada 14: acurácia de teste 0.863, 0.885, 0.884, 0.883
+2026-11-03 04:32:36,463 - federated rodada 14: ensemble 0.880
+2026-11-03 04:32:51,409 - federated rodada 15: acurácia de teste 0.876, 0.880, 0.884, 0.887
+2026-11-03 04:32:52,687 - federated rodada 15: ensemble 0.884
+2026-11-03 04:33:07,782 - federated rodada 16: acurácia de teste 0.876, 0.878, 0.892, 0.882
+2026-11-03 04:33:08,944 - federated rodada 16: ensemble 0.884
+2026-11-03 04:33:33,961 - federated rodada 17: acurácia de teste 0.870, 0.882, 0.891, 0.893
+2026-11-03 04:33:35,054 - federated rodada 17: ensemble 0.889
+2026-11-03 04:33:49,780 - federated rodada 18: acurácia de teste 0.865, 0.882, 0.887, 0.890
+2026-11-03 04:33:51,055 - federated rodada 18: ensemble 0.885
+2026-11-03 04:34:05,727 - federated rodada 19: acurácia de teste 0.872, 0.880, 0.887, 0.886
+2026-11-03 04:34:06,793 - federated rodada 19: ensemble 0.885
+2026-11-03 04:34:22,465 - federated rodada 20: acurácia de teste 0.876, 0.867, 0.886, 0.879
+2026-11-03 04:34:23,539 - federated rodada 20: ensemble 0.882
+2026-11-03 04:34:38,506 - federated rodada 21: acurácia de teste 0.875, 0.889, 0.885, 0.883
+2026-11-03 04:34:39,596 - federated rodada 21: ensemble 0.882
+2026-11-03 04:34:54,921 - federated rodada 22: acurácia de teste 0.872, 0.880, 0.887, 0.883
+2026-11-03 04:34:56,013 - federated rodada 22: ensemble 0.883
+2026-11-03 04:35:11,069 - federated rodada 23: acurácia de teste 0.877, 0.893, 0.888, 0.882
+2026-11-03 04:35:12,172 - federated rodada 23: ensemble 0.891
+2026-11-03 04:35:27,351 - federated rodada 24: acurácia de teste 0.873, 0.884, 0.890, 0.889
+2026-11-03 04:35:28,625 - federated rodada 24: ensemble 0.890
+2026-11-03 04:35:45,815 - federated rodada 25: acurácia de teste 0.883, 0.880, 0.880, 0.887
+2026-11-03 04:35:46,917 - federated rodada 25: ensemble 0.886
+2026-11-03 04:36:01,879 - federated rodada 26: acurácia de teste 0.875, 0.887, 0.893, 0.888
+2026-11-03 04:36:03,153 - federated rodada 26: ensemble 0.886
+2026-11-03 04:36:18,988 - federated rodada 27: acurácia de teste 0.887, 0.867, 0.885, 0.890
+2026-11-03 04:36:20,109 - federated rodada 27: ensemble 0.886
+2026-11-03 04:36:35,198 - federated rodada 28: acurácia de teste 0.884, 0.886, 0.889, 0.891
+2026-11-03 04:36:36,472 - federated rodada 28: ensemble 0.887
+2026-11-03 04:36:51,647 - federated rodada 29: acurácia de teste 0.881, 0.884, 0.898, 0.888
+2026-11-03 04:36:52,768 - federated rodada 29: ensemble 0.889
+2026-11-03 04:37:07,496 - federated rodada 30: acurácia de teste 0.886, 0.887, 0.892, 0.894
+2026-11-03 04:37:08,638 - federated rodada 30: ensemble 0.889
+2026-11-03 04:37:08,640 - Configuração {'seed': 1, 'public_fraction': 0.05, 'alpha': 1.0}
+[36m(pid=37348)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=37348)[0m I0000 00:00:1793680629.630533   37348 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(pid=37348)[0m I0000 00:00:1793680629.676084   37348 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=37348)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=82150)[0m I0000 00:00:1793680082.730586   84295 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_16701__.86[32m [repeated 3x across cluster][0m
+[36m(Client pid=37348)[0m W0000 00:00:1793680632.098217   37348 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=37348)[0m W0000 00:00:1793680632.104754   37348 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=37348)[0m I0000 00:00:1793680632.273378   37348 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70ba00088c20> and will run it as-is.
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70ba00088c20>: no matching AST found among candidates:
+[36m(Client pid=37348)[0m # coding=utf-8
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+[36m(Client pid=37348)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=37348)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(Client pid=37350)[0m I0000 00:00:1793680635.733375   37507 service.cc:153] XLA service 0x7725f003a0e0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=37350)[0m I0000 00:00:1793680635.733417   37507 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(pid=37351)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster][0m
+[36m(pid=37351)[0m I0000 00:00:1793680630.823771   37351 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=37351)[0m I0000 00:00:1793680629.734096   37351 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=37351)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=37350)[0m I0000 00:00:1793680635.854165   37507 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(Client pid=37348)[0m I0000 00:00:1793680636.216515   37513 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=37348)[0m I0000 00:00:1793680636.246633   37513 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=37351)[0m W0000 00:00:1793680632.157167   37351 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 6x across cluster][0m
+[36m(Client pid=37351)[0m I0000 00:00:1793680632.301598   37351 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=37350)[0m I0000 00:00:1793680648.874371   37507 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=37351)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7dbd2c12c680> and will run it as-is.[32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7dbd2c12c680>: no matching AST found among candidates:[32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m # coding=utf-8[32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m I0000 00:00:1793680636.820832   37520 service.cc:153] XLA service 0x7dbc8803e8d0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m I0000 00:00:1793680636.820878   37520 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m I0000 00:00:1793680636.913753   37520 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m I0000 00:00:1793680637.279284   37520 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m I0000 00:00:1793680637.320012   37520 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m I0000 00:00:1793680653.869804   37520 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.[32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m I0000 00:00:1793680654.614810   37522 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85[32m [repeated 4x across cluster][0m
+[36m(Client pid=37349)[0m I0000 00:00:1793680689.113565   42426 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=37349)[0m 
+[36m(Client pid=37350)[0m 
+[36m(Client pid=37348)[0m 
+[36m(Client pid=37351)[0m 
+2026-11-03 04:38:12,531 - public_init rodada 0: acurácia de teste 0.823, 0.833, 0.832, 0.849
+2026-11-03 04:38:15,402 - public_init rodada 0: ensemble 0.849
+[36m(Client pid=37349)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x79dbfbddee80> and will run it as-is.
+[36m(Client pid=37349)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x79dbfbddee80>: no matching AST found among candidates:
+[36m(Client pid=37349)[0m # coding=utf-8
+[36m(Client pid=37349)[0m lambda x, y: (self.augment(x, training=True), y)
+[36m(Client pid=37349)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+[36m(Client pid=37351)[0m I0000 00:00:1793680690.520109   42422 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 3x across cluster][0m
+2026-11-03 04:39:12,428 - private_init rodada 0: acurácia de teste 0.868, 0.851, 0.898, 0.899
+2026-11-03 04:39:13,578 - private_init rodada 0: ensemble 0.893
+[36m(Client pid=37348)[0m I0000 00:00:1793680757.487944   37513 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_12915__.56
+[36m(Client pid=37350)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x772641db6840> and will run it as-is.[32m [repeated 3x across cluster][0m
+[36m(Client pid=37350)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x772641db6840>: no matching AST found among candidates:[32m [repeated 3x across cluster][0m
+[36m(Client pid=37350)[0m # coding=utf-8[32m [repeated 3x across cluster][0m
+[36m(Client pid=37350)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 3x across cluster][0m
+[36m(Client pid=37350)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m I0000 00:00:1793680759.237892   37523 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_17245__.86[32m [repeated 3x across cluster][0m
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70b95c057600> and will run it as-is.
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70b95c057600>: no matching AST found among candidates:
+[36m(Client pid=37348)[0m # coding=utf-8
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+[36m(Client pid=37350)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7725f41b3600> and will run it as-is.
+[36m(Client pid=37350)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7725f41b3600>: no matching AST found among candidates:
+[36m(Client pid=37350)[0m # coding=utf-8
+[36m(Client pid=37350)[0m lambda x, y: (self.augment(x, training=True), y)
+[36m(Client pid=37350)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+2026-11-03 04:39:43,446 - federated rodada 1: acurácia de teste 0.867, 0.865, 0.868, 0.879
+2026-11-03 04:39:44,547 - federated rodada 1: ensemble 0.878
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70b95c055f80> and will run it as-is.[32m [repeated 3x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70b95c055f80>: no matching AST found among candidates:[32m [repeated 3x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 3x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 3x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 3x across cluster][0m
+2026-11-03 04:39:59,854 - federated rodada 2: acurácia de teste 0.872, 0.867, 0.889, 0.873
+2026-11-03 04:40:01,127 - federated rodada 2: ensemble 0.886
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70b95c056d40> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70b95c056d40>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:40:16,412 - federated rodada 3: acurácia de teste 0.879, 0.870, 0.882, 0.871
+2026-11-03 04:40:17,685 - federated rodada 3: ensemble 0.886
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70b95c057ba0> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70b95c057ba0>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:40:32,728 - federated rodada 4: acurácia de teste 0.869, 0.868, 0.876, 0.879
+2026-11-03 04:40:34,001 - federated rodada 4: ensemble 0.874
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70b95c057f60> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70b95c057f60>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:40:48,873 - federated rodada 5: acurácia de teste 0.867, 0.860, 0.877, 0.872
+2026-11-03 04:40:50,148 - federated rodada 5: ensemble 0.874
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70b941fd0f40> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70b941fd0f40>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:41:05,549 - federated rodada 6: acurácia de teste 0.866, 0.867, 0.879, 0.867
+2026-11-03 04:41:06,824 - federated rodada 6: ensemble 0.880
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70b95c057600> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70b95c057600>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:41:22,722 - federated rodada 7: acurácia de teste 0.873, 0.864, 0.869, 0.871
+2026-11-03 04:41:23,997 - federated rodada 7: ensemble 0.867
+[36m(Client pid=37350)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7725df6679c0> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37350)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7725df6679c0>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37350)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37350)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37350)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:41:39,786 - federated rodada 8: acurácia de teste 0.865, 0.855, 0.883, 0.871
+2026-11-03 04:41:40,872 - federated rodada 8: ensemble 0.874
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70ba0008aa20> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70ba0008aa20>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:41:57,247 - federated rodada 9: acurácia de teste 0.870, 0.870, 0.876, 0.875
+2026-11-03 04:41:58,524 - federated rodada 9: ensemble 0.874
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70b95cd04b80> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70b95cd04b80>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:42:14,680 - federated rodada 10: acurácia de teste 0.869, 0.864, 0.879, 0.868
+2026-11-03 04:42:15,799 - federated rodada 10: ensemble 0.877
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70b95cd04400> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70b95cd04400>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:42:40,762 - federated rodada 11: acurácia de teste 0.868, 0.873, 0.878, 0.868
+2026-11-03 04:42:41,880 - federated rodada 11: ensemble 0.873
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70b9bbd7f740> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70b9bbd7f740>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:42:58,676 - federated rodada 12: acurácia de teste 0.861, 0.862, 0.887, 0.864
+2026-11-03 04:42:59,856 - federated rodada 12: ensemble 0.869
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70ba000b2ac0> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70ba000b2ac0>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:43:15,263 - federated rodada 13: acurácia de teste 0.865, 0.876, 0.880, 0.870
+2026-11-03 04:43:16,539 - federated rodada 13: ensemble 0.876
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70b9bbd7e980> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70b9bbd7e980>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:43:32,083 - federated rodada 14: acurácia de teste 0.878, 0.879, 0.892, 0.880
+2026-11-03 04:43:33,358 - federated rodada 14: ensemble 0.884
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70ba0008a840> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70ba0008a840>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:43:48,856 - federated rodada 15: acurácia de teste 0.863, 0.874, 0.891, 0.885
+2026-11-03 04:43:49,993 - federated rodada 15: ensemble 0.883
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70b9bbd7f740> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70b9bbd7f740>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:44:05,126 - federated rodada 16: acurácia de teste 0.859, 0.872, 0.891, 0.873
+2026-11-03 04:44:06,227 - federated rodada 16: ensemble 0.880
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70ba00088fe0> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70ba00088fe0>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:44:22,783 - federated rodada 17: acurácia de teste 0.871, 0.876, 0.886, 0.876
+2026-11-03 04:44:24,059 - federated rodada 17: ensemble 0.882
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70b95c057d80> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70b95c057d80>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:44:39,505 - federated rodada 18: acurácia de teste 0.872, 0.870, 0.885, 0.877
+2026-11-03 04:44:40,632 - federated rodada 18: ensemble 0.877
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70ba000b2ac0> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70ba000b2ac0>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:44:57,026 - federated rodada 19: acurácia de teste 0.870, 0.882, 0.891, 0.884
+2026-11-03 04:44:58,165 - federated rodada 19: ensemble 0.881
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70bc104fd1c0> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70bc104fd1c0>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:45:14,039 - federated rodada 20: acurácia de teste 0.873, 0.881, 0.885, 0.876
+2026-11-03 04:45:15,313 - federated rodada 20: ensemble 0.883
+[36m(Client pid=37350)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x772641db7740> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37350)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x772641db7740>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37350)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37350)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37350)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:45:30,847 - federated rodada 21: acurácia de teste 0.868, 0.880, 0.881, 0.878
+2026-11-03 04:45:31,950 - federated rodada 21: ensemble 0.883
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70ba0008a840> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70ba0008a840>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:45:49,178 - federated rodada 22: acurácia de teste 0.871, 0.872, 0.890, 0.878
+2026-11-03 04:45:50,256 - federated rodada 22: ensemble 0.885
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70b9bbd7fd80> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70b9bbd7fd80>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:46:05,715 - federated rodada 23: acurácia de teste 0.869, 0.882, 0.890, 0.874
+2026-11-03 04:46:06,992 - federated rodada 23: ensemble 0.882
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70b9bbd7fd80> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70b9bbd7fd80>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:46:23,226 - federated rodada 24: acurácia de teste 0.877, 0.888, 0.891, 0.879
+2026-11-03 04:46:24,327 - federated rodada 24: ensemble 0.886
+[36m(Client pid=37349)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x79dbfbdde340> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37349)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x79dbfbdde340>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37349)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37349)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37349)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:46:39,925 - federated rodada 25: acurácia de teste 0.877, 0.878, 0.883, 0.876
+2026-11-03 04:46:41,059 - federated rodada 25: ensemble 0.880
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70ba000b22a0> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70ba000b22a0>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:46:56,381 - federated rodada 26: acurácia de teste 0.882, 0.885, 0.892, 0.881
+2026-11-03 04:46:57,463 - federated rodada 26: ensemble 0.886
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70ba000b0cc0> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70ba000b0cc0>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:47:13,016 - federated rodada 27: acurácia de teste 0.880, 0.878, 0.886, 0.875
+2026-11-03 04:47:14,107 - federated rodada 27: ensemble 0.886
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70ba000b0cc0> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70ba000b0cc0>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:47:29,511 - federated rodada 28: acurácia de teste 0.867, 0.882, 0.889, 0.884
+2026-11-03 04:47:30,572 - federated rodada 28: ensemble 0.879
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70b95c055f80> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70b95c055f80>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:47:45,982 - federated rodada 29: acurácia de teste 0.877, 0.886, 0.892, 0.886
+2026-11-03 04:47:47,083 - federated rodada 29: ensemble 0.888
+[36m(Client pid=37348)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x70ba000b22a0> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x70ba000b22a0>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=37348)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:48:02,757 - federated rodada 30: acurácia de teste 0.885, 0.890, 0.886, 0.884
+2026-11-03 04:48:04,031 - federated rodada 30: ensemble 0.890
+2026-11-03 04:48:04,032 - Configuração {'seed': 1, 'public_fraction': 0.05, 'alpha': 0.1}
+[36m(pid=76830)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=76830)[0m I0000 00:00:1793681285.006181   76830 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(pid=76830)[0m I0000 00:00:1793681285.051030   76830 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=76830)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=37351)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7dbc7150bf60> and will run it as-is.[32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7dbc7150bf60>: no matching AST found among candidates:[32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m # coding=utf-8[32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 3x across cluster][0m
+[36m(Client pid=37351)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 3x across cluster][0m
+[36m(Client pid=76830)[0m W0000 00:00:1793681287.440419   76830 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=76830)[0m W0000 00:00:1793681287.444959   76830 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=76830)[0m I0000 00:00:1793681287.576767   76830 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=76836)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=76836)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(Client pid=76833)[0m I0000 00:00:1793681290.893761   77355 service.cc:153] XLA service 0x7f8dd8039b00 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=76833)[0m I0000 00:00:1793681290.893811   77355 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(pid=76833)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster][0m
+[36m(pid=76833)[0m I0000 00:00:1793681286.184016   76833 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=76828)[0m I0000 00:00:1793681285.102139   76828 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=76828)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=76828)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7cd0affcf600> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76828)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7cd0affcf600>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76828)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76828)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76828)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m I0000 00:00:1793681291.063198   77355 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(Client pid=76833)[0m I0000 00:00:1793681291.471991   77355 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=76833)[0m I0000 00:00:1793681291.529096   77355 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=76833)[0m W0000 00:00:1793681287.506540   76833 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 6x across cluster][0m
+[36m(Client pid=76833)[0m I0000 00:00:1793681303.463607   77355 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=76828)[0m I0000 00:00:1793681287.597840   76828 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=76828)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=76828)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=76836)[0m I0000 00:00:1793681291.805964   77342 service.cc:153] XLA service 0x753a480430a0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=76836)[0m I0000 00:00:1793681291.805985   77342 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=76836)[0m I0000 00:00:1793681291.887030   77342 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=76836)[0m I0000 00:00:1793681292.351992   77342 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=76836)[0m I0000 00:00:1793681292.410834   77342 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=76836)[0m I0000 00:00:1793681308.360878   77342 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.[32m [repeated 3x across cluster][0m
+[36m(Client pid=76836)[0m I0000 00:00:1793681308.877031   77344 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m I0000 00:00:1793681336.604749   81822 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=76833)[0m 
+[36m(Client pid=76828)[0m 
+[36m(Client pid=76836)[0m 
+[36m(Client pid=76830)[0m 
+2026-11-03 04:48:59,490 - public_init rodada 0: acurácia de teste 0.828, 0.838, 0.859, 0.818
+2026-11-03 04:49:02,286 - public_init rodada 0: ensemble 0.843
+[36m(Client pid=76828)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7cd045d168e0> and will run it as-is.
+[36m(Client pid=76828)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7cd045d168e0>: no matching AST found among candidates:
+[36m(Client pid=76828)[0m # coding=utf-8
+[36m(Client pid=76828)[0m lambda x, y: (self.augment(x, training=True), y)
+[36m(Client pid=76828)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+[36m(Client pid=76830)[0m I0000 00:00:1793681338.083264   81824 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 3x across cluster][0m
+2026-11-03 04:50:25,777 - private_init rodada 0: acurácia de teste 0.851, 0.839, 0.883, 0.879
+2026-11-03 04:50:26,919 - private_init rodada 0: ensemble 0.879
+[36m(Client pid=76833)[0m I0000 00:00:1793681430.385378   77357 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_13307__.56
+[36m(Client pid=76830)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7884dbd56840> and will run it as-is.[32m [repeated 3x across cluster][0m
+[36m(Client pid=76830)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7884dbd56840>: no matching AST found among candidates:[32m [repeated 3x across cluster][0m
+[36m(Client pid=76830)[0m # coding=utf-8[32m [repeated 3x across cluster][0m
+[36m(Client pid=76830)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 3x across cluster][0m
+[36m(Client pid=76830)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 3x across cluster][0m
+[36m(Client pid=76836)[0m I0000 00:00:1793681431.832835   77343 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_16081__.86[32m [repeated 3x across cluster][0m
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f8dd021f600> and will run it as-is.
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f8dd021f600>: no matching AST found among candidates:
+[36m(Client pid=76833)[0m # coding=utf-8
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+[36m(Client pid=76830)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x78848c1df600> and will run it as-is.
+[36m(Client pid=76830)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x78848c1df600>: no matching AST found among candidates:
+[36m(Client pid=76830)[0m # coding=utf-8
+[36m(Client pid=76830)[0m lambda x, y: (self.augment(x, training=True), y)
+[36m(Client pid=76830)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+2026-11-03 04:51:04,853 - federated rodada 1: acurácia de teste 0.846, 0.833, 0.875, 0.872
+2026-11-03 04:51:05,946 - federated rodada 1: ensemble 0.877
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f8dd021fe20> and will run it as-is.[32m [repeated 3x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f8dd021fe20>: no matching AST found among candidates:[32m [repeated 3x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 3x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 3x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 3x across cluster][0m
+2026-11-03 04:51:25,537 - federated rodada 2: acurácia de teste 0.860, 0.839, 0.873, 0.861
+2026-11-03 04:51:26,813 - federated rodada 2: ensemble 0.874
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f8dd021ec00> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f8dd021ec00>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:51:45,355 - federated rodada 3: acurácia de teste 0.863, 0.834, 0.870, 0.863
+2026-11-03 04:51:46,630 - federated rodada 3: ensemble 0.875
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f8dd021f6a0> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f8dd021f6a0>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:52:02,847 - federated rodada 4: acurácia de teste 0.856, 0.847, 0.863, 0.861
+2026-11-03 04:52:03,935 - federated rodada 4: ensemble 0.870
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f8dd021ff60> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f8dd021ff60>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:52:20,266 - federated rodada 5: acurácia de teste 0.856, 0.840, 0.845, 0.855
+2026-11-03 04:52:21,540 - federated rodada 5: ensemble 0.865
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f8dd00c1e40> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f8dd00c1e40>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:52:37,525 - federated rodada 6: acurácia de teste 0.854, 0.845, 0.856, 0.867
+2026-11-03 04:52:38,670 - federated rodada 6: ensemble 0.869
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f8dd021f880> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f8dd021f880>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:52:58,023 - federated rodada 7: acurácia de teste 0.849, 0.847, 0.855, 0.864
+2026-11-03 04:52:59,163 - federated rodada 7: ensemble 0.868
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f8dd021f060> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f8dd021f060>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:53:15,239 - federated rodada 8: acurácia de teste 0.853, 0.834, 0.858, 0.855
+2026-11-03 04:53:16,351 - federated rodada 8: ensemble 0.875
+[36m(Client pid=76828)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7ccff967f9c0> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76828)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7ccff967f9c0>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76828)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76828)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76828)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:53:33,376 - federated rodada 9: acurácia de teste 0.849, 0.839, 0.860, 0.854
+2026-11-03 04:53:34,516 - federated rodada 9: ensemble 0.863
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f9084126980> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f9084126980>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:53:51,229 - federated rodada 10: acurácia de teste 0.860, 0.835, 0.855, 0.863
+2026-11-03 04:53:52,505 - federated rodada 10: ensemble 0.873
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f9084126a20> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f9084126a20>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:54:08,650 - federated rodada 11: acurácia de teste 0.849, 0.842, 0.858, 0.858
+2026-11-03 04:54:09,759 - federated rodada 11: ensemble 0.857
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f8dd021ee80> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f8dd021ee80>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:54:26,043 - federated rodada 12: acurácia de teste 0.843, 0.840, 0.865, 0.860
+2026-11-03 04:54:27,316 - federated rodada 12: ensemble 0.860
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f908414aac0> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f908414aac0>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+[36m(Client pid=76828)[0m W0000 00:00:1793681675.340831   76828 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=76828)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=76828)[0m I0000 00:00:1793681675.340909   76828 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 6077228576710680294
+2026-11-03 04:54:44,449 - federated rodada 13: acurácia de teste 0.850, 0.841, 0.860, 0.863
+2026-11-03 04:54:45,589 - federated rodada 13: ensemble 0.870
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f8dd021fc40> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f8dd021fc40>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+[36m(Client pid=76828)[0m W0000 00:00:1793681693.763659   76828 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=76828)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]] [type.googleapis.com/tensorflow.DerivedStatus='']
+2026-11-03 04:55:01,891 - federated rodada 14: acurácia de teste 0.852, 0.842, 0.863, 0.865
+2026-11-03 04:55:02,989 - federated rodada 14: ensemble 0.874
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f8e33d82980> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f8e33d82980>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+[36m(Client pid=76828)[0m W0000 00:00:1793681710.902197   93268 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=76828)[0m 	 [[{{node sequential_1/random_zoom_1/Add/ReadVariableOp/_10}}]] [type.googleapis.com/tensorflow.DerivedStatus='']
+2026-11-03 04:55:19,332 - federated rodada 15: acurácia de teste 0.854, 0.851, 0.859, 0.871
+2026-11-03 04:55:20,607 - federated rodada 15: ensemble 0.872
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f8dd021ed40> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f8dd021ed40>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:55:37,903 - federated rodada 16: acurácia de teste 0.856, 0.851, 0.849, 0.867
+2026-11-03 04:55:39,177 - federated rodada 16: ensemble 0.877
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f8dd021fc40> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f8dd021fc40>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:55:55,732 - federated rodada 17: acurácia de teste 0.857, 0.853, 0.877, 0.876
+2026-11-03 04:55:56,869 - federated rodada 17: ensemble 0.881
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f8dd021ee80> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f8dd021ee80>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:56:12,868 - federated rodada 18: acurácia de teste 0.846, 0.857, 0.870, 0.863
+2026-11-03 04:56:13,982 - federated rodada 18: ensemble 0.872
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f8e33d82980> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f8e33d82980>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:56:30,263 - federated rodada 19: acurácia de teste 0.845, 0.858, 0.869, 0.873
+2026-11-03 04:56:31,377 - federated rodada 19: ensemble 0.872
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f8e33d82980> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f8e33d82980>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:56:47,615 - federated rodada 20: acurácia de teste 0.853, 0.859, 0.870, 0.870
+2026-11-03 04:56:48,892 - federated rodada 20: ensemble 0.876
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f9084126980> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f9084126980>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:57:05,335 - federated rodada 21: acurácia de teste 0.858, 0.864, 0.868, 0.867
+2026-11-03 04:57:06,434 - federated rodada 21: ensemble 0.871
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f9084126b60> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f9084126b60>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:57:24,157 - federated rodada 22: acurácia de teste 0.864, 0.856, 0.874, 0.874
+2026-11-03 04:57:25,290 - federated rodada 22: ensemble 0.878
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f9084126a20> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f9084126a20>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:57:42,716 - federated rodada 23: acurácia de teste 0.857, 0.859, 0.873, 0.877
+2026-11-03 04:57:43,828 - federated rodada 23: ensemble 0.879
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f9084126b60> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f9084126b60>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:58:00,334 - federated rodada 24: acurácia de teste 0.856, 0.855, 0.871, 0.865
+2026-11-03 04:58:01,464 - federated rodada 24: ensemble 0.878
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f9084126980> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f9084126980>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:58:18,222 - federated rodada 25: acurácia de teste 0.856, 0.852, 0.865, 0.867
+2026-11-03 04:58:19,495 - federated rodada 25: ensemble 0.875
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f9084126a20> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f9084126a20>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:58:35,570 - federated rodada 26: acurácia de teste 0.858, 0.868, 0.863, 0.864
+2026-11-03 04:58:36,641 - federated rodada 26: ensemble 0.882
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f9084126b60> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f9084126b60>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:58:53,057 - federated rodada 27: acurácia de teste 0.869, 0.857, 0.871, 0.865
+2026-11-03 04:58:54,332 - federated rodada 27: ensemble 0.883
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f9084126980> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f9084126980>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:59:15,297 - federated rodada 28: acurácia de teste 0.871, 0.858, 0.869, 0.871
+2026-11-03 04:59:16,392 - federated rodada 28: ensemble 0.883
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f9084126980> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f9084126980>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:59:33,537 - federated rodada 29: acurácia de teste 0.863, 0.866, 0.872, 0.877
+2026-11-03 04:59:34,652 - federated rodada 29: ensemble 0.883
+[36m(Client pid=76833)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x7f8de8960360> and will run it as-is.[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x7f8de8960360>: no matching AST found among candidates:[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m # coding=utf-8[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 4x across cluster][0m
+[36m(Client pid=76833)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 4x across cluster][0m
+2026-11-03 04:59:51,740 - federated rodada 30: acurácia de teste 0.869, 0.865, 0.866, 0.877
+2026-11-03 04:59:53,013 - federated rodada 30: ensemble 0.880
+[36m(Client pid=76836)[0m WARNING:tensorflow:AutoGraph could not transform <function Client.train.<locals>.<lambda> at 0x753ad89e0220> and will run it as-is.[32m [repeated 3x across cluster][0m
+[36m(Client pid=76836)[0m Cause: could not parse the source code of <function Client.train.<locals>.<lambda> at 0x753ad89e0220>: no matching AST found among candidates:[32m [repeated 3x across cluster][0m
+[36m(Client pid=76836)[0m # coding=utf-8[32m [repeated 3x across cluster][0m
+[36m(Client pid=76836)[0m lambda x, y: (self.augment(x, training=True), y)[32m [repeated 3x across cluster][0m
+[36m(Client pid=76836)[0m To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert[32m [repeated 3x across cluster][0m

@@ -1,0 +1,380 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793679837.070558   57059 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793679837.117420   57059 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793679838.069061   57059 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-03 04:23:59,303	WARNING authentication_token_setup.py:85 -- Token authentication is enabled for this Ray cluster. Set RAY_AUTH_MODE=disabled to opt out. For more information, see https://docs.ray.io/en/latest/ray-security/token-auth.html
+2026-11-03 04:23:59,945	WARNING services.py:2248 -- WARNING: The object store is using /tmp/ray instead of /dev/shm because /dev/shm has only 67108864 bytes available. This will harm performance! You may be able to free up space by deleting files in /dev/shm. If you are inside a Docker container, you can increase /dev/shm size by passing '--shm-size=6.18gb' to 'docker run' (or add it to the run_options list in a Ray cluster config). Make sure to set this to more than 30% of available RAM.
+2026-11-03 04:24:01,088	INFO worker.py:2033 -- Started a local Ray instance.
+2026-11-03 04:24:01,091	WARNING working_dir.py:91 -- Directory '.git' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-03 04:24:01,093	WARNING working_dir.py:91 -- Directory '__pycache__' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-03 04:24:01,096	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-03 04:24:02,718	INFO packaging.py:734 -- Creating a file package for local module '/mc809 - Comp Distribuida/projeto_final'.
+2026-11-03 04:24:02,721	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-03 04:24:05,669	INFO packaging.py:434 -- Pushing file package 'gcs://_ray_pkg_62291972e4c4501a.zip' (24.65MiB) to Ray cluster...
+2026-11-03 04:24:05,727	INFO packaging.py:447 -- Successfully pushed file package 'gcs://_ray_pkg_62291972e4c4501a.zip'.
+2026-11-03 04:24:06,292 - Configuração {'seed': 1, 'public_fraction': 0.01, 'alpha': 'iid'}
+[36m(pid=61971)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=61971)[0m I0000 00:00:1793679847.222985   61971 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(pid=61973)[0m I0000 00:00:1793679847.191215   61973 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=61973)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=61972)[0m W0000 00:00:1793679849.441349   61972 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=61972)[0m W0000 00:00:1793679849.446089   61972 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=61973)[0m I0000 00:00:1793679849.644659   61973 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=61971)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=61971)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(Client pid=61973)[0m I0000 00:00:1793679852.974127   62135 service.cc:153] XLA service 0x76f998038d00 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=61973)[0m I0000 00:00:1793679852.974185   62135 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(pid=61971)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(pid=61971)[0m I0000 00:00:1793679848.251162   61971 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=61971)[0m I0000 00:00:1793679847.297496   61971 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=61971)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=61974)[0m I0000 00:00:1793679852.991250   62144 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(Client pid=61973)[0m I0000 00:00:1793679853.231359   62135 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=61973)[0m I0000 00:00:1793679853.247303   62135 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=61971)[0m I0000 00:00:1793679855.665449   62549 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_1_4', 16 bytes spill stores, 16 bytes spill loads
+[36m(Client pid=61971)[0m 
+[36m(Client pid=61974)[0m W0000 00:00:1793679849.498487   61974 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 6x across cluster][0m
+[36m(Client pid=61971)[0m I0000 00:00:1793679849.715507   61971 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=61974)[0m 
+[36m(Client pid=61972)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=61972)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=61971)[0m I0000 00:00:1793679853.557730   62150 service.cc:153] XLA service 0x70e25803f4c0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=61971)[0m I0000 00:00:1793679853.557760   62150 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=61971)[0m I0000 00:00:1793679853.617328   62150 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=61971)[0m I0000 00:00:1793679854.121127   62150 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=61971)[0m I0000 00:00:1793679854.143471   62150 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=61973)[0m 
+[36m(Client pid=61973)[0m I0000 00:00:1793679861.775498   62457 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_1_4', 16 bytes spill stores, 16 bytes spill loads[32m [repeated 2x across cluster][0m
+[36m(Client pid=61972)[0m 
+[36m(Client pid=61974)[0m I0000 00:00:1793679866.772741   62144 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=61972)[0m I0000 00:00:1793679861.768413   62512 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_1_4', 16 bytes spill stores, 16 bytes spill loads
+[36m(Client pid=61972)[0m I0000 00:00:1793679896.849589   67555 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=61972)[0m 
+[36m(Client pid=61971)[0m I0000 00:00:1793679871.719936   62150 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.[32m [repeated 3x across cluster][0m
+[36m(Client pid=61974)[0m 
+[36m(Client pid=61971)[0m 
+[36m(Client pid=61973)[0m 
+2026-11-03 04:25:00,023 - public_init rodada 0: acurácia de teste 0.774, 0.687, 0.681, 0.500
+2026-11-03 04:25:02,742 - public_init rodada 0: ensemble 0.773
+[36m(Client pid=61971)[0m I0000 00:00:1793679904.174318   62152 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85
+[36m(Client pid=61973)[0m I0000 00:00:1793679897.913929   67534 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 3x across cluster][0m
+Traceback (most recent call last):
+  File "/mc809 - Comp Distribuida/projeto_final/client.py", line 445, in <module>
+    main(args)
+  File "/mc809 - Comp Distribuida/projeto_final/client.py", line 403, in main
+    run_experiment(public_fraction, alpha, args)
+  File "/mc809 - Comp Distribuida/projeto_final/client.py", line 361, in run_experiment
+    log_train('private_init', 0, ray.get([
+                                 ^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 22, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 134, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 3004, in get
+    values, debugger_breakpoint = worker.get_objects(
+                                  ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 1053, in get_objects
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(ResourceExhaustedError): [36mray::Client.train_private()[39m (pid=61973, ip=172.18.0.2, actor_id=03af5d831655ca318dc21f1301000000, repr=<client.Client object at 0x76fe80266d80>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mc809 - Comp Distribuida/projeto_final/client.py", line 237, in train_private
+    return self.train(self.private_train_idx, self.private_val_idx, epochs, patience, augment, learning_rate,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mc809 - Comp Distribuida/projeto_final/client.py", line 218, in train
+    history = self.model.fit(
+              ^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.12/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/opt/venv/lib/python3.12/site-packages/tensorflow/python/eager/execute.py", line 59, in quick_execute
+    except TypeError as e:
+tensorflow.python.framework.errors_impl.ResourceExhaustedError: Graph execution error:
+
+Detected at node StatefulPartitionedCall defined at (most recent call last):
+
+
+
+
+  File "/mc809 - Comp Distribuida/projeto_final/client.py", line 218, in train
+
+  File "/opt/venv/lib/python3.12/site-packages/keras/src/utils/traceback_utils.py", line 117, in error_handler
+
+  File "/opt/venv/lib/python3.12/site-packages/keras/src/backend/tensorflow/trainer.py", line 399, in fit
+
+  File "/opt/venv/lib/python3.12/site-packages/keras/src/backend/tensorflow/trainer.py", line 241, in function
+
+  File "/opt/venv/lib/python3.12/site-packages/keras/src/backend/tensorflow/trainer.py", line 154, in multi_step_on_iterator
+
+  File "/opt/venv/lib/python3.12/site-packages/keras/src/backend/tensorflow/trainer.py", line 125, in wrapper
+
+Out of memory while trying to allocate 1.53GiB.
+	 [[{{node StatefulPartitionedCall}}]]
+Hint: If you want to see a list of allocated tensors when OOM happens, add report_tensor_allocations_upon_oom to RunOptions for current allocation info. This isn't available when running in Eager mode.
+ [Op:__inference_multi_step_on_iterator_4111]
+[36m(Client pid=61973)[0m W0000 00:00:1793679924.417672   62135 bfc_allocator.cc:502] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.53GiB (rounded to 1638149376)requested by op 
+[36m(Client pid=61973)[0m If the cause is memory fragmentation maybe the environment variable 'TF_GPU_ALLOCATOR=cuda_malloc_async' will improve the situation. 
+[36m(Client pid=61973)[0m Current allocation summary follows.
+[36m(Client pid=61973)[0m Current allocation summary follows.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418083   62135 bfc_allocator.cc:1049] BFCAllocator dump for GPU_0_bfc
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418089   62135 bfc_allocator.cc:1056] Bin (256): 	Total Chunks: 158, Chunks in use: 155. 39.5KiB allocated for chunks. 38.8KiB in use in bin. 5.0KiB client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418112   62135 bfc_allocator.cc:1056] Bin (512): 	Total Chunks: 15, Chunks in use: 15. 7.8KiB allocated for chunks. 7.8KiB in use in bin. 7.5KiB client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418114   62135 bfc_allocator.cc:1056] Bin (1024): 	Total Chunks: 5, Chunks in use: 5. 5.2KiB allocated for chunks. 5.2KiB in use in bin. 4.8KiB client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418116   62135 bfc_allocator.cc:1056] Bin (2048): 	Total Chunks: 4, Chunks in use: 3. 12.8KiB allocated for chunks. 10.5KiB in use in bin. 10.1KiB client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418118   62135 bfc_allocator.cc:1056] Bin (4096): 	Total Chunks: 1, Chunks in use: 1. 5.8KiB allocated for chunks. 5.8KiB in use in bin. 5.6KiB client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418120   62135 bfc_allocator.cc:1056] Bin (8192): 	Total Chunks: 2, Chunks in use: 2. 21.0KiB allocated for chunks. 21.0KiB in use in bin. 20.8KiB client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418122   62135 bfc_allocator.cc:1056] Bin (16384): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418125   62135 bfc_allocator.cc:1056] Bin (32768): 	Total Chunks: 1, Chunks in use: 0. 45.2KiB allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418127   62135 bfc_allocator.cc:1056] Bin (65536): 	Total Chunks: 6, Chunks in use: 6. 444.8KiB allocated for chunks. 444.8KiB in use in bin. 408.0KiB client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418129   62135 bfc_allocator.cc:1056] Bin (131072): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418130   62135 bfc_allocator.cc:1056] Bin (262144): 	Total Chunks: 2, Chunks in use: 2. 576.0KiB allocated for chunks. 576.0KiB in use in bin. 576.0KiB client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418132   62135 bfc_allocator.cc:1056] Bin (524288): 	Total Chunks: 1, Chunks in use: 1. 512.0KiB allocated for chunks. 512.0KiB in use in bin. 288.0KiB client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418134   62135 bfc_allocator.cc:1056] Bin (1048576): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418136   62135 bfc_allocator.cc:1056] Bin (2097152): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418138   62135 bfc_allocator.cc:1056] Bin (4194304): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418139   62135 bfc_allocator.cc:1056] Bin (8388608): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418141   62135 bfc_allocator.cc:1056] Bin (16777216): 	Total Chunks: 1, Chunks in use: 1. 18.38MiB allocated for chunks. 18.38MiB in use in bin. 18.38MiB client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418143   62135 bfc_allocator.cc:1056] Bin (33554432): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418145   62135 bfc_allocator.cc:1056] Bin (67108864): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418146   62135 bfc_allocator.cc:1056] Bin (134217728): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418148   62135 bfc_allocator.cc:1056] Bin (268435456): 	Total Chunks: 2, Chunks in use: 0. 2.48GiB allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418150   62135 bfc_allocator.cc:1072] Bin for 1.53GiB was 256.00MiB, Chunk State: 
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418154   62135 bfc_allocator.cc:1078]   Size: 1.08GiB | Requested Size: 16.00MiB | in_use: 0 | bin_num: 20, prev:   Size: 18.38MiB | Requested Size: 18.38MiB | in_use: 1 | bin_num: -1
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418159   62135 bfc_allocator.cc:1078]   Size: 1.40GiB | Requested Size: 288.0KiB | in_use: 0 | bin_num: 20, prev:   Size: 512.0KiB | Requested Size: 288.0KiB | in_use: 1 | bin_num: -1, next:   Size: 3.5KiB | Requested Size: 3.4KiB | in_use: 1 | bin_num: -1
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418162   62135 bfc_allocator.cc:1085] Next region of size 2684354560
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418166   62135 bfc_allocator.cc:1105] InUse at 909a00000 of size 1280 next 1
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418168   62135 bfc_allocator.cc:1105] InUse at 909a00500 of size 256 next 2
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418169   62135 bfc_allocator.cc:1105] InUse at 909a00600 of size 256 next 3
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418170   62135 bfc_allocator.cc:1105] InUse at 909a00700 of size 256 next 4
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418172   62135 bfc_allocator.cc:1105] InUse at 909a00800 of size 256 next 5
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418173   62135 bfc_allocator.cc:1105] InUse at 909a00900 of size 256 next 7
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418174   62135 bfc_allocator.cc:1105] InUse at 909a00a00 of size 256 next 8
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418175   62135 bfc_allocator.cc:1105] InUse at 909a00b00 of size 256 next 6
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418177   62135 bfc_allocator.cc:1105] InUse at 909a00c00 of size 256 next 9
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418178   62135 bfc_allocator.cc:1105] InUse at 909a00d00 of size 256 next 12
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418179   62135 bfc_allocator.cc:1105] InUse at 909a00e00 of size 256 next 13
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418180   62135 bfc_allocator.cc:1105] InUse at 909a00f00 of size 256 next 14
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418182   62135 bfc_allocator.cc:1105] InUse at 909a01000 of size 256 next 15
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418183   62135 bfc_allocator.cc:1105] InUse at 909a01100 of size 256 next 16
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418184   62135 bfc_allocator.cc:1105] InUse at 909a01200 of size 256 next 19
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418186   62135 bfc_allocator.cc:1105] InUse at 909a01300 of size 256 next 17
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418187   62135 bfc_allocator.cc:1105] InUse at 909a01400 of size 256 next 18
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418188   62135 bfc_allocator.cc:1105] InUse at 909a01500 of size 256 next 22
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418189   62135 bfc_allocator.cc:1105] InUse at 909a01600 of size 256 next 23
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418191   62135 bfc_allocator.cc:1105] InUse at 909a01700 of size 256 next 24
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418192   62135 bfc_allocator.cc:1105] InUse at 909a01800 of size 512 next 25
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418193   62135 bfc_allocator.cc:1105] InUse at 909a01a00 of size 512 next 28
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418195   62135 bfc_allocator.cc:1105] InUse at 909a01c00 of size 512 next 26
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418196   62135 bfc_allocator.cc:1105] InUse at 909a01e00 of size 512 next 27
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418197   62135 bfc_allocator.cc:1105] InUse at 909a02000 of size 512 next 31
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418199   62135 bfc_allocator.cc:1105] InUse at 909a02200 of size 256 next 32
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418200   62135 bfc_allocator.cc:1105] InUse at 909a02300 of size 256 next 33
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418201   62135 bfc_allocator.cc:1105] InUse at 909a02400 of size 256 next 43
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418202   62135 bfc_allocator.cc:1105] InUse at 909a02500 of size 256 next 34
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418204   62135 bfc_allocator.cc:1105] InUse at 909a02600 of size 256 next 37
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418205   62135 bfc_allocator.cc:1105] InUse at 909a02700 of size 256 next 10
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418207   62135 bfc_allocator.cc:1105] InUse at 909a02800 of size 1024 next 29
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418208   62135 bfc_allocator.cc:1105] InUse at 909a02c00 of size 512 next 201
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418209   62135 bfc_allocator.cc:1105] Free  at 909a02e00 of size 2304 next 35
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418211   62135 bfc_allocator.cc:1105] InUse at 909a03700 of size 256 next 39
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418214   62135 bfc_allocator.cc:1105] InUse at 909a03800 of size 256 next 40
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418215   62135 bfc_allocator.cc:1105] InUse at 909a03900 of size 256 next 36
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418216   62135 bfc_allocator.cc:1105] InUse at 909a03a00 of size 256 next 72
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418217   62135 bfc_allocator.cc:1105] InUse at 909a03b00 of size 256 next 44
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418219   62135 bfc_allocator.cc:1105] InUse at 909a03c00 of size 256 next 45
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418220   62135 bfc_allocator.cc:1105] InUse at 909a03d00 of size 256 next 46
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418221   62135 bfc_allocator.cc:1105] InUse at 909a03e00 of size 256 next 47
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418223   62135 bfc_allocator.cc:1105] InUse at 909a03f00 of size 256 next 48
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418224   62135 bfc_allocator.cc:1105] InUse at 909a04000 of size 256 next 49
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418225   62135 bfc_allocator.cc:1105] InUse at 909a04100 of size 256 next 214
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418226   62135 bfc_allocator.cc:1105] InUse at 909a04200 of size 256 next 194
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418228   62135 bfc_allocator.cc:1105] InUse at 909a04300 of size 256 next 42
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418229   62135 bfc_allocator.cc:1105] InUse at 909a04400 of size 256 next 191
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418230   62135 bfc_allocator.cc:1105] InUse at 909a04500 of size 256 next 188
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418231   62135 bfc_allocator.cc:1105] InUse at 909a04600 of size 256 next 50
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418233   62135 bfc_allocator.cc:1105] InUse at 909a04700 of size 256 next 51
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418237   62135 bfc_allocator.cc:1105] InUse at 909a04800 of size 8192 next 52
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418238   62135 bfc_allocator.cc:1105] InUse at 909a06800 of size 256 next 53
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418240   62135 bfc_allocator.cc:1105] InUse at 909a06900 of size 256 next 54
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418241   62135 bfc_allocator.cc:1105] InUse at 909a06a00 of size 256 next 55
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418242   62135 bfc_allocator.cc:1105] InUse at 909a06b00 of size 256 next 56
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418243   62135 bfc_allocator.cc:1105] InUse at 909a06c00 of size 256 next 57
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418245   62135 bfc_allocator.cc:1105] InUse at 909a06d00 of size 256 next 58
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418246   62135 bfc_allocator.cc:1105] InUse at 909a06e00 of size 256 next 59
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418247   62135 bfc_allocator.cc:1105] InUse at 909a06f00 of size 256 next 60
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418248   62135 bfc_allocator.cc:1105] Free  at 909a07000 of size 256 next 61
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418250   62135 bfc_allocator.cc:1105] InUse at 909a07100 of size 256 next 213
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418251   62135 bfc_allocator.cc:1105] InUse at 909a07200 of size 256 next 179
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418252   62135 bfc_allocator.cc:1105] InUse at 909a07300 of size 256 next 62
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418253   62135 bfc_allocator.cc:1105] InUse at 909a07400 of size 256 next 63
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418255   62135 bfc_allocator.cc:1105] InUse at 909a07500 of size 256 next 79
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418256   62135 bfc_allocator.cc:1105] InUse at 909a07600 of size 256 next 69
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418257   62135 bfc_allocator.cc:1105] InUse at 909a07700 of size 256 next 70
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418258   62135 bfc_allocator.cc:1105] InUse at 909a07800 of size 256 next 71
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418260   62135 bfc_allocator.cc:1105] InUse at 909a07900 of size 256 next 41
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418261   62135 bfc_allocator.cc:1105] InUse at 909a07a00 of size 256 next 76
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418262   62135 bfc_allocator.cc:1105] InUse at 909a07b00 of size 256 next 66
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418264   62135 bfc_allocator.cc:1105] InUse at 909a07c00 of size 256 next 68
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418265   62135 bfc_allocator.cc:1105] InUse at 909a07d00 of size 256 next 110
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418266   62135 bfc_allocator.cc:1105] InUse at 909a07e00 of size 256 next 64
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418267   62135 bfc_allocator.cc:1105] InUse at 909a07f00 of size 256 next 111
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418270   62135 bfc_allocator.cc:1105] InUse at 909a08000 of size 256 next 65
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418271   62135 bfc_allocator.cc:1105] InUse at 909a08100 of size 256 next 74
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418272   62135 bfc_allocator.cc:1105] InUse at 909a08200 of size 256 next 112
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418274   62135 bfc_allocator.cc:1105] InUse at 909a08300 of size 256 next 67
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418275   62135 bfc_allocator.cc:1105] InUse at 909a08400 of size 256 next 114
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418276   62135 bfc_allocator.cc:1105] InUse at 909a08500 of size 256 next 115
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418277   62135 bfc_allocator.cc:1105] InUse at 909a08600 of size 256 next 118
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418279   62135 bfc_allocator.cc:1105] InUse at 909a08700 of size 256 next 119
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418280   62135 bfc_allocator.cc:1105] InUse at 909a08800 of size 256 next 116
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418281   62135 bfc_allocator.cc:1105] InUse at 909a08900 of size 256 next 117
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418282   62135 bfc_allocator.cc:1105] InUse at 909a08a00 of size 256 next 121
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418284   62135 bfc_allocator.cc:1105] InUse at 909a08b00 of size 256 next 125
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418285   62135 bfc_allocator.cc:1105] InUse at 909a08c00 of size 256 next 124
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418286   62135 bfc_allocator.cc:1105] InUse at 909a08d00 of size 256 next 78
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418287   62135 bfc_allocator.cc:1105] InUse at 909a08e00 of size 256 next 122
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418289   62135 bfc_allocator.cc:1105] InUse at 909a08f00 of size 256 next 123
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418290   62135 bfc_allocator.cc:1105] InUse at 909a09000 of size 256 next 127
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418291   62135 bfc_allocator.cc:1105] InUse at 909a09100 of size 256 next 131
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418292   62135 bfc_allocator.cc:1105] InUse at 909a09200 of size 256 next 130
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418293   62135 bfc_allocator.cc:1105] InUse at 909a09300 of size 256 next 120
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418295   62135 bfc_allocator.cc:1105] InUse at 909a09400 of size 256 next 128
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418296   62135 bfc_allocator.cc:1105] InUse at 909a09500 of size 256 next 129
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418297   62135 bfc_allocator.cc:1105] InUse at 909a09600 of size 256 next 133
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418298   62135 bfc_allocator.cc:1105] InUse at 909a09700 of size 256 next 137
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418300   62135 bfc_allocator.cc:1105] InUse at 909a09800 of size 256 next 132
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418301   62135 bfc_allocator.cc:1105] InUse at 909a09900 of size 256 next 126
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418302   62135 bfc_allocator.cc:1105] InUse at 909a09a00 of size 256 next 134
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418303   62135 bfc_allocator.cc:1105] InUse at 909a09b00 of size 256 next 135
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418305   62135 bfc_allocator.cc:1105] InUse at 909a09c00 of size 256 next 139
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418306   62135 bfc_allocator.cc:1105] InUse at 909a09d00 of size 256 next 143
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418307   62135 bfc_allocator.cc:1105] InUse at 909a09e00 of size 256 next 142
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418308   62135 bfc_allocator.cc:1105] InUse at 909a09f00 of size 256 next 136
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418310   62135 bfc_allocator.cc:1105] InUse at 909a0a000 of size 256 next 140
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418311   62135 bfc_allocator.cc:1105] InUse at 909a0a100 of size 256 next 141
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418312   62135 bfc_allocator.cc:1105] InUse at 909a0a200 of size 256 next 145
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418313   62135 bfc_allocator.cc:1105] InUse at 909a0a300 of size 256 next 138
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418315   62135 bfc_allocator.cc:1105] InUse at 909a0a400 of size 256 next 146
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418316   62135 bfc_allocator.cc:1105] InUse at 909a0a500 of size 256 next 149
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418317   62135 bfc_allocator.cc:1105] InUse at 909a0a600 of size 256 next 148
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418318   62135 bfc_allocator.cc:1105] InUse at 909a0a700 of size 256 next 113
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418320   62135 bfc_allocator.cc:1105] InUse at 909a0a800 of size 256 next 152
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418323   62135 bfc_allocator.cc:1105] InUse at 909a0a900 of size 256 next 153
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418324   62135 bfc_allocator.cc:1105] InUse at 909a0aa00 of size 256 next 150
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418326   62135 bfc_allocator.cc:1105] InUse at 909a0ab00 of size 256 next 151
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418327   62135 bfc_allocator.cc:1105] InUse at 909a0ac00 of size 256 next 155
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418328   62135 bfc_allocator.cc:1105] InUse at 909a0ad00 of size 256 next 144
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418329   62135 bfc_allocator.cc:1105] InUse at 909a0ae00 of size 256 next 156
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418331   62135 bfc_allocator.cc:1105] InUse at 909a0af00 of size 256 next 159
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418332   62135 bfc_allocator.cc:1105] InUse at 909a0b000 of size 256 next 158
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418333   62135 bfc_allocator.cc:1105] Free  at 909a0b100 of size 256 next 157
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418334   62135 bfc_allocator.cc:1105] InUse at 909a0b200 of size 256 next 160
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418336   62135 bfc_allocator.cc:1105] InUse at 909a0b300 of size 256 next 161
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418337   62135 bfc_allocator.cc:1105] InUse at 909a0b400 of size 256 next 154
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418338   62135 bfc_allocator.cc:1105] InUse at 909a0b500 of size 256 next 165
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418339   62135 bfc_allocator.cc:1105] InUse at 909a0b600 of size 256 next 162
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418341   62135 bfc_allocator.cc:1105] InUse at 909a0b700 of size 256 next 163
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418342   62135 bfc_allocator.cc:1105] InUse at 909a0b800 of size 256 next 167
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418343   62135 bfc_allocator.cc:1105] InUse at 909a0b900 of size 256 next 164
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418344   62135 bfc_allocator.cc:1105] InUse at 909a0ba00 of size 256 next 168
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418346   62135 bfc_allocator.cc:1105] InUse at 909a0bb00 of size 256 next 171
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418347   62135 bfc_allocator.cc:1105] InUse at 909a0bc00 of size 256 next 170
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418348   62135 bfc_allocator.cc:1105] InUse at 909a0bd00 of size 256 next 169
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418349   62135 bfc_allocator.cc:1105] InUse at 909a0be00 of size 256 next 172
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418350   62135 bfc_allocator.cc:1105] InUse at 909a0bf00 of size 256 next 147
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418352   62135 bfc_allocator.cc:1105] InUse at 909a0c000 of size 256 next 174
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418353   62135 bfc_allocator.cc:1105] InUse at 909a0c100 of size 256 next 173
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418354   62135 bfc_allocator.cc:1105] InUse at 909a0c200 of size 256 next 176
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418355   62135 bfc_allocator.cc:1105] InUse at 909a0c300 of size 256 next 175
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418357   62135 bfc_allocator.cc:1105] InUse at 909a0c400 of size 256 next 178
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418358   62135 bfc_allocator.cc:1105] InUse at 909a0c500 of size 256 next 177
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418359   62135 bfc_allocator.cc:1105] InUse at 909a0c600 of size 256 next 180
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418360   62135 bfc_allocator.cc:1105] InUse at 909a0c700 of size 256 next 181
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418362   62135 bfc_allocator.cc:1105] InUse at 909a0c800 of size 256 next 184
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418363   62135 bfc_allocator.cc:1105] InUse at 909a0c900 of size 256 next 185
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418364   62135 bfc_allocator.cc:1105] InUse at 909a0ca00 of size 256 next 182
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418365   62135 bfc_allocator.cc:1105] Free  at 909a0cb00 of size 256 next 166
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418367   62135 bfc_allocator.cc:1105] InUse at 909a0cc00 of size 256 next 187
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418368   62135 bfc_allocator.cc:1105] InUse at 909a0cd00 of size 256 next 193
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418369   62135 bfc_allocator.cc:1105] InUse at 909a0ce00 of size 768 next 192
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418370   62135 bfc_allocator.cc:1105] InUse at 909a0d100 of size 1024 next 183
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418372   62135 bfc_allocator.cc:1105] InUse at 909a0d500 of size 3584 next 190
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418426   62135 bfc_allocator.cc:1105] InUse at 909a0e300 of size 103168 next 21
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418433   62135 bfc_allocator.cc:1105] InUse at 909a27600 of size 73728 next 20
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418435   62135 bfc_allocator.cc:1105] InUse at 909a39600 of size 5888 next 212
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418436   62135 bfc_allocator.cc:1105] InUse at 909a3ad00 of size 13312 next 11
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418437   62135 bfc_allocator.cc:1105] Free  at 909a3e100 of size 46336 next 38
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418439   62135 bfc_allocator.cc:1105] InUse at 909a49600 of size 524288 next 30
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418440   62135 bfc_allocator.cc:1105] Free  at 909ac9600 of size 1502442752 next 81
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418442   62135 bfc_allocator.cc:1105] InUse at 9633a0b00 of size 3584 next 80
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418443   62135 bfc_allocator.cc:1105] InUse at 9633a1900 of size 3584 next 77
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418444   62135 bfc_allocator.cc:1105] InUse at 9633a2700 of size 256 next 75
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418446   62135 bfc_allocator.cc:1105] InUse at 9633a2800 of size 256 next 73
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418447   62135 bfc_allocator.cc:1105] InUse at 9633a2900 of size 256 next 83
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418448   62135 bfc_allocator.cc:1105] InUse at 9633a2a00 of size 256 next 84
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418449   62135 bfc_allocator.cc:1105] InUse at 9633a2b00 of size 256 next 82
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418451   62135 bfc_allocator.cc:1105] InUse at 9633a2c00 of size 256 next 85
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418452   62135 bfc_allocator.cc:1105] InUse at 9633a2d00 of size 73728 next 86
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418453   62135 bfc_allocator.cc:1105] InUse at 9633b4d00 of size 73728 next 87
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418455   62135 bfc_allocator.cc:1105] InUse at 9633c6d00 of size 256 next 88
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418456   62135 bfc_allocator.cc:1105] InUse at 9633c6e00 of size 256 next 89
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418457   62135 bfc_allocator.cc:1105] InUse at 9633c6f00 of size 256 next 90
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418458   62135 bfc_allocator.cc:1105] InUse at 9633c7000 of size 256 next 91
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418460   62135 bfc_allocator.cc:1105] InUse at 9633c7100 of size 256 next 92
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418493   62135 bfc_allocator.cc:1105] InUse at 9633c7200 of size 256 next 93
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418500   62135 bfc_allocator.cc:1105] InUse at 9633c7300 of size 294912 next 94
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418502   62135 bfc_allocator.cc:1105] InUse at 96340f300 of size 294912 next 95
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418503   62135 bfc_allocator.cc:1105] InUse at 963457300 of size 512 next 96
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418504   62135 bfc_allocator.cc:1105] InUse at 963457500 of size 512 next 97
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418506   62135 bfc_allocator.cc:1105] InUse at 963457700 of size 512 next 98
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418507   62135 bfc_allocator.cc:1105] InUse at 963457900 of size 512 next 99
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418508   62135 bfc_allocator.cc:1105] InUse at 963457b00 of size 512 next 100
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418510   62135 bfc_allocator.cc:1105] InUse at 963457d00 of size 512 next 101
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418511   62135 bfc_allocator.cc:1105] InUse at 963457f00 of size 65536 next 102
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418512   62135 bfc_allocator.cc:1105] InUse at 963467f00 of size 65536 next 103
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418513   62135 bfc_allocator.cc:1105] InUse at 963477f00 of size 512 next 104
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418515   62135 bfc_allocator.cc:1105] InUse at 963478100 of size 512 next 105
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418516   62135 bfc_allocator.cc:1105] InUse at 963478300 of size 1024 next 106
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418517   62135 bfc_allocator.cc:1105] InUse at 963478700 of size 1024 next 107
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418519   62135 bfc_allocator.cc:1105] InUse at 963478b00 of size 256 next 108
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418520   62135 bfc_allocator.cc:1105] InUse at 963478c00 of size 256 next 109
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418521   62135 bfc_allocator.cc:1105] InUse at 963478d00 of size 19267584 next 186
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418523   62135 bfc_allocator.cc:1105] Free  at 9646d8d00 of size 1160934144 next 18446744073709551615
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418530   62135 bfc_allocator.cc:1110]      Summary of in-use Chunks by size: 
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418531   62135 bfc_allocator.cc:1113] 155 Chunks of size 256 totalling 38.8KiB
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418536   62135 bfc_allocator.cc:1113] 14 Chunks of size 512 totalling 7.0KiB
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418538   62135 bfc_allocator.cc:1113] 1 Chunks of size 768 totalling 768B
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418540   62135 bfc_allocator.cc:1113] 4 Chunks of size 1024 totalling 4.0KiB
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418541   62135 bfc_allocator.cc:1113] 1 Chunks of size 1280 totalling 1.2KiB
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418543   62135 bfc_allocator.cc:1113] 3 Chunks of size 3584 totalling 10.5KiB
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418544   62135 bfc_allocator.cc:1113] 1 Chunks of size 5888 totalling 5.8KiB
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418546   62135 bfc_allocator.cc:1113] 1 Chunks of size 8192 totalling 8.0KiB
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418548   62135 bfc_allocator.cc:1113] 1 Chunks of size 13312 totalling 13.0KiB
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418549   62135 bfc_allocator.cc:1113] 2 Chunks of size 65536 totalling 128.0KiB
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418551   62135 bfc_allocator.cc:1113] 3 Chunks of size 73728 totalling 216.0KiB
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418552   62135 bfc_allocator.cc:1113] 1 Chunks of size 103168 totalling 100.8KiB
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418554   62135 bfc_allocator.cc:1113] 2 Chunks of size 294912 totalling 576.0KiB
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418555   62135 bfc_allocator.cc:1113] 1 Chunks of size 524288 totalling 512.0KiB
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418557   62135 bfc_allocator.cc:1113] 1 Chunks of size 19267584 totalling 18.38MiB
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418559   62135 bfc_allocator.cc:1117] Sum Total of in-use chunks: 19.96MiB
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418560   62135 bfc_allocator.cc:1119] Total size in pool: 2.50GiB memory_limit_: 2.50GiB available size: 0B curr_region_allocation_bytes_: 5.00GiB
+[36m(Client pid=61973)[0m I0000 00:00:1793679924.418562   62135 bfc_allocator.cc:1128] Stats: 
+[36m(Client pid=61973)[0m Limit:                         2.50GiB
+[36m(Client pid=61973)[0m InUse:                        19.96MiB
+[36m(Client pid=61973)[0m MaxInUse:                      1.42GiB
+[36m(Client pid=61973)[0m NumAllocs:                        5544
+[36m(Client pid=61973)[0m MaxAllocSize:                  1.40GiB
+[36m(Client pid=61973)[0m Reserved:                           0B
+[36m(Client pid=61973)[0m PeakReserved:                       0B
+[36m(Client pid=61973)[0m LargestFreeBlock:                   0B
+[36m(Client pid=61973)[0m 
+[36m(Client pid=61973)[0m W0000 00:00:1793679924.418567   62135 bfc_allocator.cc:513] *_______________________________________________________*___________________________________________
+[36m(Client pid=61973)[0m W0000 00:00:1793679924.418739   62135 local_rendezvous.cc:412] Local rendezvous is aborting with status: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 1.53GiB.
+[36m(Client pid=61973)[0m 	 [[{{node StatefulPartitionedCall}}]]
+[36m(Client pid=61973)[0m Hint: If you want to see a list of allocated tensors when OOM happens, add report_tensor_allocations_upon_oom to RunOptions for current allocation info. This isn't available when running in Eager mode.
+[36m(Client pid=61973)[0m  [tf-allocator-allocation-error='']
+[36m(Client pid=61972)[0m I0000 00:00:1793679904.558891   62129 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4846__.70[32m [repeated 3x across cluster][0m
