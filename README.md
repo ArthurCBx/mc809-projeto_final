@@ -191,7 +191,6 @@ O lr do `public_init` foi escolhido por fração pública, olhando o resultado a
 
 | Fração pública | `--public-init-lr` |
 |---|---|
-| 0,5% (`0.005`) | `1e-3` (com tão poucos dados o `public_init` não aprende, e o lr não faz diferença) |
 | 1% (`0.01`) | `3e-4` |
 | 5% (`0.05`) | `1e-3` |
 | 20% (`0.2`) | `3e-4` |
@@ -219,15 +218,15 @@ results/test_models/orquestrador.sh                 # gera results/test_models/a
 
 | Ablação | Como reproduzir | Pasta |
 |---|---|---|
-| Fração pública | `--public-fractions 0.005 0.01 0.05 0.2` (0,4 e 0,8 nas primeiras ablações) | `results/experimento_final`, `results/fracao_publica_0_5` |
+| Fração pública | `--public-fractions 0.01 0.05 0.2` (0,4 e 0,8 nas primeiras ablações) | `results/experimento_final` |
 | Loss do digest: MAE × KL | sem `--digest-temperature` (MAE) × `--digest-temperature 2` ou `4` | `results/digest_kl` |
-| Ponderação do consenso | `server.py --weighting uniform` × `accuracy` | `results/*_weighted*` |
+| Ponderação do consenso | `server.py --weighting uniform` × `accuracy` | `results/04_consenso_ponderado` |
 | Consenso leave-one-out | `server.py --consensus loo` | `results/ensemble_e_leave_one_out` |
 | lr e passos do digest | `--digest-lr 1e-3/4e-4`, `--digest-steps 30` | `results/09b_digest_lr_4e-4`, `results/09c_digest_30_passos` |
 | lr do revisit | `--revisit-lr 1e-3/1e-4/5e-5` | `results/09a_revisit_lr_1e-4` |
 | Rehearsal no `private_init` | com e sem `--private-init-rehearsal` | `results/09d_rehearsal_private_init` |
 | Escassez de dados por cliente | `--val-fraction 0.5` ou `0.7` | `results/escassez_de_dados` |
-| Número de rodadas | `--digest-rounds 60` | `results/08_rehearsal_no_revisit` |
+| Número de rodadas | `--digest-rounds 60` (revisit com lr 5e-5) | `results/03_revisit_lr_5e-5` |
 
 ---
 
@@ -254,14 +253,11 @@ colapsam para 0,50. O consenso não consegue recuperá-los.
 
 | Fração pública | IID | α = 1.0 | α = 0.1 | Ganho médio | Seeds × cenários com ganho |
 |---|---|---|---|---|---|
-| 0,5% | +0,009 | +0,011 | **+0,019** | **+0,013** | 9/9 |
 | 1% | +0,009 | +0,006 | +0,014 | +0,010 | 8/9 |
 | 5% | +0,011 | +0,011 | +0,008 | +0,010 | 9/9 |
 | 20% | −0,007 | −0,006 | −0,022 | −0,011 | 1/9 |
 
-Origem dos números: 1%, 5% e 20% vêm de `results/experimento_final` (digest com MAE); 0,5% vem de `results/fracao_publica_0_5`
-(digest com KL e T = 4). Com KL, 1% e 5% dão +0,010 e +0,011 (`results/ensemble_e_leave_one_out`), então a comparação entre
-frações continua válida.
+Origem dos números: `results/experimento_final` (digest com MAE).
 
 ### Limite teórico e ensemble
 
@@ -299,8 +295,8 @@ média do recall de cada classe.
    - equilíbrio entre o digest e o revisit: lr 4e-4 e 30 passos no digest, para que a destilação não domine
      quando há muitos dados públicos.
 3. **Com essas adaptações, o FedMD melhora cada cliente em cerca de +0,01 sempre que a linha de base está
-   longe do teto** (de 0,5% a 5% de dados públicos). O maior ganho é no caso mais desbalanceado (+0,019 com
-   0,5% e α = 0.1). Quando a linha de base já está perto do limite (20% de dados públicos), a destilação
+   longe do teto** (de 1% a 5% de dados públicos). O maior ganho é no caso mais desbalanceado (+0,014 com
+   1% e α = 0.1). Quando a linha de base já está perto do limite (20% de dados públicos), a destilação
    atrapalha.
 4. **O que compensa a falta de dados públicos é o treino privado, não a colaboração.** Contra o `public_init`
    sozinho, o ganho parece crescer quando a fração pública diminui. Contra a linha de base justa (treino
@@ -330,20 +326,37 @@ média do recall de cada classe.
 
 ## Estrutura dos resultados
 
+As pastas numeradas seguem a sequência do desenvolvimento incremental, na mesma ordem da tabela de etapas do
+relatório. As de 01 a 05 usam frações públicas de 10%, 40% e 80%, com uma seed.
+
+| Pasta | Etapa | Conteúdo |
+|---|---|---|
+| `results/01_replicacao_fedmd/` | 1 | Replicação do FedMD: consenso uniforme, revisit em 3 épocas completas, lr 1e-3 em tudo. Inclui o log do servidor das etapas 1 a 3 |
+| `results/02_revisit_1_epoca/` | 2 | Revisit com 1 época |
+| `results/03_revisit_lr_5e-5/` | 3 | Revisit com lr 5e-5, em 20 e 60 rodadas |
+| `results/04_consenso_ponderado/` | 4 | Consenso ponderado pela acurácia pública |
+| `results/05_limite_passos_revisit_private_init/` | 5 | Revisit limitado a 10 passos e `private_init` a 5 épocas. Inclui a execução retomada depois de um travamento |
+| `results/06_private_init_10_passos_lr_2e-5/` | 6 | Varredura de passos e lr do `private_init` (só as etapas iniciais). Inclui uma execução descartada |
+| `results/07_revisit_fraco_sem_rehearsal/` | 7 | Revisit com lr 2e-5 e sem rehearsal, 60 rodadas |
+| `results/08_rehearsal_no_revisit/` | 8 | Rehearsal de 50% no revisit. O `RELATORIO.md` cobre as etapas 6 a 8 |
+| `results/09a_revisit_lr_1e-4/` | 9 | Revisit com lr 1e-4 (`RESULTADO.md`) |
+| `results/09b_digest_lr_4e-4/` | 9 | Digest com lr 4e-4 (`RESULTADO.md`) |
+| `results/09c_digest_30_passos/` | 9 | Digest limitado a 30 passos por rodada (`RESULTADO.md`) |
+| `results/09d_rehearsal_private_init/` | 9 | Rehearsal no `private_init`, com 2 seeds (`RELATORIO.md`) |
+
+Avaliações da configuração final:
+
 | Pasta | Conteúdo |
 |---|---|
-| `results/*.csv` (raiz) | Primeiras ablações (frações públicas de 10%, 40% e 80%): replicação, 1 época de revisit, lr de revisit, consenso ponderado |
-| `results/08_rehearsal_no_revisit/` | `private_init` com poucos passos, número de rodadas e primeiros testes com rehearsal (`RELATORIO.md`) |
-| `results/09a_revisit_lr_1e-4/`, `results/09b_digest_lr_4e-4/`, `results/09c_digest_30_passos/` | Equilíbrio de lr e passos entre digest e revisit (`RESULTADO.md`) |
-| `results/09d_rehearsal_private_init/` | Rehearsal no `private_init`, com 2 seeds (`RELATORIO.md`) |
 | `results/fracoes_publicas_5_e_20/` | Frações públicas de 5% e 20% e escolha dos hiperparâmetros (`RELATORIO.md`) |
 | `results/experimento_final/` | **Experimento final**: frações de 1%, 5% e 20% com 3 seeds, mais o resumo de todos os extras (`RELATORIO.md`) |
 | `results/limite_teorico/` | Modelo centralizado (limite teórico) |
 | `results/digest_kl/` | KL × MAE no digest (`RESULTADO.md`) |
 | `results/ensemble_e_leave_one_out/` | Ensemble dos clientes e consenso leave-one-out (`RELATORIO.md`) |
-| `results/fracao_publica_0_5/` | Fração pública de 0,5% (`RESULTADO.md`) |
 | `results/escassez_de_dados/` | Validação de 50% e 70% (`RELATORIO.md`) |
 | `results/test_models/` | Avaliação no PH2: FedMD adaptado, treino local, FedMD original e centralizado |
+
+Os PNGs `results/acc_increase_table*.png` continuam na raiz de `results/`.
 
 O relatório que consolida tudo é o `results/experimento_final/RELATORIO.md`.
 

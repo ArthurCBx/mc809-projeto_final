@@ -153,19 +153,6 @@ Experimento com 1% e 5% de dados públicos, 3 seeds e KL com T = 4 (`results/ens
   barato.
 - **Leave-one-out** (cada cliente recebe o consenso dos outros três): sem efeito (−0,0004 ± 0,0048).
 
-## Extra: 0,5% de dados públicos
-
-Rodamos o cenário com 49 imagens públicas na configuração da etapa final: KL com T = 4, consenso padrão e
-3 seeds (`results/fracao_publica_0_5/RESULTADO.md`).
-
-- **O `public_init` não aprende nada** (~0,51). Todo o aprendizado vem do `private_init`.
-- **O ganho do FedMD por cliente é +0,013 em média**, positivo nas 9 combinações de seed e cenário. O maior
-  ganho é com alpha 0.1: +0,019.
-- **Contra a linha de base `public_init` + `private_init`, o ganho fica estável em ~+0,01 entre 0,5% e 5%**
-  (0,5%: +0,013, 1%: +0,010, 5%: +0,011). Ele só "cresce" quando a comparação é com o `public_init`
-  sozinho. Quem compensa a falta de dados públicos é o `private_init`. O FedMD acrescenta cerca de 1 ponto
-  sempre que a linha de base está longe do teto.
-
 ## Extra: escassez de dados (validação de 50% e 70%)
 
 Testamos 1%, 5% e 20% de dados públicos, com 3 seeds, reservando mais dados para validação
