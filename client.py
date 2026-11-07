@@ -9,7 +9,7 @@ import keras
 import numpy as np
 import pandas as pd
 import tensorflow as tf
-from dataset_setup import CLASS_NAMES, list_files, split_dataset, make_client_dataset
+from dataset_setup import CLASS_NAMES, list_dir, list_files, split_dataset, make_client_dataset
 
 BATCH_SIZE = 32
 IMAGE_SIZE = (224, 224)
@@ -34,6 +34,7 @@ CLIENT_ARCHITECTURES = [
 TRAIN_COLUMNS = ['seed', 'public_fraction', 'alpha', 'client_id', 'stage', 'round', 'epoch',
                  'loss', 'accuracy', 'val_loss', 'val_accuracy', 'restored', 'public_accuracy']
 ENSEMBLE_COLUMNS = ['seed', 'public_fraction', 'alpha', 'stage', 'round', 'ensemble_accuracy', 'mean_client_accuracy']
+EXTRA_TEST_COLUMNS = ['seed', 'public_fraction', 'alpha', 'stage', 'round', 'model', 'accuracy', 'balanced_accuracy']
 TEST_COLUMNS  = ['seed', 'public_fraction', 'alpha', 'client_id', 'stage', 'round',
                  'n_private', 'private_malignant_fraction', 'test_loss', 'test_accuracy']
 
@@ -287,6 +288,15 @@ class Client():
         metrics = self.model.evaluate(self.test_dataset, verbose=0, return_dict=True)
         return {'test_loss': metrics['loss'], 'test_accuracy': metrics['accuracy']}
 
+    def set_extra_test(self, paths: np.ndarray, labels: np.ndarray):
+        """Define um conjunto de teste externo (ex.: PH2), avaliado junto com o teste original."""
+        self.extra_test_dataset = make_client_dataset(paths, labels, np.arange(len(labels)), IMAGE_SIZE,
+                                                      self.batch_size, shuffle=False)
+
+    def extra_test_logits(self):
+        """Logits do modelo no conjunto de teste externo, na ordem dos rótulos passados a set_extra_test."""
+        return self.model.predict(self.extra_test_dataset, verbose=0)
+
     def test_logits(self):
         """Logits do modelo no conjunto de teste, na ordem de test_labels (usado para o ensemble dos clientes)."""
         return self.model.predict(self.test_dataset, verbose=0)
@@ -304,6 +314,7 @@ def run_experiment(public_fraction: float, alpha: float, args):
     train_csv = os.path.join(OUTPUT_DIR, 'train_history.csv')
     test_csv  = os.path.join(OUTPUT_DIR, 'test_metrics.csv')
     ensemble_csv = os.path.join(OUTPUT_DIR, 'ensemble_metrics.csv')
+    extra_csv = os.path.join(OUTPUT_DIR, 'extra_test_metrics.csv')
     logging.info(f'Configuração {config}')
 
     client_idx, public_idx, file_paths, labels = split_dataset(
@@ -319,6 +330,9 @@ def run_experiment(public_fraction: float, alpha: float, args):
                       jit_compile=False if args.no_jit else 'auto')
         for cid in range(NUM_CLIENTS)
     ]
+    if args.extra_test_dir:
+        extra_paths, extra_labels = list_dir(args.extra_test_dir)
+        ray.get([client.set_extra_test.remote(extra_paths, extra_labels) for client in clients])
     client_info = [{'n_private': len(idx), 'private_malignant_fraction': float(labels[idx].mean())}
                    for idx in client_idx]
 
@@ -343,6 +357,24 @@ def run_experiment(public_fraction: float, alpha: float, args):
                                    'mean_client_accuracy': float(np.mean([r['test_accuracy'] for r in results]))}],
                    ENSEMBLE_COLUMNS)
         logging.info(f'{stage} rodada {round_}: ensemble {ensemble_accuracy:.3f}')
+        if args.extra_test_dir:
+            log_extra_test(stage, round_)
+
+    def log_extra_test(stage, round_):
+        # Teste externo: cada cliente e o ensemble (média dos logits). A acurácia balanceada é a média do recall por
+        # classe; importa quando o dataset externo é desbalanceado (o PH2 tem 4 benignos para 1 melanoma).
+        def metrics(logits):
+            pred = np.argmax(logits, axis=1)
+            recalls = [np.mean(pred[extra_labels == c] == c) for c in np.unique(extra_labels)]
+            return float(np.mean(pred == extra_labels)), float(np.mean(recalls))
+        all_logits = ray.get([client.extra_test_logits.remote() for client in clients])
+        rows = [{**config, 'stage': stage, 'round': round_, 'model': f'cliente {cid}',
+                 **dict(zip(('accuracy', 'balanced_accuracy'), metrics(l)))} for cid, l in enumerate(all_logits)]
+        rows.append({**config, 'stage': stage, 'round': round_, 'model': 'ensemble',
+                     **dict(zip(('accuracy', 'balanced_accuracy'), metrics(np.mean(all_logits, axis=0))))})
+        append_csv(extra_csv, rows, EXTRA_TEST_COLUMNS)
+        logging.info(f'{stage} rodada {round_}: teste externo ' + ', '.join(f"{r['accuracy']:.3f}" for r in rows[:-1])
+                     + f" | ensemble {rows[-1]['accuracy']:.3f}")
 
     try:
         # 1. Transfer learning nos dados públicos rotulados.
@@ -353,7 +385,7 @@ def run_experiment(public_fraction: float, alpha: float, args):
 
         # 2. Treino inicial nos dados privados de cada cliente. Com --private-init-steps, é uma época de N passos:
         #    poucos passos numa classe só não chegam a apagar o que o modelo aprendeu nos dados públicos.
-        private_init = ({'epochs': PRIVATE_INIT_EPOCHS} if args.private_init_steps is None
+        private_init = ({'epochs': args.private_init_epochs} if args.private_init_steps is None
                         else {'epochs': 1, 'steps_per_epoch': args.private_init_steps})
         if args.private_init_lr is not None:
             # O revisit passa o próprio lr (--revisit-lr), então este vale só para o treino inicial privado.
@@ -415,6 +447,10 @@ if __name__ == '__main__':
     parser.add_argument('--digest-rounds', type=int, default=20)
     parser.add_argument('--digest-epochs', type=int, default=1)
     parser.add_argument('--private-epochs', type=int, default=3, help='Máximo de épocas do revisit em cada rodada.')
+    parser.add_argument('--extra-test-dir', default=None,
+                        help='Dataset externo (pasta/<classe>/<imagem>) avaliado junto com o teste, ex.: o PH2 convertido.')
+    parser.add_argument('--private-init-epochs', type=int, default=PRIVATE_INIT_EPOCHS,
+                        help='Máximo de épocas do treino inicial privado quando --private-init-steps não é usado.')
     parser.add_argument('--private-init-steps', type=int, default=None,
                         help=f'Treino inicial privado em 1 época de N passos. Padrão: até {PRIVATE_INIT_EPOCHS} épocas completas.')
     parser.add_argument('--val-fraction', type=float, default=VAL_FRACTION,

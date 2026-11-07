@@ -25,6 +25,20 @@ def list_files(train_data: bool):
     return np.array(file_paths), np.array(labels)
 
 
+def list_dir(root: str):
+    """Lista um dataset externo organizado como root/<classe>/<imagem>, com as classes de CLASS_NAMES.
+
+    Usado para avaliar os modelos em um dataset diferente do de treino (ex.: PH2).
+    """
+    root = os.path.abspath(root)
+    file_paths, labels = [], []
+    for label, class_name in enumerate(CLASS_NAMES):
+        files = sorted(os.listdir(os.path.join(root, class_name)))
+        file_paths.extend(os.path.join(root, class_name, f) for f in files)
+        labels.extend([label] * len(files))
+    return np.array(file_paths), np.array(labels)
+
+
 def split_public(labels, public_fraction: float, seed: int=42):
     """Separa, de forma estratificada, os índices do conjunto público (FedMD) e do privado.
 
