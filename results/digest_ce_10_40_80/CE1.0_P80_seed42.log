@@ -1,0 +1,520 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794405210.971569   94083 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1794405211.044179   94083 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794405212.025854   94083 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-11 13:53:33,192	WARNING authentication_token_setup.py:85 -- Token authentication is enabled for this Ray cluster. Set RAY_AUTH_MODE=disabled to opt out. For more information, see https://docs.ray.io/en/latest/ray-security/token-auth.html
+2026-11-11 13:53:33,827	WARNING services.py:2248 -- WARNING: The object store is using /tmp/ray instead of /dev/shm because /dev/shm has only 67108864 bytes available. This will harm performance! You may be able to free up space by deleting files in /dev/shm. If you are inside a Docker container, you can increase /dev/shm size by passing '--shm-size=7.00gb' to 'docker run' (or add it to the run_options list in a Ray cluster config). Make sure to set this to more than 30% of available RAM.
+2026-11-11 13:53:34,956	INFO worker.py:2033 -- Started a local Ray instance.
+2026-11-11 13:53:34,960	WARNING working_dir.py:91 -- Directory '.git' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-11 13:53:34,962	WARNING working_dir.py:91 -- Directory '__pycache__' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-11 13:53:34,967	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-11 13:53:45,953	INFO packaging.py:734 -- Creating a file package for local module '/mc809 - Comp Distribuida/projeto_final'.
+2026-11-11 13:53:45,956	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-11 13:54:05,962	WARNING packaging.py:704 -- The runtime_env package for '/mc809 - Comp Distribuida/projeto_final' at '/tmp/ray/session_2026-11-11_13-53-33_196020_94083/runtime_resources/1794405225953308095_94083__ray_pkg_b40bfc2a1252b84a.zip' is 322.08MiB, approaching the maximum upload size of 512.00MiB. If the upload fails, exclude large directories (commonly '.git', '.venv', or build artifacts) via the 'excludes' option in runtime_env, or list them in '.gitignore' / '.rayignore'. To raise the warning threshold set `RAY_PACKAGE_SIZE_WARNING_MIB=<size_in_MiB>`, or disable the warning entirely with `RAY_PACKAGE_SIZE_WARNING_MIB=-1`. For details see https://docs.ray.io/en/latest/ray-core/handling-dependencies.html#api-reference
+2026-11-11 13:54:06,207	INFO packaging.py:434 -- Pushing file package 'gcs://_ray_pkg_b40bfc2a1252b84a.zip' (322.08MiB) to Ray cluster...
+2026-11-11 13:54:07,373	INFO packaging.py:447 -- Successfully pushed file package 'gcs://_ray_pkg_b40bfc2a1252b84a.zip'.
+2026-11-11 13:54:07,972 - Configuração {'seed': 42, 'public_fraction': 0.8, 'alpha': 'iid'}
+[36m(pid=95293)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=95293)[0m I0000 00:00:1794405249.180172   95293 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(pid=95293)[0m I0000 00:00:1794405249.214186   95293 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=95293)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=95293)[0m W0000 00:00:1794405251.685453   95293 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=95293)[0m W0000 00:00:1794405251.690687   95293 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=95293)[0m I0000 00:00:1794405251.917312   95293 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=95292)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=95292)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(pid=95295)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(pid=95295)[0m I0000 00:00:1794405250.275617   95295 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=95295)[0m I0000 00:00:1794405249.285419   95295 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=95295)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=95292)[0m I0000 00:00:1794405256.331630   95473 service.cc:153] XLA service 0x793900037470 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=95292)[0m I0000 00:00:1794405256.331933   95473 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(Client pid=95292)[0m I0000 00:00:1794405256.471980   95473 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(Client pid=95295)[0m W0000 00:00:1794405251.785963   95295 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 6x across cluster][0m
+[36m(Client pid=95293)[0m I0000 00:00:1794405257.102690   95467 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=95293)[0m I0000 00:00:1794405257.150894   95467 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4009__.55
+[36m(Client pid=95295)[0m I0000 00:00:1794405251.975691   95295 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=95292)[0m I0000 00:00:1794405274.904532   95473 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=95295)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=95295)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=95295)[0m I0000 00:00:1794405257.867239   95489 service.cc:153] XLA service 0x7e5cb0040620 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=95295)[0m I0000 00:00:1794405257.867804   95489 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=95295)[0m I0000 00:00:1794405258.024637   95489 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=95295)[0m I0000 00:00:1794405258.721879   95489 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=95295)[0m I0000 00:00:1794405258.747765   95489 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5713__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=95294)[0m I0000 00:00:1794405281.642298   95481 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.[32m [repeated 2x across cluster][0m
+[36m(Client pid=95292)[0m I0000 00:00:1794405298.240812   95476 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4009__.55
+[36m(Client pid=95295)[0m I0000 00:00:1794405285.248209   95489 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=95292)[0m I0000 00:00:1794405302.757726   96993 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=95292)[0m 
+[36m(Client pid=95294)[0m I0000 00:00:1794405312.439205   95479 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4869__.70
+[36m(Client pid=95293)[0m I0000 00:00:1794405315.006511   95469 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4009__.55
+[36m(Client pid=95294)[0m I0000 00:00:1794405316.510422   97248 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=95294)[0m 
+[36m(Client pid=95293)[0m 
+[36m(Client pid=95295)[0m 
+[36m(Client pid=95295)[0m I0000 00:00:1794405318.768272   95489 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5713__.85
+[36m(Client pid=95295)[0m I0000 00:00:1794405321.705180   97555 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 2x across cluster][0m
+[36m(Client pid=95292)[0m 
+[36m(Client pid=95292)[0m I0000 00:00:1794405688.151255     860 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=95294)[0m I0000 00:00:1794405688.481904     867 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=95294)[0m 
+[36m(Client pid=95295)[0m 
+[36m(Client pid=95293)[0m 
+2026-11-11 14:01:31,559 - public_init rodada 0: acurácia de teste 0.887, 0.897, 0.905, 0.902
+2026-11-11 14:01:34,300 - public_init rodada 0: ensemble 0.901
+2026-11-11 14:01:34,937 - public_init rodada 0: teste externo 0.815, 0.800, 0.805, 0.815 | ensemble 0.795
+2026-11-11 14:02:41,280 - private_init rodada 0: acurácia de teste 0.891, 0.885, 0.897, 0.920
+2026-11-11 14:02:42,510 - private_init rodada 0: ensemble 0.904
+2026-11-11 14:02:43,152 - private_init rodada 0: teste externo 0.840, 0.805, 0.835, 0.840 | ensemble 0.845
+[36m(Client pid=95293)[0m I0000 00:00:1794405772.804365   95470 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_26864__.59
+[36m(Client pid=95293)[0m I0000 00:00:1794405689.621227     855 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 2x across cluster][0m
+2026-11-11 14:03:11,040 - federated rodada 1: acurácia de teste 0.902, 0.909, 0.899, 0.902
+2026-11-11 14:03:12,316 - federated rodada 1: ensemble 0.908
+2026-11-11 14:03:12,950 - federated rodada 1: teste externo 0.800, 0.825, 0.830, 0.810 | ensemble 0.795
+2026-11-11 14:03:41,187 - federated rodada 2: acurácia de teste 0.908, 0.904, 0.899, 0.905
+2026-11-11 14:03:42,463 - federated rodada 2: ensemble 0.905
+2026-11-11 14:03:43,067 - federated rodada 2: teste externo 0.810, 0.810, 0.845, 0.835 | ensemble 0.810
+2026-11-11 14:04:04,934 - federated rodada 3: acurácia de teste 0.901, 0.905, 0.870, 0.909
+2026-11-11 14:04:06,121 - federated rodada 3: ensemble 0.905
+2026-11-11 14:04:06,791 - federated rodada 3: teste externo 0.815, 0.830, 0.765, 0.805 | ensemble 0.800
+2026-11-11 14:04:28,461 - federated rodada 4: acurácia de teste 0.903, 0.897, 0.899, 0.906
+2026-11-11 14:04:29,711 - federated rodada 4: ensemble 0.903
+2026-11-11 14:04:30,358 - federated rodada 4: teste externo 0.835, 0.815, 0.815, 0.820 | ensemble 0.810
+2026-11-11 14:04:58,691 - federated rodada 5: acurácia de teste 0.901, 0.903, 0.904, 0.904
+2026-11-11 14:04:59,964 - federated rodada 5: ensemble 0.902
+2026-11-11 14:05:00,598 - federated rodada 5: teste externo 0.835, 0.810, 0.825, 0.825 | ensemble 0.805
+2026-11-11 14:05:22,474 - federated rodada 6: acurácia de teste 0.907, 0.907, 0.897, 0.911
+2026-11-11 14:05:23,749 - federated rodada 6: ensemble 0.906
+2026-11-11 14:05:24,385 - federated rodada 6: teste externo 0.750, 0.790, 0.830, 0.810 | ensemble 0.795
+2026-11-11 14:05:49,300 - federated rodada 7: acurácia de teste 0.900, 0.899, 0.907, 0.904
+2026-11-11 14:05:50,575 - federated rodada 7: ensemble 0.907
+2026-11-11 14:05:51,220 - federated rodada 7: teste externo 0.810, 0.785, 0.800, 0.815 | ensemble 0.810
+[36m(Client pid=95293)[0m W0000 00:00:1794405971.512623   95293 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=95293)[0m 	 [[{{node sequential_1/random_zoom_1/Add/_18}}]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=95293)[0m W0000 00:00:1794405971.512678   95293 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=95293)[0m 	 [[{{node sequential_1/random_zoom_1/Add/_18}}]]
+[36m(Client pid=95293)[0m 	 [[GroupCrossDeviceControlEdges_0/NoOp/_21]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=95293)[0m I0000 00:00:1794405971.512695   95293 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 17670934273515493735
+[36m(Client pid=95295)[0m I0000 00:00:1794405774.202302   95487 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_25570__.89[32m [repeated 3x across cluster][0m
+2026-11-11 14:06:16,186 - federated rodada 8: acurácia de teste 0.905, 0.912, 0.904, 0.906
+2026-11-11 14:06:17,324 - federated rodada 8: ensemble 0.911
+2026-11-11 14:06:17,947 - federated rodada 8: teste externo 0.830, 0.810, 0.825, 0.825 | ensemble 0.805
+2026-11-11 14:06:39,904 - federated rodada 9: acurácia de teste 0.905, 0.901, 0.893, 0.905
+2026-11-11 14:06:41,018 - federated rodada 9: ensemble 0.911
+2026-11-11 14:06:41,653 - federated rodada 9: teste externo 0.825, 0.810, 0.815, 0.820 | ensemble 0.810
+2026-11-11 14:07:06,723 - federated rodada 10: acurácia de teste 0.902, 0.907, 0.908, 0.910
+2026-11-11 14:07:07,812 - federated rodada 10: ensemble 0.907
+2026-11-11 14:07:08,416 - federated rodada 10: teste externo 0.795, 0.825, 0.825, 0.820 | ensemble 0.805
+2026-11-11 14:07:32,672 - federated rodada 11: acurácia de teste 0.893, 0.910, 0.901, 0.904
+2026-11-11 14:07:33,945 - federated rodada 11: ensemble 0.906
+2026-11-11 14:07:34,580 - federated rodada 11: teste externo 0.830, 0.810, 0.830, 0.810 | ensemble 0.835
+2026-11-11 14:07:56,377 - federated rodada 12: acurácia de teste 0.905, 0.907, 0.899, 0.902
+2026-11-11 14:07:57,653 - federated rodada 12: ensemble 0.905
+2026-11-11 14:07:58,286 - federated rodada 12: teste externo 0.805, 0.810, 0.770, 0.815 | ensemble 0.795
+2026-11-11 14:08:19,541 - federated rodada 13: acurácia de teste 0.909, 0.910, 0.899, 0.908
+2026-11-11 14:08:20,815 - federated rodada 13: ensemble 0.908
+2026-11-11 14:08:21,449 - federated rodada 13: teste externo 0.820, 0.800, 0.785, 0.795 | ensemble 0.805
+2026-11-11 14:08:42,475 - federated rodada 14: acurácia de teste 0.898, 0.907, 0.895, 0.909
+2026-11-11 14:08:43,747 - federated rodada 14: ensemble 0.908
+2026-11-11 14:08:44,379 - federated rodada 14: teste externo 0.835, 0.825, 0.795, 0.795 | ensemble 0.805
+2026-11-11 14:09:08,870 - federated rodada 15: acurácia de teste 0.907, 0.911, 0.912, 0.905
+2026-11-11 14:09:10,144 - federated rodada 15: ensemble 0.908
+2026-11-11 14:09:10,750 - federated rodada 15: teste externo 0.800, 0.800, 0.810, 0.830 | ensemble 0.805
+2026-11-11 14:09:31,946 - federated rodada 16: acurácia de teste 0.905, 0.909, 0.900, 0.913
+2026-11-11 14:09:33,219 - federated rodada 16: ensemble 0.908
+2026-11-11 14:09:33,841 - federated rodada 16: teste externo 0.815, 0.790, 0.760, 0.810 | ensemble 0.810
+2026-11-11 14:09:55,030 - federated rodada 17: acurácia de teste 0.902, 0.908, 0.899, 0.905
+2026-11-11 14:09:56,193 - federated rodada 17: ensemble 0.909
+2026-11-11 14:09:56,861 - federated rodada 17: teste externo 0.820, 0.810, 0.735, 0.775 | ensemble 0.790
+2026-11-11 14:10:21,724 - federated rodada 18: acurácia de teste 0.900, 0.904, 0.905, 0.914
+2026-11-11 14:10:22,996 - federated rodada 18: ensemble 0.911
+2026-11-11 14:10:23,632 - federated rodada 18: teste externo 0.805, 0.805, 0.785, 0.745 | ensemble 0.810
+2026-11-11 14:10:46,095 - federated rodada 19: acurácia de teste 0.903, 0.909, 0.905, 0.915
+2026-11-11 14:10:47,260 - federated rodada 19: ensemble 0.912
+2026-11-11 14:10:47,895 - federated rodada 19: teste externo 0.820, 0.815, 0.770, 0.800 | ensemble 0.790
+2026-11-11 14:11:08,974 - federated rodada 20: acurácia de teste 0.899, 0.904, 0.908, 0.907
+2026-11-11 14:11:10,249 - federated rodada 20: ensemble 0.905
+2026-11-11 14:11:10,845 - federated rodada 20: teste externo 0.835, 0.800, 0.845, 0.720 | ensemble 0.820
+2026-11-11 14:11:39,053 - federated rodada 21: acurácia de teste 0.903, 0.911, 0.900, 0.913
+2026-11-11 14:11:40,331 - federated rodada 21: ensemble 0.909
+2026-11-11 14:11:40,967 - federated rodada 21: teste externo 0.835, 0.785, 0.805, 0.795 | ensemble 0.820
+2026-11-11 14:12:02,749 - federated rodada 22: acurácia de teste 0.902, 0.911, 0.903, 0.911
+2026-11-11 14:12:03,881 - federated rodada 22: ensemble 0.907
+2026-11-11 14:12:04,498 - federated rodada 22: teste externo 0.835, 0.820, 0.800, 0.820 | ensemble 0.810
+2026-11-11 14:12:29,725 - federated rodada 23: acurácia de teste 0.904, 0.914, 0.902, 0.911
+2026-11-11 14:12:31,075 - federated rodada 23: ensemble 0.910
+2026-11-11 14:12:31,712 - federated rodada 23: teste externo 0.815, 0.865, 0.795, 0.800 | ensemble 0.815
+2026-11-11 14:12:56,809 - federated rodada 24: acurácia de teste 0.903, 0.905, 0.902, 0.906
+2026-11-11 14:12:59,364 - federated rodada 24: ensemble 0.906
+2026-11-11 14:13:00,000 - federated rodada 24: teste externo 0.820, 0.830, 0.825, 0.810 | ensemble 0.830
+2026-11-11 14:13:21,674 - federated rodada 25: acurácia de teste 0.905, 0.914, 0.911, 0.914
+2026-11-11 14:13:22,779 - federated rodada 25: ensemble 0.909
+2026-11-11 14:13:23,410 - federated rodada 25: teste externo 0.810, 0.755, 0.810, 0.785 | ensemble 0.815
+2026-11-11 14:13:45,045 - federated rodada 26: acurácia de teste 0.895, 0.909, 0.907, 0.910
+2026-11-11 14:13:46,318 - federated rodada 26: ensemble 0.908
+2026-11-11 14:13:47,596 - federated rodada 26: teste externo 0.825, 0.800, 0.835, 0.820 | ensemble 0.830
+2026-11-11 14:14:12,706 - federated rodada 27: acurácia de teste 0.911, 0.908, 0.907, 0.908
+2026-11-11 14:14:13,888 - federated rodada 27: ensemble 0.908
+2026-11-11 14:14:14,534 - federated rodada 27: teste externo 0.825, 0.810, 0.820, 0.820 | ensemble 0.820
+2026-11-11 14:14:36,372 - federated rodada 28: acurácia de teste 0.909, 0.909, 0.911, 0.915
+2026-11-11 14:14:37,540 - federated rodada 28: ensemble 0.911
+2026-11-11 14:14:38,191 - federated rodada 28: teste externo 0.855, 0.865, 0.800, 0.805 | ensemble 0.835
+2026-11-11 14:15:03,306 - federated rodada 29: acurácia de teste 0.909, 0.907, 0.907, 0.908
+2026-11-11 14:15:04,584 - federated rodada 29: ensemble 0.910
+2026-11-11 14:15:05,236 - federated rodada 29: teste externo 0.825, 0.815, 0.805, 0.805 | ensemble 0.810
+2026-11-11 14:15:27,277 - federated rodada 30: acurácia de teste 0.903, 0.911, 0.913, 0.906
+2026-11-11 14:15:28,552 - federated rodada 30: ensemble 0.907
+2026-11-11 14:15:29,215 - federated rodada 30: teste externo 0.830, 0.810, 0.800, 0.825 | ensemble 0.815
+2026-11-11 14:15:29,217 - Configuração {'seed': 42, 'public_fraction': 0.8, 'alpha': 1.0}
+[36m(pid=19535)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=19535)[0m I0000 00:00:1794406530.411187   19535 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(pid=19535)[0m I0000 00:00:1794406530.490709   19535 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=19535)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=19535)[0m W0000 00:00:1794406533.358877   19535 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=19535)[0m W0000 00:00:1794406533.363717   19535 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=19535)[0m I0000 00:00:1794406533.531519   19535 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=19536)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=19536)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(pid=19535)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster][0m
+[36m(pid=19535)[0m I0000 00:00:1794406531.691342   19535 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=19538)[0m I0000 00:00:1794406530.490704   19538 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=19538)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=19536)[0m I0000 00:00:1794406537.416182   19732 service.cc:153] XLA service 0x7a829803b6b0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=19536)[0m I0000 00:00:1794406537.416525   19732 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(Client pid=19536)[0m I0000 00:00:1794406537.578604   19732 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(Client pid=19536)[0m I0000 00:00:1794406538.096707   19732 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=19536)[0m I0000 00:00:1794406538.118804   19732 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4009__.55
+[36m(Client pid=19538)[0m W0000 00:00:1794406533.363612   19538 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 6x across cluster][0m
+[36m(Client pid=19538)[0m I0000 00:00:1794406533.533270   19538 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=19536)[0m I0000 00:00:1794406553.832396   19732 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=19538)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=19538)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=19538)[0m I0000 00:00:1794406538.729262   19726 service.cc:153] XLA service 0x74ca7803e000 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=19538)[0m I0000 00:00:1794406538.729615   19726 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=19538)[0m I0000 00:00:1794406538.941956   19726 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=19538)[0m I0000 00:00:1794406539.657562   19726 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=19538)[0m I0000 00:00:1794406539.676755   19726 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5713__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=19535)[0m I0000 00:00:1794406558.992616   19718 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.[32m [repeated 2x across cluster][0m
+[36m(Client pid=19536)[0m I0000 00:00:1794406577.057115   19730 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4009__.55
+[36m(Client pid=19538)[0m I0000 00:00:1794406563.185346   19726 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=19536)[0m I0000 00:00:1794406581.015588   21224 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=19536)[0m 
+[36m(Client pid=19535)[0m I0000 00:00:1794406588.457740   19718 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4869__.70
+[36m(Client pid=19537)[0m I0000 00:00:1794406591.957603   19716 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4009__.55
+[36m(Client pid=19537)[0m I0000 00:00:1794406594.474125   21561 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=19537)[0m 
+[36m(Client pid=19535)[0m 
+[36m(Client pid=19538)[0m 
+[36m(Client pid=19538)[0m I0000 00:00:1794406596.019782   19726 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5713__.85
+[36m(Client pid=19536)[0m 
+[36m(Client pid=19536)[0m I0000 00:00:1794406963.448928   24781 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 3x across cluster][0m
+[36m(Client pid=19535)[0m 
+[36m(Client pid=19537)[0m 
+[36m(Client pid=19538)[0m 
+2026-11-11 14:22:47,153 - public_init rodada 0: acurácia de teste 0.881, 0.897, 0.906, 0.903
+2026-11-11 14:22:49,760 - public_init rodada 0: ensemble 0.901
+2026-11-11 14:22:50,394 - public_init rodada 0: teste externo 0.790, 0.790, 0.775, 0.750 | ensemble 0.780
+2026-11-11 14:23:56,200 - private_init rodada 0: acurácia de teste 0.892, 0.903, 0.870, 0.910
+2026-11-11 14:23:57,477 - private_init rodada 0: ensemble 0.903
+2026-11-11 14:23:58,106 - private_init rodada 0: teste externo 0.835, 0.870, 0.820, 0.825 | ensemble 0.845
+[36m(Client pid=19537)[0m I0000 00:00:1794407047.376847   19716 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_26916__.59
+[36m(Client pid=19538)[0m I0000 00:00:1794406965.448379   24784 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 3x across cluster][0m
+2026-11-11 14:24:28,903 - federated rodada 1: acurácia de teste 0.908, 0.895, 0.867, 0.909
+2026-11-11 14:24:30,038 - federated rodada 1: ensemble 0.909
+2026-11-11 14:24:30,677 - federated rodada 1: teste externo 0.780, 0.760, 0.795, 0.785 | ensemble 0.800
+2026-11-11 14:24:51,880 - federated rodada 2: acurácia de teste 0.905, 0.869, 0.887, 0.901
+2026-11-11 14:24:53,155 - federated rodada 2: ensemble 0.903
+2026-11-11 14:24:53,791 - federated rodada 2: teste externo 0.825, 0.785, 0.810, 0.770 | ensemble 0.810
+2026-11-11 14:25:16,202 - federated rodada 3: acurácia de teste 0.905, 0.899, 0.885, 0.912
+2026-11-11 14:25:17,477 - federated rodada 3: ensemble 0.902
+2026-11-11 14:25:18,755 - federated rodada 3: teste externo 0.810, 0.825, 0.790, 0.805 | ensemble 0.805
+2026-11-11 14:25:40,580 - federated rodada 4: acurácia de teste 0.903, 0.902, 0.880, 0.906
+2026-11-11 14:25:41,721 - federated rodada 4: ensemble 0.902
+2026-11-11 14:25:42,361 - federated rodada 4: teste externo 0.830, 0.810, 0.815, 0.820 | ensemble 0.815
+2026-11-11 14:26:07,659 - federated rodada 5: acurácia de teste 0.898, 0.900, 0.901, 0.906
+2026-11-11 14:26:08,935 - federated rodada 5: ensemble 0.904
+2026-11-11 14:26:09,568 - federated rodada 5: teste externo 0.845, 0.815, 0.820, 0.815 | ensemble 0.810
+2026-11-11 14:26:30,450 - federated rodada 6: acurácia de teste 0.907, 0.886, 0.857, 0.910
+2026-11-11 14:26:31,569 - federated rodada 6: ensemble 0.907
+2026-11-11 14:26:32,195 - federated rodada 6: teste externo 0.790, 0.750, 0.790, 0.795 | ensemble 0.795
+2026-11-11 14:26:53,223 - federated rodada 7: acurácia de teste 0.904, 0.900, 0.913, 0.904
+2026-11-11 14:26:54,578 - federated rodada 7: ensemble 0.903
+2026-11-11 14:26:55,239 - federated rodada 7: teste externo 0.835, 0.805, 0.775, 0.800 | ensemble 0.800
+2026-11-11 14:27:16,907 - federated rodada 8: acurácia de teste 0.906, 0.910, 0.903, 0.909
+2026-11-11 14:27:18,091 - federated rodada 8: ensemble 0.908
+2026-11-11 14:27:19,365 - federated rodada 8: teste externo 0.830, 0.810, 0.760, 0.805 | ensemble 0.800
+2026-11-11 14:27:41,144 - federated rodada 9: acurácia de teste 0.909, 0.911, 0.873, 0.906
+2026-11-11 14:27:42,416 - federated rodada 9: ensemble 0.903
+2026-11-11 14:27:43,691 - federated rodada 9: teste externo 0.830, 0.810, 0.775, 0.800 | ensemble 0.805
+[36m(Client pid=19538)[0m W0000 00:00:1794407283.643035   19538 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=19538)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=19538)[0m W0000 00:00:1794407283.643204   19538 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=19538)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=19538)[0m W0000 00:00:1794407283.643242   19538 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=19538)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]]
+[36m(Client pid=19538)[0m 	 [[sequential_1/random_rotation_1/Add/_16]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=19538)[0m I0000 00:00:1794407283.643253   19538 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 13476264786026553478
+[36m(Client pid=19538)[0m I0000 00:00:1794407048.701480   19725 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_28622__.89[32m [repeated 3x across cluster][0m
+2026-11-11 14:28:05,255 - federated rodada 10: acurácia de teste 0.906, 0.908, 0.907, 0.909
+2026-11-11 14:28:06,529 - federated rodada 10: ensemble 0.907
+2026-11-11 14:28:07,811 - federated rodada 10: teste externo 0.820, 0.800, 0.760, 0.810 | ensemble 0.815
+2026-11-11 14:28:29,866 - federated rodada 11: acurácia de teste 0.896, 0.901, 0.894, 0.901
+2026-11-11 14:28:31,043 - federated rodada 11: ensemble 0.903
+2026-11-11 14:28:31,675 - federated rodada 11: teste externo 0.845, 0.845, 0.775, 0.750 | ensemble 0.805
+2026-11-11 14:28:53,230 - federated rodada 12: acurácia de teste 0.904, 0.895, 0.906, 0.901
+2026-11-11 14:28:54,504 - federated rodada 12: ensemble 0.905
+2026-11-11 14:28:55,145 - federated rodada 12: teste externo 0.805, 0.780, 0.690, 0.805 | ensemble 0.795
+2026-11-11 14:29:16,989 - federated rodada 13: acurácia de teste 0.905, 0.908, 0.882, 0.905
+2026-11-11 14:29:18,129 - federated rodada 13: ensemble 0.905
+2026-11-11 14:29:19,405 - federated rodada 13: teste externo 0.835, 0.795, 0.795, 0.805 | ensemble 0.825
+2026-11-11 14:29:47,377 - federated rodada 14: acurácia de teste 0.902, 0.905, 0.887, 0.909
+2026-11-11 14:29:48,570 - federated rodada 14: ensemble 0.902
+2026-11-11 14:29:49,206 - federated rodada 14: teste externo 0.840, 0.830, 0.780, 0.790 | ensemble 0.825
+2026-11-11 14:30:10,672 - federated rodada 15: acurácia de teste 0.908, 0.907, 0.889, 0.913
+2026-11-11 14:30:11,813 - federated rodada 15: ensemble 0.910
+2026-11-11 14:30:12,487 - federated rodada 15: teste externo 0.820, 0.830, 0.780, 0.815 | ensemble 0.810
+2026-11-11 14:30:34,021 - federated rodada 16: acurácia de teste 0.899, 0.904, 0.889, 0.909
+2026-11-11 14:30:35,292 - federated rodada 16: ensemble 0.907
+2026-11-11 14:30:36,570 - federated rodada 16: teste externo 0.830, 0.780, 0.790, 0.815 | ensemble 0.810
+2026-11-11 14:30:57,901 - federated rodada 17: acurácia de teste 0.901, 0.900, 0.893, 0.910
+2026-11-11 14:30:59,176 - federated rodada 17: ensemble 0.905
+2026-11-11 14:30:59,814 - federated rodada 17: teste externo 0.825, 0.815, 0.755, 0.700 | ensemble 0.805
+2026-11-11 14:31:21,770 - federated rodada 18: acurácia de teste 0.900, 0.911, 0.893, 0.915
+2026-11-11 14:31:23,045 - federated rodada 18: ensemble 0.908
+2026-11-11 14:31:23,711 - federated rodada 18: teste externo 0.835, 0.805, 0.740, 0.715 | ensemble 0.805
+2026-11-11 14:31:46,165 - federated rodada 19: acurácia de teste 0.909, 0.905, 0.902, 0.910
+2026-11-11 14:31:47,333 - federated rodada 19: ensemble 0.911
+2026-11-11 14:31:47,960 - federated rodada 19: teste externo 0.840, 0.800, 0.785, 0.755 | ensemble 0.805
+2026-11-11 14:32:09,806 - federated rodada 20: acurácia de teste 0.904, 0.904, 0.905, 0.910
+2026-11-11 14:32:11,103 - federated rodada 20: ensemble 0.906
+2026-11-11 14:32:11,724 - federated rodada 20: teste externo 0.840, 0.820, 0.785, 0.740 | ensemble 0.810
+2026-11-11 14:32:33,011 - federated rodada 21: acurácia de teste 0.900, 0.908, 0.896, 0.912
+2026-11-11 14:32:34,286 - federated rodada 21: ensemble 0.909
+2026-11-11 14:32:34,879 - federated rodada 21: teste externo 0.830, 0.845, 0.785, 0.765 | ensemble 0.820
+2026-11-11 14:33:02,791 - federated rodada 22: acurácia de teste 0.904, 0.907, 0.905, 0.904
+2026-11-11 14:33:04,064 - federated rodada 22: ensemble 0.906
+2026-11-11 14:33:05,343 - federated rodada 22: teste externo 0.825, 0.835, 0.775, 0.825 | ensemble 0.825
+2026-11-11 14:33:29,847 - federated rodada 23: acurácia de teste 0.908, 0.904, 0.895, 0.910
+2026-11-11 14:33:32,408 - federated rodada 23: ensemble 0.909
+2026-11-11 14:33:33,081 - federated rodada 23: teste externo 0.835, 0.850, 0.770, 0.800 | ensemble 0.815
+2026-11-11 14:33:54,106 - federated rodada 24: acurácia de teste 0.907, 0.903, 0.902, 0.907
+2026-11-11 14:33:55,380 - federated rodada 24: ensemble 0.910
+2026-11-11 14:33:56,021 - federated rodada 24: teste externo 0.820, 0.820, 0.770, 0.795 | ensemble 0.810
+2026-11-11 14:34:20,424 - federated rodada 25: acurácia de teste 0.903, 0.906, 0.902, 0.909
+2026-11-11 14:34:21,577 - federated rodada 25: ensemble 0.908
+2026-11-11 14:34:22,208 - federated rodada 25: teste externo 0.835, 0.840, 0.795, 0.760 | ensemble 0.815
+[36m(Client pid=19538)[0m W0000 00:00:1794407681.509971   19538 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=19538)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]]
+[36m(Client pid=19538)[0m 	 [[sequential_1/random_rotation_1/Add/_16]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=19538)[0m I0000 00:00:1794407681.510032   19538 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 13476264786026553478
+[36m(Client pid=19538)[0m I0000 00:00:1794407681.510041   19538 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 8404870661044997650
+2026-11-11 14:34:43,163 - federated rodada 26: acurácia de teste 0.904, 0.905, 0.903, 0.911
+2026-11-11 14:34:44,438 - federated rodada 26: ensemble 0.906
+2026-11-11 14:34:45,079 - federated rodada 26: teste externo 0.830, 0.825, 0.795, 0.770 | ensemble 0.815
+2026-11-11 14:35:06,321 - federated rodada 27: acurácia de teste 0.911, 0.904, 0.897, 0.910
+2026-11-11 14:35:07,631 - federated rodada 27: ensemble 0.903
+2026-11-11 14:35:08,289 - federated rodada 27: teste externo 0.835, 0.815, 0.790, 0.760 | ensemble 0.810
+2026-11-11 14:35:29,469 - federated rodada 28: acurácia de teste 0.911, 0.904, 0.896, 0.908
+2026-11-11 14:35:30,629 - federated rodada 28: ensemble 0.911
+2026-11-11 14:35:31,903 - federated rodada 28: teste externo 0.845, 0.860, 0.780, 0.815 | ensemble 0.810
+2026-11-11 14:35:52,786 - federated rodada 29: acurácia de teste 0.911, 0.902, 0.906, 0.909
+2026-11-11 14:35:54,061 - federated rodada 29: ensemble 0.907
+2026-11-11 14:35:54,664 - federated rodada 29: teste externo 0.800, 0.835, 0.785, 0.755 | ensemble 0.800
+2026-11-11 14:36:18,936 - federated rodada 30: acurácia de teste 0.902, 0.901, 0.900, 0.906
+2026-11-11 14:36:20,211 - federated rodada 30: ensemble 0.910
+2026-11-11 14:36:20,844 - federated rodada 30: teste externo 0.830, 0.845, 0.785, 0.810 | ensemble 0.820
+2026-11-11 14:36:20,847 - Configuração {'seed': 42, 'public_fraction': 0.8, 'alpha': 0.1}
+[36m(pid=41267)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=41267)[0m I0000 00:00:1794407781.970827   41267 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(pid=41267)[0m I0000 00:00:1794407782.043873   41267 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=41267)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=41267)[0m W0000 00:00:1794407784.832840   41267 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=41267)[0m I0000 00:00:1794407784.981868   41267 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=41267)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=41267)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(pid=41271)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster][0m
+[36m(pid=41271)[0m I0000 00:00:1794407783.336051   41271 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=41271)[0m I0000 00:00:1794407782.075204   41271 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=41271)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=41267)[0m I0000 00:00:1794407788.715892   41448 service.cc:153] XLA service 0x7acc880391e0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=41267)[0m I0000 00:00:1794407788.715938   41448 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(Client pid=41267)[0m I0000 00:00:1794407788.805506   41448 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(Client pid=41262)[0m I0000 00:00:1794407789.462649   41443 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=41262)[0m I0000 00:00:1794407789.492745   41443 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4009__.55
+[36m(Client pid=41267)[0m W0000 00:00:1794407784.841184   41267 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 7x across cluster][0m
+[36m(Client pid=41271)[0m I0000 00:00:1794407784.974568   41271 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=41262)[0m I0000 00:00:1794407805.953961   41443 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=41262)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=41262)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=41271)[0m I0000 00:00:1794407790.342056   41436 service.cc:153] XLA service 0x7fcbc8055cf0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=41271)[0m I0000 00:00:1794407790.342099   41436 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=41271)[0m I0000 00:00:1794407790.472250   41436 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=41271)[0m I0000 00:00:1794407791.014907   41436 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=41271)[0m I0000 00:00:1794407791.038133   41436 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5713__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=41263)[0m I0000 00:00:1794407811.021275   41431 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.[32m [repeated 2x across cluster][0m
+[36m(Client pid=41271)[0m I0000 00:00:1794407817.134713   41436 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=41262)[0m I0000 00:00:1794407830.521445   41440 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4009__.55
+[36m(Client pid=41262)[0m I0000 00:00:1794407834.600487   42961 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=41262)[0m 
+[36m(Client pid=41263)[0m I0000 00:00:1794407842.518651   41430 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4869__.70
+[36m(Client pid=41267)[0m I0000 00:00:1794407842.902468   41448 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4009__.55
+[36m(Client pid=41267)[0m I0000 00:00:1794407845.915007   43201 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=41267)[0m 
+[36m(Client pid=41263)[0m 
+[36m(Client pid=41271)[0m I0000 00:00:1794407849.568930   41432 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5713__.85
+[36m(Client pid=41271)[0m 
+[36m(Client pid=41271)[0m I0000 00:00:1794407854.555210   43565 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 2x across cluster][0m
+[36m(Client pid=41262)[0m 
+[36m(Client pid=41262)[0m I0000 00:00:1794408222.147834   49334 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=41263)[0m I0000 00:00:1794408223.045726   49329 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=41263)[0m 
+[36m(Client pid=41267)[0m 
+[36m(Client pid=41271)[0m 
+2026-11-11 14:43:45,435 - public_init rodada 0: acurácia de teste 0.890, 0.899, 0.904, 0.902
+2026-11-11 14:43:48,156 - public_init rodada 0: ensemble 0.904
+2026-11-11 14:43:48,797 - public_init rodada 0: teste externo 0.810, 0.800, 0.780, 0.795 | ensemble 0.790
+[36m(Client pid=41263)[0m W0000 00:00:1794408273.086085   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41271)[0m I0000 00:00:1794408224.164988   49340 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 2x across cluster][0m
+[36m(Client pid=41263)[0m W0000 00:00:1794408273.460068   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408273.871837   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408274.245352   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408274.729392   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408274.893113   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408275.293213   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408275.594746   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408275.883464   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408276.073362   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408276.385427   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408276.685700   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408276.884130   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408277.156042   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408277.524077   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408277.837770   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408278.117462   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408278.394040   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408278.679951   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408278.981775   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408279.270971   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408279.555765   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408279.864983   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408280.114483   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408280.423663   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408280.677012   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408280.983594   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408281.250423   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408281.510863   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408281.805272   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408281.983858   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408282.299463   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408282.588117   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408282.890593   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408283.158317   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408283.410027   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408283.714800   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408283.971588   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408284.206723   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408284.493238   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41263)[0m W0000 00:00:1794408284.736624   49857 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=41267)[0m W0000 00:00:1794408292.058382   41267 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=41267)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=41267)[0m W0000 00:00:1794408292.062507   49845 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=41267)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]]
+[36m(Client pid=41267)[0m 	 [[GroupCrossDeviceControlEdges_0/NoOp/_20]] [type.googleapis.com/tensorflow.DerivedStatus='']
+2026-11-11 14:45:12,144 - private_init rodada 0: acurácia de teste 0.896, 0.894, 0.895, 0.889
+2026-11-11 14:45:13,268 - private_init rodada 0: ensemble 0.907
+2026-11-11 14:45:14,542 - private_init rodada 0: teste externo 0.820, 0.815, 0.845, 0.805 | ensemble 0.845
+[36m(Client pid=41267)[0m I0000 00:00:1794408324.223313   41448 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_26856__.59
+2026-11-11 14:45:41,745 - federated rodada 1: acurácia de teste 0.617, 0.890, 0.870, 0.894
+2026-11-11 14:45:43,049 - federated rodada 1: ensemble 0.898
+2026-11-11 14:45:43,675 - federated rodada 1: teste externo 0.700, 0.765, 0.680, 0.765 | ensemble 0.760
+2026-11-11 14:46:05,019 - federated rodada 2: acurácia de teste 0.899, 0.886, 0.837, 0.887
+2026-11-11 14:46:06,292 - federated rodada 2: ensemble 0.899
+2026-11-11 14:46:06,929 - federated rodada 2: teste externo 0.840, 0.760, 0.550, 0.780 | ensemble 0.785
+2026-11-11 14:46:28,215 - federated rodada 3: acurácia de teste 0.897, 0.885, 0.843, 0.899
+2026-11-11 14:46:29,361 - federated rodada 3: ensemble 0.898
+2026-11-11 14:46:29,994 - federated rodada 3: teste externo 0.830, 0.775, 0.570, 0.795 | ensemble 0.780
+2026-11-11 14:46:51,569 - federated rodada 4: acurácia de teste 0.900, 0.892, 0.890, 0.894
+2026-11-11 14:46:52,770 - federated rodada 4: ensemble 0.903
+2026-11-11 14:46:54,048 - federated rodada 4: teste externo 0.800, 0.780, 0.715, 0.805 | ensemble 0.800
+2026-11-11 14:47:19,111 - federated rodada 5: acurácia de teste 0.898, 0.893, 0.879, 0.903
+2026-11-11 14:47:20,389 - federated rodada 5: ensemble 0.904
+2026-11-11 14:47:20,993 - federated rodada 5: teste externo 0.835, 0.835, 0.710, 0.785 | ensemble 0.800
+2026-11-11 14:47:49,192 - federated rodada 6: acurácia de teste 0.905, 0.896, 0.890, 0.900
+2026-11-11 14:47:50,338 - federated rodada 6: ensemble 0.901
+2026-11-11 14:47:50,980 - federated rodada 6: teste externo 0.805, 0.765, 0.720, 0.780 | ensemble 0.790
+2026-11-11 14:48:16,398 - federated rodada 7: acurácia de teste 0.897, 0.898, 0.873, 0.898
+2026-11-11 14:48:17,508 - federated rodada 7: ensemble 0.899
+2026-11-11 14:48:18,143 - federated rodada 7: teste externo 0.835, 0.775, 0.650, 0.795 | ensemble 0.800
+2026-11-11 14:48:42,459 - federated rodada 8: acurácia de teste 0.899, 0.905, 0.893, 0.893
+2026-11-11 14:48:43,734 - federated rodada 8: ensemble 0.908
+2026-11-11 14:48:44,392 - federated rodada 8: teste externo 0.805, 0.795, 0.680, 0.800 | ensemble 0.795
+2026-11-11 14:49:06,048 - federated rodada 9: acurácia de teste 0.908, 0.903, 0.874, 0.906
+2026-11-11 14:49:07,201 - federated rodada 9: ensemble 0.908
+2026-11-11 14:49:07,833 - federated rodada 9: teste externo 0.810, 0.800, 0.600, 0.780 | ensemble 0.785
+2026-11-11 14:49:30,670 - federated rodada 10: acurácia de teste 0.899, 0.899, 0.897, 0.902
+2026-11-11 14:49:31,773 - federated rodada 10: ensemble 0.907
+2026-11-11 14:49:32,416 - federated rodada 10: teste externo 0.815, 0.800, 0.815, 0.805 | ensemble 0.795
+2026-11-11 14:49:53,480 - federated rodada 11: acurácia de teste 0.897, 0.901, 0.893, 0.899
+2026-11-11 14:49:54,753 - federated rodada 11: ensemble 0.901
+2026-11-11 14:49:55,385 - federated rodada 11: teste externo 0.800, 0.825, 0.755, 0.785 | ensemble 0.795
+2026-11-11 14:50:16,686 - federated rodada 12: acurácia de teste 0.866, 0.896, 0.898, 0.899
+2026-11-11 14:50:17,959 - federated rodada 12: ensemble 0.905
+2026-11-11 14:50:18,606 - federated rodada 12: teste externo 0.800, 0.795, 0.760, 0.790 | ensemble 0.785
+2026-11-11 14:50:40,322 - federated rodada 13: acurácia de teste 0.902, 0.901, 0.888, 0.896
+2026-11-11 14:50:41,595 - federated rodada 13: ensemble 0.905
+2026-11-11 14:50:42,244 - federated rodada 13: teste externo 0.815, 0.795, 0.775, 0.800 | ensemble 0.800
+2026-11-11 14:51:06,458 - federated rodada 14: acurácia de teste 0.903, 0.895, 0.890, 0.888
+2026-11-11 14:51:07,604 - federated rodada 14: ensemble 0.905
+2026-11-11 14:51:08,879 - federated rodada 14: teste externo 0.795, 0.830, 0.755, 0.780 | ensemble 0.800
+2026-11-11 14:51:34,234 - federated rodada 15: acurácia de teste 0.904, 0.898, 0.899, 0.900
+2026-11-11 14:51:35,367 - federated rodada 15: ensemble 0.904
+2026-11-11 14:51:35,996 - federated rodada 15: teste externo 0.815, 0.800, 0.770, 0.790 | ensemble 0.800
+2026-11-11 14:52:00,448 - federated rodada 16: acurácia de teste 0.907, 0.895, 0.895, 0.910
+2026-11-11 14:52:01,634 - federated rodada 16: ensemble 0.908
+2026-11-11 14:52:02,274 - federated rodada 16: teste externo 0.795, 0.800, 0.680, 0.790 | ensemble 0.780
+2026-11-11 14:52:30,952 - federated rodada 17: acurácia de teste 0.870, 0.897, 0.892, 0.901
+2026-11-11 14:52:32,229 - federated rodada 17: ensemble 0.905
+2026-11-11 14:52:32,869 - federated rodada 17: teste externo 0.810, 0.805, 0.605, 0.795 | ensemble 0.775
+2026-11-11 14:52:54,369 - federated rodada 18: acurácia de teste 0.903, 0.893, 0.888, 0.908
+2026-11-11 14:52:55,643 - federated rodada 18: ensemble 0.907
+2026-11-11 14:52:56,339 - federated rodada 18: teste externo 0.810, 0.805, 0.780, 0.825 | ensemble 0.800
+2026-11-11 14:53:17,980 - federated rodada 19: acurácia de teste 0.900, 0.895, 0.901, 0.913
+2026-11-11 14:53:19,256 - federated rodada 19: ensemble 0.907
+2026-11-11 14:53:19,871 - federated rodada 19: teste externo 0.820, 0.805, 0.755, 0.790 | ensemble 0.790
+2026-11-11 14:53:43,867 - federated rodada 20: acurácia de teste 0.901, 0.895, 0.897, 0.891
+2026-11-11 14:53:45,117 - federated rodada 20: ensemble 0.907
+2026-11-11 14:53:45,736 - federated rodada 20: teste externo 0.835, 0.790, 0.740, 0.780 | ensemble 0.800
+2026-11-11 14:54:07,081 - federated rodada 21: acurácia de teste 0.897, 0.901, 0.830, 0.911
+2026-11-11 14:54:08,591 - federated rodada 21: ensemble 0.908
+2026-11-11 14:54:09,247 - federated rodada 21: teste externo 0.825, 0.830, 0.660, 0.795 | ensemble 0.820
+2026-11-11 14:54:30,659 - federated rodada 22: acurácia de teste 0.807, 0.902, 0.901, 0.906
+2026-11-11 14:54:31,892 - federated rodada 22: ensemble 0.907
+2026-11-11 14:54:33,166 - federated rodada 22: teste externo 0.780, 0.815, 0.790, 0.810 | ensemble 0.795
+2026-11-11 14:54:57,751 - federated rodada 23: acurácia de teste 0.873, 0.904, 0.893, 0.905
+2026-11-11 14:54:59,042 - federated rodada 23: ensemble 0.907
+2026-11-11 14:54:59,779 - federated rodada 23: teste externo 0.805, 0.840, 0.795, 0.790 | ensemble 0.800
+2026-11-11 14:55:21,591 - federated rodada 24: acurácia de teste 0.904, 0.897, 0.887, 0.897
+2026-11-11 14:55:22,865 - federated rodada 24: ensemble 0.900
+2026-11-11 14:55:23,489 - federated rodada 24: teste externo 0.790, 0.805, 0.755, 0.800 | ensemble 0.800
+2026-11-11 14:55:48,794 - federated rodada 25: acurácia de teste 0.906, 0.909, 0.901, 0.906
+2026-11-11 14:55:50,068 - federated rodada 25: ensemble 0.908
+2026-11-11 14:55:50,700 - federated rodada 25: teste externo 0.800, 0.785, 0.805, 0.785 | ensemble 0.775
+2026-11-11 14:56:15,495 - federated rodada 26: acurácia de teste 0.907, 0.899, 0.901, 0.906
+2026-11-11 14:56:16,771 - federated rodada 26: ensemble 0.906
+2026-11-11 14:56:17,404 - federated rodada 26: teste externo 0.795, 0.800, 0.770, 0.795 | ensemble 0.785
+2026-11-11 14:56:38,916 - federated rodada 27: acurácia de teste 0.912, 0.898, 0.904, 0.905
+2026-11-11 14:56:40,085 - federated rodada 27: ensemble 0.905
+2026-11-11 14:56:41,366 - federated rodada 27: teste externo 0.805, 0.805, 0.805, 0.760 | ensemble 0.795
+2026-11-11 14:57:06,089 - federated rodada 28: acurácia de teste 0.912, 0.903, 0.902, 0.908
+2026-11-11 14:57:07,254 - federated rodada 28: ensemble 0.912
+2026-11-11 14:57:07,890 - federated rodada 28: teste externo 0.820, 0.860, 0.775, 0.795 | ensemble 0.805
+2026-11-11 14:57:29,279 - federated rodada 29: acurácia de teste 0.913, 0.899, 0.901, 0.912
+2026-11-11 14:57:30,507 - federated rodada 29: ensemble 0.905
+2026-11-11 14:57:31,141 - federated rodada 29: teste externo 0.800, 0.810, 0.760, 0.780 | ensemble 0.790
+2026-11-11 14:57:59,173 - federated rodada 30: acurácia de teste 0.903, 0.893, 0.901, 0.905
+2026-11-11 14:58:00,446 - federated rodada 30: ensemble 0.910
+2026-11-11 14:58:01,081 - federated rodada 30: teste externo 0.805, 0.820, 0.770, 0.785 | ensemble 0.790
+[36m(Client pid=41271)[0m I0000 00:00:1794408325.569583   41432 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_25586__.89[32m [repeated 3x across cluster][0m

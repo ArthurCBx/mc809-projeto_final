@@ -1,0 +1,306 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794452358.429372   11742 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1794452358.467792   11742 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794452359.381137   11742 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-12 02:59:20,457	WARNING authentication_token_setup.py:85 -- Token authentication is enabled for this Ray cluster. Set RAY_AUTH_MODE=disabled to opt out. For more information, see https://docs.ray.io/en/latest/ray-security/token-auth.html
+2026-11-12 02:59:20,984	WARNING services.py:2248 -- WARNING: The object store is using /tmp/ray instead of /dev/shm because /dev/shm has only 67108864 bytes available. This will harm performance! You may be able to free up space by deleting files in /dev/shm. If you are inside a Docker container, you can increase /dev/shm size by passing '--shm-size=7.00gb' to 'docker run' (or add it to the run_options list in a Ray cluster config). Make sure to set this to more than 30% of available RAM.
+2026-11-12 02:59:22,130	INFO worker.py:2033 -- Started a local Ray instance.
+2026-11-12 02:59:22,135	WARNING working_dir.py:91 -- Directory '.git' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-12 02:59:22,136	WARNING working_dir.py:91 -- Directory '__pycache__' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-12 02:59:22,141	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-12 02:59:33,617	INFO packaging.py:734 -- Creating a file package for local module '/mc809 - Comp Distribuida/projeto_final'.
+2026-11-12 02:59:33,620	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-12 02:59:54,489	WARNING packaging.py:704 -- The runtime_env package for '/mc809 - Comp Distribuida/projeto_final' at '/tmp/ray/session_2026-11-12_02-59-20_460784_11742/runtime_resources/1794452373616921749_11742__ray_pkg_02c88af64c801d9f.zip' is 323.42MiB, approaching the maximum upload size of 512.00MiB. If the upload fails, exclude large directories (commonly '.git', '.venv', or build artifacts) via the 'excludes' option in runtime_env, or list them in '.gitignore' / '.rayignore'. To raise the warning threshold set `RAY_PACKAGE_SIZE_WARNING_MIB=<size_in_MiB>`, or disable the warning entirely with `RAY_PACKAGE_SIZE_WARNING_MIB=-1`. For details see https://docs.ray.io/en/latest/ray-core/handling-dependencies.html#api-reference
+2026-11-12 02:59:54,741	INFO packaging.py:434 -- Pushing file package 'gcs://_ray_pkg_02c88af64c801d9f.zip' (323.42MiB) to Ray cluster...
+2026-11-12 02:59:55,800	INFO packaging.py:447 -- Successfully pushed file package 'gcs://_ray_pkg_02c88af64c801d9f.zip'.
+2026-11-12 02:59:56,423 - Configuração {'seed': 1, 'public_fraction': 1.0, 'alpha': 1.0}
+2026-11-12 02:59:56,496 - Privado: 80 imagens de ph2_dataset (24 (9 malignas), 23 (5 malignas), 20 (1 malignas), 13 (1 malignas) por cliente); público: 9605 imagens; teste externo: 120 imagens.
+[36m(pid=13643)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=13643)[0m I0000 00:00:1794452397.509506   13643 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(pid=13643)[0m I0000 00:00:1794452397.537279   13643 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=13643)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=13643)[0m W0000 00:00:1794452399.894493   13643 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=13643)[0m W0000 00:00:1794452399.902352   13643 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=13643)[0m I0000 00:00:1794452400.081738   13643 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=13643)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=13643)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(Client pid=13643)[0m I0000 00:00:1794452403.496090   13816 service.cc:153] XLA service 0x720cb4038be0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=13643)[0m I0000 00:00:1794452403.496139   13816 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(pid=13644)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(pid=13644)[0m I0000 00:00:1794452398.622237   13644 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=13644)[0m I0000 00:00:1794452397.661079   13644 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=13644)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=13643)[0m I0000 00:00:1794452403.583019   13816 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(Client pid=13643)[0m I0000 00:00:1794452403.947449   13816 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=13643)[0m I0000 00:00:1794452404.060892   13816 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4009__.55
+[36m(Client pid=13644)[0m W0000 00:00:1794452400.035919   13644 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 6x across cluster][0m
+[36m(Client pid=13644)[0m I0000 00:00:1794452400.203626   13644 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=13643)[0m I0000 00:00:1794452420.452423   13816 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=13638)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=13638)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=13644)[0m I0000 00:00:1794452404.828487   13824 service.cc:153] XLA service 0x78e8cc052510 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=13644)[0m I0000 00:00:1794452404.828521   13824 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=13644)[0m I0000 00:00:1794452404.947741   13824 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=13644)[0m I0000 00:00:1794452405.582560   13824 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=13644)[0m I0000 00:00:1794452405.611456   13824 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5713__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=13638)[0m I0000 00:00:1794452426.882365   13807 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.[32m [repeated 2x across cluster][0m
+[36m(Client pid=13643)[0m I0000 00:00:1794452448.272002   13814 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4009__.55
+[36m(Client pid=13644)[0m I0000 00:00:1794452431.007722   13824 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=13643)[0m I0000 00:00:1794452451.988840   15337 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=13643)[0m 
+[36m(Client pid=13638)[0m I0000 00:00:1794452463.028344   13807 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4869__.70
+[36m(Client pid=13638)[0m I0000 00:00:1794452463.925209   15601 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=13638)[0m 
+[36m(Client pid=13642)[0m I0000 00:00:1794452468.463768   13818 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4009__.55
+[36m(Client pid=13642)[0m 
+[36m(Client pid=13642)[0m I0000 00:00:1794452469.592756   15763 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=13644)[0m I0000 00:00:1794452476.794848   15895 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=13644)[0m 
+[36m(Client pid=13644)[0m I0000 00:00:1794452470.468664   13823 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5713__.85
+[36m(Client pid=13644)[0m I0000 00:00:1794452971.843745   19438 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=13644)[0m 
+[36m(Client pid=13643)[0m I0000 00:00:1794452971.938156   19420 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=13643)[0m 
+[36m(Client pid=13642)[0m 
+[36m(Client pid=13638)[0m 
+2026-11-12 03:09:35,412 - public_init rodada 0: acurácia de teste 0.894, 0.896, 0.900, 0.902
+2026-11-12 03:09:38,060 - public_init rodada 0: ensemble 0.905
+2026-11-12 03:09:43,184 - public_init rodada 0: teste externo 0.800, 0.800, 0.717, 0.767 | ensemble 0.817
+[36m(Client pid=13643)[0m I0000 00:00:1794452983.778344   13819 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4009__.55
+[36m(Client pid=13638)[0m I0000 00:00:1794452973.643932   19423 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 2x across cluster][0m
+[36m(Client pid=13643)[0m 
+[36m(Client pid=13644)[0m 
+[36m(Client pid=13642)[0m 
+[36m(Client pid=13638)[0m 
+[36m(Client pid=13643)[0m W0000 00:00:1794453000.863997   13643 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=13643)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=13643)[0m W0000 00:00:1794453000.864242   20192 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=13643)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]]
+[36m(Client pid=13643)[0m 	 [[GroupCrossDeviceControlEdges_0/NoOp/_20]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=13638)[0m I0000 00:00:1794452983.889596   13807 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4869__.70[32m [repeated 3x across cluster][0m
+[36m(Client pid=13638)[0m I0000 00:00:1794452988.667213   20236 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 4x across cluster][0m
+2026-11-12 03:10:25,657 - private_init rodada 0: acurácia de teste 0.881, 0.875, 0.861, 0.878
+2026-11-12 03:10:26,932 - private_init rodada 0: ensemble 0.881
+2026-11-12 03:10:27,369 - private_init rodada 0: teste externo 0.842, 0.858, 0.825, 0.800 | ensemble 0.825
+[36m(Client pid=13644)[0m W0000 00:00:1794453004.287930   20194 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.[32m [repeated 4x across cluster][0m
+[36m(Client pid=13644)[0m 	 [[{{node sequential_1/random_flip_1/Add/ReadVariableOp/_2}}]] [type.googleapis.com/tensorflow.DerivedStatus=''][32m [repeated 2x across cluster][0m
+[36m(Client pid=13644)[0m 	 [[{{node sequential_1/random_flip_1/Add/ReadVariableOp/_2}}]][32m [repeated 2x across cluster][0m
+[36m(Client pid=13644)[0m 	 [[sequential_1/random_flip_1/Add/_14]] [type.googleapis.com/tensorflow.DerivedStatus=''][32m [repeated 2x across cluster][0m
+[36m(Client pid=13643)[0m I0000 00:00:1794453039.440559   13817 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_27857__.56
+[36m(Client pid=13642)[0m I0000 00:00:1794453039.642231   13815 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_27769__.56
+[36m(Client pid=13638)[0m W0000 00:00:1794453050.765140   24558 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=13638)[0m 	 [[{{node sequential_1/random_flip_1/Add/_14}}]]
+[36m(Client pid=13638)[0m 	 [[sequential_1/random_flip_1/Add/ReadVariableOp/_2]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=13644)[0m I0000 00:00:1794453040.369241   13824 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_29079__.86[32m [repeated 2x across cluster][0m
+[36m(Client pid=13644)[0m W0000 00:00:1794453050.808842   13644 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=13644)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]]
+[36m(Client pid=13644)[0m 	 [[sequential_1/random_zoom_1/Add/_18]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=13644)[0m I0000 00:00:1794453050.808889   13644 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 14554334766852416585
+[36m(Client pid=13644)[0m I0000 00:00:1794453050.808900   13644 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 8167086967215101068
+2026-11-12 03:10:51,912 - federated rodada 1: acurácia de teste 0.883, 0.879, 0.899, 0.880
+2026-11-12 03:10:53,170 - federated rodada 1: ensemble 0.888
+2026-11-12 03:10:53,806 - federated rodada 1: teste externo 0.842, 0.842, 0.825, 0.842 | ensemble 0.842
+[36m(Client pid=13644)[0m I0000 00:00:1794453069.467322   13644 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 4289724938892562578
+[36m(Client pid=13644)[0m I0000 00:00:1794453069.467366   13644 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 3669393384975121260
+[36m(Client pid=13644)[0m I0000 00:00:1794453069.467369   13644 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 6884713285110083967
+[36m(Client pid=13644)[0m I0000 00:00:1794453069.467372   13644 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 6425953540299676237
+[36m(Client pid=13644)[0m I0000 00:00:1794453069.467391   13644 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 14554334766852416585
+[36m(Client pid=13644)[0m I0000 00:00:1794453069.467446   13644 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 1339914475316141281
+[36m(Client pid=13644)[0m I0000 00:00:1794453069.467448   13644 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 12888090704878016069
+[36m(Client pid=13644)[0m I0000 00:00:1794453069.467450   13644 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 18341544273518854099
+[36m(Client pid=13643)[0m W0000 00:00:1794453050.867891   24550 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=13643)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]]
+[36m(Client pid=13643)[0m 	 [[GroupCrossDeviceControlEdges_0/NoOp/_20]] [type.googleapis.com/tensorflow.DerivedStatus='']
+2026-11-12 03:11:11,053 - federated rodada 2: acurácia de teste 0.877, 0.885, 0.873, 0.877
+2026-11-12 03:11:12,205 - federated rodada 2: ensemble 0.891
+2026-11-12 03:11:12,838 - federated rodada 2: teste externo 0.808, 0.833, 0.825, 0.792 | ensemble 0.833
+[36m(Client pid=13643)[0m I0000 00:00:1794453090.124907   13643 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 18314318404342331517
+[36m(Client pid=13643)[0m I0000 00:00:1794453090.124914   13643 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 9119793333539404967
+[36m(Client pid=13643)[0m I0000 00:00:1794453090.124910   13643 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 601556742931646507[32m [repeated 6x across cluster][0m
+[36m(Client pid=13644)[0m W0000 00:00:1794453090.187502   27523 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=13644)[0m 	 [[{{node sequential_1/random_flip_1/Add/_14}}]]
+[36m(Client pid=13644)[0m 	 [[sequential_1/random_rotation_1/ReadVariableOp/_8]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=13642)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]] [type.googleapis.com/tensorflow.DerivedStatus='']
+2026-11-12 03:11:31,590 - federated rodada 3: acurácia de teste 0.879, 0.879, 0.871, 0.877
+2026-11-12 03:11:32,866 - federated rodada 3: ensemble 0.883
+2026-11-12 03:11:33,299 - federated rodada 3: teste externo 0.833, 0.850, 0.808, 0.817 | ensemble 0.833
+[36m(Client pid=13643)[0m I0000 00:00:1794453110.484918   13643 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 8523454793664635837[32m [repeated 11x across cluster][0m
+[36m(Client pid=13644)[0m I0000 00:00:1794453090.186083   13644 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 18341544273518854099[32m [repeated 6x across cluster][0m
+[36m(Client pid=13643)[0m W0000 00:00:1794453110.484867   13643 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.[32m [repeated 3x across cluster][0m
+[36m(Client pid=13643)[0m 	 [[{{node sequential_1/random_flip_1/Add/_14}}]][32m [repeated 2x across cluster][0m
+[36m(Client pid=13643)[0m 	 [[GroupCrossDeviceControlEdges_0/NoOp/_21]] [type.googleapis.com/tensorflow.DerivedStatus=''][32m [repeated 2x across cluster][0m
+2026-11-12 03:11:52,012 - federated rodada 4: acurácia de teste 0.890, 0.850, 0.876, 0.870
+2026-11-12 03:11:53,287 - federated rodada 4: ensemble 0.882
+2026-11-12 03:11:53,923 - federated rodada 4: teste externo 0.808, 0.842, 0.833, 0.800 | ensemble 0.842
+2026-11-12 03:12:10,884 - federated rodada 5: acurácia de teste 0.879, 0.892, 0.888, 0.889
+2026-11-12 03:12:12,159 - federated rodada 5: ensemble 0.888
+2026-11-12 03:12:12,796 - federated rodada 5: teste externo 0.842, 0.842, 0.833, 0.783 | ensemble 0.842
+[36m(Client pid=13643)[0m I0000 00:00:1794453148.749985   13643 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 9119793333539404967[32m [repeated 5x across cluster][0m
+[36m(Client pid=13643)[0m I0000 00:00:1794453148.749982   13643 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 601556742931646507[32m [repeated 6x across cluster][0m
+[36m(Client pid=13643)[0m W0000 00:00:1794453148.757461   28555 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.[32m [repeated 2x across cluster][0m
+[36m(Client pid=13643)[0m 	 [[{{node sequential_1/random_zoom_1/Add/_18}}]][32m [repeated 2x across cluster][0m
+[36m(Client pid=13643)[0m 	 [[sequential_1/random_zoom_1/ReadVariableOp/_12]] [type.googleapis.com/tensorflow.DerivedStatus=''][32m [repeated 2x across cluster][0m
+2026-11-12 03:12:30,089 - federated rodada 6: acurácia de teste 0.887, 0.886, 0.891, 0.889
+2026-11-12 03:12:31,351 - federated rodada 6: ensemble 0.890
+2026-11-12 03:12:31,824 - federated rodada 6: teste externo 0.825, 0.850, 0.800, 0.808 | ensemble 0.825
+[36m(Client pid=13644)[0m I0000 00:00:1794453167.711201   13644 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 18341544273518854099[32m [repeated 8x across cluster][0m
+2026-11-12 03:12:48,960 - federated rodada 7: acurácia de teste 0.888, 0.878, 0.888, 0.884
+2026-11-12 03:12:50,112 - federated rodada 7: ensemble 0.884
+2026-11-12 03:12:50,744 - federated rodada 7: teste externo 0.825, 0.850, 0.808, 0.792 | ensemble 0.842
+[36m(Client pid=13643)[0m I0000 00:00:1794453186.468272   13643 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 10738309939708396691[32m [repeated 8x across cluster][0m
+[36m(Client pid=13642)[0m W0000 00:00:1794453186.472103   13642 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=13642)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]]
+[36m(Client pid=13642)[0m 	 [[sequential_1/random_rotation_1/Add/_16]] [type.googleapis.com/tensorflow.DerivedStatus='']
+2026-11-12 03:13:07,759 - federated rodada 8: acurácia de teste 0.884, 0.887, 0.881, 0.877
+2026-11-12 03:13:09,033 - federated rodada 8: ensemble 0.890
+2026-11-12 03:13:09,668 - federated rodada 8: teste externo 0.833, 0.833, 0.833, 0.775 | ensemble 0.825
+[36m(Client pid=13642)[0m W0000 00:00:1794453205.452420   13642 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=13642)[0m 	 [[{{node sequential_1/random_zoom_1/Add/_18}}]]
+[36m(Client pid=13642)[0m 	 [[GroupCrossDeviceControlEdges_0/NoOp/_21]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=13642)[0m I0000 00:00:1794453205.452466   13642 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 18437829800584173424[32m [repeated 7x across cluster][0m
+2026-11-12 03:13:26,776 - federated rodada 9: acurácia de teste 0.877, 0.837, 0.881, 0.890
+2026-11-12 03:13:27,972 - federated rodada 9: ensemble 0.884
+2026-11-12 03:13:28,607 - federated rodada 9: teste externo 0.825, 0.850, 0.767, 0.808 | ensemble 0.817
+2026-11-12 03:13:46,978 - federated rodada 10: acurácia de teste 0.876, 0.879, 0.890, 0.878
+2026-11-12 03:13:48,254 - federated rodada 10: ensemble 0.883
+2026-11-12 03:13:48,888 - federated rodada 10: teste externo 0.825, 0.842, 0.817, 0.808 | ensemble 0.842
+2026-11-12 03:14:05,750 - federated rodada 11: acurácia de teste 0.875, 0.844, 0.894, 0.885
+2026-11-12 03:14:07,025 - federated rodada 11: ensemble 0.886
+2026-11-12 03:14:07,422 - federated rodada 11: teste externo 0.850, 0.858, 0.825, 0.800 | ensemble 0.833
+[36m(Client pid=13643)[0m I0000 00:00:1794453262.968830   13643 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 8464636511854671664
+[36m(Client pid=13643)[0m I0000 00:00:1794453262.968836   13643 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 4483411271848541564
+[36m(Client pid=13643)[0m I0000 00:00:1794453262.968838   13643 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 12444274037665208158
+[36m(Client pid=13643)[0m I0000 00:00:1794453262.968841   13643 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 1025259722411262853
+[36m(Client pid=13643)[0m I0000 00:00:1794453262.968847   13643 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 10403125017117943655
+[36m(Client pid=13643)[0m I0000 00:00:1794453262.968850   13643 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 601556742931646507
+[36m(Client pid=13643)[0m W0000 00:00:1794453262.972476   31763 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=13643)[0m 	 [[{{node sequential_1/random_zoom_1/Add/_18}}]]
+[36m(Client pid=13643)[0m 	 [[sequential_1/random_zoom_1/ReadVariableOp/_12]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=13643)[0m I0000 00:00:1794453262.968854   13643 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 9119793333539404967[32m [repeated 3x across cluster][0m
+2026-11-12 03:14:24,587 - federated rodada 12: acurácia de teste 0.866, 0.878, 0.882, 0.878
+2026-11-12 03:14:25,760 - federated rodada 12: ensemble 0.885
+2026-11-12 03:14:26,395 - federated rodada 12: teste externo 0.825, 0.842, 0.825, 0.808 | ensemble 0.825
+2026-11-12 03:14:43,598 - federated rodada 13: acurácia de teste 0.863, 0.884, 0.886, 0.887
+2026-11-12 03:14:44,876 - federated rodada 13: ensemble 0.894
+2026-11-12 03:14:45,261 - federated rodada 13: teste externo 0.783, 0.833, 0.842, 0.792 | ensemble 0.817
+[36m(Client pid=13638)[0m W0000 00:00:1794453263.077672   31773 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=13638)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]]
+[36m(Client pid=13638)[0m 	 [[GroupCrossDeviceControlEdges_0/NoOp/_20]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=13638)[0m I0000 00:00:1794453300.813145   13638 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 6360474609521807291[32m [repeated 6x across cluster][0m
+2026-11-12 03:15:01,933 - federated rodada 14: acurácia de teste 0.881, 0.873, 0.870, 0.883
+2026-11-12 03:15:03,067 - federated rodada 14: ensemble 0.884
+2026-11-12 03:15:03,701 - federated rodada 14: teste externo 0.833, 0.842, 0.842, 0.817 | ensemble 0.842
+[36m(Client pid=13643)[0m I0000 00:00:1794453319.331455   13643 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 12444274037665208158
+[36m(Client pid=13643)[0m I0000 00:00:1794453319.331639   13643 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 4483411271848541564
+[36m(Client pid=13643)[0m I0000 00:00:1794453319.331669   13643 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 8464636511854671664
+[36m(Client pid=13643)[0m I0000 00:00:1794453319.331673   13643 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 1025259722411262853
+[36m(Client pid=13643)[0m I0000 00:00:1794453319.331675   13643 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 10403125017117943655
+[36m(Client pid=13643)[0m I0000 00:00:1794453319.331689   13643 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 601556742931646507
+[36m(Client pid=13643)[0m I0000 00:00:1794453319.331694   13643 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 9119793333539404967[32m [repeated 2x across cluster][0m
+2026-11-12 03:15:20,872 - federated rodada 15: acurácia de teste 0.864, 0.853, 0.861, 0.883
+2026-11-12 03:15:21,989 - federated rodada 15: ensemble 0.875
+2026-11-12 03:15:22,627 - federated rodada 15: teste externo 0.783, 0.717, 0.842, 0.817 | ensemble 0.808
+[36m(Client pid=13642)[0m W0000 00:00:1794453338.211390   33136 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=13642)[0m 	 [[{{node sequential_1/random_flip_1/Add/_14}}]]
+[36m(Client pid=13642)[0m 	 [[GroupCrossDeviceControlEdges_0/NoOp/_21]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=13642)[0m I0000 00:00:1794453338.210050   13642 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 10280570570175155639[32m [repeated 6x across cluster][0m
+[36m(Client pid=13642)[0m I0000 00:00:1794453338.210027   13642 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 11584676930143169001[32m [repeated 2x across cluster][0m
+2026-11-12 03:15:39,729 - federated rodada 16: acurácia de teste 0.872, 0.871, 0.825, 0.880
+2026-11-12 03:15:41,008 - federated rodada 16: ensemble 0.873
+2026-11-12 03:15:41,642 - federated rodada 16: teste externo 0.833, 0.817, 0.800, 0.800 | ensemble 0.833
+[36m(Client pid=13644)[0m I0000 00:00:1794453357.188379   13644 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 18341544273518854099[32m [repeated 6x across cluster][0m
+[36m(Client pid=13644)[0m I0000 00:00:1794453357.188374   13644 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 14554334766852416585[32m [repeated 3x across cluster][0m
+2026-11-12 03:15:58,421 - federated rodada 17: acurácia de teste 0.871, 0.867, 0.862, 0.849
+2026-11-12 03:15:59,534 - federated rodada 17: ensemble 0.866
+2026-11-12 03:16:00,167 - federated rodada 17: teste externo 0.842, 0.833, 0.833, 0.842 | ensemble 0.850
+[36m(Client pid=13644)[0m W0000 00:00:1794453375.909613   13644 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=13644)[0m 	 [[{{node sequential_1/random_rotation_1/Add/_16}}]]
+[36m(Client pid=13644)[0m 	 [[GroupCrossDeviceControlEdges_0/NoOp/_21]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=13644)[0m I0000 00:00:1794453375.909674   13644 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 16604408404200452641
+2026-11-12 03:16:17,082 - federated rodada 18: acurácia de teste 0.871, 0.864, 0.858, 0.872
+2026-11-12 03:16:18,355 - federated rodada 18: ensemble 0.876
+2026-11-12 03:16:18,718 - federated rodada 18: teste externo 0.842, 0.858, 0.825, 0.833 | ensemble 0.858
+[36m(Client pid=13642)[0m I0000 00:00:1794453394.091308   13642 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 11584676930143169001
+[36m(Client pid=13642)[0m I0000 00:00:1794453394.091376   13642 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 9033905631390153889
+[36m(Client pid=13642)[0m I0000 00:00:1794453394.091382   13642 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 18437829800584173424
+2026-11-12 03:16:35,408 - federated rodada 19: acurácia de teste 0.862, 0.841, 0.867, 0.872
+2026-11-12 03:16:36,682 - federated rodada 19: ensemble 0.875
+2026-11-12 03:16:37,078 - federated rodada 19: teste externo 0.850, 0.858, 0.825, 0.767 | ensemble 0.850
+[36m(Client pid=13643)[0m I0000 00:00:1794453414.114412   13643 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 10738309939708396691[32m [repeated 8x across cluster][0m
+2026-11-12 03:16:55,248 - federated rodada 20: acurácia de teste 0.856, 0.853, 0.862, 0.863
+2026-11-12 03:16:56,522 - federated rodada 20: ensemble 0.872
+2026-11-12 03:16:57,156 - federated rodada 20: teste externo 0.858, 0.858, 0.833, 0.825 | ensemble 0.858
+[36m(Client pid=13643)[0m I0000 00:00:1794453432.713507   13643 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 9119793333539404967[32m [repeated 7x across cluster][0m
+[36m(Client pid=13638)[0m I0000 00:00:1794453432.812688   13638 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 14140267802308973914
+[36m(Client pid=13638)[0m I0000 00:00:1794453432.812754   13638 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 7522406650133349738
+[36m(Client pid=13638)[0m I0000 00:00:1794453432.812762   13638 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 11727726389468702829
+[36m(Client pid=13638)[0m I0000 00:00:1794453432.812764   13638 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 9700791809012631981
+[36m(Client pid=13638)[0m I0000 00:00:1794453432.812766   13638 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 9096749076957833879
+[36m(Client pid=13638)[0m I0000 00:00:1794453432.812770   13638 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 17235074846905243175
+2026-11-12 03:17:14,099 - federated rodada 21: acurácia de teste 0.876, 0.866, 0.863, 0.882
+2026-11-12 03:17:15,373 - federated rodada 21: ensemble 0.881
+2026-11-12 03:17:15,763 - federated rodada 21: teste externo 0.825, 0.842, 0.817, 0.808 | ensemble 0.833
+[36m(Client pid=13642)[0m I0000 00:00:1794453451.266040   13642 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 11584676930143169001[32m [repeated 5x across cluster][0m
+[36m(Client pid=13642)[0m I0000 00:00:1794453451.266043   13642 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 10280570570175155639[32m [repeated 6x across cluster][0m
+2026-11-12 03:17:32,330 - federated rodada 22: acurácia de teste 0.879, 0.877, 0.869, 0.878
+2026-11-12 03:17:33,457 - federated rodada 22: ensemble 0.877
+2026-11-12 03:17:34,090 - federated rodada 22: teste externo 0.858, 0.825, 0.817, 0.808 | ensemble 0.833
+2026-11-12 03:17:52,377 - federated rodada 23: acurácia de teste 0.873, 0.868, 0.876, 0.880
+2026-11-12 03:17:53,470 - federated rodada 23: ensemble 0.875
+2026-11-12 03:17:54,104 - federated rodada 23: teste externo 0.825, 0.833, 0.825, 0.800 | ensemble 0.833
+[36m(Client pid=13638)[0m W0000 00:00:1794453489.540501   35885 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=13638)[0m 	 [[{{node GroupCrossDeviceControlEdges_0/NoOp/_21}}]]
+[36m(Client pid=13638)[0m 	 [[GroupCrossDeviceControlEdges_0/NoOp/_20]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=13644)[0m I0000 00:00:1794453489.595866   13644 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 8167086967215101068
+[36m(Client pid=13644)[0m I0000 00:00:1794453489.595913   13644 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 16604408404200452641
+[36m(Client pid=13644)[0m I0000 00:00:1794453489.595919   13644 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 1339914475316141281
+2026-11-12 03:18:10,941 - federated rodada 24: acurácia de teste 0.873, 0.865, 0.865, 0.868
+2026-11-12 03:18:12,213 - federated rodada 24: ensemble 0.867
+2026-11-12 03:18:12,848 - federated rodada 24: teste externo 0.850, 0.817, 0.833, 0.775 | ensemble 0.842
+[36m(Client pid=13642)[0m I0000 00:00:1794453508.318251   13642 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 4070075224840003448
+[36m(Client pid=13642)[0m I0000 00:00:1794453508.318303   13642 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 740529492624754176
+[36m(Client pid=13642)[0m I0000 00:00:1794453508.318306   13642 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 9316667828078468740
+[36m(Client pid=13642)[0m I0000 00:00:1794453508.318317   13642 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 16539317126867459455
+[36m(Client pid=13642)[0m I0000 00:00:1794453508.318320   13642 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 10280570570175155639
+[36m(Client pid=13642)[0m I0000 00:00:1794453508.318315   13642 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 9033905631390153889[32m [repeated 2x across cluster][0m
+2026-11-12 03:18:29,479 - federated rodada 25: acurácia de teste 0.872, 0.864, 0.869, 0.875
+2026-11-12 03:18:30,612 - federated rodada 25: ensemble 0.869
+2026-11-12 03:18:30,994 - federated rodada 25: teste externo 0.842, 0.825, 0.833, 0.775 | ensemble 0.825
+[36m(Client pid=13642)[0m I0000 00:00:1794453527.988503   13642 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 4070075224840003448
+[36m(Client pid=13642)[0m I0000 00:00:1794453527.988554   13642 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 115786668657989316
+[36m(Client pid=13642)[0m I0000 00:00:1794453527.988557   13642 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 740529492624754176
+[36m(Client pid=13642)[0m I0000 00:00:1794453527.988566   13642 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 9316667828078468740
+[36m(Client pid=13642)[0m I0000 00:00:1794453527.988574   13642 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 16539317126867459455
+[36m(Client pid=13642)[0m I0000 00:00:1794453527.988577   13642 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 10280570570175155639
+[36m(Client pid=13642)[0m I0000 00:00:1794453527.988571   13642 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 11584676930143169001[32m [repeated 2x across cluster][0m
+[36m(Client pid=13638)[0m I0000 00:00:1794453528.002327   13638 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 7522406650133349738
+[36m(Client pid=13638)[0m I0000 00:00:1794453528.002348   13638 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 14140267802308973914
+[36m(Client pid=13638)[0m I0000 00:00:1794453528.002353   13638 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 11727726389468702829
+[36m(Client pid=13638)[0m I0000 00:00:1794453528.002354   13638 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 9700791809012631981
+[36m(Client pid=13638)[0m I0000 00:00:1794453528.002355   13638 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 9096749076957833879
+[36m(Client pid=13638)[0m I0000 00:00:1794453528.002356   13638 local_rendezvous.cc:436] Local rendezvous send item cancelled. Key hash: 17235074846905243175
+2026-11-12 03:18:49,335 - federated rodada 26: acurácia de teste 0.879, 0.870, 0.878, 0.871
+2026-11-12 03:18:50,611 - federated rodada 26: ensemble 0.881
+2026-11-12 03:18:51,244 - federated rodada 26: teste externo 0.850, 0.808, 0.833, 0.825 | ensemble 0.842
+[36m(Client pid=13643)[0m I0000 00:00:1794453546.864150   13643 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 8523454793664635837[32m [repeated 3x across cluster][0m
+2026-11-12 03:19:07,952 - federated rodada 27: acurácia de teste 0.870, 0.874, 0.858, 0.880
+2026-11-12 03:19:09,063 - federated rodada 27: ensemble 0.876
+2026-11-12 03:19:09,452 - federated rodada 27: teste externo 0.825, 0.858, 0.842, 0.808 | ensemble 0.850
+[36m(Client pid=13644)[0m I0000 00:00:1794453565.007080   13644 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 16604408404200452641[32m [repeated 7x across cluster][0m
+2026-11-12 03:19:26,162 - federated rodada 28: acurácia de teste 0.879, 0.862, 0.865, 0.874
+2026-11-12 03:19:27,292 - federated rodada 28: ensemble 0.879
+2026-11-12 03:19:27,925 - federated rodada 28: teste externo 0.842, 0.808, 0.842, 0.817 | ensemble 0.833
+[36m(Client pid=13643)[0m W0000 00:00:1794453583.769248   13643 local_rendezvous.cc:412] Local rendezvous is aborting with status: CANCELLED: RecvAsync is cancelled.
+[36m(Client pid=13643)[0m 	 [[{{node sequential_1/random_zoom_1/Add/_18}}]]
+[36m(Client pid=13643)[0m 	 [[GroupCrossDeviceControlEdges_0/NoOp/_21]] [type.googleapis.com/tensorflow.DerivedStatus='']
+[36m(Client pid=13643)[0m I0000 00:00:1794453583.769320   13643 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 9119793333539404967[32m [repeated 9x across cluster][0m
+2026-11-12 03:19:44,865 - federated rodada 29: acurácia de teste 0.870, 0.865, 0.861, 0.869
+2026-11-12 03:19:45,998 - federated rodada 29: ensemble 0.876
+2026-11-12 03:19:46,409 - federated rodada 29: teste externo 0.800, 0.783, 0.808, 0.758 | ensemble 0.800
+[36m(Client pid=13643)[0m I0000 00:00:1794453603.628696   13643 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 9119793333539404967[32m [repeated 3x across cluster][0m
+2026-11-12 03:20:04,781 - federated rodada 30: acurácia de teste 0.879, 0.872, 0.861, 0.876
+2026-11-12 03:20:05,923 - federated rodada 30: ensemble 0.876
+2026-11-12 03:20:06,558 - federated rodada 30: teste externo 0.817, 0.833, 0.817, 0.792 | ensemble 0.808
+[36m(Client pid=13638)[0m I0000 00:00:1794453603.628472   13638 local_rendezvous.cc:432] Local rendezvous recv item cancelled. Key hash: 6360474609521807291

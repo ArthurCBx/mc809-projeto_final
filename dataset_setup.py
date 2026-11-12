@@ -39,6 +39,21 @@ def list_dir(root: str):
     return np.array(file_paths), np.array(labels)
 
 
+def split_external(labels, private_fraction: float, seed: int=42):
+    """Divide um dataset externo (ex.: PH2) entre dados privados e teste, de forma estratificada.
+
+    A divisão só depende da seed, então o centralizado e os clientes usam exatamente o mesmo teste.
+
+    Returns:
+        private_idx (np.ndarray): Índices (relativos a labels) que viram dados privados.
+        test_idx (np.ndarray): Índices que continuam como teste externo.
+    """
+    from sklearn.model_selection import train_test_split
+    private_idx, test_idx = train_test_split(np.arange(len(labels)), train_size=private_fraction,
+                                             stratify=labels, random_state=seed)
+    return np.sort(private_idx), np.sort(test_idx)
+
+
 def split_public(labels, public_fraction: float, seed: int=42):
     """Separa, de forma estratificada, os índices do conjunto público (FedMD) e do privado.
 
@@ -89,7 +104,16 @@ def split_dataset(train_data: bool, expected_num_clients: int, alpha: float=None
         return client_idx, np.array([], dtype=int), file_paths, labels
 
     private_idx, public_idx = split_public(labels, public_fraction, seed)
+    client_idx = split_clients(private_idx, labels, expected_num_clients, alpha, rng, min_samples_per_client)
+    return client_idx, public_idx, file_paths, labels
 
+
+def split_clients(private_idx, labels, expected_num_clients: int, alpha: float, rng, min_samples_per_client: int=10):
+    """Divide os índices privados entre os clientes, de forma IID (alpha None) ou por Dirichlet(alpha) em cada classe.
+
+    Returns:
+        client_idx (list[list[int]]): Índices (os mesmos de private_idx) de cada cliente.
+    """
     num_classes = len(CLASS_NAMES)
     data_length = len(private_idx)
 
@@ -127,7 +151,7 @@ def split_dataset(train_data: bool, expected_num_clients: int, alpha: float=None
         for client_id in range(expected_num_clients):
             client_idx[client_id] = rng.permutation(client_idx[client_id]).tolist()
 
-    return client_idx, public_idx, file_paths, labels
+    return client_idx
 
 
 def make_client_dataset(file_paths, labels, indices, image_size=(224, 224), batch_size=32, shuffle=True, targets=None):

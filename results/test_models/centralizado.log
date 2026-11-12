@@ -1,0 +1,65 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794091935.926673   45447 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1794091936.147675   45447 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794091938.040367   45447 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1794091940.892109   45447 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1794091940.898392   45447 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1794091941.267068   45447 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9217 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+/opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+I0000 00:00:1794091945.824574   46511 service.cc:153] XLA service 0x76a778036df0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1794091945.824923   46511 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+I0000 00:00:1794091945.887769   46511 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1794091946.206329   46511 cuda_dnn.cc:461] Loaded cuDNN version 92700
+I0000 00:00:1794091946.224134   46511 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3991__.55
+I0000 00:00:1794091953.317711   46511 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+I0000 00:00:1794091965.801013   46513 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3991__.55
+I0000 00:00:1794091966.689415   47360 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+
+I0000 00:00:1794092215.462709   48674 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+
+seed 42 arquitetura 0: teste 0.906, PH2 0.795 (balanceada 0.609)
+I0000 00:00:1794092218.756230   46511 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_32880__.55
+I0000 00:00:1794092235.632032   46511 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_32880__.55
+I0000 00:00:1794092236.083232   50059 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+
+I0000 00:00:1794092415.870401   62333 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+
+seed 42 arquitetura 1: teste 0.900, PH2 0.820 (balanceada 0.606)
+I0000 00:00:1794092418.555003   46511 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_55169__.70
+I0000 00:00:1794092434.497830   46512 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_55169__.70
+seed 42 arquitetura 2: teste 0.907, PH2 0.760 (balanceada 0.644)
+I0000 00:00:1794092696.291570   46511 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_86083__.85
+I0000 00:00:1794092712.869855   46512 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_86083__.85
+seed 42 arquitetura 3: teste 0.901, PH2 0.815 (balanceada 0.706)
+/opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+I0000 00:00:1794092790.062074   46514 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_99094__.55
+I0000 00:00:1794092803.500244   46511 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_99094__.55
+seed 1 arquitetura 0: teste 0.893, PH2 0.775 (balanceada 0.588)
+I0000 00:00:1794092932.067332   46512 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_116727__.55
+I0000 00:00:1794092946.058783   46514 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_116727__.55
+seed 1 arquitetura 1: teste 0.898, PH2 0.805 (balanceada 0.672)
+I0000 00:00:1794093047.908115   46513 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_132704__.70
+I0000 00:00:1794093062.130371   46514 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_132704__.70
+seed 1 arquitetura 2: teste 0.901, PH2 0.780 (balanceada 0.769)
+I0000 00:00:1794093206.170023   46514 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_153506__.85
+I0000 00:00:1794093220.821379   46513 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_153506__.85
+seed 1 arquitetura 3: teste 0.898, PH2 0.750 (balanceada 0.703)
+/opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+I0000 00:00:1794093331.565119   46512 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_168989__.55
+I0000 00:00:1794093344.879337   46511 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_168989__.55
+seed 2 arquitetura 0: teste 0.895, PH2 0.835 (balanceada 0.662)
+I0000 00:00:1794093473.198312   46511 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_186666__.55
+I0000 00:00:1794093486.844037   46512 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_186666__.55
+seed 2 arquitetura 1: teste 0.895, PH2 0.825 (balanceada 0.591)
+I0000 00:00:1794093629.505654   46512 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_206483__.70
+I0000 00:00:1794093643.504048   46513 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_206483__.70
+seed 2 arquitetura 2: teste 0.908, PH2 0.775 (balanceada 0.728)
+I0000 00:00:1794093875.635635   46511 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_234813__.85
+I0000 00:00:1794093890.101499   46512 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_234813__.85
+seed 2 arquitetura 3: teste 0.909, PH2 0.810 (balanceada 0.703)
+=== fim

@@ -1,0 +1,449 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794176541.614515    1312 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1794176541.647850    1312 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794176542.668332    1312 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-08 22:22:23,690	WARNING authentication_token_setup.py:85 -- Token authentication is enabled for this Ray cluster. Set RAY_AUTH_MODE=disabled to opt out. For more information, see https://docs.ray.io/en/latest/ray-security/token-auth.html
+2026-11-08 22:22:24,209	WARNING services.py:2248 -- WARNING: The object store is using /tmp/ray instead of /dev/shm because /dev/shm has only 67108864 bytes available. This will harm performance! You may be able to free up space by deleting files in /dev/shm. If you are inside a Docker container, you can increase /dev/shm size by passing '--shm-size=6.28gb' to 'docker run' (or add it to the run_options list in a Ray cluster config). Make sure to set this to more than 30% of available RAM.
+2026-11-08 22:22:25,344	INFO worker.py:2033 -- Started a local Ray instance.
+2026-11-08 22:22:25,348	WARNING working_dir.py:91 -- Directory '.git' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-08 22:22:25,350	WARNING working_dir.py:91 -- Directory '__pycache__' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-08 22:22:25,355	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-08 22:22:33,750	INFO packaging.py:734 -- Creating a file package for local module '/mc809 - Comp Distribuida/projeto_final'.
+2026-11-08 22:22:33,754	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-08 22:22:51,940	WARNING packaging.py:704 -- The runtime_env package for '/mc809 - Comp Distribuida/projeto_final' at '/tmp/ray/session_2026-11-08_22-22-23_693573_1312/runtime_resources/1794176553750835346_1312__ray_pkg_9a013bf0652fddb8.zip' is 318.42MiB, approaching the maximum upload size of 512.00MiB. If the upload fails, exclude large directories (commonly '.git', '.venv', or build artifacts) via the 'excludes' option in runtime_env, or list them in '.gitignore' / '.rayignore'. To raise the warning threshold set `RAY_PACKAGE_SIZE_WARNING_MIB=<size_in_MiB>`, or disable the warning entirely with `RAY_PACKAGE_SIZE_WARNING_MIB=-1`. For details see https://docs.ray.io/en/latest/ray-core/handling-dependencies.html#api-reference
+2026-11-08 22:22:52,100	INFO packaging.py:434 -- Pushing file package 'gcs://_ray_pkg_9a013bf0652fddb8.zip' (318.42MiB) to Ray cluster...
+2026-11-08 22:22:52,859	INFO packaging.py:447 -- Successfully pushed file package 'gcs://_ray_pkg_9a013bf0652fddb8.zip'.
+2026-11-08 22:22:53,479 - Configuração {'seed': 42, 'public_fraction': 0.8, 'alpha': 'iid'}
+[36m(pid=9385)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=9385)[0m I0000 00:00:1794176574.754386    9385 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(pid=9385)[0m I0000 00:00:1794176574.784213    9385 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=9385)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=9385)[0m W0000 00:00:1794176577.236821    9385 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=9385)[0m W0000 00:00:1794176577.242095    9385 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=9385)[0m I0000 00:00:1794176577.394824    9385 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=9393)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=9393)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(Client pid=9389)[0m I0000 00:00:1794176580.701202    9550 service.cc:153] XLA service 0x71b28c04de60 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=9389)[0m I0000 00:00:1794176580.701243    9550 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(pid=9390)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(pid=9390)[0m I0000 00:00:1794176575.841565    9390 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=9393)[0m I0000 00:00:1794176574.861325    9393 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=9393)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=9389)[0m I0000 00:00:1794176580.872623    9550 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(Client pid=9389)[0m I0000 00:00:1794176581.291750    9550 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=9389)[0m I0000 00:00:1794176581.305709    9550 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=9390)[0m W0000 00:00:1794176577.269643    9390 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 6x across cluster][0m
+[36m(Client pid=9390)[0m I0000 00:00:1794176577.418682    9390 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=9385)[0m I0000 00:00:1794176595.030259    9563 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=9390)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=9390)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=9393)[0m I0000 00:00:1794176581.949042    9557 service.cc:153] XLA service 0x7d3890041fa0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=9393)[0m I0000 00:00:1794176581.949075    9557 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=9393)[0m I0000 00:00:1794176582.101874    9557 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=9393)[0m I0000 00:00:1794176582.849804    9557 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=9393)[0m I0000 00:00:1794176582.876757    9557 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=9390)[0m I0000 00:00:1794176605.548022    9570 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.[32m [repeated 2x across cluster][0m
+[36m(Client pid=9385)[0m I0000 00:00:1794176616.090270    9564 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=9393)[0m I0000 00:00:1794176607.388014    9557 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=9385)[0m I0000 00:00:1794176620.352230   10943 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=9385)[0m 
+[36m(Client pid=9390)[0m I0000 00:00:1794176634.102461    9571 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4846__.70
+[36m(Client pid=9389)[0m I0000 00:00:1794176634.895292    9550 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=9389)[0m I0000 00:00:1794176636.144225   11221 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=9389)[0m 
+[36m(Client pid=9390)[0m 
+[36m(Client pid=9393)[0m 
+[36m(Client pid=9393)[0m I0000 00:00:1794176639.022039    9558 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85
+[36m(Client pid=9393)[0m I0000 00:00:1794176645.822496   11449 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 2x across cluster][0m
+[36m(Client pid=9390)[0m 
+[36m(Client pid=9390)[0m I0000 00:00:1794177109.173018   22605 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=9385)[0m I0000 00:00:1794177109.253029   22610 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=9385)[0m 
+[36m(Client pid=9393)[0m 
+[36m(Client pid=9389)[0m 
+2026-11-08 22:31:52,384 - public_init rodada 0: acurácia de teste 0.907, 0.896, 0.902, 0.901
+2026-11-08 22:31:55,066 - public_init rodada 0: ensemble 0.907
+2026-11-08 22:33:18,333 - private_init rodada 0: acurácia de teste 0.900, 0.888, 0.907, 0.917
+2026-11-08 22:33:19,610 - private_init rodada 0: ensemble 0.907
+[36m(Client pid=9389)[0m I0000 00:00:1794177211.423084    9548 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_26581__.50
+[36m(Client pid=9389)[0m I0000 00:00:1794177110.752168   22613 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 2x across cluster][0m
+2026-11-08 22:33:49,347 - federated rodada 1: acurácia de teste 0.893, 0.899, 0.898, 0.909
+2026-11-08 22:33:50,445 - federated rodada 1: ensemble 0.901
+2026-11-08 22:34:11,587 - federated rodada 2: acurácia de teste 0.900, 0.893, 0.892, 0.908
+2026-11-08 22:34:12,682 - federated rodada 2: ensemble 0.899
+2026-11-08 22:34:36,710 - federated rodada 3: acurácia de teste 0.898, 0.890, 0.893, 0.904
+2026-11-08 22:34:37,815 - federated rodada 3: ensemble 0.896
+2026-11-08 22:34:58,532 - federated rodada 4: acurácia de teste 0.893, 0.893, 0.891, 0.910
+2026-11-08 22:34:59,631 - federated rodada 4: ensemble 0.894
+2026-11-08 22:35:24,025 - federated rodada 5: acurácia de teste 0.895, 0.889, 0.896, 0.898
+2026-11-08 22:35:25,299 - federated rodada 5: ensemble 0.895
+2026-11-08 22:35:46,281 - federated rodada 6: acurácia de teste 0.893, 0.884, 0.892, 0.907
+2026-11-08 22:35:47,559 - federated rodada 6: ensemble 0.893
+2026-11-08 22:36:12,160 - federated rodada 7: acurácia de teste 0.890, 0.888, 0.896, 0.901
+2026-11-08 22:36:13,441 - federated rodada 7: ensemble 0.896
+2026-11-08 22:36:34,525 - federated rodada 8: acurácia de teste 0.897, 0.879, 0.896, 0.903
+2026-11-08 22:36:35,798 - federated rodada 8: ensemble 0.899
+2026-11-08 22:36:59,785 - federated rodada 9: acurácia de teste 0.890, 0.891, 0.888, 0.903
+2026-11-08 22:37:01,064 - federated rodada 9: ensemble 0.897
+2026-11-08 22:37:25,477 - federated rodada 10: acurácia de teste 0.893, 0.888, 0.898, 0.903
+2026-11-08 22:37:26,753 - federated rodada 10: ensemble 0.894
+2026-11-08 22:37:50,650 - federated rodada 11: acurácia de teste 0.894, 0.885, 0.893, 0.893
+2026-11-08 22:37:51,925 - federated rodada 11: ensemble 0.893
+2026-11-08 22:38:12,951 - federated rodada 12: acurácia de teste 0.890, 0.887, 0.896, 0.895
+2026-11-08 22:38:14,080 - federated rodada 12: ensemble 0.895
+2026-11-08 22:38:38,029 - federated rodada 13: acurácia de teste 0.890, 0.883, 0.896, 0.898
+2026-11-08 22:38:39,144 - federated rodada 13: ensemble 0.894
+2026-11-08 22:39:04,639 - federated rodada 14: acurácia de teste 0.890, 0.888, 0.899, 0.899
+2026-11-08 22:39:05,852 - federated rodada 14: ensemble 0.892
+2026-11-08 22:39:28,306 - federated rodada 15: acurácia de teste 0.891, 0.888, 0.887, 0.892
+2026-11-08 22:39:30,872 - federated rodada 15: ensemble 0.890
+2026-11-08 22:39:55,997 - federated rodada 16: acurácia de teste 0.891, 0.891, 0.891, 0.903
+2026-11-08 22:39:57,126 - federated rodada 16: ensemble 0.891
+2026-11-08 22:40:26,383 - federated rodada 17: acurácia de teste 0.891, 0.893, 0.891, 0.899
+2026-11-08 22:40:27,520 - federated rodada 17: ensemble 0.892
+2026-11-08 22:40:53,163 - federated rodada 18: acurácia de teste 0.891, 0.889, 0.890, 0.889
+2026-11-08 22:40:54,338 - federated rodada 18: ensemble 0.889
+2026-11-08 22:41:20,107 - federated rodada 19: acurácia de teste 0.891, 0.885, 0.885, 0.897
+2026-11-08 22:41:21,388 - federated rodada 19: ensemble 0.890
+2026-11-08 22:41:44,394 - federated rodada 20: acurácia de teste 0.890, 0.891, 0.891, 0.891
+2026-11-08 22:41:45,672 - federated rodada 20: ensemble 0.889
+2026-11-08 22:42:08,078 - federated rodada 21: acurácia de teste 0.887, 0.893, 0.887, 0.898
+2026-11-08 22:42:09,273 - federated rodada 21: ensemble 0.891
+2026-11-08 22:42:31,618 - federated rodada 22: acurácia de teste 0.884, 0.889, 0.890, 0.898
+2026-11-08 22:42:32,745 - federated rodada 22: ensemble 0.889
+2026-11-08 22:42:55,056 - federated rodada 23: acurácia de teste 0.888, 0.888, 0.889, 0.901
+2026-11-08 22:42:56,231 - federated rodada 23: ensemble 0.891
+2026-11-08 22:43:21,660 - federated rodada 24: acurácia de teste 0.887, 0.890, 0.888, 0.900
+2026-11-08 22:43:22,937 - federated rodada 24: ensemble 0.888
+2026-11-08 22:43:45,605 - federated rodada 25: acurácia de teste 0.887, 0.885, 0.893, 0.896
+2026-11-08 22:43:46,885 - federated rodada 25: ensemble 0.890
+2026-11-08 22:44:12,377 - federated rodada 26: acurácia de teste 0.888, 0.890, 0.889, 0.894
+2026-11-08 22:44:13,655 - federated rodada 26: ensemble 0.889
+2026-11-08 22:44:38,832 - federated rodada 27: acurácia de teste 0.890, 0.892, 0.890, 0.889
+2026-11-08 22:44:40,060 - federated rodada 27: ensemble 0.890
+2026-11-08 22:45:05,842 - federated rodada 28: acurácia de teste 0.892, 0.886, 0.889, 0.895
+2026-11-08 22:45:07,059 - federated rodada 28: ensemble 0.890
+2026-11-08 22:45:32,727 - federated rodada 29: acurácia de teste 0.886, 0.892, 0.897, 0.885
+2026-11-08 22:45:33,862 - federated rodada 29: ensemble 0.891
+2026-11-08 22:45:58,803 - federated rodada 30: acurácia de teste 0.886, 0.889, 0.889, 0.886
+2026-11-08 22:46:00,076 - federated rodada 30: ensemble 0.889
+2026-11-08 22:46:00,079 - Configuração {'seed': 42, 'public_fraction': 0.8, 'alpha': 1.0}
+[36m(pid=35266)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=35266)[0m I0000 00:00:1794177961.139878   35266 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(pid=35266)[0m I0000 00:00:1794177961.177244   35266 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=35266)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=9393)[0m I0000 00:00:1794177212.410247    9558 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_28275__.80[32m [repeated 3x across cluster][0m
+[36m(Client pid=35266)[0m W0000 00:00:1794177963.854640   35266 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=35266)[0m W0000 00:00:1794177963.859425   35266 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=35266)[0m I0000 00:00:1794177963.989295   35266 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=35266)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=35266)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(pid=35273)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster][0m
+[36m(pid=35273)[0m I0000 00:00:1794177962.538114   35273 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=35273)[0m I0000 00:00:1794177961.323903   35273 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=35273)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=35266)[0m I0000 00:00:1794177967.699397   35426 service.cc:153] XLA service 0x74a33004c3d0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=35266)[0m I0000 00:00:1794177967.699439   35426 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(Client pid=35266)[0m I0000 00:00:1794177967.749326   35426 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(Client pid=35266)[0m I0000 00:00:1794177968.102213   35426 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=35266)[0m I0000 00:00:1794177968.165452   35426 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=35273)[0m W0000 00:00:1794177964.086236   35273 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 6x across cluster][0m
+[36m(Client pid=35273)[0m I0000 00:00:1794177964.192969   35273 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=35265)[0m I0000 00:00:1794177987.907352   35433 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=35273)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=35273)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=35273)[0m I0000 00:00:1794177969.271626   35464 service.cc:153] XLA service 0x70a40c03c800 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=35273)[0m I0000 00:00:1794177969.271655   35464 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=35273)[0m I0000 00:00:1794177969.435530   35464 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=35273)[0m I0000 00:00:1794177970.135187   35464 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=35273)[0m I0000 00:00:1794177970.171659   35464 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=35273)[0m I0000 00:00:1794177997.078003   35464 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.[32m [repeated 3x across cluster][0m
+[36m(Client pid=35265)[0m I0000 00:00:1794178014.039210   35432 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=35265)[0m I0000 00:00:1794178015.094040   36831 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=35265)[0m 
+[36m(Client pid=35272)[0m I0000 00:00:1794178024.900431   35440 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4846__.70
+[36m(Client pid=35266)[0m I0000 00:00:1794178028.936473   35426 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=35266)[0m I0000 00:00:1794178029.815040   37145 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=35266)[0m 
+[36m(Client pid=35272)[0m 
+[36m(Client pid=35273)[0m 
+[36m(Client pid=35273)[0m I0000 00:00:1794178032.119711   35465 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85
+[36m(Client pid=35273)[0m I0000 00:00:1794178037.704122   37333 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 2x across cluster][0m
+[36m(Client pid=35265)[0m 
+[36m(Client pid=35265)[0m I0000 00:00:1794178375.518597   39784 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=35272)[0m I0000 00:00:1794178376.012826   39786 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=35272)[0m 
+[36m(Client pid=35273)[0m 
+[36m(Client pid=35266)[0m 
+2026-11-08 22:52:59,165 - public_init rodada 0: acurácia de teste 0.893, 0.893, 0.908, 0.905
+2026-11-08 22:53:02,164 - public_init rodada 0: ensemble 0.904
+[36m(Client pid=35265)[0m W0000 00:00:1794178412.675078   40261 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=35266)[0m I0000 00:00:1794178377.250555   39790 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 2x across cluster][0m
+[36m(Client pid=35265)[0m W0000 00:00:1794178415.659451   40261 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=35265)[0m W0000 00:00:1794178418.580406   40261 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=35265)[0m W0000 00:00:1794178421.221209   40261 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 19267840 bytes after encountering the first element of size 19267840 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=35265)[0m W0000 00:00:1794178423.899424   40261 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=35265)[0m W0000 00:00:1794178426.519889   40261 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 2x across cluster][0m
+[36m(Client pid=35265)[0m W0000 00:00:1794178431.882093   40261 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 19267840 bytes after encountering the first element of size 19267840 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 3x across cluster][0m
+[36m(Client pid=35273)[0m W0000 00:00:1794178438.801867   40266 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 2x across cluster][0m
+[36m(Client pid=35273)[0m W0000 00:00:1794178444.576435   40266 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 19267840 bytes after encountering the first element of size 19267840 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 3x across cluster][0m
+2026-11-08 22:54:13,447 - private_init rodada 0: acurácia de teste 0.892, 0.903, 0.880, 0.908
+2026-11-08 22:54:14,723 - private_init rodada 0: ensemble 0.902
+[36m(Client pid=35266)[0m I0000 00:00:1794178465.108508   35427 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_23513__.50
+[36m(Client pid=35273)[0m W0000 00:00:1794178446.201730   40266 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28573952 bytes after encountering the first element of size 28573952 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+2026-11-08 22:54:43,377 - federated rodada 1: acurácia de teste 0.895, 0.882, 0.872, 0.898
+2026-11-08 22:54:44,651 - federated rodada 1: ensemble 0.896
+[36m(Client pid=35265)[0m W0000 00:00:1794178507.374783   41355 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=35273)[0m I0000 00:00:1794178466.384139   35466 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_25283__.80[32m [repeated 3x across cluster][0m
+2026-11-08 22:55:10,059 - federated rodada 2: acurácia de teste 0.895, 0.897, 0.871, 0.898
+2026-11-08 22:55:11,253 - federated rodada 2: ensemble 0.894
+2026-11-08 22:55:36,601 - federated rodada 3: acurácia de teste 0.892, 0.900, 0.877, 0.900
+2026-11-08 22:55:37,874 - federated rodada 3: ensemble 0.892
+[36m(Client pid=35265)[0m W0000 00:00:1794178561.185026   42125 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 2x across cluster][0m
+2026-11-08 22:56:06,941 - federated rodada 4: acurácia de teste 0.885, 0.889, 0.862, 0.884
+2026-11-08 22:56:08,209 - federated rodada 4: ensemble 0.888
+[36m(Client pid=35265)[0m W0000 00:00:1794178588.657368   48975 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=35272)[0m W0000 00:00:1794178588.676954   48964 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28573952 bytes after encountering the first element of size 28573952 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+2026-11-08 22:56:31,316 - federated rodada 5: acurácia de teste 0.883, 0.888, 0.884, 0.888
+2026-11-08 22:56:32,511 - federated rodada 5: ensemble 0.889
+2026-11-08 22:57:00,841 - federated rodada 6: acurácia de teste 0.886, 0.880, 0.873, 0.896
+2026-11-08 22:57:02,116 - federated rodada 6: ensemble 0.891
+2026-11-08 22:57:27,488 - federated rodada 7: acurácia de teste 0.889, 0.889, 0.893, 0.891
+2026-11-08 22:57:28,750 - federated rodada 7: ensemble 0.891
+2026-11-08 22:57:51,187 - federated rodada 8: acurácia de teste 0.886, 0.885, 0.885, 0.893
+2026-11-08 22:57:52,460 - federated rodada 8: ensemble 0.885
+[36m(Client pid=35265)[0m W0000 00:00:1794178691.972614   53829 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+2026-11-08 22:58:14,596 - federated rodada 9: acurácia de teste 0.885, 0.887, 0.854, 0.892
+2026-11-08 22:58:15,870 - federated rodada 9: ensemble 0.885
+2026-11-08 22:58:38,465 - federated rodada 10: acurácia de teste 0.886, 0.884, 0.879, 0.891
+2026-11-08 22:58:39,739 - federated rodada 10: ensemble 0.884
+2026-11-08 22:59:02,082 - federated rodada 11: acurácia de teste 0.883, 0.884, 0.876, 0.888
+2026-11-08 22:59:03,357 - federated rodada 11: ensemble 0.884
+2026-11-08 22:59:29,022 - federated rodada 12: acurácia de teste 0.889, 0.883, 0.882, 0.888
+2026-11-08 22:59:30,296 - federated rodada 12: ensemble 0.888
+[36m(Client pid=35265)[0m W0000 00:00:1794178792.785922   57048 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+2026-11-08 22:59:55,367 - federated rodada 13: acurácia de teste 0.888, 0.886, 0.878, 0.889
+2026-11-08 22:59:56,535 - federated rodada 13: ensemble 0.883
+2026-11-08 23:00:18,593 - federated rodada 14: acurácia de teste 0.881, 0.885, 0.873, 0.896
+2026-11-08 23:00:19,745 - federated rodada 14: ensemble 0.884
+2026-11-08 23:00:41,907 - federated rodada 15: acurácia de teste 0.882, 0.891, 0.884, 0.889
+2026-11-08 23:00:43,080 - federated rodada 15: ensemble 0.885
+[36m(Client pid=35265)[0m W0000 00:00:1794178862.841783   58214 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=35273)[0m W0000 00:00:1794178863.284790   58222 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28573952 bytes after encountering the first element of size 28573952 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+2026-11-08 23:01:05,318 - federated rodada 16: acurácia de teste 0.884, 0.893, 0.885, 0.889
+2026-11-08 23:01:06,592 - federated rodada 16: ensemble 0.885
+2026-11-08 23:01:28,982 - federated rodada 17: acurácia de teste 0.885, 0.887, 0.868, 0.888
+2026-11-08 23:01:30,201 - federated rodada 17: ensemble 0.882
+[36m(Client pid=35265)[0m W0000 00:00:1794178909.826028   59003 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+2026-11-08 23:01:52,453 - federated rodada 18: acurácia de teste 0.876, 0.886, 0.870, 0.887
+2026-11-08 23:01:53,732 - federated rodada 18: ensemble 0.884
+[36m(Client pid=35265)[0m W0000 00:00:1794178933.018619   59384 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+2026-11-08 23:02:16,187 - federated rodada 19: acurácia de teste 0.887, 0.893, 0.872, 0.891
+2026-11-08 23:02:17,408 - federated rodada 19: ensemble 0.887
+[36m(Client pid=35265)[0m W0000 00:00:1794178957.084569   59787 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+2026-11-08 23:02:39,979 - federated rodada 20: acurácia de teste 0.879, 0.889, 0.880, 0.894
+2026-11-08 23:02:41,253 - federated rodada 20: ensemble 0.885
+[36m(Client pid=35265)[0m W0000 00:00:1794178980.810555   60160 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+2026-11-08 23:03:04,742 - federated rodada 21: acurácia de teste 0.881, 0.883, 0.879, 0.888
+2026-11-08 23:03:05,976 - federated rodada 21: ensemble 0.883
+2026-11-08 23:03:28,656 - federated rodada 22: acurácia de teste 0.886, 0.884, 0.872, 0.872
+2026-11-08 23:03:29,934 - federated rodada 22: ensemble 0.878
+2026-11-08 23:03:52,418 - federated rodada 23: acurácia de teste 0.881, 0.885, 0.878, 0.898
+2026-11-08 23:03:53,692 - federated rodada 23: ensemble 0.886
+2026-11-08 23:04:22,129 - federated rodada 24: acurácia de teste 0.887, 0.881, 0.872, 0.890
+2026-11-08 23:04:23,405 - federated rodada 24: ensemble 0.887
+2026-11-08 23:04:45,656 - federated rodada 25: acurácia de teste 0.887, 0.890, 0.859, 0.886
+2026-11-08 23:04:46,812 - federated rodada 25: ensemble 0.889
+2026-11-08 23:05:09,129 - federated rodada 26: acurácia de teste 0.876, 0.892, 0.810, 0.889
+2026-11-08 23:05:10,263 - federated rodada 26: ensemble 0.881
+2026-11-08 23:05:32,720 - federated rodada 27: acurácia de teste 0.886, 0.885, 0.878, 0.882
+2026-11-08 23:05:33,997 - federated rodada 27: ensemble 0.883
+2026-11-08 23:05:56,117 - federated rodada 28: acurácia de teste 0.873, 0.891, 0.881, 0.899
+2026-11-08 23:05:57,309 - federated rodada 28: ensemble 0.888
+2026-11-08 23:06:23,795 - federated rodada 29: acurácia de teste 0.884, 0.890, 0.876, 0.896
+2026-11-08 23:06:25,063 - federated rodada 29: ensemble 0.893
+2026-11-08 23:06:47,371 - federated rodada 30: acurácia de teste 0.889, 0.895, 0.832, 0.883
+2026-11-08 23:06:48,571 - federated rodada 30: ensemble 0.881
+2026-11-08 23:06:48,573 - Configuração {'seed': 42, 'public_fraction': 0.8, 'alpha': 0.1}
+[36m(pid=63973)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=63973)[0m I0000 00:00:1794179209.753989   63973 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(pid=63979)[0m I0000 00:00:1794179209.809261   63979 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=63979)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=63973)[0m W0000 00:00:1794179212.658679   63973 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=63973)[0m W0000 00:00:1794179212.664235   63973 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=63973)[0m I0000 00:00:1794179212.845174   63973 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=63974)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=63974)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(pid=63980)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster][0m
+[36m(pid=63980)[0m I0000 00:00:1794179211.087976   63980 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=63974)[0m I0000 00:00:1794179209.809091   63974 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=63974)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=63974)[0m I0000 00:00:1794179216.764655   64135 service.cc:153] XLA service 0x77959c038570 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=63974)[0m I0000 00:00:1794179216.764699   64135 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(Client pid=63974)[0m I0000 00:00:1794179216.802816   64135 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(Client pid=63973)[0m I0000 00:00:1794179217.496818   64144 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=63973)[0m I0000 00:00:1794179217.524686   64144 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=63980)[0m W0000 00:00:1794179212.664415   63980 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 6x across cluster][0m
+[36m(Client pid=63980)[0m I0000 00:00:1794179212.849966   63980 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=63973)[0m I0000 00:00:1794179235.292330   64144 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=63980)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=63980)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=63980)[0m I0000 00:00:1794179218.145622   64147 service.cc:153] XLA service 0x71c378053e40 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=63980)[0m I0000 00:00:1794179218.145657   64147 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=63980)[0m I0000 00:00:1794179218.273331   64147 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=63980)[0m I0000 00:00:1794179219.179878   64147 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=63980)[0m I0000 00:00:1794179219.205031   64147 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=63974)[0m I0000 00:00:1794179240.415583   64135 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=63979)[0m I0000 00:00:1794179240.521165   64129 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=63980)[0m I0000 00:00:1794179247.305002   64147 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=63973)[0m I0000 00:00:1794179257.926675   64141 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=63973)[0m I0000 00:00:1794179258.798997   65525 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=63973)[0m 
+[36m(Client pid=63979)[0m I0000 00:00:1794179272.404195   64129 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4846__.70
+[36m(Client pid=63974)[0m I0000 00:00:1794179277.361399   64137 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3986__.55
+[36m(Client pid=63979)[0m I0000 00:00:1794179277.725035   65740 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=63979)[0m 
+[36m(Client pid=63974)[0m 
+[36m(Client pid=63980)[0m 
+[36m(Client pid=63980)[0m I0000 00:00:1794179280.526197   64149 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5690__.85
+[36m(Client pid=63980)[0m I0000 00:00:1794179286.771044   66045 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 2x across cluster][0m
+[36m(Client pid=63973)[0m 
+[36m(Client pid=63973)[0m I0000 00:00:1794179715.168304   68771 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=63979)[0m I0000 00:00:1794179716.084860   68783 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=63979)[0m 
+[36m(Client pid=63974)[0m 
+[36m(Client pid=63980)[0m 
+2026-11-08 23:15:18,515 - public_init rodada 0: acurácia de teste 0.905, 0.899, 0.901, 0.903
+2026-11-08 23:15:21,509 - public_init rodada 0: ensemble 0.907
+[36m(Client pid=63979)[0m W0000 00:00:1794179730.355768   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63980)[0m I0000 00:00:1794179717.218184   68775 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 2x across cluster][0m
+[36m(Client pid=63979)[0m W0000 00:00:1794179730.679978   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63979)[0m W0000 00:00:1794179731.340380   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63979)[0m W0000 00:00:1794179731.611215   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63979)[0m W0000 00:00:1794179731.987821   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63979)[0m W0000 00:00:1794179732.232952   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63979)[0m W0000 00:00:1794179732.579226   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63979)[0m W0000 00:00:1794179733.245189   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63979)[0m W0000 00:00:1794179733.634084   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63979)[0m W0000 00:00:1794179734.198979   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63979)[0m W0000 00:00:1794179734.618580   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63979)[0m W0000 00:00:1794179735.000079   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63979)[0m W0000 00:00:1794179735.430191   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63979)[0m W0000 00:00:1794179735.840357   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63979)[0m W0000 00:00:1794179736.269584   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63979)[0m W0000 00:00:1794179736.676366   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63979)[0m W0000 00:00:1794179737.072024   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63979)[0m W0000 00:00:1794179737.480152   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63979)[0m W0000 00:00:1794179737.884720   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63974)[0m W0000 00:00:1794179740.822807   69246 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28573952 bytes after encountering the first element of size 28573952 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 11x across cluster][0m
+[36m(Client pid=63979)[0m W0000 00:00:1794179746.286920   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28573952 bytes after encountering the first element of size 28573952 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 21x across cluster][0m
+[36m(Client pid=63974)[0m W0000 00:00:1794179751.369142   69246 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 19267840 bytes after encountering the first element of size 19267840 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 21x across cluster][0m
+[36m(Client pid=63974)[0m W0000 00:00:1794179756.840487   69246 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28573952 bytes after encountering the first element of size 28573952 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 22x across cluster][0m
+[36m(Client pid=63979)[0m W0000 00:00:1794179761.846468   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 21x across cluster][0m
+[36m(Client pid=63974)[0m W0000 00:00:1794179767.142501   69246 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 19267840 bytes after encountering the first element of size 19267840 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 22x across cluster][0m
+[36m(Client pid=63979)[0m W0000 00:00:1794179772.172923   69240 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28573952 bytes after encountering the first element of size 28573952 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 24x across cluster][0m
+[36m(Client pid=63974)[0m W0000 00:00:1794179777.304343   69246 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 19267840 bytes after encountering the first element of size 19267840 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 29x across cluster][0m
+[36m(Client pid=63974)[0m W0000 00:00:1794179782.306037   69246 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 24x across cluster][0m
+[36m(Client pid=63974)[0m W0000 00:00:1794179787.306101   69246 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 19267840 bytes after encountering the first element of size 19267840 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 24x across cluster][0m
+2026-11-08 23:16:28,647 - private_init rodada 0: acurácia de teste 0.901, 0.896, 0.899, 0.892
+2026-11-08 23:16:29,928 - private_init rodada 0: ensemble 0.906
+[36m(Client pid=63974)[0m I0000 00:00:1794179799.677493   64137 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_26573__.50
+[36m(Client pid=63974)[0m W0000 00:00:1794179787.370930   69246 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 19267840 bytes after encountering the first element of size 19267840 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63974)[0m W0000 00:00:1794179814.594401   69736 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28572416 bytes after encountering the first element of size 28572416 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63980)[0m I0000 00:00:1794179800.495212   64150 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_25235__.80[32m [repeated 3x across cluster][0m
+[36m(Client pid=63974)[0m W0000 00:00:1794179815.227471   69736 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28572416 bytes after encountering the first element of size 28572416 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+2026-11-08 23:16:57,511 - federated rodada 1: acurácia de teste 0.904, 0.874, 0.888, 0.884
+2026-11-08 23:16:58,676 - federated rodada 1: ensemble 0.897
+[36m(Client pid=63979)[0m W0000 00:00:1794179841.763153   70140 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 19267840 bytes after encountering the first element of size 19267840 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 4x across cluster][0m
+2026-11-08 23:17:24,055 - federated rodada 2: acurácia de teste 0.899, 0.886, 0.867, 0.879
+2026-11-08 23:17:25,270 - federated rodada 2: ensemble 0.895
+[36m(Client pid=63974)[0m W0000 00:00:1794179863.144048   70531 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63974)[0m W0000 00:00:1794179863.708277   70531 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63974)[0m W0000 00:00:1794179864.162144   70531 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+[36m(Client pid=63974)[0m W0000 00:00:1794179864.655130   70531 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size
+2026-11-08 23:17:47,078 - federated rodada 3: acurácia de teste 0.894, 0.885, 0.868, 0.884
+2026-11-08 23:17:48,276 - federated rodada 3: ensemble 0.900
+[36m(Client pid=63979)[0m W0000 00:00:1794179889.841283   70926 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 3x across cluster][0m
+2026-11-08 23:18:13,470 - federated rodada 4: acurácia de teste 0.892, 0.887, 0.883, 0.893
+2026-11-08 23:18:14,746 - federated rodada 4: ensemble 0.894
+[36m(Client pid=63974)[0m W0000 00:00:1794179913.805244   71309 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28572928 bytes after encountering the first element of size 28572928 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 8x across cluster][0m
+2026-11-08 23:18:37,279 - federated rodada 5: acurácia de teste 0.894, 0.883, 0.865, 0.885
+2026-11-08 23:18:38,448 - federated rodada 5: ensemble 0.896
+[36m(Client pid=63979)[0m W0000 00:00:1794179937.540878   71708 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28573952 bytes after encountering the first element of size 28573952 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 9x across cluster][0m
+2026-11-08 23:19:00,575 - federated rodada 6: acurácia de teste 0.887, 0.875, 0.879, 0.880
+2026-11-08 23:19:01,749 - federated rodada 6: ensemble 0.890
+[36m(Client pid=63974)[0m W0000 00:00:1794179963.202086   72092 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 6x across cluster][0m
+2026-11-08 23:19:26,663 - federated rodada 7: acurácia de teste 0.895, 0.884, 0.870, 0.877
+2026-11-08 23:19:27,821 - federated rodada 7: ensemble 0.893
+[36m(Client pid=63979)[0m W0000 00:00:1794179985.168850   72489 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 19267840 bytes after encountering the first element of size 19267840 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 9x across cluster][0m
+2026-11-08 23:19:49,948 - federated rodada 8: acurácia de teste 0.887, 0.879, 0.872, 0.877
+2026-11-08 23:19:51,113 - federated rodada 8: ensemble 0.890
+[36m(Client pid=63979)[0m W0000 00:00:1794180009.497870   72892 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28573952 bytes after encountering the first element of size 28573952 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 11x across cluster][0m
+2026-11-08 23:20:13,889 - federated rodada 9: acurácia de teste 0.891, 0.875, 0.871, 0.876
+2026-11-08 23:20:15,025 - federated rodada 9: ensemble 0.887
+[36m(Client pid=63979)[0m W0000 00:00:1794180035.741619   73270 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 13x across cluster][0m
+2026-11-08 23:20:40,882 - federated rodada 10: acurácia de teste 0.891, 0.874, 0.873, 0.869
+2026-11-08 23:20:42,158 - federated rodada 10: ensemble 0.889
+[36m(Client pid=63979)[0m W0000 00:00:1794180063.974428   73655 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28573952 bytes after encountering the first element of size 28573952 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 15x across cluster][0m
+2026-11-08 23:21:07,197 - federated rodada 11: acurácia de teste 0.889, 0.879, 0.876, 0.871
+2026-11-08 23:21:08,479 - federated rodada 11: ensemble 0.887
+[36m(Client pid=63979)[0m W0000 00:00:1794180088.786370   74061 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 6x across cluster][0m
+2026-11-08 23:21:36,879 - federated rodada 12: acurácia de teste 0.892, 0.879, 0.865, 0.871
+2026-11-08 23:21:38,100 - federated rodada 12: ensemble 0.891
+[36m(Client pid=63974)[0m W0000 00:00:1794180116.547935   74435 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 11x across cluster][0m
+2026-11-08 23:22:00,447 - federated rodada 13: acurácia de teste 0.883, 0.883, 0.893, 0.874
+2026-11-08 23:22:01,720 - federated rodada 13: ensemble 0.889
+[36m(Client pid=63979)[0m W0000 00:00:1794180142.803521   74825 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28573952 bytes after encountering the first element of size 28573952 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 8x across cluster][0m
+2026-11-08 23:22:30,085 - federated rodada 14: acurácia de teste 0.883, 0.878, 0.875, 0.872
+2026-11-08 23:22:31,359 - federated rodada 14: ensemble 0.888
+[36m(Client pid=63974)[0m W0000 00:00:1794180172.318151   75213 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 9x across cluster][0m
+2026-11-08 23:22:57,149 - federated rodada 15: acurácia de teste 0.881, 0.878, 0.877, 0.872
+2026-11-08 23:22:58,425 - federated rodada 15: ensemble 0.888
+[36m(Client pid=63979)[0m W0000 00:00:1794180194.479969   75619 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 13x across cluster][0m
+2026-11-08 23:23:20,434 - federated rodada 16: acurácia de teste 0.884, 0.882, 0.869, 0.876
+2026-11-08 23:23:21,711 - federated rodada 16: ensemble 0.887
+[36m(Client pid=63974)[0m W0000 00:00:1794180219.994782   75995 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 17x across cluster][0m
+2026-11-08 23:23:43,668 - federated rodada 17: acurácia de teste 0.880, 0.879, 0.876, 0.871
+2026-11-08 23:23:44,942 - federated rodada 17: ensemble 0.894
+[36m(Client pid=63979)[0m W0000 00:00:1794180241.502980   76383 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 9x across cluster][0m
+2026-11-08 23:24:07,092 - federated rodada 18: acurácia de teste 0.875, 0.882, 0.871, 0.885
+2026-11-08 23:24:08,367 - federated rodada 18: ensemble 0.891
+[36m(Client pid=63979)[0m W0000 00:00:1794180269.336493   76791 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28573952 bytes after encountering the first element of size 28573952 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 15x across cluster][0m
+2026-11-08 23:24:33,535 - federated rodada 19: acurácia de teste 0.872, 0.883, 0.869, 0.873
+2026-11-08 23:24:34,813 - federated rodada 19: ensemble 0.892
+[36m(Client pid=63979)[0m W0000 00:00:1794180293.092921   77161 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28573952 bytes after encountering the first element of size 28573952 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 13x across cluster][0m
+2026-11-08 23:24:57,079 - federated rodada 20: acurácia de teste 0.887, 0.874, 0.868, 0.865
+2026-11-08 23:24:58,259 - federated rodada 20: ensemble 0.883
+[36m(Client pid=63974)[0m W0000 00:00:1794180318.011804   77557 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28573440 bytes after encountering the first element of size 28573440 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 8x across cluster][0m
+2026-11-08 23:25:23,029 - federated rodada 21: acurácia de teste 0.886, 0.875, 0.840, 0.870
+2026-11-08 23:25:24,308 - federated rodada 21: ensemble 0.891
+[36m(Client pid=63974)[0m W0000 00:00:1794180342.360943   77947 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 19269376 bytes after encountering the first element of size 19269376 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 11x across cluster][0m
+2026-11-08 23:25:49,822 - federated rodada 22: acurácia de teste 0.875, 0.882, 0.858, 0.868
+2026-11-08 23:25:51,096 - federated rodada 22: ensemble 0.890
+[36m(Client pid=63979)[0m W0000 00:00:1794180369.143003   78354 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 19267840 bytes after encountering the first element of size 19267840 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 9x across cluster][0m
+2026-11-08 23:26:13,160 - federated rodada 23: acurácia de teste 0.881, 0.879, 0.881, 0.880
+2026-11-08 23:26:14,326 - federated rodada 23: ensemble 0.892
+[36m(Client pid=63974)[0m W0000 00:00:1794180392.945184   81989 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 19268096 bytes after encountering the first element of size 19268096 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 9x across cluster][0m
+2026-11-08 23:26:39,844 - federated rodada 24: acurácia de teste 0.878, 0.872, 0.842, 0.873
+2026-11-08 23:26:41,045 - federated rodada 24: ensemble 0.888
+[36m(Client pid=63979)[0m W0000 00:00:1794180421.015384   88999 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 10x across cluster][0m
+2026-11-08 23:27:06,223 - federated rodada 25: acurácia de teste 0.877, 0.880, 0.862, 0.865
+2026-11-08 23:27:07,414 - federated rodada 25: ensemble 0.891
+[36m(Client pid=63974)[0m W0000 00:00:1794180446.018401   89398 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 19267840 bytes after encountering the first element of size 19267840 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 15x across cluster][0m
+2026-11-08 23:27:32,881 - federated rodada 26: acurácia de teste 0.883, 0.876, 0.878, 0.870
+2026-11-08 23:27:34,161 - federated rodada 26: ensemble 0.887
+[36m(Client pid=63974)[0m W0000 00:00:1794180470.898237   89785 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 33554688 bytes after encountering the first element of size 33554688 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 10x across cluster][0m
+2026-11-08 23:27:55,919 - federated rodada 27: acurácia de teste 0.887, 0.876, 0.868, 0.867
+2026-11-08 23:27:57,196 - federated rodada 27: ensemble 0.884
+[36m(Client pid=63979)[0m W0000 00:00:1794180495.011701   90180 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 28573952 bytes after encountering the first element of size 28573952 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 12x across cluster][0m
+2026-11-08 23:28:22,842 - federated rodada 28: acurácia de teste 0.881, 0.874, 0.872, 0.854
+2026-11-08 23:28:24,117 - federated rodada 28: ensemble 0.888
+[36m(Client pid=63979)[0m W0000 00:00:1794180523.071381   90560 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 19267840 bytes after encountering the first element of size 19267840 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 13x across cluster][0m
+2026-11-08 23:28:49,782 - federated rodada 29: acurácia de teste 0.883, 0.879, 0.875, 0.863
+2026-11-08 23:28:51,059 - federated rodada 29: ensemble 0.889
+[36m(Client pid=63979)[0m W0000 00:00:1794180548.878469   90969 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 19267840 bytes after encountering the first element of size 19267840 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 7x across cluster][0m
+2026-11-08 23:29:13,079 - federated rodada 30: acurácia de teste 0.878, 0.879, 0.882, 0.866
+2026-11-08 23:29:14,354 - federated rodada 30: ensemble 0.887
+[36m(Client pid=63974)[0m W0000 00:00:1794180551.219818   90980 prefetch_autotuner.cc:55] Prefetch autotuner tried to allocate 19268352 bytes after encountering the first element of size 19268352 bytes.This already causes the autotune ram budget to be exceeded. To stay within the ram budget, either increase the ram budget or reduce element size[32m [repeated 10x across cluster][0m
