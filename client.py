@@ -470,8 +470,9 @@ def run_experiment(public_fraction: float, alpha: float, args):
             rehearsal = ({'rehearsal_idx': round_public_idx, 'rehearsal_fraction': args.rehearsal_fraction}
                          if args.rehearsal_fraction > 0 else {})
 
-            log_train('digest', round_, ray.get([
-                client.fed_train.remote(round_public_idx, args.digest_epochs, args.digest_steps) for client in clients]))
+            if not args.no_digest:  # --no-digest: controle sem colaboração, só o revisit a cada rodada
+                log_train('digest', round_, ray.get([
+                    client.fed_train.remote(round_public_idx, args.digest_epochs, args.digest_steps) for client in clients]))
             log_train('revisit', round_, ray.get([
                 client.train_private.remote(args.private_epochs, learning_rate=args.revisit_lr,
                                             steps_per_epoch=args.private_steps, **rehearsal) for client in clients]))
@@ -543,6 +544,8 @@ if __name__ == '__main__':
                         help='Compila os modelos sem XLA. Mais lento, mas sem os picos de memória de GPU da compilação.')
     parser.add_argument('--digest-temperature', type=float, default=None,
                         help='Usa KL com temperatura T no digest (T² · KL entre softmax do consenso e do cliente). Padrão: MAE nos logits.')
+    parser.add_argument('--no-digest', action='store_true',
+                        help='Controle sem colaboração: pula o digest (e a troca de logits); cada rodada é só o revisit.')
     parser.add_argument('--digest-ce-weight', type=float, default=0.0,
                         help='Peso w da entropia cruzada no rótulo verdadeiro dentro do digest: (1 − w) · destilação + w · CE. '
                              '0 = só destilação (FedMD); 1 = só CE, sem destilação.')

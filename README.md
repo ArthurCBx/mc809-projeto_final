@@ -247,6 +247,8 @@ uv run python client.py --public-fractions 1.0 --private-dir ph2_dataset --priva
   --private-init-rehearsal --private-epochs 3 --private-steps 10 --revisit-lr 1e-4 --rehearsal-fraction 0.5 \
   --digest-lr 4e-4 --digest-steps 30 --digest-temperature 4
 results/ph2_privado/orquestrador.sh   # experimento completo: FedMD adaptado e original, 2 seeds, mais o centralizado
+results/ph2_privado/orquestrador_controle.sh    # controle: FedMD original com o digest só em CE (--digest-ce-weight 1)
+results/ph2_privado/orquestrador_semdigest.sh   # controle: FedMD original sem digest (--no-digest), só o revisit
 ```
 
 ### Ablações (variações sobre a configuração 3)
@@ -255,7 +257,8 @@ results/ph2_privado/orquestrador.sh   # experimento completo: FedMD adaptado e o
 |---|---|---|
 | Fração pública | `--public-fractions 0.01 0.05 0.1 0.2 0.4 0.8` | `results/experimento_final`, `results/fracoes_publicas_10_40_80` |
 | Loss do digest: MAE × KL | sem `--digest-temperature` (MAE) × `--digest-temperature 2` ou `4` | `results/digest_kl` (1% e 5%), `results/digest_kl_10_40_80` (10%, 40% e 80%) |
-| Digest ancorado nos rótulos: (1 − w) · KL + w · CE | `--digest-ce-weight 0.5` ou `1` (w = 1: controle sem destilação) | `results/digest_ce_10_40_80` |
+| Digest ancorado nos rótulos: (1 − w) · KL + w · CE | `--digest-ce-weight 0.5` ou `1` (w = 1: controle sem destilação) | `results/digest_ce_10_40_80`, `results/digest_ce_1_5` (w = 1 com 1% e 5%) |
+| Sem digest (só revisit nas rodadas) | `--no-digest` | `results/ph2_privado/semdigest_original_*` |
 | Ponderação do consenso | `server.py --weighting uniform` × `accuracy` | `results/04_consenso_ponderado` |
 | Consenso leave-one-out | `server.py --consensus loo` | `results/ensemble_e_leave_one_out` |
 | lr e passos do digest | `--digest-lr 1e-3/4e-4`, `--digest-steps 30` | `results/09b_digest_lr_4e-4`, `results/09c_digest_30_passos` |
@@ -534,11 +537,13 @@ Avaliações da configuração final:
 | `results/ensemble_e_leave_one_out/` | Ensemble dos clientes e consenso leave-one-out (`RELATORIO.md`) |
 | `results/escassez_de_dados/` | Validação de 50% e 70% (`RELATORIO.md`) |
 | `results/test_models/` | Avaliação no PH2: FedMD adaptado, treino local, FedMD original e centralizado (5% público) |
-| `results/fracoes_publicas_10_40_80/` | Mesma comparação com 10%, 40% e 80% de dados públicos, 3 seeds, com avaliação no PH2 e os modelos finais em `modelos/` |
+| `results/fracoes_publicas_10_40_80/` | Mesma comparação com 10%, 40% e 80% de dados públicos, 3 seeds, com avaliação no PH2 (os modelos finais em `modelos/`, ~270 MB, ficam fora do git) |
 | `results/digest_kl_10_40_80/` | KL × MAE no digest com 10%, 40% e 80%, 2 seeds (lado MAE; o lado KL é o de `fracoes_publicas_10_40_80`) |
 | `results/digest_ce_10_40_80/` | Digest ancorado nos rótulos, (1 − w) · KL + w · CE, com w = 0,5 e 1 (controle sem destilação), 2 seeds (`RESULTADO.md`) |
-| `results/ph2_privado/` | FedMD no cenário do paper: Kaggle público, 40% do PH2 privado; FedMD adaptado, original e centralizado, 2 seeds, mais a reavaliação dos modelos salvos nas mesmas imagens (`RESULTADO.md`) |
+| `results/ph2_privado/` | FedMD no cenário do paper: Kaggle público, 40% do PH2 privado; FedMD adaptado, original e centralizado, 2 seeds, os controles do FedMD original (só CE e sem digest) e a reavaliação dos modelos salvos nas mesmas imagens (`RESULTADO.md`) |
+| `results/digest_ce_1_5/` | Controle sem destilação (w = 1) com 1% e 5%, 3 seeds (`RESULTADO.md`) |
 | `results/figuras/` | Figuras do relatório, geradas por `result_exploration.ipynb` |
+| `results/RESPOSTAS_ARTIGO.md` | Conferência dos números do artigo contra os CSVs (calculados por `results/respostas_artigo.py`) |
 
 Os PNGs `results/acc_increase_table*.png` continuam na raiz de `results/`.
 

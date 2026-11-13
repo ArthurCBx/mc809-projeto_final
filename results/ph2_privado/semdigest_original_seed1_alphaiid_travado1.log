@@ -1,0 +1,87 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794575212.028165   39511 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1794575212.158922   39511 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794575213.470799   39511 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-13 13:06:54,782	WARNING authentication_token_setup.py:85 -- Token authentication is enabled for this Ray cluster. Set RAY_AUTH_MODE=disabled to opt out. For more information, see https://docs.ray.io/en/latest/ray-security/token-auth.html
+2026-11-13 13:06:55,417	WARNING services.py:2248 -- WARNING: The object store is using /tmp/ray instead of /dev/shm because /dev/shm has only 67108864 bytes available. This will harm performance! You may be able to free up space by deleting files in /dev/shm. If you are inside a Docker container, you can increase /dev/shm size by passing '--shm-size=6.50gb' to 'docker run' (or add it to the run_options list in a Ray cluster config). Make sure to set this to more than 30% of available RAM.
+2026-11-13 13:06:56,545	INFO worker.py:2033 -- Started a local Ray instance.
+2026-11-13 13:06:56,549	WARNING working_dir.py:91 -- Directory '.git' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-13 13:06:56,550	WARNING working_dir.py:91 -- Directory '__pycache__' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-13 13:06:56,555	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-13 13:07:08,437	INFO packaging.py:734 -- Creating a file package for local module '/mc809 - Comp Distribuida/projeto_final'.
+2026-11-13 13:07:08,441	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-13 13:07:30,465	WARNING packaging.py:704 -- The runtime_env package for '/mc809 - Comp Distribuida/projeto_final' at '/tmp/ray/session_2026-11-13_13-06-54_785836_39511/runtime_resources/1794575228437853174_39511__ray_pkg_d87c546e0c049d5c.zip' is 327.18MiB, approaching the maximum upload size of 512.00MiB. If the upload fails, exclude large directories (commonly '.git', '.venv', or build artifacts) via the 'excludes' option in runtime_env, or list them in '.gitignore' / '.rayignore'. To raise the warning threshold set `RAY_PACKAGE_SIZE_WARNING_MIB=<size_in_MiB>`, or disable the warning entirely with `RAY_PACKAGE_SIZE_WARNING_MIB=-1`. For details see https://docs.ray.io/en/latest/ray-core/handling-dependencies.html#api-reference
+2026-11-13 13:07:30,709	INFO packaging.py:434 -- Pushing file package 'gcs://_ray_pkg_d87c546e0c049d5c.zip' (327.18MiB) to Ray cluster...
+2026-11-13 13:07:31,809	INFO packaging.py:447 -- Successfully pushed file package 'gcs://_ray_pkg_d87c546e0c049d5c.zip'.
+2026-11-13 13:07:32,406 - Configuração {'seed': 1, 'public_fraction': 1.0, 'alpha': 'iid'}
+2026-11-13 13:07:32,528 - Privado: 80 imagens de ph2_dataset (20 (3 malignas), 20 (5 malignas), 20 (3 malignas), 20 (5 malignas) por cliente); público: 9605 imagens; teste externo: 120 imagens.
+[36m(pid=41878)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=41878)[0m I0000 00:00:1794575253.877206   41878 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(pid=41878)[0m I0000 00:00:1794575253.904659   41878 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=41878)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=41878)[0m W0000 00:00:1794575256.458935   41878 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=41878)[0m I0000 00:00:1794575256.705603   41878 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=41878)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=41878)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(pid=41887)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(pid=41887)[0m I0000 00:00:1794575254.869840   41887 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=41888)[0m I0000 00:00:1794575253.942434   41888 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=41888)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=41878)[0m I0000 00:00:1794575261.421542   42060 service.cc:153] XLA service 0x7fbd7803ab50 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+[36m(Client pid=41878)[0m I0000 00:00:1794575261.421580   42060 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+[36m(Client pid=41878)[0m I0000 00:00:1794575261.506913   42060 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+[36m(Client pid=41887)[0m W0000 00:00:1794575256.467641   41887 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 7x across cluster][0m
+[36m(Client pid=41878)[0m I0000 00:00:1794575262.090791   42060 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=41878)[0m I0000 00:00:1794575262.121622   42060 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4009__.55
+[36m(Client pid=41887)[0m I0000 00:00:1794575256.705605   41887 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=41878)[0m I0000 00:00:1794575283.198961   42060 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[36m(Client pid=41887)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=41887)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+[36m(Client pid=41888)[0m I0000 00:00:1794575263.244049   42052 service.cc:153] XLA service 0x7b6e080403c0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:[32m [repeated 3x across cluster][0m
+[36m(Client pid=41888)[0m I0000 00:00:1794575263.244112   42052 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)[32m [repeated 3x across cluster][0m
+[36m(Client pid=41888)[0m I0000 00:00:1794575263.462389   42052 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.[32m [repeated 3x across cluster][0m
+[36m(Client pid=41888)[0m I0000 00:00:1794575264.065731   42052 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
+[36m(Client pid=41888)[0m I0000 00:00:1794575264.091758   42052 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5713__.85[32m [repeated 3x across cluster][0m
+[36m(Client pid=41888)[0m I0000 00:00:1794575290.227728   42052 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.[32m [repeated 3x across cluster][0m
+[36m(Client pid=41882)[0m I0000 00:00:1794575321.343148   42057 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4009__.55
+[36m(Client pid=41882)[0m I0000 00:00:1794575325.321001   43626 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads
+[36m(Client pid=41882)[0m 
+[36m(Client pid=41887)[0m 
+[36m(Client pid=41878)[0m 
+[36m(Client pid=41887)[0m I0000 00:00:1794575325.238910   42051 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_4869__.70[32m [repeated 2x across cluster][0m
+[36m(Client pid=41888)[0m 
+[36m(Client pid=41888)[0m I0000 00:00:1794575333.989296   43931 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_14', 4 bytes spill stores, 4 bytes spill loads[32m [repeated 3x across cluster][0m
+[36m(Client pid=41888)[0m I0000 00:00:1794575328.195969   42047 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_5713__.85
+*** SIGTERM received at time=1794578991 on cpu 2 ***
+[failure_signal_handler.cc : 345] RAW: Signal 15 raised at PC=0x793be470672e while already in AbslFailureSignalHandler()
+*** SIGTERM received at time=1794578991 on cpu 0 ***
+PC: @     0x793be470672e  (unknown)  (unknown)
+    @     0x793be46abd70       3232  (unknown)
+    @     0x793be176e849        208  absl::lts_20230802::debugging_internal::ReadAddrMap()
+    @     0x793be176eab1         80  absl::lts_20230802::debugging_internal::(anonymous namespace)::Symbolizer::FindObjFile()
+    @     0x793be176eafe       1296  absl::lts_20230802::debugging_internal::(anonymous namespace)::Symbolizer::GetUncachedSymbol()
+    @     0x793be176f56b         80  absl::lts_20230802::Symbolize()
+    @     0x793be1759bcd       2144  absl::lts_20230802::debugging_internal::(anonymous namespace)::DumpPCAndFrameSizeAndSymbol()
+    @     0x793be1759d01        192  absl::lts_20230802::debugging_internal::DumpPCAndFrameSizesAndStackTrace()
+    @     0x793be1759686        496  absl::lts_20230802::WriteStackTrace()
+    @     0x793be1759891         80  absl::lts_20230802::AbslFailureSignalHandler()
+    @     0x793be46abd70  (unknown)  (unknown)
+[2026-11-13 14:09:51,441 E 39511 39511] logging.cc:474: *** SIGTERM received at time=1794578991 on cpu 0 ***
+[2026-11-13 14:09:51,442 E 39511 39511] logging.cc:474: PC: @     0x793be470672e  (unknown)  (unknown)
+[2026-11-13 14:09:51,442 E 39511 39511] logging.cc:474:     @     0x793be46abd70       3232  (unknown)
+[2026-11-13 14:09:51,442 E 39511 39511] logging.cc:474:     @     0x793be176e849        208  absl::lts_20230802::debugging_internal::ReadAddrMap()
+[2026-11-13 14:09:51,443 E 39511 39511] logging.cc:474:     @     0x793be176eab1         80  absl::lts_20230802::debugging_internal::(anonymous namespace)::Symbolizer::FindObjFile()
+[2026-11-13 14:09:51,443 E 39511 39511] logging.cc:474:     @     0x793be176eafe       1296  absl::lts_20230802::debugging_internal::(anonymous namespace)::Symbolizer::GetUncachedSymbol()
+[2026-11-13 14:09:51,443 E 39511 39511] logging.cc:474:     @     0x793be176f56b         80  absl::lts_20230802::Symbolize()
+[2026-11-13 14:09:51,444 E 39511 39511] logging.cc:474:     @     0x793be1759bcd       2144  absl::lts_20230802::debugging_internal::(anonymous namespace)::DumpPCAndFrameSizeAndSymbol()
+[2026-11-13 14:09:51,444 E 39511 39511] logging.cc:474:     @     0x793be1759d01        192  absl::lts_20230802::debugging_internal::DumpPCAndFrameSizesAndStackTrace()
+[2026-11-13 14:09:51,444 E 39511 39511] logging.cc:474:     @     0x793be1759686        496  absl::lts_20230802::WriteStackTrace()
+[2026-11-13 14:09:51,444 E 39511 39511] logging.cc:474:     @     0x793be1759891         80  absl::lts_20230802::AbslFailureSignalHandler()
+[2026-11-13 14:09:51,444 E 39511 39511] logging.cc:474:     @     0x793be46abd70  (unknown)  (unknown)
+PC: @     0x793be470672e  (unknown)  (unknown)
+    @     0x793be46abd70  (unknown)  (unknown)
+[2026-11-13 14:09:51,448 E 39511 39511] logging.cc:474: *** SIGTERM received at time=1794578991 on cpu 2 ***
+[2026-11-13 14:09:51,449 E 39511 39511] logging.cc:474: PC: @     0x793be470672e  (unknown)  (unknown)
+[2026-11-13 14:09:51,449 E 39511 39511] logging.cc:474:     @     0x793be46abd70  (unknown)  (unknown)

@@ -57,6 +57,45 @@ Referência nas mesmas 120 imagens: o FedMD do cenário padrão, treinado **sem*
    adaptado, que se especializa menos, continua acima do local (0,653). A vantagem do FedMD no domínio privado depende,
    portanto, de cada cliente ter as duas classes.
 
+## Sanity check: FedMD original sem colaboração (12–13/11)
+
+`orquestrador_controle.sh`: a mesma configuração do FedMD original, mas com o digest só em entropia cruzada no rótulo
+verdadeiro das imagens do Kaggle (`--digest-ce-weight 1`). O consenso é calculado, mas não entra na loss. Seeds 42 e 1,
+IID, α = 1.0 e 0.1 (`controle_original_seed*_alpha*`).
+
+| α | Método | Teste Kaggle | PH2 bal. (clientes) | PH2 bal. (ensemble) |
+|---|---|---|---|---|
+| IID | FedMD original (consenso) | 0,625 | **0,807** | **0,873** |
+| | Sem colaboração (só CE) | **0,826** | 0,616 | 0,596 |
+| 1.0 | FedMD original (consenso) | 0,655 | **0,772** | **0,845** |
+| | Sem colaboração (só CE) | **0,797** | 0,598 | 0,568 |
+| 0.1 | FedMD original (consenso) | 0,551 | **0,621** | **0,682** |
+| | Sem colaboração (só CE) | **0,756** | 0,598 | 0,579 |
+
+Sem o consenso, o PH2 volta ao nível do treino local (~0,60) e o Kaggle cai bem menos (0,76–0,83 contra 0,55–0,66).
+
+**Controle sem digest** (`orquestrador_semdigest.sh`, opção `--no-digest`): a mesma configuração, mas cada rodada é só
+o revisit nos dados privados, sem troca de logits nem treino no Kaggle depois do `public_init`
+(`semdigest_original_seed*_alpha*`). Separa o efeito do consenso do efeito de reancorar no Kaggle.
+
+| Variante (configuração do FedMD original) | Kaggle | PH2 bal. após `private_init` | PH2 bal. final (clientes) | Δ PH2 nas rodadas | PH2 bal. final (ensemble) |
+|---|---|---|---|---|---|
+| Consenso (FedMD original) | 0,610 | 0,660 | **0,733** | **+0,074** | **0,800** |
+| Sem digest (só revisit no PH2) | 0,599 | 0,677 | 0,678 | 0,000 | 0,680 |
+| Digest só CE (reancora no Kaggle) | **0,793** | 0,673 | 0,604 | −0,069 | 0,581 |
+
+(Média de 2 seeds × 3 α; por α, o Δ do consenso é +0,104 (IID), +0,083 (α = 1.0) e +0,034 (α = 0.1).)
+
+- **O consenso acrescenta de fato.** Sem digest, as 20 rodadas de revisit não mudam nada no PH2 (Δ = 0,000): a adaptação
+  vem toda do `private_init`. Com o consenso, os clientes ganham +0,074 a mais. Consenso − sem digest no PH2:
+  **+0,056 por cliente, melhor em 5 de 6 pares (p = 0,02)**; no ensemble, 0,800 contra 0,680.
+- **A perda no Kaggle não vem do consenso**, e sim do treino privado (50 épocas, lr 1e-3, nas ~20 imagens): sem digest,
+  o Kaggle fica em 0,60, igual ao do consenso (0,61).
+- **O controle com CE reancora no Kaggle**: recupera o Kaggle (0,79) e apaga a adaptação ao PH2 (−0,069).
+- **Conclusão:** neste cenário, o consenso transfere entre os clientes o que cada um aprendeu do PH2, pela única via que
+  o FedMD permite (os logits sobre as imagens públicas). É o primeiro resultado do estudo em que a colaboração, isolada
+  dos outros efeitos, melhora os clientes. O ganho diminui quando os clientes têm uma classe só (α = 0.1).
+
 ## Limitações
 
 - 2 seeds, e o teste do PH2 tem só 24 melanomas (cada um vale ~0,04 de sensibilidade): os desvios são altos

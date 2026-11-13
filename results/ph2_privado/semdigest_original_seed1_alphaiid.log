@@ -1,0 +1,104 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794579018.672225   95456 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1794579019.010389   95456 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794579021.069767   95456 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-13 14:10:23,374	WARNING authentication_token_setup.py:85 -- Token authentication is enabled for this Ray cluster. Set RAY_AUTH_MODE=disabled to opt out. For more information, see https://docs.ray.io/en/latest/ray-security/token-auth.html
+2026-11-13 14:10:24,248	WARNING services.py:2248 -- WARNING: The object store is using /tmp/ray instead of /dev/shm because /dev/shm has only 67108864 bytes available. This will harm performance! You may be able to free up space by deleting files in /dev/shm. If you are inside a Docker container, you can increase /dev/shm size by passing '--shm-size=6.48gb' to 'docker run' (or add it to the run_options list in a Ray cluster config). Make sure to set this to more than 30% of available RAM.
+2026-11-13 14:10:26,388	INFO worker.py:2033 -- Started a local Ray instance.
+2026-11-13 14:10:26,392	WARNING working_dir.py:91 -- Directory '.git' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-13 14:10:26,394	WARNING working_dir.py:91 -- Directory '__pycache__' is now ignored by default when packaging the working directory. To disable this behavior, set the `RAY_OVERRIDE_RUNTIME_ENV_DEFAULT_EXCLUDES=''` environment variable.
+2026-11-13 14:10:26,398	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-13 14:10:38,014	INFO packaging.py:734 -- Creating a file package for local module '/mc809 - Comp Distribuida/projeto_final'.
+2026-11-13 14:10:38,018	INFO packaging.py:363 -- Ignoring upload to cluster for these files: [PosixPath('/mc809 - Comp Distribuida/projeto_final/.gitignore')]
+2026-11-13 14:10:58,599	WARNING packaging.py:704 -- The runtime_env package for '/mc809 - Comp Distribuida/projeto_final' at '/tmp/ray/session_2026-11-13_14-10-23_380357_95456/runtime_resources/1794579038014741772_95456__ray_pkg_90c0b5c279277928.zip' is 327.20MiB, approaching the maximum upload size of 512.00MiB. If the upload fails, exclude large directories (commonly '.git', '.venv', or build artifacts) via the 'excludes' option in runtime_env, or list them in '.gitignore' / '.rayignore'. To raise the warning threshold set `RAY_PACKAGE_SIZE_WARNING_MIB=<size_in_MiB>`, or disable the warning entirely with `RAY_PACKAGE_SIZE_WARNING_MIB=-1`. For details see https://docs.ray.io/en/latest/ray-core/handling-dependencies.html#api-reference
+2026-11-13 14:10:58,870	INFO packaging.py:434 -- Pushing file package 'gcs://_ray_pkg_90c0b5c279277928.zip' (327.20MiB) to Ray cluster...
+2026-11-13 14:11:00,095	INFO packaging.py:447 -- Successfully pushed file package 'gcs://_ray_pkg_90c0b5c279277928.zip'.
+2026-11-13 14:11:00,811 - Configuração {'seed': 1, 'public_fraction': 1.0, 'alpha': 'iid'}
+2026-11-13 14:11:00,969 - Privado: 80 imagens de ph2_dataset (20 (3 malignas), 20 (5 malignas), 20 (3 malignas), 20 (5 malignas) por cliente); público: 9605 imagens; teste externo: 120 imagens.
+[36m(pid=98917)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[36m(pid=98917)[0m I0000 00:00:1794579063.557276   98917 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[36m(pid=98917)[0m I0000 00:00:1794579063.650475   98917 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+[36m(pid=98917)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[36m(Client pid=98917)[0m W0000 00:00:1794579067.553574   98917 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=98917)[0m W0000 00:00:1794579067.561899   98917 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[36m(Client pid=98917)[0m I0000 00:00:1794579068.047794   98917 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+[36m(Client pid=98917)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+[36m(Client pid=98917)[0m   self.data_adapter = data_adapters.get_data_adapter(
+[36m(pid=98915)[0m WARNING: All log messages before absl::InitializeLog() is called are written to STDERR[32m [repeated 7x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(pid=98915)[0m I0000 00:00:1794579065.203367   98915 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.[32m [repeated 7x across cluster][0m
+[36m(pid=98915)[0m I0000 00:00:1794579063.652032   98915 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.[32m [repeated 3x across cluster][0m
+[36m(pid=98915)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.[32m [repeated 3x across cluster][0m
+[36m(Client pid=98915)[0m W0000 00:00:1794579067.561820   98915 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.[32m [repeated 6x across cluster][0m
+[36m(Client pid=98915)[0m I0000 00:00:1794579068.060899   98915 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2560 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a[32m [repeated 3x across cluster][0m
+[36m(Client pid=98915)[0m I0000 00:00:1794579077.290945   99110 cuda_dnn.cc:461] Loaded cuDNN version 92700
+[36m(Client pid=98916)[0m /opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).[32m [repeated 3x across cluster][0m
+[36m(Client pid=98916)[0m   self.data_adapter = data_adapters.get_data_adapter([32m [repeated 3x across cluster][0m
+2026-11-13 14:24:55,365 - public_init rodada 0: acurácia de teste 0.894, 0.898, 0.874, 0.902
+2026-11-13 14:24:58,194 - public_init rodada 0: ensemble 0.900
+2026-11-13 14:24:59,522 - public_init rodada 0: teste externo 0.817, 0.783, 0.708, 0.758 | ensemble 0.775
+2026-11-13 14:25:22,593 - private_init rodada 0: acurácia de teste 0.675, 0.622, 0.670, 0.561
+2026-11-13 14:25:24,376 - private_init rodada 0: ensemble 0.652
+2026-11-13 14:25:25,391 - private_init rodada 0: teste externo 0.883, 0.742, 0.833, 0.850 | ensemble 0.850
+2026-11-13 14:25:29,345 - federated rodada 1: acurácia de teste 0.709, 0.589, 0.744, 0.547
+2026-11-13 14:25:31,134 - federated rodada 1: ensemble 0.704
+2026-11-13 14:25:32,138 - federated rodada 1: teste externo 0.900, 0.758, 0.875, 0.842 | ensemble 0.875
+2026-11-13 14:25:35,835 - federated rodada 2: acurácia de teste 0.713, 0.609, 0.720, 0.559
+2026-11-13 14:25:37,466 - federated rodada 2: ensemble 0.679
+2026-11-13 14:25:38,308 - federated rodada 2: teste externo 0.900, 0.900, 0.758, 0.892 | ensemble 0.933
+2026-11-13 14:25:41,977 - federated rodada 3: acurácia de teste 0.700, 0.573, 0.728, 0.544
+2026-11-13 14:25:43,895 - federated rodada 3: ensemble 0.684
+2026-11-13 14:25:44,944 - federated rodada 3: teste externo 0.867, 0.875, 0.883, 0.633 | ensemble 0.958
+2026-11-13 14:25:48,237 - federated rodada 4: acurácia de teste 0.704, 0.620, 0.744, 0.568
+2026-11-13 14:25:50,792 - federated rodada 4: ensemble 0.703
+2026-11-13 14:25:51,611 - federated rodada 4: teste externo 0.858, 0.725, 0.875, 0.808 | ensemble 0.925
+2026-11-13 14:25:55,283 - federated rodada 5: acurácia de teste 0.682, 0.586, 0.525, 0.693
+2026-11-13 14:25:57,091 - federated rodada 5: ensemble 0.745
+2026-11-13 14:25:58,051 - federated rodada 5: teste externo 0.875, 0.783, 0.400, 0.792 | ensemble 0.850
+2026-11-13 14:26:02,022 - federated rodada 6: acurácia de teste 0.691, 0.583, 0.526, 0.692
+2026-11-13 14:26:03,733 - federated rodada 6: ensemble 0.717
+2026-11-13 14:26:04,563 - federated rodada 6: teste externo 0.867, 0.917, 0.408, 0.867 | ensemble 0.917
+2026-11-13 14:26:07,886 - federated rodada 7: acurácia de teste 0.694, 0.607, 0.728, 0.617
+2026-11-13 14:26:09,519 - federated rodada 7: ensemble 0.688
+2026-11-13 14:26:10,350 - federated rodada 7: teste externo 0.883, 0.933, 0.842, 0.892 | ensemble 0.908
+2026-11-13 14:26:14,200 - federated rodada 8: acurácia de teste 0.675, 0.614, 0.687, 0.604
+2026-11-13 14:26:16,242 - federated rodada 8: ensemble 0.689
+2026-11-13 14:26:17,146 - federated rodada 8: teste externo 0.875, 0.933, 0.825, 0.817 | ensemble 0.867
+2026-11-13 14:26:20,884 - federated rodada 9: acurácia de teste 0.669, 0.554, 0.726, 0.549
+2026-11-13 14:26:23,446 - federated rodada 9: ensemble 0.687
+2026-11-13 14:26:24,269 - federated rodada 9: teste externo 0.867, 0.675, 0.867, 0.858 | ensemble 0.917
+2026-11-13 14:26:27,934 - federated rodada 10: acurácia de teste 0.674, 0.613, 0.694, 0.558
+2026-11-13 14:26:30,497 - federated rodada 10: ensemble 0.670
+2026-11-13 14:26:31,311 - federated rodada 10: teste externo 0.867, 0.950, 0.858, 0.933 | ensemble 0.875
+2026-11-13 14:26:34,541 - federated rodada 11: acurácia de teste 0.720, 0.575, 0.685, 0.546
+2026-11-13 14:26:36,171 - federated rodada 11: ensemble 0.665
+2026-11-13 14:26:37,001 - federated rodada 11: teste externo 0.867, 0.908, 0.892, 0.817 | ensemble 0.892
+2026-11-13 14:26:40,929 - federated rodada 12: acurácia de teste 0.719, 0.578, 0.737, 0.542
+2026-11-13 14:26:43,503 - federated rodada 12: ensemble 0.670
+2026-11-13 14:26:44,325 - federated rodada 12: teste externo 0.867, 0.892, 0.817, 0.850 | ensemble 0.933
+2026-11-13 14:26:47,544 - federated rodada 13: acurácia de teste 0.710, 0.598, 0.725, 0.553
+2026-11-13 14:26:50,098 - federated rodada 13: ensemble 0.689
+2026-11-13 14:26:50,928 - federated rodada 13: teste externo 0.808, 0.908, 0.875, 0.867 | ensemble 0.908
+2026-11-13 14:26:54,320 - federated rodada 14: acurácia de teste 0.708, 0.603, 0.739, 0.542
+2026-11-13 14:26:56,097 - federated rodada 14: ensemble 0.698
+2026-11-13 14:26:57,102 - federated rodada 14: teste externo 0.867, 0.900, 0.750, 0.858 | ensemble 0.892
+2026-11-13 14:27:00,461 - federated rodada 15: acurácia de teste 0.741, 0.591, 0.729, 0.532
+2026-11-13 14:27:02,107 - federated rodada 15: ensemble 0.680
+2026-11-13 14:27:02,972 - federated rodada 15: teste externo 0.867, 0.900, 0.833, 0.817 | ensemble 0.917
+2026-11-13 14:27:07,317 - federated rodada 16: acurácia de teste 0.736, 0.593, 0.709, 0.519
+2026-11-13 14:27:09,874 - federated rodada 16: ensemble 0.678
+2026-11-13 14:27:10,734 - federated rodada 16: teste externo 0.875, 0.908, 0.892, 0.867 | ensemble 0.917
+2026-11-13 14:27:13,946 - federated rodada 17: acurácia de teste 0.682, 0.572, 0.722, 0.506
+2026-11-13 14:27:15,618 - federated rodada 17: ensemble 0.669
+2026-11-13 14:27:16,450 - federated rodada 17: teste externo 0.867, 0.875, 0.850, 0.842 | ensemble 0.883
+2026-11-13 14:27:19,650 - federated rodada 18: acurácia de teste 0.726, 0.621, 0.662, 0.505
+2026-11-13 14:27:21,243 - federated rodada 18: ensemble 0.667
+2026-11-13 14:27:22,202 - federated rodada 18: teste externo 0.833, 0.892, 0.858, 0.842 | ensemble 0.883
+2026-11-13 14:27:26,301 - federated rodada 19: acurácia de teste 0.696, 0.577, 0.611, 0.500
+2026-11-13 14:27:28,859 - federated rodada 19: ensemble 0.672
+2026-11-13 14:27:29,677 - federated rodada 19: teste externo 0.867, 0.567, 0.867, 0.842 | ensemble 0.883
+2026-11-13 14:27:33,695 - federated rodada 20: acurácia de teste 0.685, 0.532, 0.663, 0.604
+2026-11-13 14:27:36,044 - federated rodada 20: ensemble 0.657
+2026-11-13 14:27:36,819 - federated rodada 20: teste externo 0.850, 0.767, 0.817, 0.808 | ensemble 0.908
+[36m(Client pid=98916)[0m I0000 00:00:1794579079.691034   99104 cuda_dnn.cc:461] Loaded cuDNN version 92700[32m [repeated 3x across cluster][0m
