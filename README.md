@@ -94,11 +94,16 @@ entre experimentos diferentes; os orquestradores fazem isso automaticamente.
 | `test_metrics.csv` | Acurácia e perda de cada cliente no teste, por etapa e rodada |
 | `train_history.csv` | Histórico de treino por época (loss, accuracy, val_loss, val_accuracy) |
 | `ensemble_metrics.csv` | Acurácia do ensemble dos 4 clientes e a média dos clientes, por etapa e rodada |
-| `extra_test_metrics.csv` | Acurácia e acurácia balanceada no dataset externo, só quando `--extra-test-dir` é usado |
+| `extra_test_metrics.csv` | Acurácia, acurácia balanceada, sensibilidade (recall de melanoma), especificidade e AUC no dataset externo, só quando `--extra-test-dir` ou `--private-dir` é usado. As três últimas colunas só existem nas execuções a partir de 14/11 |
+| `extra_test_logits_P<fração>_alpha_<alpha>.npz` | Logits do dataset externo de cada cliente e do ensemble, por etapa e rodada, e os rótulos |
 
-Outras opções do `client.py` usadas nos experimentos finais: `--digest-ce-weight w` (mistura a CE no rótulo verdadeiro
-ao digest), `--private-dir`, `--private-dir-fraction` e `--private-batch-size` (dados privados vindos de um dataset
-externo, com todo o dataset de treino como público).
+Outras opções do `client.py` usadas nos experimentos finais:
+- `--digest-ce-weight w`: mistura a CE no rótulo verdadeiro ao digest.
+- `--no-digest`: controle sem colaboração; cada rodada é só o revisit.
+- `--private-dir`, `--private-dir-fraction` e `--private-batch-size`: dados privados vindos de um dataset externo, com
+  todo o dataset de treino como público.
+- `--pooled-private` (com `--private-dir`, `--no-digest --digest-rounds 0`): cada arquitetura treina com todos os dados
+  privados reunidos. É a referência centralizada justa do cenário com o PH2 privado.
 
 Com `--save-models-dir <pasta>`, o modelo final de cada cliente (após a última rodada) também é salvo em
 `<pasta>/P<fração>_alpha_<alpha>/cliente_<i>.keras`, sem o otimizador (~0,7 MB cada). Para carregar:
@@ -249,6 +254,16 @@ uv run python client.py --public-fractions 1.0 --private-dir ph2_dataset --priva
 results/ph2_privado/orquestrador.sh   # experimento completo: FedMD adaptado e original, 2 seeds, mais o centralizado
 results/ph2_privado/orquestrador_controle.sh    # controle: FedMD original com o digest só em CE (--digest-ce-weight 1)
 results/ph2_privado/orquestrador_semdigest.sh   # controle: FedMD original sem digest (--no-digest), só o revisit
+results/referencia_justa_e_auc/orquestrador.sh  # referência centralizada justa (--pooled-private) e métricas com AUC
+results/ph2_privado/orquestrador_sementes_2_3.sh  # seeds 2 e 3 das variantes do FedMD original e da referência; FedMD original com 1%
+```
+
+A referência centralizada justa, sozinha:
+
+```bash
+uv run python client.py --public-fractions 1.0 --private-dir ph2_dataset --private-dir-fraction 0.4 \
+  --private-batch-size 5 --public-init-lr 1e-3 --private-init-epochs 50 --pooled-private --no-digest \
+  --digest-rounds 0 --alphas iid
 ```
 
 ### Ablações (variações sobre a configuração 3)
@@ -321,13 +336,15 @@ fica com poucos dados próprios: com 80%, são ~480 imagens por cliente, e o tre
 
 | Fração pública | Teste: ensemble local | Teste: ensemble FedMD adaptado | Teste: ensemble FedMD original | PH2 bal.: ensemble local | PH2 bal.: ensemble FedMD adaptado | PH2 bal.: ensemble FedMD original |
 |---|---|---|---|---|---|---|
+| 1% | **0,884** | 0,877 | 0,764 | — | — | 0,582 |
 | 5% | 0,883 | 0,884 | 0,702 | **0,659** | 0,620 | 0,555 |
 | 10% | **0,892** | 0,883 | 0,746 | **0,635** | 0,604 | 0,550 |
 | 40% | **0,900** | 0,887 | 0,705 | **0,594** | 0,575 | 0,552 |
 | 80% | **0,903** | 0,885 | 0,715 | **0,592** | 0,544 | 0,559 |
 | *Centralizado* | *modelo único 0,901; ensemble 0,904* | | | *modelo único 0,665; ensemble 0,656* | | |
 
-(Média dos 3 α e das 3 seeds. Gráficos: `results/figuras/6_ensemble_*.png`.) Com 40% e 80%, o ensemble local
+(Média dos 3 α e das 3 seeds. Gráficos: `results/figuras/6_ensemble_*.png`. Com 1%, o FedMD original vem de
+`results/replicado_P01`; o local e o adaptado, de `results/ensemble_e_leave_one_out`, que não foram avaliados no PH2.) Com 40% e 80%, o ensemble local
 alcança um modelo único treinado com todos os dados, sem nenhuma troca de informação entre os clientes.
 
 ### Ablações que não mudaram o resultado
@@ -339,20 +356,38 @@ alcança um modelo único treinado com todos os dados, sem nenhuma troca de info
 - **Escassez de dados por cliente** (validação de 50% ou 70%): a linha de base quase não cai. O `private_init`
   com rehearsal continua chegando perto da capacidade das CNNs.
 
+### Testes estatísticos e distribuição dos dados por cliente
+
+`results/estatistica_e_divisoes/RESULTADO.md`. Todas as comparações pareadas foram refeitas com o teste t pareado, o
+Wilcoxon pareado (exato) e um IC de 95% por bootstrap dos pares (`testes.py`, `testes.csv`). As conclusões se
+mantêm:
+- **Ganho do adaptado sobre o local:** positivo com 1% e 5% (p = 0,004 no Wilcoxon), nulo com 10% e negativo com 40%
+  e 80%.
+- **KL × MAE:** sem diferença (p ≈ 0,25).
+- **Controle sem destilação:** melhor a partir de 10% (p < 0,001), marginal com 5% (p ≈ 0,05).
+
+O script `divisoes.py` refaz as divisões com as mesmas seeds e conta imagens e melanomas por cliente
+(`divisoes_por_cliente.csv`). As contagens batem com as dos CSVs das execuções em 204 clientes. Com 40% público,
+α = 1.0 e seed 42, a classe majoritária de cada cliente tem 96,7%, 93,8%, 100% e 95,3% das amostras.
+
 ### Digest ancorado nos rótulos: a destilação não acrescenta nada aos rótulos públicos
 
 O digest misturando a destilação com a entropia cruzada no rótulo verdadeiro das imagens públicas,
-**(1 − w) · KL + w · CE** (`results/digest_ce_10_40_80/RESULTADO.md`, 10%, 40% e 80%, 2 seeds):
+**(1 − w) · KL + w · CE** (`results/digest_ce_10_40_80/RESULTADO.md`, 10%, 40% e 80%, 2 seeds;
+`results/digest_ce_1_5/RESULTADO.md`, só w = 1, 1% e 5%, 3 seeds). Ganho sobre o treino local:
 
-| Peso da CE | 10% | 40% | 80% | Acurácia final | Ensemble |
+| Peso da CE | 1% | 5% | 10% | 40% | 80% |
 |---|---|---|---|---|---|
-| w = 0 (só KL, FedMD) | +0,002 | −0,008 | −0,013 | 0,880–0,882 | 0,884–0,888 |
-| w = 0,5 (KL + CE) | +0,017 | +0,007 | +0,006 | 0,893–0,901 | 0,897–0,902 |
-| w = 1 (só CE, **sem destilação**) | **+0,020** | **+0,013** | **+0,012** | **0,897–0,905** | **0,903–0,908** |
+| w = 0 (só KL, FedMD) | **+0,009** (9/9) | +0,011 (9/9) | +0,002 (4/6) | −0,008 (1/6) | −0,013 (0/6) |
+| w = 0,5 (KL + CE) | — | — | +0,017 (6/6) | +0,007 (5/6) | +0,006 (6/6) |
+| w = 1 (só CE, **sem destilação**) | +0,006 (6/9) | **+0,017** (9/9) | **+0,020** (6/6) | **+0,013** (6/6) | **+0,012** (6/6) |
 
-(Ganho sobre o treino local; `results/figuras/7_*.png`.) Ancorar nos rótulos tira o FedMD da perda, mas o
-controle sem destilação é o melhor em todas as frações e em 18 de 18 pares: o ganho vem de treinar mais com os
-rótulos públicos, não do consenso. No PH2, nenhuma variante passa do treino local.
+(Entre parênteses, os pares de seed e divisão com ganho; `results/figuras/7_*.png`.) Ancorar nos rótulos tira o
+FedMD da perda, mas a partir de 5% o controle sem destilação é o melhor: o ganho vem de treinar mais com os rótulos
+públicos, não do consenso. Com 10–80%, w = 1 ganha de w = 0 em 18 de 18 pares (+0,021, p < 0,001); com 5%, a vantagem
+do controle é marginal (−0,007 para a KL, p ≈ 0,05). Só com 1% a destilação fica à frente (+0,003, p ≈ 0,22, sem
+significância). No PH2, nenhuma variante passa do treino local. Com 10–80%, o ensemble com w = 1 (0,903–0,908) atinge
+o ensemble centralizado (0,904).
 
 ### Dataset externo (PH2)
 
@@ -401,10 +436,34 @@ Arquivos: `results/test_models/acuracia_final.csv` (por método, α, seed e mode
 - O FedMD original tem a melhor acurácia balanceada no PH2 nos casos IID com 40% e 80% (~0,65), mas colapsa nos
   casos não IID.
 
+**Sensibilidade, especificidade e AUC** (calculadas das predições; `results/referencia_justa_e_auc/RESULTADO.md`,
+`results/figuras/10_ph2_sens_esp_auc.png`). As execuções com divisão IID, 5% e 40%, foram refeitas com 3 seeds,
+gravando essas métricas, e reproduzem a acurácia balanceada das tabelas acima dentro de ~0,02. Média dos 4 clientes
+no PH2:
+
+| Fração | Modelo | Acurácia bal. | Sensibilidade | Especificidade | AUC |
+|---|---|---|---|---|---|
+| 5% | Treino local | 0,651 | 0,581 | 0,720 | 0,731 |
+| | FedMD adaptado | 0,627 | 0,417 | 0,837 | 0,742 |
+| | FedMD original | 0,623 | 0,388 | 0,857 | 0,733 |
+| 40% | Treino local | 0,603 | 0,246 | 0,959 | 0,727 |
+| | FedMD adaptado | 0,567 | 0,157 | 0,977 | 0,632 |
+| | FedMD original | 0,629 | 0,358 | 0,899 | 0,783 |
+| — | Centralizado (modelo único) | 0,673 | 0,452 | 0,894 | 0,824 |
+
+- **Com 5%, a queda de sensibilidade do FedMD adaptado vem do limiar.** A AUC é a mesma do local (0,742 contra
+  0,731): o modelo ordena os casos tão bem quanto antes, mas desloca o ponto de decisão para "benigno".
+- **Com 40%, a perda vem do modelo.** A AUC do adaptado cai para 0,632 contra 0,727 do local, e mudar o limiar não a
+  recupera.
+- **A AUC de todos os modelos é bem maior do que a acurácia balanceada sugere** (0,63–0,82). Parte da má
+  generalização para o PH2 é de calibração do limiar no novo domínio. O centralizado tem a maior AUC (0,824).
+
 ### FedMD no cenário do paper: Kaggle público, PH2 privado
 
 Todo o Kaggle como conjunto público e 80 imagens do PH2 como dados privados (~20 por cliente, batch 5), 2 seeds × 3 α,
-teste do PH2 nas outras 120 imagens (`results/ph2_privado/RESULTADO.md`, `results/figuras/8_ph2_privado_troca.png`):
+teste do PH2 nas outras 120 imagens (`results/ph2_privado/RESULTADO.md`, `results/figuras/8_ph2_privado_troca.png`).
+Nesta primeira tabela, o "Local" é o `private_init` do FedMD adaptado; o FedMD original foi depois repetido com 4
+seeds e comparado com os controles (subseção seguinte), e os números dele que valem são os de lá.
 
 | Método | Teste do Kaggle | PH2 bal. (clientes) | PH2 bal. (ensemble) |
 |---|---|---|---|
@@ -433,8 +492,54 @@ clientes com 25 imagens só benignas ou 12 só malignas.
   cliente (0,621 contra 0,620) e perde ainda mais no Kaggle (0,55). O mesmo problema do cenário padrão volta: o revisit
   agressivo especializa cada cliente na classe que ele tem. O FedMD adaptado, que se especializa menos, fica à frente
   (0,653).
-- **O centralizado não aproveita os dados privados**: as 80 imagens são menos de 1% do seu treino.
+- **O centralizado diluído não aproveita os dados privados**: as 80 imagens são menos de 1% do seu treino.
 - **Há uma troca entre os domínios.** Quanto mais o método se especializa no PH2, mais esquece o Kaggle.
+
+#### Isolando o consenso: FedMD original contra os controles, 4 seeds
+
+Protocolo do FedMD original, seeds 42, 1, 2 e 3 × 3 divisões (12 execuções por variante; `results/ph2_privado/RESULTADO.md`,
+seção "Seeds 2 e 3", e `results/figuras/9_ph2_privado_controles.png`). Os controles mantêm tudo e mudam só o digest:
+sem digest (`--no-digest`, as rodadas são só o revisit) ou digest só com CE nos rótulos do Kaggle (`--digest-ce-weight 1`).
+A **referência centralizada justa** treina cada arquitetura com as 80 imagens do PH2 reunidas, no mesmo protocolo
+(`public_init` + `private_init` com batch 5, 50 épocas, lr 1e-3; `results/referencia_justa_e_auc`).
+
+| Variante | Teste do Kaggle | PH2 bal. (clientes) | PH2 bal. (ensemble) |
+|---|---|---|---|
+| Só `public_init` | **0,901** | 0,650 | 0,628 |
+| Treino local (fim do `private_init`) | 0,610 | 0,636 | 0,616 |
+| Sem digest (só revisit) | 0,607 | 0,660 | 0,671 |
+| Digest só com CE | 0,793 | 0,596 | 0,574 |
+| **FedMD original (consenso)** | 0,624 | **0,701** | **0,735** |
+| Referência centralizada justa (80 do PH2 reunidas) | 0,700 | 0,820 | 0,831 |
+| Centralizado diluído (Kaggle + 80 do PH2) | 0,896 | 0,646 | 0,639 |
+
+| Divisão | FedMD (clientes / ensemble) | FedMD − local | FedMD − sem digest |
+|---|---|---|---|
+| IID | 0,778 / 0,814 | +0,102 | +0,074 |
+| α = 1.0 | 0,731 / 0,781 | +0,077 | +0,048 |
+| α = 0.1 | 0,595 / 0,611 | +0,017 | +0,001 |
+
+Testes pareados (n = 12; `results/estatistica_e_divisoes/testes.py`), PH2 balanceada dos clientes:
+
+| Comparação | Média | IC 95% (bootstrap) | A favor | p (t pareado) | p (Wilcoxon) |
+|---|---|---|---|---|---|
+| FedMD − sem digest | +0,041 | [+0,015; +0,066] | 9/12 | 0,014 | 0,027 |
+| FedMD − treino local | +0,065 | [+0,036; +0,093] | 11/12 | 0,001 | 0,002 |
+| FedMD − digest só CE | +0,105 | [+0,060; +0,148] | 10/12 | 0,001 | 0,005 |
+
+- **O consenso acrescenta de fato.** Sem digest, as rodadas de revisit melhoram pouco o PH2 (+0,024 sobre o local);
+  com o consenso, os clientes ganham +0,041 a mais, e o ensemble chega a 0,735 contra 0,671. É o único resultado do
+  estudo em que a colaboração, isolada do treino adicional, melhora os clientes.
+- **A perda no Kaggle vem do treino privado, não do consenso**: sem digest, o Kaggle fica em 0,607, igual ao do
+  FedMD. O digest só com CE recupera o Kaggle (0,793), mas apaga a adaptação ao PH2.
+- **O ganho depende de cada cliente ter as duas classes**: some com α = 0.1.
+- **A referência justa é um teto de verdade e fica acima do FedMD.** Por cliente, o FedMD percorre ~35% do caminho
+  entre o treino local e o teto ((0,701 − 0,636) / (0,820 − 0,636)); no ensemble, ~55%. Com divisão IID, o ensemble
+  do FedMD (0,814) chega perto do teto (0,831). A referência varia muito entre seeds (0,90, 0,84, 0,78 e 0,77 por
+  cliente), reflexo do teste com 24 melanomas. O teto também perde o Kaggle (0,700): a queda vem de treinar 50 épocas
+  com lr 1e-3 em poucas imagens.
+- Com 2 seeds, o resultado era +0,056 sobre a variante sem digest (p = 0,023 no t, 0,062 no Wilcoxon). Com 4 seeds,
+  o efeito encolhe um pouco e passa nos dois testes.
 
 ---
 
@@ -466,17 +571,22 @@ clientes com 25 imagens só benignas ou 12 só malignas.
 6. **Fora do domínio (PH2), nenhum método generaliza bem, e o FedMD piora a sensibilidade.** A acurácia
    balanceada fica entre 0,54 e 0,67 para todos, inclusive o centralizado. O FedMD desloca as previsões para
    "benigno": a acurácia total sobe e a balanceada cai, o que em detecção de melanoma significa mais falsos
-   negativos.
+   negativos (sensibilidade de 0,58 para 0,42 com 5%). A AUC separa as duas causas. Com 5%, a AUC do FedMD é a do
+   local, e o problema é o limiar. Com 40%, a AUC também cai (0,73 para 0,63), e o modelo separa pior as classes.
 7. **Nem a loss do digest nem a forma de calcular o consenso foram o gargalo.** O que limita o ganho é a
    quantidade de dados no digest e a proximidade do teto de capacidade das arquiteturas.
 8. **Com dados públicos rotulados e do mesmo domínio, a destilação não acrescenta nada aos próprios rótulos.**
-   Trocar o consenso pelo rótulo verdadeiro no digest (o controle sem destilação) dá o melhor resultado em todas as
-   frações (+0,012 a +0,020 sobre o local, contra −0,013 a +0,002 da KL pura).
+   Trocar o consenso pelo rótulo verdadeiro no digest (o controle sem destilação) dá o melhor resultado a partir de 5%
+   (+0,012 a +0,020 sobre o local com 10–80%, contra −0,013 a +0,002 da KL pura). Só com 1% a destilação fica à
+   frente, por pouco e sem significância (+0,003, p ≈ 0,22).
 9. **No cenário para o qual o FedMD foi pensado, ele funciona, desde que cada cliente tenha as duas classes.** Com todo
-   o Kaggle como conjunto público e poucas imagens de outro domínio como dados privados, os dois FedMD adaptam os
-   clientes ao PH2 melhor que o treino local e que o centralizado nas divisões IID e α = 1.0; o FedMD original chega a
-   0,85–0,87 no ensemble, ao custo de cair para ~0,63 no domínio público. Com clientes de uma classe só (α = 0.1), a
-   vantagem do original desaparece, e só o adaptado, mais conservador, continua acima do local. O valor do FedMD
+   o Kaggle como conjunto público e ~20 imagens do PH2 por cliente como dados privados, o consenso do FedMD original
+   eleva a acurácia balanceada dos clientes no PH2 de 0,636 (treino local) e 0,660 (rodadas sem digest) para 0,701, e a
+   do ensemble para 0,735. Isolado dos outros efeitos, o consenso dá +0,041 sobre as rodadas sem digest (4 seeds,
+   9/12 pares, p = 0,014 no t e 0,027 no Wilcoxon). O ganho vem das divisões com as duas classes (+0,074 na IID,
+   +0,048 com α = 1.0) e some com α = 0.1. O custo é o domínio público, que cai para ~0,62, mas essa queda vem do
+   treino privado intenso, não do consenso. Uma referência centralizada justa (as 80 imagens reunidas) fica em 0,820 /
+   0,831: o FedMD percorre ~35% do caminho por cliente e ~55% no ensemble, e chega perto dela com divisão IID. O valor do FedMD
    aparece quando os dados privados são de outro domínio, escassos e com as duas classes; quando público e privado
    são do mesmo domínio, a inicialização pública já resolve.
 
@@ -490,8 +600,12 @@ clientes com 25 imagens só benignas ou 12 só malignas.
   ~0,01 não são conclusivas.
 - **O controle sem destilação foi feito só com 2 seeds** (`results/digest_ce_10_40_80`, w = 1). Ele indica que o
   ganho do FedMD adaptado vem dos rótulos públicos (no digest e no rehearsal), e não do consenso.
-- **O cenário PH2 privado usa só 2 seeds e 24 melanomas no teste**, e o número de passos do treino privado não
-  foi ajustado para 20 imagens por cliente.
+- **O cenário PH2 privado tem 24 melanomas no teste.** O FedMD original, os controles e a referência justa usam 4
+  seeds; o FedMD adaptado e o centralizado da primeira tabela, só 2. O número de passos do treino privado não foi
+  ajustado para 20 imagens por cliente. Os pares de mesma seed compartilham o sorteio do PH2, e os testes não modelam
+  essa dependência.
+- **A AUC do PH2 só foi medida nas execuções a partir de 14/11**: no cenário 1, com divisão IID, 5% e 40%; no
+  cenário 2, nas seeds 2 e 3 e na referência justa.
 - **O estudo cobre só 4 clientes, CNNs pequenas e imagens de 224×224.** O teto de 0,898 limita o espaço para
   ganhos.
 - **O ensemble tem custo de comunicação na inferência**, que não foi medido.
@@ -502,7 +616,8 @@ clientes com 25 imagens só benignas ou 12 só malignas.
   KL × MAE (`MAE_P40_seed1`), o α = 0.1 precisou ser refeito sem XLA (`--no-jit`); os logs dos travamentos
   ficam na pasta do experimento. Os orquestradores mais recentes têm um watchdog que reinicia a execução
   travada, e o de `ph2_privado` roda um α por processo, porque o PC caiu duas vezes na troca de configuração
-  com a GPU perto do limite.
+  com a GPU perto do limite. Em `original_seed2_alpha0.1` (PH2 privado), um cliente lento estourou o limite de 10
+  min da rodada no servidor (DEADLINE_EXCEEDED); a execução foi refeita, e os parciais ficaram como `*_falhou1_*`.
 
 ---
 
@@ -540,8 +655,11 @@ Avaliações da configuração final:
 | `results/fracoes_publicas_10_40_80/` | Mesma comparação com 10%, 40% e 80% de dados públicos, 3 seeds, com avaliação no PH2 (os modelos finais em `modelos/`, ~270 MB, ficam fora do git) |
 | `results/digest_kl_10_40_80/` | KL × MAE no digest com 10%, 40% e 80%, 2 seeds (lado MAE; o lado KL é o de `fracoes_publicas_10_40_80`) |
 | `results/digest_ce_10_40_80/` | Digest ancorado nos rótulos, (1 − w) · KL + w · CE, com w = 0,5 e 1 (controle sem destilação), 2 seeds (`RESULTADO.md`) |
-| `results/ph2_privado/` | FedMD no cenário do paper: Kaggle público, 40% do PH2 privado; FedMD adaptado, original e centralizado, 2 seeds, os controles do FedMD original (só CE e sem digest) e a reavaliação dos modelos salvos nas mesmas imagens (`RESULTADO.md`) |
+| `results/ph2_privado/` | FedMD no cenário do paper: Kaggle público, 40% do PH2 privado; FedMD adaptado e centralizado (2 seeds), FedMD original e os controles (só CE e sem digest, 4 seeds), e a reavaliação dos modelos salvos nas mesmas imagens (`RESULTADO.md`) |
 | `results/digest_ce_1_5/` | Controle sem destilação (w = 1) com 1% e 5%, 3 seeds (`RESULTADO.md`) |
+| `results/referencia_justa_e_auc/` | Referência centralizada justa do PH2 privado (`--pooled-private`, 4 seeds); execuções IID de 5% e 40% refeitas com sensibilidade, especificidade e AUC no PH2; centralizados com AUC; reavaliação dos modelos salvos de 40% (`RESULTADO.md`) |
+| `results/estatistica_e_divisoes/` | Testes pareados refeitos (t, Wilcoxon e bootstrap; `testes.py`) e distribuição dos dados por cliente (`divisoes.py`) (`RESULTADO.md`) |
+| `results/replicado_P01/` | FedMD original com 1% de dados públicos, 3 seeds × 3 α, com avaliação no PH2 (`RESULTADO.md`) |
 | `results/figuras/` | Figuras do relatório, geradas por `result_exploration.ipynb` |
 | `results/RESPOSTAS_ARTIGO.md` | Conferência dos números do artigo contra os CSVs (calculados por `results/respostas_artigo.py`) |
 

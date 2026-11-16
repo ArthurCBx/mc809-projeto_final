@@ -1,0 +1,59 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794777457.685385   80931 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1794777458.008412   80931 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794777459.752338   80931 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1794777462.907309   80931 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1794777462.909265   80931 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1794777463.207833   80931 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9217 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5070, pci bus id: 0000:01:00.0, compute capability: 12.0a
+/opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+I0000 00:00:1794777466.495835   80952 service.cc:153] XLA service 0x77457c04a1b0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1794777466.496076   80952 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5070, Compute Capability 12.0a (Driver: 13.3.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+I0000 00:00:1794777466.536078   80952 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1794777466.776358   80952 cuda_dnn.cc:461] Loaded cuDNN version 92700
+I0000 00:00:1794777466.793023   80952 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3991__.55
+I0000 00:00:1794777473.247923   80952 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+I0000 00:00:1794777486.432089   80950 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_3991__.55
+I0000 00:00:1794777619.364828   81942 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+
+cenário 2 seed 2: {'seed': 2, 'model': 'arquitetura 0', 'test_accuracy': 0.898, 'ph2_accuracy': 0.7833333333333333, 'ph2_balanced_accuracy': 0.4895833333333333, 'ph2_sensitivity': 0.0, 'ph2_specificity': 0.9791666666666666, 'ph2_auc': 0.8259548611111112}
+/opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+I0000 00:00:1794777623.302819   80953 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_21682__.55
+I0000 00:00:1794777640.798799   80950 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_21682__.55
+I0000 00:00:1794777759.766735   83461 subprocess_compilation.cc:348] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_MatMul_4', 4 bytes spill stores, 4 bytes spill loads
+
+cenário 2 seed 2: {'seed': 2, 'model': 'arquitetura 1', 'test_accuracy': 0.888, 'ph2_accuracy': 0.75, 'ph2_balanced_accuracy': 0.578125, 'ph2_sensitivity': 0.2916666666666667, 'ph2_specificity': 0.8645833333333334, 'ph2_auc': 0.7482638888888888}
+/opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+I0000 00:00:1794777763.477194   80952 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_38989__.70
+I0000 00:00:1794777779.966372   80950 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_38989__.70
+cenário 2 seed 2: {'seed': 2, 'model': 'arquitetura 2', 'test_accuracy': 0.88, 'ph2_accuracy': 0.625, 'ph2_balanced_accuracy': 0.515625, 'ph2_sensitivity': 0.3333333333333333, 'ph2_specificity': 0.6979166666666666, 'ph2_auc': 0.5842013888888888}
+/opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+I0000 00:00:1794777846.725264   80952 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_52225__.85
+I0000 00:00:1794777863.551769   80953 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_52225__.85
+cenário 2 seed 2: {'seed': 2, 'model': 'arquitetura 3', 'test_accuracy': 0.897, 'ph2_accuracy': 0.7416666666666667, 'ph2_balanced_accuracy': 0.5416666666666666, 'ph2_sensitivity': 0.20833333333333334, 'ph2_specificity': 0.875, 'ph2_auc': 0.7569444444444444}
+/opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+I0000 00:00:1794777981.415015   80951 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_67911__.55
+I0000 00:00:1794777995.397988   80952 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_67911__.55
+cenário 2 seed 3: {'seed': 3, 'model': 'arquitetura 0', 'test_accuracy': 0.887, 'ph2_accuracy': 0.7583333333333333, 'ph2_balanced_accuracy': 0.7239583333333333, 'ph2_sensitivity': 0.6666666666666666, 'ph2_specificity': 0.78125, 'ph2_auc': 0.7994791666666666}
+/opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+I0000 00:00:1794778208.515285   80952 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_93110__.55
+I0000 00:00:1794778222.530957   80952 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_93110__.55
+cenário 2 seed 3: {'seed': 3, 'model': 'arquitetura 1', 'test_accuracy': 0.897, 'ph2_accuracy': 0.825, 'ph2_balanced_accuracy': 0.828125, 'ph2_sensitivity': 0.8333333333333334, 'ph2_specificity': 0.8229166666666666, 'ph2_auc': 0.87890625}
+/opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+I0000 00:00:1794778370.187484   80951 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_112905__.70
+I0000 00:00:1794778384.769219   80950 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_112905__.70
+cenário 2 seed 3: {'seed': 3, 'model': 'arquitetura 2', 'test_accuracy': 0.903, 'ph2_accuracy': 0.7833333333333333, 'ph2_balanced_accuracy': 0.6927083333333333, 'ph2_sensitivity': 0.5416666666666666, 'ph2_specificity': 0.84375, 'ph2_auc': 0.82421875}
+/opt/venv/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+I0000 00:00:1794778628.606359   80951 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_142593__.85
+I0000 00:00:1794778643.230349   80952 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_142593__.85
+cenário 2 seed 3: {'seed': 3, 'model': 'arquitetura 3', 'test_accuracy': 0.896, 'ph2_accuracy': 0.8, 'ph2_balanced_accuracy': 0.59375, 'ph2_sensitivity': 0.25, 'ph2_specificity': 0.9375, 'ph2_auc': 0.7309027777777778}
+=== fim

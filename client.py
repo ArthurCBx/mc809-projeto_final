@@ -9,6 +9,7 @@ import keras
 import numpy as np
 import pandas as pd
 import tensorflow as tf
+from sklearn.metrics import roc_auc_score
 from dataset_setup import CLASS_NAMES, list_dir, list_files, split_clients, split_dataset, split_external, make_client_dataset
 
 BATCH_SIZE = 32
@@ -34,7 +35,8 @@ CLIENT_ARCHITECTURES = [
 TRAIN_COLUMNS = ['seed', 'public_fraction', 'alpha', 'client_id', 'stage', 'round', 'epoch',
                  'loss', 'accuracy', 'val_loss', 'val_accuracy', 'restored', 'public_accuracy']
 ENSEMBLE_COLUMNS = ['seed', 'public_fraction', 'alpha', 'stage', 'round', 'ensemble_accuracy', 'mean_client_accuracy']
-EXTRA_TEST_COLUMNS = ['seed', 'public_fraction', 'alpha', 'stage', 'round', 'model', 'accuracy', 'balanced_accuracy']
+EXTRA_TEST_COLUMNS = ['seed', 'public_fraction', 'alpha', 'stage', 'round', 'model', 'accuracy', 'balanced_accuracy',
+                      'sensitivity', 'specificity', 'auc']
 TEST_COLUMNS  = ['seed', 'public_fraction', 'alpha', 'client_id', 'stage', 'round',
                  'n_private', 'private_malignant_fraction', 'test_loss', 'test_accuracy']
 
@@ -375,8 +377,12 @@ def run_experiment(public_fraction: float, alpha: float, args):
         file_paths = np.concatenate([file_paths, ext_paths[ext_private]])
         labels = np.concatenate([labels, ext_labels[ext_private]])
         private_idx = np.arange(offset, len(labels))
-        client_idx = [np.array(idx, dtype=int) for idx in split_clients(
-            private_idx, labels, NUM_CLIENTS, alpha, np.random.default_rng(args.seed), min_samples_per_client=10)]
+        if args.pooled_private:
+            # Referência centralizada justa: cada cliente (uma arquitetura) treina com todos os dados privados reunidos.
+            client_idx = [private_idx.copy() for _ in range(NUM_CLIENTS)]
+        else:
+            client_idx = [np.array(idx, dtype=int) for idx in split_clients(
+                private_idx, labels, NUM_CLIENTS, alpha, np.random.default_rng(args.seed), min_samples_per_client=10)]
         private_splits = [(idx, np.array([], dtype=int)) for idx in client_idx]
         extra_test = (ext_paths[ext_test], ext_labels[ext_test])
         logging.info(f'Privado: {len(private_idx)} imagens de {args.private_dir} '
@@ -423,21 +429,29 @@ def run_experiment(public_fraction: float, alpha: float, args):
     def log_extra_test(stage, round_):
         # Teste externo: cada cliente e o ensemble (média dos logits). A acurácia balanceada é a média do recall por
         # classe; importa quando o dataset externo é desbalanceado (o PH2 tem 4 benignos para 1 melanoma).
+        # Sensibilidade = recall da classe maligna (1), especificidade = recall da benigna (0). A AUC usa a
+        # probabilidade softmax da classe maligna e não depende do limiar de decisão.
         extra_test_labels = extra_test[1]
 
         def metrics(logits):
             pred = np.argmax(logits, axis=1)
-            recalls = [np.mean(pred[extra_test_labels == c] == c) for c in np.unique(extra_test_labels)]
-            return float(np.mean(pred == extra_test_labels)), float(np.mean(recalls))
+            sens = float(np.mean(pred[extra_test_labels == 1] == 1))
+            spec = float(np.mean(pred[extra_test_labels == 0] == 0))
+            prob = keras.ops.convert_to_numpy(keras.ops.softmax(logits, axis=-1))[:, 1]
+            return {'accuracy': float(np.mean(pred == extra_test_labels)), 'balanced_accuracy': (sens + spec) / 2,
+                    'sensitivity': sens, 'specificity': spec, 'auc': float(roc_auc_score(extra_test_labels, prob))}
         all_logits = ray.get([client.extra_test_logits.remote() for client in clients])
-        rows = [{**config, 'stage': stage, 'round': round_, 'model': f'cliente {cid}',
-                 **dict(zip(('accuracy', 'balanced_accuracy'), metrics(l)))} for cid, l in enumerate(all_logits)]
-        rows.append({**config, 'stage': stage, 'round': round_, 'model': 'ensemble',
-                     **dict(zip(('accuracy', 'balanced_accuracy'), metrics(np.mean(all_logits, axis=0))))})
+        ensemble_logits = np.mean(all_logits, axis=0)
+        for name, l in [*((f'cliente {cid}', l) for cid, l in enumerate(all_logits)), ('ensemble', ensemble_logits)]:
+            extra_logits[f'{stage}_{round_}_{name.replace(" ", "")}'] = l
+        rows = [{**config, 'stage': stage, 'round': round_, 'model': f'cliente {cid}', **metrics(l)}
+                for cid, l in enumerate(all_logits)]
+        rows.append({**config, 'stage': stage, 'round': round_, 'model': 'ensemble', **metrics(ensemble_logits)})
         append_csv(extra_csv, rows, EXTRA_TEST_COLUMNS)
         logging.info(f'{stage} rodada {round_}: teste externo ' + ', '.join(f"{r['accuracy']:.3f}" for r in rows[:-1])
                      + f" | ensemble {rows[-1]['accuracy']:.3f}")
 
+    extra_logits = {}  # logits do teste externo por etapa, gravados no fim em extra_test_logits_*.npz
     try:
         # 1. Transfer learning nos dados públicos rotulados.
         log_train('public_init', 0, ray.get([
@@ -483,6 +497,9 @@ def run_experiment(public_fraction: float, alpha: float, args):
             out = os.path.join(os.path.abspath(args.save_models_dir), f"P{public_fraction:g}_alpha_{config['alpha']}")
             ray.get([client.save.remote(os.path.join(out, f'cliente_{cid}.keras')) for cid, client in enumerate(clients)])
     finally:
+        if extra_logits:
+            np.savez(os.path.join(OUTPUT_DIR, f"extra_test_logits_P{public_fraction:g}_alpha_{config['alpha']}.npz"),
+                     labels=extra_test[1], **extra_logits)
         for client in clients:
             ray.kill(client)
 
@@ -521,6 +538,9 @@ if __name__ == '__main__':
                              'o teste externo (substitui --extra-test-dir). Use com --public-fractions 1.0.')
     parser.add_argument('--private-dir-fraction', type=float, default=0.4,
                         help='Fração de --private-dir que vira dado privado (estratificada); o restante é o teste externo.')
+    parser.add_argument('--pooled-private', action='store_true',
+                        help='Com --private-dir: todo cliente treina com todos os dados privados reunidos (referência '
+                             'centralizada por arquitetura). Use com --no-digest --digest-rounds 0.')
     parser.add_argument('--private-batch-size', type=int, default=None,
                         help='Batch do treino privado (private_init e revisit). Padrão: o mesmo --batch-size.')
     parser.add_argument('--extra-test-dir', default=None,

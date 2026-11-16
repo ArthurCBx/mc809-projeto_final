@@ -118,3 +118,47 @@ o revisit nos dados privados, sem troca de logits nem treino no Kaggle depois do
   e um `.log` por execução.
 - `reavalia_modelos_salvos.py` e `reavaliacao_modelos_salvos.csv`: FedMD do cenário padrão reavaliado nas mesmas
   120 imagens.
+
+## Seeds 2 e 3: Tabela 9 com 4 seeds (15–16/11)
+
+`orquestrador_sementes_2_3.sh`: as mesmas variantes (FedMD replicado, sem digest, digest só com CE) com as seeds 2 e 3,
+nas três divisões, mais a referência centralizada justa (`results/referencia_justa_e_auc/referencia_seed{2,3}_*`) e o
+centralizado diluído. `original_seed2_alpha0.1` caiu na rodada 14 (DEADLINE_EXCEEDED: um cliente não enviou os logits
+em 10 min; parciais em `original_seed2_alpha0.1_falhou1_*`) e foi refeito por `retoma_original_seed2_alpha0.1.sh`.
+
+Média de 4 seeds × 3 divisões (12 execuções por variante):
+
+| Variante | Validação | PH2 bal. (clientes) | PH2 bal. (ensemble) |
+|---|---|---|---|
+| Só `public_init` | 0,901 | 0,650 | 0,628 |
+| Treinamento local (fim do `private_init`) | 0,610 | 0,636 | 0,616 |
+| Sem digest (só revisit) | 0,607 | 0,660 | 0,671 |
+| Digest só com CE (w = 1) | 0,793 | 0,596 | 0,574 |
+| FedMD (consenso) | 0,624 | 0,701 | 0,735 |
+| Referência centralizada justa (80 do PH2 reunidas) | 0,700 | 0,820 | 0,831 |
+| Centralizado diluído (ISIC + 80 do PH2) | 0,896 | 0,646 | 0,639 |
+
+Por divisão (PH2 bal., clientes / ensemble):
+
+| Divisão | Local | Sem digest | Só CE | FedMD | FedMD − local | FedMD − sem digest |
+|---|---|---|---|---|---|---|
+| IID | 0,676 / 0,736 | 0,704 / 0,740 | 0,609 / 0,601 | **0,778 / 0,814** | +0,102 | +0,074 |
+| α = 1,0 | 0,654 / 0,592 | 0,684 / 0,693 | 0,588 / 0,578 | **0,731 / 0,781** | +0,077 | +0,048 |
+| α = 0,1 | 0,577 / 0,521 | 0,593 / 0,582 | 0,592 / 0,542 | 0,595 / 0,611 | +0,017 | +0,001 |
+
+Testes (`results/estatistica_e_divisoes/testes.py`, n = 12):
+
+| Comparação (PH2 bal., clientes) | Média | IC 95% (bootstrap) | A favor | p (t) | p (Wilcoxon) |
+|---|---|---|---|---|---|
+| FedMD − sem digest | +0,041 | [+0,015; +0,066] | 9/12 | 0,014 | 0,027 |
+| FedMD − local | +0,065 | [+0,036; +0,093] | 11/12 | 0,001 | 0,002 |
+| FedMD − digest só CE | +0,105 | [+0,060; +0,148] | 10/12 | 0,001 | 0,005 |
+
+**Leitura.** O resultado se mantém com o dobro de pares e agora passa nos dois testes: o consenso acrescenta +0,041 sobre
+as rodadas sem digest (com 2 seeds era +0,056) e o efeito vem das divisões em que os clientes têm as duas classes
+(+0,074 na IID, +0,048 com α = 1,0, +0,001 com α = 0,1). Os pares contrários são seed 2 com α = 1,0 e α = 0,1, e seed 1
+com α = 0,1. A referência justa (0,820 / 0,831) fica acima do FedMD: por cliente, o FedMD percorre ~35% do caminho
+entre o local e o teto ((0,701 − 0,636) / (0,820 − 0,636)); no ensemble, ~55% ((0,735 − 0,616) / (0,831 − 0,616)),
+e na divisão IID o ensemble do FedMD (0,814) chega perto do teto. A referência varia muito entre seeds (0,90, 0,84,
+0,78 e 0,77 por cliente), um reflexo do teste com 24 melanomas. Os números de 2 seeds acima (0,733 / 0,800, +0,056)
+ficam como histórico; os do artigo devem passar a ser estes.
