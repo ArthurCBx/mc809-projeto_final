@@ -1,7 +1,7 @@
-"""Centralizado (modelo único Kaggle + PH2 opcional) com sensibilidade, especificidade e AUC no PH2.
+"""Centralizado (modelo único ISIC + PH2 opcional) com sensibilidade, especificidade e AUC no PH2.
 
-Repete results/test_models/centralizado_ph2.py (cenário 1: treino completo do Kaggle, teste no PH2 inteiro) e
-results/ph2_privado/centralizado_ph2_privado.py (cenário 2: Kaggle + os 80 do PH2 da seed, teste nos outros 120), nas
+Repete results/test_models/centralizado_ph2.py (cenário 1: treino completo do ISIC, teste no PH2 inteiro) e
+results/ph2_privado/centralizado_ph2_privado.py (cenário 2: ISIC + os 80 do PH2 da seed, teste nos outros 120), nas
 mesmas condições, gravando também os logits do PH2. Uso: centralizado_metricas.py <1|2> <seeds...>
 Grava results/referencia_justa_e_auc/centralizado_cenario<N>.csv e centralizado_cenario<N>_seed<S>_logits.npz.
 """

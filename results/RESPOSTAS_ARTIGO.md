@@ -59,7 +59,7 @@ Fontes: `ensemble_e_leave_one_out/all_P01_seed{42,1,2}_test_metrics.csv`, `all_P
 
 ### B2. Cenário PH2 privado: tabela completa por α
 
-Média das seeds 42 e 1 ± desvio padrão entre elas. Validação = teste do Kaggle (média dos clientes); PH2 = 120
+Média das seeds 42 e 1 ± desvio padrão entre elas. Validação = teste do ISIC (média dos clientes); PH2 = 120
 imagens fora do treino. Variantes federadas: média das rodadas 16–20. "Treinamento local" é o fim do `private_init`
 das execuções `original_*`. A última coluna (validação do ensemble) não foi pedida, mas sai dos mesmos arquivos.
 
@@ -93,7 +93,7 @@ das execuções `original_*`. A última coluna (validação do ensemble) não fo
 
 Os três trios do artigo estão confirmados.
 
-**Teto centralizado do cenário** (`ph2_privado/centralizado.csv`, Kaggle + os mesmos 80 do PH2, seeds 42 e 1):
+**Teto centralizado do cenário** (`ph2_privado/centralizado.csv`, ISIC + os mesmos 80 do PH2, seeds 42 e 1):
 
 - Modelo único (média das 4 arquiteturas × 2 seeds): validação **0,895 ± 0,009**, PH2 bal. **0,653 ± 0,058**.
 - Ensemble: validação **0,901 ± 0,006**, PH2 bal. **0,630 ± 0,044**.
@@ -229,7 +229,7 @@ peso (`server.py:65-76`). Isso só vale com `--weighting accuracy` (FedMD adapta
 | 1% | **3e-4** | — (não rodado) | `ensemble_e_leave_one_out/orquestrador.sh:28`, `digest_ce_1_5/orquestrador.sh:62`; MAE: `experimento_final/orquestrador.sh:37` (escolhido em `escolha_1pct.txt`: 3e-4) |
 | 5% | **1e-3** | 1e-3 | `ensemble_e_leave_one_out/orquestrador.sh:29`, `digest_ce_1_5/orquestrador.sh:63`, `test_models/orquestrador.sh:5` e `:10`; MAE: `fracoes_publicas_5_e_20/escolha2.txt` (F2b) e `experimento_final/orquestrador.sh:39` |
 | 10%, 40%, 80% | **3e-4** | 1e-3 | `fracoes_publicas_10_40_80/orquestrador.sh:14` e `:18`; `digest_kl_10_40_80/orquestrador.sh:11`; `digest_ce_10_40_80/orquestrador.sh:10` |
-| PH2 privado (100% do Kaggle) | 3e-4 | 1e-3 (inclusive nos controles) | `ph2_privado/orquestrador.sh:12` e `:15`, `orquestrador_controle.sh:11`, `orquestrador_semdigest.sh:11` |
+| PH2 privado (100% do ISIC) | 3e-4 | 1e-3 (inclusive nos controles) | `ph2_privado/orquestrador.sh:12` e `:15`, `orquestrador_controle.sh:11`, `orquestrador_semdigest.sh:11` |
 
 Como não é monotônico (3e-4, 1e-3, 3e-4), vale explicar no texto que o lr do `public_init` foi escolhido por fração
 com as etapas iniciais (`experimento_final/escolhe_1pct.py`, `fracoes_publicas_5_e_20/seleciona.py`).
@@ -250,7 +250,7 @@ A resposta `ServerConsensus` tem o mesmo tamanho.
 | **80%** | 7.684 | 6.147 | 12.294 | **48,0 KiB (49.176 B de payload, ~49.187 B no total)** |
 | PH2 privado (100%) | 9.605 | 7.684 | 15.368 | 60,0 KiB |
 
-|público| = `split_public` estratificado (`dataset_setup.py`) sobre as 9.605 imagens de treino do Kaggle.
+|público| = `split_public` estratificado (`dataset_setup.py`) sobre as 9.605 imagens de treino do ISIC.
 
 Parâmetros das 4 arquiteturas (`build_model(small_cnn(...))`, `client.py:27-32`, `:42-74`; inclui as médias móveis
 do BatchNorm, que o FedAvg também enviaria):

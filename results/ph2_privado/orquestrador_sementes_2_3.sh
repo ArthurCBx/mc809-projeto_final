@@ -1,5 +1,5 @@
 #!/bin/bash
-# Item 5: sementes 2 e 3 no cenário 2 (Kaggle público, PH2 privado) para as variantes da Tabela 9: FedMD replicado,
+# Item 5: sementes 2 e 3 no cenário 2 (ISIC público, PH2 privado) para as variantes da Tabela 9: FedMD replicado,
 # sem digest, digest só com CE e a referência centralizada justa (80 imagens do PH2 reunidas); também o centralizado
 # diluído (ISIC + 80 do PH2), para a linha antiga da Tabela 9. Leva o n dos pares de 6 para 12.
 # Depois: FedMD replicado com f = 1% (cenário 1, as três divisões, seeds 42, 1 e 2), que falta na Figura 7 e na Tabela 7.
@@ -35,7 +35,7 @@ roda() {  # roda <nome> <ponderação> <args...>
     while kill -0 $pid 2>/dev/null; do
       sleep 60
       idade=$(( $(date +%s) - $(stat -c %Y $D/$nome.log) ))
-      if [ $idade -gt 3600 ]; then  # o public_init com o Kaggle inteiro fica ~23 min sem escrever no log
+      if [ $idade -gt 3600 ]; then  # o public_init com o ISIC inteiro fica ~23 min sem escrever no log
         travou=1
         mata "timeout 240m uv run python client.py"; mata "uv run python client.py"; mata "/opt/venv/bin/python client.py"
         uv run ray stop >/dev/null 2>&1

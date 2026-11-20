@@ -1,7 +1,7 @@
 #!/bin/bash
-# Controle sem digest no cenário Kaggle público + PH2 privado: a configuração do FedMD original, mas cada rodada é só o
-# revisit nos dados privados (--no-digest), sem troca de logits nem treino no Kaggle depois do public_init. Separa o
-# efeito do consenso (original_*) do efeito de reancorar no Kaggle (controle_original_*, digest só com CE).
+# Controle sem digest no cenário ISIC público + PH2 privado: a configuração do FedMD original, mas cada rodada é só o
+# revisit nos dados privados (--no-digest), sem troca de logits nem treino no ISIC depois do public_init. Separa o
+# efeito do consenso (original_*) do efeito de reancorar no ISIC (controle_original_*, digest só com CE).
 # Seeds 42 e 1, IID, α 1.0 e α 0.1, um α por processo.
 # Watchdog: log parado por 60 min → mata, guarda os parciais como *_travado<N>_* e tenta de novo sem XLA.
 cd "/mc809 - Comp Distribuida/projeto_final"

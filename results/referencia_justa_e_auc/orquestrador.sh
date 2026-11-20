@@ -1,6 +1,6 @@
 #!/bin/bash
-# 1. Referência centralizada justa do cenário 2 (Kaggle público, PH2 privado): cada arquitetura faz o public_init do
-#    FedMD original (Kaggle inteiro, lr 1e-3) e o private_init nas 80 imagens do PH2 reunidas (batch 5, 50 épocas,
+# 1. Referência centralizada justa do cenário 2 (ISIC público, PH2 privado): cada arquitetura faz o public_init do
+#    FedMD original (ISIC inteiro, lr 1e-3) e o private_init nas 80 imagens do PH2 reunidas (batch 5, 50 épocas,
 #    lr 1e-3, sem validação), sem rodadas (--pooled-private --no-digest --digest-rounds 0). Seeds 42 e 1.
 # 2. Sensibilidade, especificidade e AUC no PH2 calculadas das predições (client.py agora grava essas colunas e os
 #    logits): cenário 1, IID, f = 5% (argumentos de results/test_models) e 40% (de results/fracoes_publicas_10_40_80),
@@ -44,7 +44,7 @@ roda() {  # roda <nome> <ponderação> <args...>
     while kill -0 $pid 2>/dev/null; do
       sleep 60
       idade=$(( $(date +%s) - $(stat -c %Y $D/$nome.log) ))
-      if [ $idade -gt 3600 ]; then  # o public_init com o Kaggle inteiro fica ~23 min sem escrever no log
+      if [ $idade -gt 3600 ]; then  # o public_init com o ISIC inteiro fica ~23 min sem escrever no log
         travou=1
         mata "timeout 240m uv run python client.py"; mata "uv run python client.py"; mata "/opt/venv/bin/python client.py"
         uv run ray stop >/dev/null 2>&1

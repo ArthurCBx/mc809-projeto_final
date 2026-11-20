@@ -16,7 +16,7 @@ O trabalho tem quatro partes:
 3. Comparar a versão adaptada com o treino só local, com o FedMD original e com um modelo centralizado, em
    frações públicas de 1% a 80%. A comparação é feita no conjunto de teste, num dataset externo (PH2) e também
    com o ensemble dos 4 clientes.
-4. Testar o FedMD no cenário para o qual ele foi pensado: todo o dataset do Kaggle como conjunto público e um
+4. Testar o FedMD no cenário para o qual ele foi pensado: todo o dataset do ISIC como conjunto público e um
    punhado de imagens de outro domínio (PH2) como dados privados de cada cliente.
 
 ---
@@ -66,6 +66,9 @@ dos logits dos 4 clientes) e, se configurado, para um dataset externo.
 
 > **Licença do PH2:** a distribuição oficial exige cadastro no site do ADDI e proíbe redistribuição. O espelho
 > usado aqui não é oficial. Para uso acadêmico, prefira a fonte oficial e cite Mendonça et al. (2013).
+
+O dataset de treino é baixado do Kaggle, mas foi montado a partir de imagens de coleções do ISIC. Neste README e no
+artigo, ele é chamado de **conjunto ISIC**, e o seu teste de 1.000 imagens, de **validação**.
 
 A fração pública (`--public-fractions`) é sorteada de forma estratificada do conjunto de treino. O restante é
 dividido entre os 4 clientes. Cada cliente separa `--val-fraction` (padrão 0,2) dos próprios dados para a
@@ -239,9 +242,9 @@ results/fracoes_publicas_10_40_80/orquestrador.sh   # pula as execuções que j�
 
 Os gráficos do relatório são gerados por `result_exploration.ipynb` (só CPU) e salvos em `results/figuras/`.
 
-### 6. FedMD no cenário do paper: Kaggle público, PH2 privado
+### 6. FedMD no cenário do paper: ISIC público, PH2 privado
 
-Todo o treino do Kaggle vira público (`--public-fractions 1.0`), e os dados privados são 40% do PH2 (80 imagens,
+Todo o treino do ISIC vira público (`--public-fractions 1.0`), e os dados privados são 40% do PH2 (80 imagens,
 ~20 por cliente), divididos por IID ou Dirichlet e treinados com batch 5, sem validação. O teste externo são os
 outros 60% do PH2.
 
@@ -458,29 +461,29 @@ no PH2:
 - **A AUC de todos os modelos é bem maior do que a acurácia balanceada sugere** (0,63–0,82). Parte da má
   generalização para o PH2 é de calibração do limiar no novo domínio. O centralizado tem a maior AUC (0,824).
 
-### FedMD no cenário do paper: Kaggle público, PH2 privado
+### FedMD no cenário do paper: ISIC público, PH2 privado
 
-Todo o Kaggle como conjunto público e 80 imagens do PH2 como dados privados (~20 por cliente, batch 5), 2 seeds × 3 α,
+Todo o ISIC como conjunto público e 80 imagens do PH2 como dados privados (~20 por cliente, batch 5), 2 seeds × 3 α,
 teste do PH2 nas outras 120 imagens (`results/ph2_privado/RESULTADO.md`, `results/figuras/8_ph2_privado_troca.png`).
 Nesta primeira tabela, o "Local" é o `private_init` do FedMD adaptado; o FedMD original foi depois repetido com 4
 seeds e comparado com os controles (subseção seguinte), e os números dele que valem são os de lá.
 
-| Método | Teste do Kaggle | PH2 bal. (clientes) | PH2 bal. (ensemble) |
+| Método | Teste do ISIC | PH2 bal. (clientes) | PH2 bal. (ensemble) |
 |---|---|---|---|
-| Só `public_init` (Kaggle) | **0,903** | 0,605 | 0,617 |
+| Só `public_init` (ISIC) | **0,903** | 0,605 | 0,617 |
 | Local (+ `private_init` no PH2) | 0,879 | 0,632 | 0,612 |
 | FedMD adaptado | 0,850 | 0,664 | 0,677 |
 | FedMD original | 0,610 | **0,733** | **0,800** |
-| Centralizado (Kaggle + os 80 do PH2; modelo único / ensemble) | 0,895 / 0,901 | 0,653 | 0,630 |
+| Centralizado (ISIC + os 80 do PH2; modelo único / ensemble) | 0,895 / 0,901 | 0,653 | 0,630 |
 | FedMD do cenário padrão, sem PH2 no treino (mesmas 120 imagens) | — | 0,54–0,64 | |
 
-Por divisão dos dados privados (média das 2 seeds; PH2 balanceada dos clientes / do ensemble, e teste do Kaggle):
+Por divisão dos dados privados (média das 2 seeds; PH2 balanceada dos clientes / do ensemble, e teste do ISIC):
 
 | α | Local | FedMD adaptado | FedMD original |
 |---|---|---|---|
-| IID | 0,630 / 0,651 — Kaggle 0,879 | 0,679 / 0,695 — Kaggle 0,843 | **0,807 / 0,873** — Kaggle 0,625 |
-| 1.0 | 0,646 / 0,589 — Kaggle 0,878 | 0,660 / 0,674 — Kaggle 0,844 | **0,772 / 0,845** — Kaggle 0,655 |
-| 0.1 | 0,620 / 0,596 — Kaggle 0,881 | **0,653 / 0,662** — Kaggle 0,862 | 0,621 / 0,682 — Kaggle 0,551 |
+| IID | 0,630 / 0,651 — ISIC 0,879 | 0,679 / 0,695 — ISIC 0,843 | **0,807 / 0,873** — ISIC 0,625 |
+| 1.0 | 0,646 / 0,589 — ISIC 0,878 | 0,660 / 0,674 — ISIC 0,844 | **0,772 / 0,845** — ISIC 0,655 |
+| 0.1 | 0,620 / 0,596 — ISIC 0,881 | **0,653 / 0,662** — ISIC 0,862 | 0,621 / 0,682 — ISIC 0,551 |
 
 Com só ~20 imagens por cliente, mesmo a divisão IID (aleatória) deixa clientes sem nenhum melanoma; com α = 0.1, há
 clientes com 25 imagens só benignas ou 12 só malignas.
@@ -489,21 +492,21 @@ clientes com 25 imagens só benignas ou 12 só malignas.
   superam o local e o centralizado no PH2, e o FedMD original fica muito à frente (+0,13 a +0,18 por cliente sobre o
   local; 0,85–0,87 no ensemble, o melhor resultado de todo o estudo).
 - **Com clientes de uma classe só (α = 0.1), a vantagem do FedMD original desaparece**: ele empata com o local por
-  cliente (0,621 contra 0,620) e perde ainda mais no Kaggle (0,55). O mesmo problema do cenário padrão volta: o revisit
+  cliente (0,621 contra 0,620) e perde ainda mais no ISIC (0,55). O mesmo problema do cenário padrão volta: o revisit
   agressivo especializa cada cliente na classe que ele tem. O FedMD adaptado, que se especializa menos, fica à frente
   (0,653).
 - **O centralizado diluído não aproveita os dados privados**: as 80 imagens são menos de 1% do seu treino.
-- **Há uma troca entre os domínios.** Quanto mais o método se especializa no PH2, mais esquece o Kaggle.
+- **Há uma troca entre os domínios.** Quanto mais o método se especializa no PH2, mais esquece o ISIC.
 
 #### Isolando o consenso: FedMD original contra os controles, 4 seeds
 
 Protocolo do FedMD original, seeds 42, 1, 2 e 3 × 3 divisões (12 execuções por variante; `results/ph2_privado/RESULTADO.md`,
 seção "Seeds 2 e 3", e `results/figuras/9_ph2_privado_controles.png`). Os controles mantêm tudo e mudam só o digest:
-sem digest (`--no-digest`, as rodadas são só o revisit) ou digest só com CE nos rótulos do Kaggle (`--digest-ce-weight 1`).
+sem digest (`--no-digest`, as rodadas são só o revisit) ou digest só com CE nos rótulos do ISIC (`--digest-ce-weight 1`).
 A **referência centralizada justa** treina cada arquitetura com as 80 imagens do PH2 reunidas, no mesmo protocolo
 (`public_init` + `private_init` com batch 5, 50 épocas, lr 1e-3; `results/referencia_justa_e_auc`).
 
-| Variante | Teste do Kaggle | PH2 bal. (clientes) | PH2 bal. (ensemble) |
+| Variante | Teste do ISIC | PH2 bal. (clientes) | PH2 bal. (ensemble) |
 |---|---|---|---|
 | Só `public_init` | **0,901** | 0,650 | 0,628 |
 | Treino local (fim do `private_init`) | 0,610 | 0,636 | 0,616 |
@@ -511,7 +514,7 @@ A **referência centralizada justa** treina cada arquitetura com as 80 imagens d
 | Digest só com CE | 0,793 | 0,596 | 0,574 |
 | **FedMD original (consenso)** | 0,624 | **0,701** | **0,735** |
 | Referência centralizada justa (80 do PH2 reunidas) | 0,700 | 0,820 | 0,831 |
-| Centralizado diluído (Kaggle + 80 do PH2) | 0,896 | 0,646 | 0,639 |
+| Centralizado diluído (ISIC + 80 do PH2) | 0,896 | 0,646 | 0,639 |
 
 | Divisão | FedMD (clientes / ensemble) | FedMD − local | FedMD − sem digest |
 |---|---|---|---|
@@ -530,13 +533,13 @@ Testes pareados (n = 12; `results/estatistica_e_divisoes/testes.py`), PH2 balanc
 - **O consenso acrescenta de fato.** Sem digest, as rodadas de revisit melhoram pouco o PH2 (+0,024 sobre o local);
   com o consenso, os clientes ganham +0,041 a mais, e o ensemble chega a 0,735 contra 0,671. É o único resultado do
   estudo em que a colaboração, isolada do treino adicional, melhora os clientes.
-- **A perda no Kaggle vem do treino privado, não do consenso**: sem digest, o Kaggle fica em 0,607, igual ao do
-  FedMD. O digest só com CE recupera o Kaggle (0,793), mas apaga a adaptação ao PH2.
+- **A perda no ISIC vem do treino privado, não do consenso**: sem digest, o ISIC fica em 0,607, igual ao do
+  FedMD. O digest só com CE recupera o ISIC (0,793), mas apaga a adaptação ao PH2.
 - **O ganho depende de cada cliente ter as duas classes**: some com α = 0.1.
 - **A referência justa é um teto de verdade e fica acima do FedMD.** Por cliente, o FedMD percorre ~35% do caminho
   entre o treino local e o teto ((0,701 − 0,636) / (0,820 − 0,636)); no ensemble, ~55%. Com divisão IID, o ensemble
   do FedMD (0,814) chega perto do teto (0,831). A referência varia muito entre seeds (0,90, 0,84, 0,78 e 0,77 por
-  cliente), reflexo do teste com 24 melanomas. O teto também perde o Kaggle (0,700): a queda vem de treinar 50 épocas
+  cliente), reflexo do teste com 24 melanomas. O teto também perde o ISIC (0,700): a queda vem de treinar 50 épocas
   com lr 1e-3 em poucas imagens.
 - Com 2 seeds, o resultado era +0,056 sobre a variante sem digest (p = 0,023 no t, 0,062 no Wilcoxon). Com 4 seeds,
   o efeito encolhe um pouco e passa nos dois testes.
@@ -580,7 +583,7 @@ Testes pareados (n = 12; `results/estatistica_e_divisoes/testes.py`), PH2 balanc
    (+0,012 a +0,020 sobre o local com 10–80%, contra −0,013 a +0,002 da KL pura). Só com 1% a destilação fica à
    frente, por pouco e sem significância (+0,003, p ≈ 0,22).
 9. **No cenário para o qual o FedMD foi pensado, ele funciona, desde que cada cliente tenha as duas classes.** Com todo
-   o Kaggle como conjunto público e ~20 imagens do PH2 por cliente como dados privados, o consenso do FedMD original
+   o ISIC como conjunto público e ~20 imagens do PH2 por cliente como dados privados, o consenso do FedMD original
    eleva a acurácia balanceada dos clientes no PH2 de 0,636 (treino local) e 0,660 (rodadas sem digest) para 0,701, e a
    do ensemble para 0,735. Isolado dos outros efeitos, o consenso dá +0,041 sobre as rodadas sem digest (4 seeds,
    9/12 pares, p = 0,014 no t e 0,027 no Wilcoxon). O ganho vem das divisões com as duas classes (+0,074 na IID,
@@ -655,7 +658,7 @@ Avaliações da configuração final:
 | `results/fracoes_publicas_10_40_80/` | Mesma comparação com 10%, 40% e 80% de dados públicos, 3 seeds, com avaliação no PH2 (os modelos finais em `modelos/`, ~270 MB, ficam fora do git) |
 | `results/digest_kl_10_40_80/` | KL × MAE no digest com 10%, 40% e 80%, 2 seeds (lado MAE; o lado KL é o de `fracoes_publicas_10_40_80`) |
 | `results/digest_ce_10_40_80/` | Digest ancorado nos rótulos, (1 − w) · KL + w · CE, com w = 0,5 e 1 (controle sem destilação), 2 seeds (`RESULTADO.md`) |
-| `results/ph2_privado/` | FedMD no cenário do paper: Kaggle público, 40% do PH2 privado; FedMD adaptado e centralizado (2 seeds), FedMD original e os controles (só CE e sem digest, 4 seeds), e a reavaliação dos modelos salvos nas mesmas imagens (`RESULTADO.md`) |
+| `results/ph2_privado/` | FedMD no cenário do paper: ISIC público, 40% do PH2 privado; FedMD adaptado e centralizado (2 seeds), FedMD original e os controles (só CE e sem digest, 4 seeds), e a reavaliação dos modelos salvos nas mesmas imagens (`RESULTADO.md`) |
 | `results/digest_ce_1_5/` | Controle sem destilação (w = 1) com 1% e 5%, 3 seeds (`RESULTADO.md`) |
 | `results/referencia_justa_e_auc/` | Referência centralizada justa do PH2 privado (`--pooled-private`, 4 seeds); execuções IID de 5% e 40% refeitas com sensibilidade, especificidade e AUC no PH2; centralizados com AUC; reavaliação dos modelos salvos de 40% (`RESULTADO.md`) |
 | `results/estatistica_e_divisoes/` | Testes pareados refeitos (t, Wilcoxon e bootstrap; `testes.py`) e distribuição dos dados por cliente (`divisoes.py`) (`RESULTADO.md`) |

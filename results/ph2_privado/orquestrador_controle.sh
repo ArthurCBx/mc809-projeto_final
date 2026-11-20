@@ -1,5 +1,5 @@
 #!/bin/bash
-# Sanity check sem colaboração no cenário Kaggle público + PH2 privado: a configuração do FedMD original, mas com o
+# Sanity check sem colaboração no cenário ISIC público + PH2 privado: a configuração do FedMD original, mas com o
 # digest só em entropia cruzada no rótulo verdadeiro das imagens públicas (--digest-ce-weight 1). O consenso ainda é
 # calculado (o servidor exige), mas não entra na loss. Compara com original_seed*_alpha* (o mesmo, com MAE no consenso).
 # Seeds 42 e 1, IID, α 1.0 e α 0.1, um α por processo. Espera a fila de results/digest_ce_1_5 terminar.

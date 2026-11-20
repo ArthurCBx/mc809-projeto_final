@@ -1,10 +1,10 @@
 #!/bin/bash
-# FedMD no cenário do paper: todo o dataset do Kaggle (9.605 imagens) é público (public_init e digest), e os dados
+# FedMD no cenário do paper: todo o dataset do ISIC (9.605 imagens) é público (public_init e digest), e os dados
 # privados são 40% do PH2 (80 imagens, estratificadas e divididas entre os clientes por IID ou Dirichlet), todos no
-# treino, sem validação, com batch 5 no treino privado. Teste: o do Kaggle e os outros 60% do PH2 (120 imagens).
+# treino, sem validação, com batch 5 no treino privado. Teste: o do ISIC e os outros 60% do PH2 (120 imagens).
 #   - FedMD adaptado (configuração final, KL T = 4); o treino local é o private_init da mesma execução;
 #   - FedMD original (replicação), consenso uniforme;
-#   - centralizado: Kaggle completo + os mesmos 80 do PH2.
+#   - centralizado: ISIC completo + os mesmos 80 do PH2.
 # Seeds 42 e 1. Watchdog: log parado por 60 min → mata, guarda os parciais como *_travado<N>_* e tenta de novo sem XLA.
 cd "/mc809 - Comp Distribuida/projeto_final"
 D=results/ph2_privado
@@ -40,7 +40,7 @@ roda() {  # roda <nome> <ponderação> <args...>
     while kill -0 $pid 2>/dev/null; do
       sleep 60
       idade=$(( $(date +%s) - $(stat -c %Y $D/$nome.log) ))
-      if [ $idade -gt 3600 ]; then  # o public_init com o Kaggle inteiro fica ~23 min sem escrever no log
+      if [ $idade -gt 3600 ]; then  # o public_init com o ISIC inteiro fica ~23 min sem escrever no log
         travou=1
         mata "timeout 240m uv run python client.py"; mata "uv run python client.py"; mata "/opt/venv/bin/python client.py"
         uv run ray stop >/dev/null 2>&1
