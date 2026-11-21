@@ -275,7 +275,7 @@ uv run python client.py --public-fractions 1.0 --private-dir ph2_dataset --priva
 |---|---|---|
 | Fração pública | `--public-fractions 0.01 0.05 0.1 0.2 0.4 0.8` | `results/experimento_final`, `results/fracoes_publicas_10_40_80` |
 | Loss do digest: MAE × KL | sem `--digest-temperature` (MAE) × `--digest-temperature 2` ou `4` | `results/digest_kl` (1% e 5%), `results/digest_kl_10_40_80` (10%, 40% e 80%) |
-| Digest ancorado nos rótulos: (1 − w) · KL + w · CE | `--digest-ce-weight 0.5` ou `1` (w = 1: controle sem destilação) | `results/digest_ce_10_40_80`, `results/digest_ce_1_5` (w = 1 com 1% e 5%) |
+| Digest ancorado nos rótulos: (1 − w) · KL + w · CE | `--digest-ce-weight 0.5` ou `1` (w = 1: controle sem destilação) | `results/digest_ce_10_40_80`, `results/digest_ce_1_5` (w = 0,5 e 1 com 1% e 5%) |
 | Sem digest (só revisit nas rodadas) | `--no-digest` | `results/ph2_privado/semdigest_original_*` |
 | Ponderação do consenso | `server.py --weighting uniform` × `accuracy` | `results/04_consenso_ponderado` |
 | Consenso leave-one-out | `server.py --consensus loo` | `results/ensemble_e_leave_one_out` |
@@ -377,19 +377,21 @@ O script `divisoes.py` refaz as divisões com as mesmas seeds e conta imagens e 
 
 O digest misturando a destilação com a entropia cruzada no rótulo verdadeiro das imagens públicas,
 **(1 − w) · KL + w · CE** (`results/digest_ce_10_40_80/RESULTADO.md`, 10%, 40% e 80%, 2 seeds;
-`results/digest_ce_1_5/RESULTADO.md`, só w = 1, 1% e 5%, 3 seeds). Ganho sobre o treino local:
+`results/digest_ce_1_5/RESULTADO.md`, w = 0,5 e 1 com 1% e 5%, 3 seeds). Ganho sobre o treino local:
 
 | Peso da CE | 1% | 5% | 10% | 40% | 80% |
 |---|---|---|---|---|---|
-| w = 0 (só KL, FedMD) | **+0,009** (9/9) | +0,011 (9/9) | +0,002 (4/6) | −0,008 (1/6) | −0,013 (0/6) |
-| w = 0,5 (KL + CE) | — | — | +0,017 (6/6) | +0,007 (5/6) | +0,006 (6/6) |
+| w = 0 (só KL, FedMD) | +0,009 (9/9) | +0,011 (9/9) | +0,002 (4/6) | −0,008 (1/6) | −0,013 (0/6) |
+| w = 0,5 (KL + CE) | **+0,010** (7/9) | **+0,017** (9/9) | +0,017 (6/6) | +0,007 (5/6) | +0,006 (6/6) |
 | w = 1 (só CE, **sem destilação**) | +0,006 (6/9) | **+0,017** (9/9) | **+0,020** (6/6) | **+0,013** (6/6) | **+0,012** (6/6) |
 
 (Entre parênteses, os pares de seed e divisão com ganho; `results/figuras/7_*.png`.) Ancorar nos rótulos tira o
 FedMD da perda, mas a partir de 5% o controle sem destilação é o melhor: o ganho vem de treinar mais com os rótulos
 públicos, não do consenso. Com 10–80%, w = 1 ganha de w = 0 em 18 de 18 pares (+0,021, p < 0,001); com 5%, a vantagem
 do controle é marginal (−0,007 para a KL, p ≈ 0,05). Só com 1% a destilação fica à frente (+0,003, p ≈ 0,22, sem
-significância). No PH2, nenhuma variante passa do treino local. Com 10–80%, o ensemble com w = 1 (0,903–0,908) atinge
+significância), e com 1% os três pesos empatam em ~+0,01. O peso intermediário w = 0,5 acompanha o controle sem
+destilação com 5% (diferença −0,0003, p ≈ 0,9) e supera a KL pura (+0,006, 8/9 pares, p = 0,016 no t e 0,039 no
+Wilcoxon); com 1%, empata com a KL (+0,0002). No PH2, nenhuma variante passa do treino local. Com 10–80%, o ensemble com w = 1 (0,903–0,908) atinge
 o ensemble centralizado (0,904).
 
 ### Dataset externo (PH2)
@@ -659,7 +661,7 @@ Avaliações da configuração final:
 | `results/digest_kl_10_40_80/` | KL × MAE no digest com 10%, 40% e 80%, 2 seeds (lado MAE; o lado KL é o de `fracoes_publicas_10_40_80`) |
 | `results/digest_ce_10_40_80/` | Digest ancorado nos rótulos, (1 − w) · KL + w · CE, com w = 0,5 e 1 (controle sem destilação), 2 seeds (`RESULTADO.md`) |
 | `results/ph2_privado/` | FedMD no cenário do paper: ISIC público, 40% do PH2 privado; FedMD adaptado e centralizado (2 seeds), FedMD original e os controles (só CE e sem digest, 4 seeds), e a reavaliação dos modelos salvos nas mesmas imagens (`RESULTADO.md`) |
-| `results/digest_ce_1_5/` | Controle sem destilação (w = 1) com 1% e 5%, 3 seeds (`RESULTADO.md`) |
+| `results/digest_ce_1_5/` | Digest com w = 1 (controle sem destilação) e w = 0,5 com 1% e 5%, 3 seeds (`RESULTADO.md`) |
 | `results/referencia_justa_e_auc/` | Referência centralizada justa do PH2 privado (`--pooled-private`, 4 seeds); execuções IID de 5% e 40% refeitas com sensibilidade, especificidade e AUC no PH2; centralizados com AUC; reavaliação dos modelos salvos de 40% (`RESULTADO.md`) |
 | `results/estatistica_e_divisoes/` | Testes pareados refeitos (t, Wilcoxon e bootstrap; `testes.py`) e distribuição dos dados por cliente (`divisoes.py`) (`RESULTADO.md`) |
 | `results/replicado_P01/` | FedMD original com 1% de dados públicos, 3 seeds × 3 α, com avaliação no PH2 (`RESULTADO.md`) |

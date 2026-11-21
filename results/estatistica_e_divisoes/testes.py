@@ -69,6 +69,13 @@ teste('KL − MAE, ganho, 10/40/80%', sum((pares(KL[f][:2], MAE[f], f) for f in 
 for f, s in ((0.01, 'P01'), (0.05, 'P05')):
     ce = [f'digest_ce_1_5/CE1.0_{s}_seed{x}' for x in (42, 1, 2)]
     teste(f'w = 0 − w = 1, ganho, f = {f:.0%}', pares(KL[f], ce, f), 'Tabela 6, Seção 6.3')
+# w = 0,5 com 1% e 5% (digest_ce_1_5/CE0.5_*), pareado por seed e divisão contra w = 0 e w = 1.
+for f, s_ in ((0.01, 'P01'), (0.05, 'P05')):
+    meio = [f'digest_ce_1_5/CE0.5_{s_}_seed{x}' for x in (42, 1, 2)]
+    if all(os.path.exists(f'{R}/{b}_test_metrics.csv') for b in meio):
+        teste(f'w = 0.5 − w = 0, ganho, f = {f:.0%}', pares(meio, KL[f], f), 'Tabela 6, Seção 6.3')
+        teste(f'w = 0.5 − w = 1, ganho, f = {f:.0%}', pares(meio, [f'digest_ce_1_5/CE1.0_{s_}_seed{x}' for x in (42, 1, 2)], f),
+              'Tabela 6, Seção 6.3')
 for w in ('1.0', '0.5'):
     d = sum((pares([f'digest_ce_10_40_80/CE{w}_P{int(f * 100)}_seed{x}' for x in (42, 1)], KL[f][:2], f)
              for f in (0.1, 0.4, 0.8)), [])
